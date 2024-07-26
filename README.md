@@ -52,7 +52,6 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 <center>
 <a>
 <img src="./img/prototipo-removebg-preview.png">
-<!-- ![Robô Aquático](img/prototipo-removebg-preview.png) -->
 </a>
 </center>
 

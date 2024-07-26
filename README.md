@@ -4,11 +4,39 @@
 
 **Equipe:**
 
-- Anelize Nardelli
-- Cauã Dos Santos Diório
-- Felipe Salmazo
-- Gustavo Menegassi Lara
-- Pedro Gonçalves Bagarini
+## 🧑‍💻 Contributing
+
+To grow the project, we need your help! See the links below to get started.
+
+- [🔰 Contributing Guide][1]
+- [👋 Start a Discussion][2]
+- [🐛 Open an Issue][3]
+
+<br>
+<p align="left">
+  <a href="https://github.com{/eli64s/readme-ai/}graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=eli64s/readme-ai">
+  </a>
+</p>
+
+---
+
+## 🎗 License
+
+[MIT][4]
+
+---
+
+## 👊 Acknowledgments
+
+- [Shields.io](https://shields.io/)
+- [Aveek-Saha/GitHub-Profile-Badges](https://github.com/Aveek-Saha/GitHub-Profile-Badges)
+- [Ileriayo/Markdown-Badges](https://github.com/Ileriayo/markdown-badges)
+- [tandpfun/skill-icons](https://github.com/tandpfun/skill-icons)
+
+<p align="right">
+  <a href="#-overview"><b>Return</b></a>
+</p>
 
 **Orientadores:**
 

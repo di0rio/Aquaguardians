@@ -1,5 +1,3 @@
-# Aquaguardians
-
 ## Aquaguardians: Limpando as Águas, Um Jogo de Cada Vez
 
 **🚀 Uma Solução Inovadora para Combater a Poluição Aquática no Brasil**

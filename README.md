@@ -4,11 +4,11 @@
 
 **Equipe:**
 
-<p align="left">
-  <a href="https://github.com/di0rio/Aquaguardians/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=di0rio/Aquaguardians">
-  </a>
-</p>
+- Anelize Nardelli
+- Cauã Dos Santos Diório
+- Felipe Salmazo
+- Gustavo Menegassi Lara
+- Pedro Gonçalves Bagarini
 
 ---
 
@@ -48,6 +48,8 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 ---
 
 **Protótipo:**
+
+![Robô Aquático](img/prototipo-removebg-preview.png)
 
 ---
 

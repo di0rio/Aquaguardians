@@ -84,7 +84,7 @@ Aquaguardians é um projeto ambicioso que busca transformar a forma como lidamos
 
 ---
 
-**Links Protótipos/Tecnologias Aquáticos:**
+**👾 Links Protótipos/Tecnologias:**
 
 **Link Figma:** [https://www.figma.com/design/yEIXLO3OYhnwsx3XkX4CUK/AquaGuardians?node-id=487-101&t=Vd5U0xFGYfVz6n8F-0](https://www.figma.com/design/yEIXLO3OYhnwsx3XkX4CUK/AquaGuardians?node-id=487-101&t=Vd5U0xFGYfVz6n8F-0)
 

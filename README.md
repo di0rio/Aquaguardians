@@ -45,8 +45,6 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 - Eles coletam lixo de forma eficiente e contínua, mesmo quando não há jogadores ativos.
 - Os dados coletados pelos robôs são utilizados para monitorar a poluição e otimizar as estratégias de limpeza.
 
----
-
 **Protótipo:**
 
 <center>
@@ -85,6 +83,17 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 Aquaguardians é um projeto ambicioso que busca transformar a forma como lidamos com a poluição aquática. Junte-se a nós nessa missão para construir um futuro mais limpo e sustentável para todos!
 
 ---
+
+**Links Protótipos/Tecnologias Aquáticos:**
+
+**Link Figma:** [https://www.figma.com/design/yEIXLO3OYhnwsx3XkX4CUK/AquaGuardians?node-id=487-101&t=Vd5U0xFGYfVz6n8F-0](https://www.figma.com/design/yEIXLO3OYhnwsx3XkX4CUK/AquaGuardians?node-id=487-101&t=Vd5U0xFGYfVz6n8F-0)
+
+**Link Trello(Geral):** [https://trello.com/b/RgIeR4gn/not-a-number](https://trello.com/b/RgIeR4gn/not-a-number)
+
+**Link Trello(Unity):** [https://trello.com/b/g9psiyUv/unity-aqg](https://trello.com/b/g9psiyUv/unity-aqg)
+
+---
+
 
 **💻 Visite nosso site:** [https://www.aquaguardians.com](https://www.aquaguardians.com)
 

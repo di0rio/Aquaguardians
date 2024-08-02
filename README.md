@@ -68,6 +68,16 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 - **Robótica Sustentável:** Utiliza robôs movidos a energia renovável, reduzindo o impacto ambiental.
 - **Inteligência Artificial:** O sistema de coleta automatizada, baseado em IA, garante a eficiência mesmo quando não há jogadores ativos.
 
+
+**Protótipo do Game:**
+
+<center>
+<a>
+<img src="./img/telaLobby.png">
+</a>
+</center>
+
+
 ---
 
 **💰 Modelo de Negócios:**

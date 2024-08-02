@@ -88,6 +88,8 @@ Aquaguardians é um projeto ambicioso que busca transformar a forma como lidamos
 
 **🔗 Link Figma:** [https://www.figma.com/design/yEIXLO3OYhnwsx3XkX4CUK/AquaGuardians?node-id=487-101&t=Vd5U0xFGYfVz6n8F-0](https://www.figma.com/design/yEIXLO3OYhnwsx3XkX4CUK/AquaGuardians?node-id=487-101&t=Vd5U0xFGYfVz6n8F-0)
 
+**🔗 Link GDD:** [https://www.canva.com/design/DAGMnBxaEq8/Z2De5KjgWYD13JH4JuNagQ/edit?utm_content=DAGMnBxaEq8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](https://www.canva.com/design/DAGMnBxaEq8/Z2De5KjgWYD13JH4JuNagQ/edit?utm_content=DAGMnBxaEq8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
 **🔗 Link Trello(Geral):** [https://trello.com/b/RgIeR4gn/not-a-number](https://trello.com/b/RgIeR4gn/not-a-number)
 
 **🔗 Link Trello(Unity):** [https://trello.com/b/g9psiyUv/unity-aqg](https://trello.com/b/g9psiyUv/unity-aqg)

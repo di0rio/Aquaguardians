@@ -1,0 +1,15 @@
+user - iduser, username, email, senha, estatísticas, conquistas, nível, assinatura
+
+produtos(filtro) - idprodutos
+categoria produtos - idcategoria, skins, pontos, assinaturas, pacotes?, descontos?
+
+transações(filtro) - idtransações
+categoria transações - idcategoria, pagamento e a forma? n entendi
+
+histórico de partidas - idHPartidas, iduser(fazer puxar o nick?), idrobo,
+
+--duplinha
+robo - idrobo, idrobopostos, bateria, idHPartidas, ???,tempo ativo?
+robo postos - idrobo, idrobopostos, cep, uf, estado, cidade
+
+postos- local, idroboPostos, cep, estado, cidade...

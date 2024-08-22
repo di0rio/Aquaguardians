@@ -1,6 +1,6 @@
-## Aquaguardians: Limpando as Águas, Um Jogo de Cada Vez
+## Aquaguardians: Limpando as Águas
 
-**🚀 Uma Solução Inovadora para Combater a Poluição Aquática no Brasil**
+**Uma Solução Inovadora para Combater a Poluição Aquática no Brasil**
 
 **Equipe:**
 

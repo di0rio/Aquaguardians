@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("appAquaGuardians")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+37eda5d396bf5253cbb4665c73850be0eeec6ad2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+645ffd239f83ef29be0ee7da87b252c6a0cc6fce")]
 [assembly: System.Reflection.AssemblyProductAttribute("appAquaGuardians")]
 [assembly: System.Reflection.AssemblyTitleAttribute("appAquaGuardians")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

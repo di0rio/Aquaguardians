@@ -1,6 +1,6 @@
-## Aquaguardians: Limpando as Águas, Um Jogo de Cada Vez
+## Aquaguardians: Limpando as Águas
 
-**🚀 Uma Solução Inovadora para Combater a Poluição Aquática no Brasil**
+**Uma Solução Inovadora para Combater a Poluição Aquática no Brasil**
 
 **Equipe:**
 
@@ -29,20 +29,10 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 
 ---
 
-**🎮 Jogabilidade:**
-
-- Acesse o jogo através de seu dispositivo móvel, computador ou console.
-- Escolha um robô disponível e explore a área de jogo.
-- Colete lixo para ganhar pontos e recompensas virtuais.
-- Participe de desafios e eventos especiais para aumentar sua pontuação.
-- Ganhe dinheiro real convertendo seus pontos.
-
----
-
 **🤖 Robôs Aquáticos:**
 
 - Os robôs são movidos a energia solar e possuem inteligência artificial para navegar e identificar lixo.
-- Eles coletam lixo de forma eficiente e contínua, mesmo quando não há jogadores ativos.
+- Coletam lixo de forma eficiente e contínua, mesmo quando não há jogadores ativos.
 - Os dados coletados pelos robôs são utilizados para monitorar a poluição e otimizar as estratégias de limpeza.
 
 **Protótipo:**
@@ -64,9 +54,12 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 
 **💡 Tecnologias:**
 
-- **Gamificação:** Combina a coleta de lixo com um jogo interativo, incentivando a participação e a conscientização.
-- **Robótica Sustentável:** Utiliza robôs movidos a energia renovável, reduzindo o impacto ambiental.
-- **Inteligência Artificial:** O sistema de coleta automatizada, baseado em IA, garante a eficiência mesmo quando não há jogadores ativos.
+- **Unity**
+- **VS Code** 
+- **Visual Studio 2022**
+- **SQL Server**
+- **Trello**
+- **Figma**
 
 
 **Protótipo do Game:**
@@ -77,20 +70,6 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 </a>
 </center>
 
-
----
-
-**💰 Modelo de Negócios:**
-
-- **Clientes:** Jogadores de todas as idades, organizações de preservação ambiental e empresas engajadas em práticas sustentáveis.
-- **Canais de Distribuição:** Plataformas digitais, lojas de aplicativos e parcerias com instituições educacionais.
-- **Recursos Financeiros:** Investimentos de impacto, crowdfunding, parcerias com empresas e venda de produtos virtuais no jogo.
-
----
-
-**🚀 Junte-se a nós!**
-
-Aquaguardians é um projeto ambicioso que busca transformar a forma como lidamos com a poluição aquática. Junte-se a nós nessa missão para construir um futuro mais limpo e sustentável para todos!
 
 ---
 

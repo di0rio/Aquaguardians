@@ -1,0 +1,3 @@
+Nome do servirdor: sql.bsite.net\MSSQL2016
+Login: aquaguardians_
+Senha: 12345678

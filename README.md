@@ -73,12 +73,6 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 
 ---
 
-**🚀 Junte-se a nós!**
-
-Aquaguardians é um projeto ambicioso que busca transformar a forma como lidamos com a poluição aquática. Junte-se a nós nessa missão para construir um futuro mais limpo e sustentável para todos!
-
----
-
 **👾 Links Protótipos/Tecnologias:**
 
 **🔗 Link Figma:** [https://www.figma.com/design/yEIXLO3OYhnwsx3XkX4CUK/AquaGuardians?node-id=487-101&t=Vd5U0xFGYfVz6n8F-0](https://www.figma.com/design/yEIXLO3OYhnwsx3XkX4CUK/AquaGuardians?node-id=487-101&t=Vd5U0xFGYfVz6n8F-0)

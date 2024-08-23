@@ -125,6 +125,8 @@ Recebe dois números e retorna a sua soma.
 
 **🔗 Link Trello(Unity):** [https://trello.com/b/g9psiyUv/unity-aqg](https://trello.com/b/g9psiyUv/unity-aqg)
 
+**🔗 Link Canva(Identidade Visual):** [https://www.canva.com/design/DAGNIVOArUA/Wwtz--7tLA3VBmeE7fa0GA/edit](https://www.canva.com/design/DAGNIVOArUA/Wwtz--7tLA3VBmeE7fa0GA/edit)
+
 ---
 
 

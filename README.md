@@ -4,18 +4,18 @@
 
 **Equipe:**
 
-- Anelize Nardelli
-- Cauã Dos Santos Diório
-- Felipe Salmazo
-- Gustavo Menegassi Lara
-- Pedro Gonçalves Bagarini
+- [@N4rdelli](https://www.github.com/N4rdelli)
+- [@di0rio](https://www.github.com/di0rio) 
+- [@SmzFz](https://www.github.com/SmzFz) 
+- [@gustavo-lara](https://www.github.com/gustavo-lara)
+- [@B4g4rini](https://www.github.com/B4g4rini)
 
 ---
 
 **Orientadores:**
 
-- Cristiano de Paula
-- Gustavo Cervati Castello
+- [@Prof-Castello](https://www.github.com/Prof-Castello) 
+- [@ProfCristianoDePaula](https://www.github.com/ProfCristianoDePaula) 
 
 **🌊 O Problema:**
 

@@ -2,6 +2,16 @@
 
 **Uma Solução Inovadora para Combater a Poluição Aquática no Brasil**
 
+---
+
+## Etiquetas
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+
+---
+
 **Equipe:**
 
 - [@N4rdelli](https://www.github.com/N4rdelli)
@@ -37,6 +47,8 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 - Coletam lixo de forma eficiente e contínua, mesmo quando não há jogadores ativos.
 - Os dados coletados pelos robôs são utilizados para monitorar a poluição e otimizar as estratégias de limpeza.
 
+---
+
 **Protótipo:**
 
 <center>
@@ -64,6 +76,37 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 - **Figma**
 
 
+---
+
+**Documentação da API**
+
+#### Retorna todos os itens
+
+```http
+  GET /api/items
+```
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `api_key` | `string` | **Obrigatório**. A chave da sua API |
+
+#### Retorna um item
+
+```http
+  GET /api/items/${id}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id`      | `string` | **Obrigatório**. O ID do item que você quer |
+
+#### add(num1, num2)
+
+Recebe dois números e retorna a sua soma.
+
+--
+
+
 **Protótipo do Game:**
 
 <center>
@@ -86,6 +129,8 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 **🔗 Link Trello(Unity):** [https://trello.com/b/g9psiyUv/unity-aqg](https://trello.com/b/g9psiyUv/unity-aqg)
 
 ---
+
+
 
 
 **💻 Visite nosso site:** [https://www.aquaguardians.com](https://www.aquaguardians.com)

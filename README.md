@@ -102,8 +102,7 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 
 Recebe dois números e retorna a sua soma.
 
---
-
+---
 
 **Protótipo do Game:**
 

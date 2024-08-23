@@ -17,6 +17,8 @@
 - [@Prof-Castello](https://www.github.com/Prof-Castello) 
 - [@ProfCristianoDePaula](https://www.github.com/ProfCristianoDePaula) 
 
+---
+
 **🌊 O Problema:**
 
 A poluição hídrica no Brasil é uma ameaça crescente, impactando a saúde dos nossos rios, lagos e oceanos. De acordo com a Fundação SOS Mata Atlântica, apenas 6,5% dos pontos de coleta de água monitorados atingem padrões aceitáveis.

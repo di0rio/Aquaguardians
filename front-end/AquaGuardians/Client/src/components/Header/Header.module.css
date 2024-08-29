@@ -1,0 +1,45 @@
+.container {
+    background-color: rgba(9, 189, 230, 40);
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.agua {
+    font-family: "BabaPro";
+    font-weight: 600;
+
+    font-style: normal;
+    width: 50%;
+    align-items: center;
+    display: flex;
+    padding-left: 10vh;
+
+
+}
+
+.rotas a {
+
+
+    color: #160B28;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: "Evolventa", sans-serif;
+    margin-left: 10vh;
+}
+
+.rotas {
+
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 15vh;
+
+
+}
+
+u {
+    text-decoration: underline #A1FFE0 2px;
+}

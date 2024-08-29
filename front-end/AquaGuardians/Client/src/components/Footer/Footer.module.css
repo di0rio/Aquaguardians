@@ -1,0 +1,80 @@
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+input[type="text"] {
+    border: 2px solid #ccc;
+    /* Define a borda com 2px e a cor cinza */
+    border-radius: 5px;
+    /* Arredonda as bordas */
+    background-color: transparent;
+    /* Torna o fundo transparente */
+    padding: 10px;
+    /* Adiciona um espaço interno */
+    margin-right: 2vh;
+    margin-top: 4vh;
+}
+
+.div {
+    height: 380px;
+    width: 100%;
+    background-color: #00225A;
+    box-shadow: #001b47;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.div2 {
+    height: 300px;
+    width: 50%;
+    margin-right: 5vh;
+
+
+
+}
+
+.list {
+
+    list-style: none;
+    color: white;
+    padding-top: 2vh;
+
+
+}
+
+.list h3 {
+    padding-top: 1vh;
+}
+
+.list1 {
+    display: flex;
+    padding-top: 5vh;
+    margin-left: 2vh;
+
+}
+
+.list2 {
+    list-style: none;
+    color: white;
+    padding-top: 8vh
+}
+
+.list2 h1 {
+    padding-bottom: 2vh;
+}
+
+.list2 ol {
+    display: flex;
+    list-style: none;
+    margin: 0;
+}
+
+.icones {
+    display: flex;
+    gap: 20px;
+    margin-top: 2vh;
+}
+

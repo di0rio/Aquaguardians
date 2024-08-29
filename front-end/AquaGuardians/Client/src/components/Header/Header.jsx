@@ -9,7 +9,7 @@ const navigation = [
 const Header = () => {
     return (
         <div className={styles.container}>
-            <Link to={"/"}><p>Home</p></Link>
+            <Link to={"/"}><p>PÁGINA INICIAL</p></Link>
             <Link to={"/contato"}><p>Contato</p></Link>
         </div>
     )

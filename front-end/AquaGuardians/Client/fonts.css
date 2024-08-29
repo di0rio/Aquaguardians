@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'BabaPro'; /* Nome da sua fonte */
+    src: url('./public/BabaPro-Bold.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }

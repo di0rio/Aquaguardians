@@ -4,6 +4,11 @@ h1 {
     font-style: normal;
 }
 
+h2{
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+}
+
 input[type="text"] {
     border: 2px solid #ccc;
     /* Define a borda com 2px e a cor cinza */
@@ -47,6 +52,8 @@ input[type="text"] {
 
 .list h3 {
     padding-top: 1vh;
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
 }
 
 .list1 {

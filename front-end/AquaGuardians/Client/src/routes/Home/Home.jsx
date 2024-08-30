@@ -1,4 +1,4 @@
-import Button from "../../components/Button/Button"
+import MuiButton from "../../components/Button/Button"
 import styles from "./Home.module.css"
 import Imgrobo from "./../../assets/Imgrobo.svg"
 import Coins from "./../../assets/Coins.svg"
@@ -20,7 +20,8 @@ export const Home = () => {
   return (
     <div className={styles.Home}>
       <div className={styles.Jogue}>
-      <Link to={"/registro"}> <MuiButton sx={{
+      <Link to={"/registro"}>
+         <MuiButton sx={{
           bgcolor: '#F9FF3A',
           minWidth: 300,
           minHeight: 60,

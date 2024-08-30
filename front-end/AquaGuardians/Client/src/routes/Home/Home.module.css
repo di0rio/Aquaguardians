@@ -1,0 +1,82 @@
+Body {
+    background-image: url('./../../assets/Background.svg');
+    object-fit: cover;
+}
+
+.Jogue {
+    background: linear-gradient(to bottom, rgba(0, 135, 196, 5)10%, rgba(52, 100, 165, 0) 30%, rgba(52, 100, 165, 0) 70%, rgba(0, 135, 196, 5));
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.Box {
+    background: linear-gradient(to bottom, rgba(0, 135, 196, 5)10%, rgba(52, 100, 165, 0) 30%, rgba(52, 100, 165, 0) 80%, rgba(0, 135, 196, 5));
+    height: 772px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.Cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.textos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    gap: 5px;
+    font-size: 20px;
+}
+
+.Titulos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "BabaPro";
+    color: #F9FF3A;
+    z-index: 1;
+}
+
+.Titulos h2 {
+    font-size: 70px;
+}
+
+.Titulos h4 {
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+}
+
+.Images {
+    display: flex;
+    justify-content: center;
+    scale: 0.8;
+}
+
+@media (min-width: 400px) and (max-width: 800px) {
+    .Box{
+        flex-wrap: wrap;
+        gap: 0;
+        padding-top: 50px;
+    }
+    .Cont{
+    }
+    .textos{
+        font-size: 15px;
+        align-items: center !important;
+    }
+    .Titulos h2{
+        font-size: 45px;
+    }
+}

@@ -7,6 +7,8 @@ import Home from './routes/Home/Home.jsx'
 import Contato from './routes/Contato/Contato.jsx'
 import Como from './routes/Como/Como.jsx'
 import Error from './routes/Error/Error.jsx'
+import Registro from './routes/Registro/Registro.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const router = createBrowserRouter([
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "contato", element: <Contato /> },
       { path: "como", element: <Como /> },
+      { path: "registro", element: <Registro /> },
     ],
   },
 ]);

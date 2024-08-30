@@ -28,7 +28,7 @@ u {
   text-decoration: underline #a1ffe0 2px;
 }
 
-@media (min-width: 400px) and (max-width: 880px)  {
+@media (min-width: 340px) and (max-width: 880px)  {
   .container {
     flex-direction: column;
     height: auto;

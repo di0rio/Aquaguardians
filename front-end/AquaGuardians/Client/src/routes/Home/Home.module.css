@@ -13,12 +13,12 @@ Body {
 
 .Box {
     background: linear-gradient(to bottom, rgba(0, 135, 196, 5)10%, rgba(52, 100, 165, 0) 30%, rgba(52, 100, 165, 0) 80%, rgba(0, 135, 196, 5));
-    height: 772px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    padding: 100px 0px;
 }
+
 
 .Cont {
     display: flex;
@@ -63,3 +63,30 @@ Body {
     justify-content: center;
     scale: 0.8;
 }
+
+@media (min-width: 400px) and (max-width: 880px) {
+    .Box{
+        flex-direction: column;
+    }
+    .Cont{
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .textos{
+        font-size: 16px;
+    }
+    .Titulos h4{
+        font-size: 16px;
+    }
+    .Titulos h2{
+        font-size: 40px;
+    }
+    .Images{
+        scale: 0.65;
+    }
+    .celulares{
+        width: 300px;
+    }
+}
+

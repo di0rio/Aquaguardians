@@ -1,4 +1,4 @@
-import MuiButton from "@mui/material/Button"
+import MuiButton from "../../components/Button/Button"
 import styles from "./Home.module.css"
 import Imgrobo from "./../../assets/Imgrobo.svg"
 import Coins from "./../../assets/Coins.svg"
@@ -7,14 +7,21 @@ import Plataformas from "./../../assets/Plataformas.svg"
 import Skins from "./../../assets/Skins.svg"
 import robos from "./../../assets/robos.svg"
 import Space from "./../../assets/Space.svg"
+import { Link } from "react-router-dom"
 
+
+const navigation = [
+  { component: "registro", name: "Registro" },
+
+]
 
 
 export const Home = () => {
   return (
     <div className={styles.Home}>
       <div className={styles.Jogue}>
-        <MuiButton sx={{
+      <Link to={"/registro"}>
+         <MuiButton sx={{
           bgcolor: '#F9FF3A',
           minWidth: 300,
           minHeight: 60,
@@ -24,7 +31,7 @@ export const Home = () => {
           fontSize: 25,
           marginBottom: 5,
           cursor: 'pointer'
-        }} href={"https://www.google.com.br/?hl=pt-BRgoogle.com"}>Jogue Agora</MuiButton>
+        }} >Jogue Agora</MuiButton> </Link>
       </div>
 
       <div className={styles.Box}>
@@ -59,7 +66,7 @@ export const Home = () => {
             <p>Seus pontos podem ser trocados por recompensas ou dinheiro!</p>
             <p>Sua jogada, seu lucro.</p>
           </div>
-          <MuiButton sx={{
+          <Link to={"/registro"}><MuiButton sx={{
             bgcolor: '#A1FFE0',
             minWidth: 500,
             minHeight: 60,
@@ -69,7 +76,7 @@ export const Home = () => {
             fontSize: 20,
             marginTop: 10,
             cursor: 'pointer'
-          }} href={"https://www.google.com.br/?hl=pt-BRgoogle.com"}>GANHE DINHEIRO SE DIVERTINDO!</MuiButton>
+          }} >GANHE DINHEIRO SE DIVERTINDO!</MuiButton> </Link>
         </div>
       </div>
 
@@ -109,7 +116,7 @@ export const Home = () => {
             <h2>AMIGOS</h2>
           </div>
 
-          <MuiButton sx={{
+          <Link to={"/registro"}><MuiButton sx={{
             bgcolor: '#A1FFE0',
             minWidth: 300,
             minHeight: 60,
@@ -118,7 +125,7 @@ export const Home = () => {
             fontWeight: 600,
             fontSize: 20,
             cursor: 'pointer'
-          }} href={"https://www.google.com.br/?hl=pt-BRgoogle.com"}>JOGUE AGORA!</MuiButton>
+          }} >JOGUE AGORA!</MuiButton></Link>
         </div>
       </div>
 
@@ -140,7 +147,7 @@ export const Home = () => {
             <h2 style={{ color: '#A1FFE0' }}>AQUAGUARDIANS</h2>
             <h4 style={{ color: "white" }}>FACA PARTE DESSA MUDANCA!</h4>
           </div>
-          <MuiButton sx={{
+          <Link to={"/registro"}> <MuiButton sx={{
             bgcolor: '#A1FFE0',
             minWidth: 300,
             minHeight: 60,
@@ -150,7 +157,7 @@ export const Home = () => {
             fontSize: 25,
             marginTop: 15,
             cursor: 'pointer'
-          }} href={"https://www.google.com.br/?hl=pt-BRgoogle.com"}>COMECE AGORA</MuiButton>
+          }} >COMECE AGORA</MuiButton></Link>
         </div>
       </div>
 

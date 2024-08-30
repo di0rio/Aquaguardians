@@ -63,3 +63,20 @@ Body {
     justify-content: center;
     scale: 0.8;
 }
+
+@media (min-width: 400px) and (max-width: 800px) {
+    .Box{
+        flex-wrap: wrap;
+        gap: 0;
+        padding-top: 50px;
+    }
+    .Cont{
+    }
+    .textos{
+        font-size: 15px;
+        align-items: center !important;
+    }
+    .Titulos h2{
+        font-size: 45px;
+    }
+}

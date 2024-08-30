@@ -1,0 +1,70 @@
+Body {
+  background-image: url("./../../assets/Background.svg");
+  object-fit: cover;
+  
+}
+
+.container {
+  background: linear-gradient(to bottom, rgba(0, 135, 196, 5)10%, rgba(52, 100, 165, 0) 30%, rgba(52, 100, 165, 0) 70%, rgba(0, 135, 196, 5));
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bloco {
+  background-image: url("src/assets/Rectangle 67.svg");
+  width: 983px;
+  height: 625px;
+  margin-bottom: 10vh;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+
+
+.form input {
+  /* css do input do formulario  */
+  opacity: 0.9;
+
+  background-color: transparent !important;
+  height: 40px;
+  width: 380px;
+  border-radius: 0;
+  border-top: none;
+  border-right: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.568);
+  border-left: none;
+  color: white !important;
+}
+
+.form input::placeholder {
+  color: white;
+}
+.form button {
+  background-color: #f9ff3a;
+  color: black;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  width: 400px;
+  height: 100px;
+  border-radius: 20px;
+  font-size: 25px;
+}
+
+h2 {
+  font-family: "BabaPro";
+  font-weight: 800;
+  color: #f9ff3a;
+  font-style: normal;
+}

@@ -1,45 +1,52 @@
 .container {
-    background-color: rgba(0, 135, 196, 5);
-    height: 90px;
-    display: flex;
-    justify-content: space-between;
-
+  background-color: rgba(0, 135, 196, 5);
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 40px;
 }
 
 .agua {
-    font-family: "BabaPro";
-    font-weight: 600;
-
-    font-style: normal;
-    width: 50%;
-    align-items: center;
-    display: flex;
-    padding-left: 10vh;
-
-
+  font-family: "BabaPro";
 }
 
 .rotas a {
-
-
-    color: #160B28;
-    text-decoration: none;
-    font-weight: 600;
-    font-family: "Evolventa", sans-serif;
-    margin-left: 10vh;
+  color: #160b28;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: "Evolventa", sans-serif;
 }
 
 .rotas {
-
-    width: 50%;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding-right: 15vh;
-
-
+  display: flex;
+  align-items: center;
+  gap: 60px;
 }
 
 u {
-    text-decoration: underline #A1FFE0 2px;
+  text-decoration: underline #a1ffe0 2px;
+}
+
+@media (min-width: 400px) and (max-width: 880px)  {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+  .agua{
+    margin-top: 30px;
+    font-size: 23px;
+  }
+  .rotas{
+    flex-direction: column;
+    margin-top: 50px;
+    background-color: #3259a18d;
+    padding: 40px;
+    border-radius: 20px;
+    font-size: 16px;
+    gap: 30px;
+  }
+  u{
+    text-decoration: none;
+  }
 }

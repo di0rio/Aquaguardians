@@ -33,24 +33,24 @@ export const Home = () => {
           cursor: 'pointer'
         }} >Jogue Agora</MuiButton> </Link>
       </div>
-
-      <div className={styles.Box}>
-        <div className={styles.Cont}>
-          <div className={styles.Titulos}>
-            <h4>O ROBÔ AQUÁTICO</h4>
-            <h2>PURIFY</h2>
+      <div className={styles.Sessoes}>
+        <div className={styles.Box}>
+          <div className={styles.Cont}>
+            <div className={styles.Titulos}>
+              <h4>O ROBÔ AQUÁTICO</h4>
+              <h2>PURIFY</h2>
+            </div>
+            <div className={styles.textos}>
+              <p>Movido a energia sustentável!</p>
+              <p>Projetado para coleta de lixo na água.</p>
+              <p>Tecnologia a serviço da natureza.</p>
+              <p>Controle um Pufiry de qualquer lugar, a qualquer momento!</p>
+            </div>
           </div>
-          <div className={styles.textos}>
-            <p>Movido a energia sustentável!</p>
-            <p>Projetado para coleta de lixo na água.</p>
-            <p>Tecnologia a serviço da natureza.</p>
-            <p>Controle um Pufiry de qualquer lugar, a qualquer momento!</p>
+          <div className={styles.Images}>
+            <img src={Imgrobo} alt="" />
           </div>
         </div>
-        <div className={styles.Images}>
-          <img src={Imgrobo} alt="" />
-        </div>
-      </div>
 
       <div className={styles.Box}>
         <div className={styles.Images}>
@@ -80,41 +80,49 @@ export const Home = () => {
         </div>
       </div>
 
-      <div style={{ backgroundColor: '#160B28', width: '100%', padding: '100px 0px' }} className={styles.Box}>
-        <img style={{ position: 'absolute', maxWidth: '100%', zIndex: '0' }} src={Space} alt="" />
-        <div className={styles.Cont}>
-          <div className={styles.Titulos}>
-            <h4>ESCOLHA SEU</h4>
-            <h2>CAMPO DE BATALHA</h2>
+        <div
+          style={{
+            backgroundColor: "#160B28",
+          }}
+          className={styles.Box}
+        >
+          <div className={styles.Cont}>
+            <div className={styles.Titulos}>
+              <h4>ESCOLHA SEU</h4>
+              <h2>CAMPO DE BATALHA</h2>
+            </div>
+            <img
+              className={styles.Images}
+              style={{ zIndex: "1", width: "100% " }}
+              src={Planet}
+              alt=""
+            />
           </div>
-          <img style={{ zIndex: '1', width: '650px' }} src={Planet} alt="" />
         </div>
-      </div>
 
-      <div className={styles.Box}>
-        <div className={styles.Cont}>
-          <div className={styles.Titulos}>
-            <h4>PERSONALIZE</h4>
-            <h2>SEU GUARDIAN</h2>
-            <div className={styles.Images}>
-              <img style={{ width: '400px' }} src={Imgrobo} alt="" />
+        <div className={styles.Box}>
+          <div className={styles.Cont}>
+            <div className={styles.Titulos}>
+              <h4>PERSONALIZE</h4>
+              <h2>SEU GUARDIAN</h2>
+              <div className={styles.Images}>
+                <img style={{ width: "400px" }} src={Imgrobo} alt="" />
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.Images}>
-          <img style={{ width: '400px' }} src={Skins} alt="" />
-        </div>
-      </div>
-
-      <div className={styles.Box}>
-        <div className={styles.Images}>
-          <img src={robos} alt="" />
-        </div>
-        <div className={styles.Cont}>
-          <div style={{ marginBottom: '223px' }} className={styles.Titulos}>
-            <h4>JOGUE COM OS </h4>
-            <h2>AMIGOS</h2>
+          <div className={styles.Images}>
+            <img style={{ width: "400px" }} src={Skins} alt="" />
           </div>
+        </div>
+        <div className={styles.Box}>
+          <div className={styles.Images}>
+            <img style={{ width: "560px" }} src={robos} alt="" />
+          </div>
+          <div className={styles.Cont}>
+            <div className={styles.Titulos}>
+              <h4>JOGUE COM OS </h4>
+              <h2>AMIGOS</h2>
+            </div>
 
           <Link to={"/registro"}><MuiButton sx={{
             bgcolor: '#A1FFE0',
@@ -127,17 +135,23 @@ export const Home = () => {
             cursor: 'pointer'
           }} >JOGUE AGORA!</MuiButton></Link>
         </div>
-      </div>
-
-
-      <div className={styles.Box}>
-        <div className={styles.Cont}>
-          <div className={styles.Titulos}>
-            <div style={{ margin: '50px', width: '1000px', height: '5px', background: '#A1FFE0' }}></div>
-            <h2>PLATAFORMAS</h2>
-            <h4>DISPONÍVEIS</h4>
+        <div className={styles.Box}>
+          <div className={styles.Cont}>
+            <div className={styles.Titulos}>
+              <div
+                style={{
+                  margin: "50px",
+                  maxWidth: "800px",
+                  minWidth: "300px",
+                  height: "5px",
+                  background: "#A1FFE0",
+                }}
+              ></div>
+              <h2>PLATAFORMAS</h2>
+              <h4>DISPONÍVEIS</h4>
+            </div>
+            <img className={styles.celulares}  src={Plataformas} alt="" />
           </div>
-          <img src={Plataformas} alt="" />
         </div>
       </div>
 
@@ -160,9 +174,8 @@ export const Home = () => {
           }} >COMECE AGORA</MuiButton></Link>
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

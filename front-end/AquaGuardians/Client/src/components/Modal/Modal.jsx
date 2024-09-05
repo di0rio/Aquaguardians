@@ -25,13 +25,6 @@ const Modal = ({ children, handleClose, title }) => {
                 >
                   Fechar
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                  onClick={handleClose}
-                >
-                  Salvar mudanças
-                </button>
               </div>
             </div>
           </div>

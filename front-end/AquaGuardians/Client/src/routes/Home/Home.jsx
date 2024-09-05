@@ -19,8 +19,8 @@ const navigation = [
 export const Home = () => {
   return (
     <div className={styles.Home}>
-      <div className={styles.Jogue}>
-      <Link to={"/registro"}>
+        <div className={styles.Jogue}>
+        <Link to={"/registro"}>
          <MuiButton sx={{
           bgcolor: '#F9FF3A',
           minWidth: 300,
@@ -174,6 +174,7 @@ export const Home = () => {
           }} >COMECE AGORA</MuiButton></Link>
         </div>
       </div>
+    </div>
     </div>
   );
 };

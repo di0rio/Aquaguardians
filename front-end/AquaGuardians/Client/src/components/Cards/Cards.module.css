@@ -128,3 +128,6 @@ img {
     margin-top: 0.5em;
   }
 }
+.modal {
+  z-index: 1050; /* ou qualquer valor alto para garantir que o modal esteja na frente */
+}

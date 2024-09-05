@@ -7,10 +7,16 @@ import Plataformas from "./../../assets/Plataformas.svg";
 import Skins from "./../../assets/Skins.svg";
 import robos from "./../../assets/robos.svg";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 
 const navigation = [{ component: "registro", name: "Registro" }];
 
 export const Home = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
   return (
     <div className={styles.Home}>
       <div className={styles.Jogue}>

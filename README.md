@@ -104,6 +104,16 @@ Recebe dois números e retorna a sua soma.
 
 ---
 
+**Diagrama:**
+
+<center>
+<a>
+<img src="./img/diagrama.png">
+</a>
+</center>
+
+---
+
 **Protótipo do Game:**
 
 <center>
@@ -131,9 +141,9 @@ Recebe dois números e retorna a sua soma.
 
 ---
 
-**💻 Visite nosso site:** [https://www.aquaguardians.com](https://www.aquaguardians.com)
+**💻 Visite nosso site empresarial:** [https://www.nan.com](https://nan-navy.vercel.app/?authuser=0)
 
-**📱 Baixe o jogo:** [https://play.google.com/store/apps/details?id=com.aquaguardians](https://play.google.com/store/apps/details?id=com.aquaguardians)
+**📱 Baixe o jogo:** [https://www.aquaguardians.com](https://aquaguardians-drab.vercel.app/)
 
 **🤝 Entre em contato:** [contato@aquaguardians.com](contato@aquaguardians.com)
 

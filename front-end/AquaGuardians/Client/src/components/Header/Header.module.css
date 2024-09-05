@@ -1,5 +1,5 @@
 .container {
-  background-color: rgba(0, 135, 196, 5);
+  background-color: rgba(0, 135, 196, 0.4);
   height: 90px;
   display: flex;
   align-items: center;
@@ -25,10 +25,16 @@
 }
 
 u {
-  text-decoration: underline #a1ffe0 2px;
+  text-decoration: none;
+  transition: 0.4s;
 }
 
-@media (min-width: 400px) and (max-width: 880px)  {
+u:hover{
+  text-decoration: underline #a1ffe0 2px;
+  text-underline-offset: 2.5px;
+}
+
+@media (min-width: 340px) and (max-width: 880px)  {
   .container {
     flex-direction: column;
     height: auto;
@@ -40,7 +46,7 @@ u {
   .rotas{
     flex-direction: column;
     margin-top: 50px;
-    background-color: #3259a18d;
+    background-color: rgba(0, 135, 196, 0.6);
     padding: 40px;
     border-radius: 20px;
     font-size: 16px;

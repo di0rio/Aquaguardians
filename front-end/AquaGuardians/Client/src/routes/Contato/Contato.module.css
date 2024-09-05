@@ -1,0 +1,92 @@
+Body {
+  background-image: url("./../../assets/Background.svg");
+  object-fit: cover;
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.Header {
+  background-color: rgba(0, 135, 196, 0.4);
+  height: 410px;
+}
+
+.Box {
+  align-items: first baseline;
+  padding: 1em;
+}
+
+.Title {
+  margin: 18em 0em 0em 2em;
+}
+
+.Title p {
+  font-family: "BabaPro";
+  font-size: 2.6em;
+  color: yellow;
+}
+
+.Card1 {
+  display: flex;
+  flex-direction: row;
+  gap: 3.7rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 3em 0em 0em 0em;
+}
+
+.Card2 {
+  display: flex;
+  flex-direction: row;
+  gap: 3.7rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3em 0em 0em 0em;
+  padding-bottom: 10em;
+}
+
+@media (min-width: 801px) and (max-width: 1400px) {
+  .Card1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Card2 {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 800px) {
+  .Header {
+    height: 260px;
+  }
+
+  .Title {
+    margin: 10em 0em 0em 2em;
+  }
+
+  .Title p {
+    font-size: 2em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .Card1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Card2 {
+    display: flex;
+    flex-direction: column;
+  }
+}

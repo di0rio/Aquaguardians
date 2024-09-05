@@ -64,7 +64,17 @@ Body {
     scale: 0.8;
 }
 
-@media (min-width: 400px) and (max-width: 880px) {
+.Link{
+    padding: 15px 50px;
+    border: none;
+    border-radius: 20px;
+    font-size: 25px;
+    background-color: #F9FF3A;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+@media (min-width: 340px) and (max-width: 880px) {
     .Box{
         flex-direction: column;
     }
@@ -75,6 +85,7 @@ Body {
     }
     .textos{
         font-size: 16px;
+        text-align: center;
     }
     .Titulos h4{
         font-size: 16px;
@@ -87,6 +98,10 @@ Body {
     }
     .celulares{
         width: 300px;
+    }
+    .Link{
+        padding: 10px 30px;
+        font-size: 15px;
     }
 }
 

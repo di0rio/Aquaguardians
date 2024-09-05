@@ -104,6 +104,16 @@ Recebe dois números e retorna a sua soma.
 
 ---
 
+**Diagrama:**
+
+<center>
+<a>
+<img src="./img/diagrama.png">
+</a>
+</center>
+
+---
+
 **Protótipo do Game:**
 
 <center>

@@ -13,12 +13,32 @@ export const Contato = () => {
         </div>
       </div>
       <div className={styles.Card1}>
-        <Cards></Cards>
-        <Cards></Cards>
+        <Cards
+          title={"NOTAS DA ATUALIZAÇÂO"}
+          data={"01/08/20024"}
+          sub={"Mudanças na gameplay do jogo..."}
+          game={"AQUAGUARDIANS"}
+        ></Cards>
+        <Cards
+          title={"NOTAS DA ATUALIZAÇÂO"}
+          data={"01/08/20024"}
+          sub={"Mudanças na gameplay do jogo..."}
+          game={"AQUAGUARDIANS"}
+        ></Cards>
       </div>
       <div className={styles.Card2}>
-        <Cards></Cards>
-        <Cards></Cards>
+        <Cards
+          title={"NOTAS DA ATUALIZAÇÂO"}
+          data={"01/08/20024"}
+          sub={"Mudanças na gameplay do jogo..."}
+          game={"AQUAGUARDIANS"}
+        ></Cards>
+        <Cards
+          title={"NOTAS DA ATUALIZAÇÂO"}
+          data={"01/08/20024"}
+          sub={"Mudanças na gameplay do jogo..."}
+          game={"AQUAGUARDIANS"}
+        ></Cards>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ Body {
 
 .Container {
   display: flex;
+  flex-direction: column;
 }
 
 .Header {
@@ -18,7 +19,7 @@ Body {
 }
 
 .Title {
-  margin: 18em 0em 0em 0em;
+  margin: 18em 0em 0em 2em;
 }
 
 .Title p {
@@ -35,6 +36,8 @@ Body {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  margin: 3em 0em 0em 0em;
 }
 
 .Card2 {
@@ -45,4 +48,45 @@ Body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 3em 0em 0em 0em;
+  padding-bottom: 10em;
+}
+
+@media (min-width: 801px) and (max-width: 1400px) {
+  .Card1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Card2 {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 800px) {
+  .Header {
+    height: 260px;
+  }
+
+  .Title {
+    margin: 10em 0em 0em 2em;
+  }
+
+  .Title p {
+    font-size: 2em;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .Card1 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Card2 {
+    display: flex;
+    flex-direction: column;
+  }
 }

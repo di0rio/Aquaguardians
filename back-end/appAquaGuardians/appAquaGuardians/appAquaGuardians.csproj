@@ -21,11 +21,15 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+<<<<<<< HEAD
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.0.2" />
     <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.82" />
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.82" />
     <PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="8.0.8" />
+=======
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.0.2" />
+>>>>>>> main
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.7.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />

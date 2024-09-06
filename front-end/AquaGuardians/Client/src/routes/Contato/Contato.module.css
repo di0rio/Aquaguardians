@@ -70,7 +70,8 @@ Body {
   }
 
   .Title {
-    margin: 10em 0em 0em 2em;
+    margin: 8em 0em 0em 0em; 
+    text-align: center;
   }
 
   .Title p {
@@ -78,6 +79,7 @@ Body {
     align-items: center;
     justify-content: center;
     display: flex;
+    
   }
 
   .Cards1 {

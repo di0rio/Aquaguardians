@@ -5,7 +5,9 @@ const Modal = ({ children, handleClose, title }) => {
   return (
     <>
       <div className="telaInteira overflow-hidden" onClick={handleClose}>
+
         <div className="modal show d-block" tabIndex="-1">
+
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -22,13 +24,16 @@ const Modal = ({ children, handleClose, title }) => {
                   type="button"
                   className="btn btn-secondary"
                   onClick={handleClose}
+                  style={{background:'rgb(50, 88, 161, 0.4)', border: 'none'}}
                 >
                   Fechar
                 </button>
               </div>
             </div>
           </div>
+
         </div>
+        
       </div>
     </>
   );

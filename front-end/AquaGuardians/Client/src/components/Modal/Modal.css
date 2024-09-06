@@ -6,3 +6,22 @@
   left: 0;
   right: 0;
 }
+
+.modal-dialog{
+  height: 400px; 
+  color: white;
+}
+
+.modal-content{
+  height: 400px; 
+  background-image: url(./../../assets/Background.svg);
+}
+
+.modal-header{
+  font-family: "BabaPro";
+  color: #f9ff3a;
+}
+
+.btn{
+  background-color: #f9ff3a;
+}

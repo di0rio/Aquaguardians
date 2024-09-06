@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("appAquaGuardians")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ddcd13466e544ed5427a6596b98dba1de3f973d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+924422f699fd0f248b7c0c92fc042ba432b8f5fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("appAquaGuardians")]
 [assembly: System.Reflection.AssemblyTitleAttribute("appAquaGuardians")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

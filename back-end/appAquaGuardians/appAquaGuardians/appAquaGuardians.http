@@ -1,6 +1,0 @@
-@appAquaGuardians_HostAddress = http://localhost:5027
-
-GET {{appAquaGuardians_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

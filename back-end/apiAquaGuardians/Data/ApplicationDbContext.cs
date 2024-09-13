@@ -1,49 +1,50 @@
 ﻿using apiAquaGuardians.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace apiAquaGuardians.Data
 {
-	public class ApplicationDbContext : DbContext 
+	public class ApplicationDbContext : IdentityDbContext
 	{
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-		DbSet<User> Users { get; set; }
-		DbSet<UserData> UserDatas { get; set; }
-		DbSet<Transaction> Transactions { get; set; }
-		DbSet<RobotStation> RobotStations { get; set; }
-		DbSet<RobotRental> RobotRentals { get; set; }
-		DbSet<Robot> Robots { get; set; }
-		DbSet<Reward> Rewards { get; set; }
-		DbSet<ProductCategory> ProductCategorys { get; set; }
-		DbSet<Product> Products { get; set; }
-		DbSet<PaymentMethod> PaymentMethods { get; set; }
-		DbSet<OrderItem> OrderItens { get; set; }
-		DbSet<Order> Orders { get; set; }
-		DbSet<GameStatistic> GameStatistics { get; set; }
-		DbSet<Employee> Employees { get; set; }
-		DbSet<Company> Companys { get; set; }
-
+		public DbSet<Transaction> Transactions { get; set; }
+		public DbSet<RobotStation> RobotStations { get; set; }
+		public DbSet<RobotRental> RobotRentals { get; set; }
+		public DbSet<Robot> Robots { get; set; }
+		public DbSet<Reward> Rewards { get; set; }
+		public DbSet<ProductCategory> ProductCategories { get; set; }
+		public DbSet<Product> Products { get; set; }
+		public DbSet<PaymentMethod> PaymentMethods { get; set; }
+		public DbSet<OrderItem> OrderItens { get; set; }
+		public DbSet<Order> Orders { get; set; }
+		public DbSet<GameStatistic> GameStatistics { get; set; }
+		public DbSet<Employee> Employees { get; set; }
+		public DbSet<Company> Companies { get; set; }
+		public DbSet<Player> Players { get; set; }
 
 
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
-			modelBuilder.Entity<User>().ToTable("Users");
-			modelBuilder.Entity<UserData>().ToTable("UserDatas");
 			modelBuilder.Entity<Transaction>().ToTable("Transactions");
 			modelBuilder.Entity<RobotStation>().ToTable("RobotStations");
 			modelBuilder.Entity<RobotRental>().ToTable("RobotRentals");
 			modelBuilder.Entity<Robot>().ToTable("Robots");
 			modelBuilder.Entity<Reward>().ToTable("Rewards");
-			modelBuilder.Entity<ProductCategory>().ToTable("ProductCategorys");
+			modelBuilder.Entity<ProductCategory>().ToTable("ProductCategories");
 			modelBuilder.Entity<Product>().ToTable("Products");
 			modelBuilder.Entity<PaymentMethod>().ToTable("PaymentMethods");
 			modelBuilder.Entity<OrderItem>().ToTable("OrderItems");
 			modelBuilder.Entity<Order>().ToTable("Orders");
 			modelBuilder.Entity<GameStatistic>().ToTable("GameStatistics");
 			modelBuilder.Entity<Employee>().ToTable("Employees");
-			modelBuilder.Entity<Company>().ToTable("Companys");
+			modelBuilder.Entity<Company>().ToTable("Companies");
+			modelBuilder.Entity<Player>().ToTable("Players");
 		}
+
+
 	}
 }

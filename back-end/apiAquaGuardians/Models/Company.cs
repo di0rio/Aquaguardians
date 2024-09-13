@@ -14,9 +14,11 @@ namespace apiAquaGuardians.Models
 		[MaxLength(255)]
 		public string ContactName { get; set; }
 
+		[Required]
 		[MaxLength(255)]
 		public string ContactEmail { get; set; }
 
+		[Required]
 		[MaxLength(50)]
 		public string ContactPhone { get; set; }
 
@@ -25,6 +27,6 @@ namespace apiAquaGuardians.Models
 
 		public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-		public ICollection<RobotRental> RobotRentals { get; set; }
+
 	}
 }

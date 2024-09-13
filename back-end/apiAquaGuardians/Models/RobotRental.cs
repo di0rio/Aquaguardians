@@ -22,5 +22,8 @@ namespace apiAquaGuardians.Models
 		public string RentalStatus { get; set; }
 
 		public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+		public ICollection<Robot>? Robots { get; set; }
+		public ICollection<Company>? Companies { get; set; }
 	}
 }

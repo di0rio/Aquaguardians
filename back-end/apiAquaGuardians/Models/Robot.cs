@@ -13,17 +13,17 @@ namespace apiAquaGuardians.Models
 
 		[Required]
 		[MaxLength(255)]
-		public string Type { get; set; }
+		public string Model { get; set; }
 
 		public DateTime CreatedAt { get; set; } = DateTime.Now;
-
-		public Guid? StationId { get; set; }
-		public RobotStation Station { get; set; }
-
 		public bool IsAvailableForRent { get; set; } = true;
 
-		public ICollection<GameStatistic> GameStatistics { get; set; }
-		public ICollection<RobotRental> RobotRentals { get; set; }
+		public Guid? StationId { get; set; }
+		public RobotStation? Station { get; set; }
+
+
+		//public ICollection<GameStatistic>? GameStatistics { get; set; }
+
 	}
 
 

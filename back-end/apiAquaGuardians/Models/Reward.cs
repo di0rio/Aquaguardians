@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace apiAquaGuardians.Models
 {
@@ -7,8 +8,8 @@ namespace apiAquaGuardians.Models
 		[Key]
 		public Guid RewardId { get; set; }
 
-		public Guid UserId { get; set; }
-		public User User { get; set; }
+		public Guid PlayerId { get; set; }
+		public Player? Player { get; set; }
 
 		public int Points { get; set; }
 

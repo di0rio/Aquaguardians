@@ -14,6 +14,6 @@ namespace apiAquaGuardians.Models
 		[MaxLength(255)]
 		public string Description { get; set; }
 
-		public ICollection<Product> Products { get; set; }
+		public ICollection<Product>? Products { get; set; }
 	}
 }

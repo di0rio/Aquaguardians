@@ -48,6 +48,6 @@ namespace apiAquaGuardians.Models
 		public DateTime HireDate { get; set; } = DateTime.Now;
 
 		public long? StationId { get; set; }
-		public RobotStation Station { get; set; }
+		public RobotStation? Station { get; set; }
 	}
 }

@@ -23,6 +23,6 @@ namespace apiAquaGuardians.Models
 
 		public int StockQuantity { get; set; } = 0;
 
-		public ICollection<OrderItem> OrderItems { get; set; }
+		public ICollection<OrderItem>? OrderItems { get; set; }
 	}
 }

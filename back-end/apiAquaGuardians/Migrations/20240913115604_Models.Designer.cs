@@ -12,8 +12,8 @@ using apiAquaGuardians.Data;
 namespace apiAquaGuardians.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240906195207_InitialModels")]
-    partial class InitialModels
+    [Migration("20240913115604_Models")]
+    partial class Models
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,204 @@ namespace apiAquaGuardians.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Company", b =>
                 {
@@ -59,9 +257,14 @@ namespace apiAquaGuardians.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<Guid?>("RobotRentalId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("CompanyId");
 
-                    b.ToTable("Companys", (string)null);
+                    b.HasIndex("RobotRentalId");
+
+                    b.ToTable("Companies", (string)null);
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Employee", b =>
@@ -146,17 +349,17 @@ namespace apiAquaGuardians.Migrations
                     b.Property<DateTime>("GameDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("RobotId")
+                    b.Property<Guid?>("PlayerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid>("RobotId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("GameStatisticId");
 
-                    b.HasIndex("RobotId");
+                    b.HasIndex("PlayerId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("RobotId");
 
                     b.ToTable("GameStatistics", (string)null);
                 });
@@ -170,15 +373,15 @@ namespace apiAquaGuardians.Migrations
                     b.Property<DateTime>("OrderDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal>("TotalAmount")
                         .HasColumnType("decimal(10, 2)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("OrderId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("PlayerId");
 
                     b.ToTable("Orders", (string)null);
                 });
@@ -233,6 +436,40 @@ namespace apiAquaGuardians.Migrations
                     b.ToTable("PaymentMethods", (string)null);
                 });
 
+            modelBuilder.Entity("apiAquaGuardians.Models.Player", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Nickname")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("PlayerId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Players", (string)null);
+                });
+
             modelBuilder.Entity("apiAquaGuardians.Models.Product", b =>
                 {
                     b.Property<Guid>("ProductId")
@@ -283,7 +520,7 @@ namespace apiAquaGuardians.Migrations
 
                     b.HasKey("ProductCategoryId");
 
-                    b.ToTable("ProductCategorys", (string)null);
+                    b.ToTable("ProductCategories", (string)null);
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Reward", b =>
@@ -295,15 +532,15 @@ namespace apiAquaGuardians.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<int>("Points")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("RewardId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("PlayerId");
 
                     b.ToTable("Rewards", (string)null);
                 });
@@ -320,20 +557,25 @@ namespace apiAquaGuardians.Migrations
                     b.Property<bool>("IsAvailableForRent")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<Guid?>("RobotRentalId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("StationId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Type")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
                     b.HasKey("RobotId");
+
+                    b.HasIndex("RobotRentalId");
 
                     b.HasIndex("StationId");
 
@@ -442,6 +684,9 @@ namespace apiAquaGuardians.Migrations
                     b.Property<long>("PaymentMethodId1")
                         .HasColumnType("bigint");
 
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("RewardId")
                         .HasColumnType("uniqueidentifier");
 
@@ -453,106 +698,103 @@ namespace apiAquaGuardians.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("TransactionId");
 
                     b.HasIndex("OrderId");
 
                     b.HasIndex("PaymentMethodId1");
 
-                    b.HasIndex("RewardId");
+                    b.HasIndex("PlayerId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("RewardId");
 
                     b.ToTable("Transactions", (string)null);
                 });
 
-            modelBuilder.Entity("apiAquaGuardians.Models.User", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
-                    b.Property<Guid>("UserId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
-
-                    b.HasKey("UserId");
-
-                    b.ToTable("Users", (string)null);
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("apiAquaGuardians.Models.UserData", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.Property<Guid>("UserDataId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                    b.HasKey("UserDataId");
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
 
-                    b.HasIndex("UserId")
-                        .IsUnique();
-
-                    b.ToTable("UserDatas", (string)null);
+            modelBuilder.Entity("apiAquaGuardians.Models.Company", b =>
+                {
+                    b.HasOne("apiAquaGuardians.Models.RobotRental", null)
+                        .WithMany("Companies")
+                        .HasForeignKey("RobotRentalId");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.GameStatistic", b =>
                 {
-                    b.HasOne("apiAquaGuardians.Models.Robot", "Robot")
+                    b.HasOne("apiAquaGuardians.Models.Player", "Player")
                         .WithMany("GameStatistics")
+                        .HasForeignKey("PlayerId");
+
+                    b.HasOne("apiAquaGuardians.Models.Robot", "Robot")
+                        .WithMany()
                         .HasForeignKey("RobotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("apiAquaGuardians.Models.User", "User")
-                        .WithMany("GameStatistics")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Player");
 
                     b.Navigation("Robot");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Order", b =>
                 {
-                    b.HasOne("apiAquaGuardians.Models.User", "User")
+                    b.HasOne("apiAquaGuardians.Models.Player", "Player")
                         .WithMany("Orders")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Player");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.OrderItem", b =>
@@ -574,6 +816,15 @@ namespace apiAquaGuardians.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("apiAquaGuardians.Models.Player", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("apiAquaGuardians.Models.Product", b =>
                 {
                     b.HasOne("apiAquaGuardians.Models.ProductCategory", "Category")
@@ -587,17 +838,21 @@ namespace apiAquaGuardians.Migrations
 
             modelBuilder.Entity("apiAquaGuardians.Models.Reward", b =>
                 {
-                    b.HasOne("apiAquaGuardians.Models.User", "User")
+                    b.HasOne("apiAquaGuardians.Models.Player", "Player")
                         .WithMany("Rewards")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Player");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Robot", b =>
                 {
+                    b.HasOne("apiAquaGuardians.Models.RobotRental", null)
+                        .WithMany("Robots")
+                        .HasForeignKey("RobotRentalId");
+
                     b.HasOne("apiAquaGuardians.Models.RobotStation", "Station")
                         .WithMany("Robots")
                         .HasForeignKey("StationId");
@@ -608,13 +863,13 @@ namespace apiAquaGuardians.Migrations
             modelBuilder.Entity("apiAquaGuardians.Models.RobotRental", b =>
                 {
                     b.HasOne("apiAquaGuardians.Models.Company", "Company")
-                        .WithMany("RobotRentals")
+                        .WithMany()
                         .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("apiAquaGuardians.Models.Robot", "Robot")
-                        .WithMany("RobotRentals")
+                        .WithMany()
                         .HasForeignKey("RobotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -645,45 +900,28 @@ namespace apiAquaGuardians.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("apiAquaGuardians.Models.Player", "Player")
+                        .WithMany("Transactions")
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("apiAquaGuardians.Models.Reward", "Reward")
                         .WithMany()
                         .HasForeignKey("RewardId");
-
-                    b.HasOne("apiAquaGuardians.Models.User", "User")
-                        .WithMany("Transactions")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("Order");
 
                     b.Navigation("PaymentMethod");
 
+                    b.Navigation("Player");
+
                     b.Navigation("Reward");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("apiAquaGuardians.Models.UserData", b =>
-                {
-                    b.HasOne("apiAquaGuardians.Models.User", "User")
-                        .WithOne("UserData")
-                        .HasForeignKey("apiAquaGuardians.Models.UserData", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("apiAquaGuardians.Models.Company", b =>
-                {
-                    b.Navigation("RobotRentals");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Employee", b =>
                 {
-                    b.Navigation("Station")
-                        .IsRequired();
+                    b.Navigation("Station");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Order", b =>
@@ -698,6 +936,17 @@ namespace apiAquaGuardians.Migrations
                     b.Navigation("Transactions");
                 });
 
+            modelBuilder.Entity("apiAquaGuardians.Models.Player", b =>
+                {
+                    b.Navigation("GameStatistics");
+
+                    b.Navigation("Orders");
+
+                    b.Navigation("Rewards");
+
+                    b.Navigation("Transactions");
+                });
+
             modelBuilder.Entity("apiAquaGuardians.Models.Product", b =>
                 {
                     b.Navigation("OrderItems");
@@ -708,30 +957,16 @@ namespace apiAquaGuardians.Migrations
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("apiAquaGuardians.Models.Robot", b =>
+            modelBuilder.Entity("apiAquaGuardians.Models.RobotRental", b =>
                 {
-                    b.Navigation("GameStatistics");
+                    b.Navigation("Companies");
 
-                    b.Navigation("RobotRentals");
+                    b.Navigation("Robots");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.RobotStation", b =>
                 {
                     b.Navigation("Robots");
-                });
-
-            modelBuilder.Entity("apiAquaGuardians.Models.User", b =>
-                {
-                    b.Navigation("GameStatistics");
-
-                    b.Navigation("Orders");
-
-                    b.Navigation("Rewards");
-
-                    b.Navigation("Transactions");
-
-                    b.Navigation("UserData")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

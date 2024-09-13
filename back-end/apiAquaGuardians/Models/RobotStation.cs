@@ -31,7 +31,7 @@ namespace apiAquaGuardians.Models
 		[MaxLength(500)]
 		public string MaintenanceSchedule { get; set; }
 
-		public ICollection<Robot> Robots { get; set; }
+		public ICollection<Robot>? Robots { get; set; }
 	}
 
 

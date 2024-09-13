@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace apiAquaGuardians.Models
 {
@@ -11,8 +12,8 @@ namespace apiAquaGuardians.Models
 		public Guid? OrderId { get; set; }
 		public Order Order { get; set; }
 
-		public Guid UserId { get; set; }
-		public User User { get; set; }
+		public Guid PlayerId { get; set; }
+		public Player? Player { get; set; }
 
 		public Guid PaymentMethodId { get; set; }
 		public PaymentMethod PaymentMethod { get; set; }
@@ -27,6 +28,6 @@ namespace apiAquaGuardians.Models
 		public string Type { get; set; }
 
 		public Guid? RewardId { get; set; }
-		public Reward Reward { get; set; }
+		public Reward? Reward { get; set; }
 	}
 }

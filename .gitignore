@@ -16,6 +16,10 @@
 Assets/AssetStoreTols
 
 .vs/
+back-end/.vs/
+back-end/apiAquaGuardians/bin
+back-end/apiAquaGuardians/obj
+
 
 MemoryCaptures/
 ExportedObj/

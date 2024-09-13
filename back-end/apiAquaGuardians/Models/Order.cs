@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace apiAquaGuardians.Models
 {
@@ -8,15 +9,15 @@ namespace apiAquaGuardians.Models
 		[Key]
 		public Guid OrderId { get; set; }
 
-		public Guid UserId { get; set; }
-		public User User { get; set; }
+		public Guid PlayerId { get; set; }
+		public Player? Player { get; set; }
 
 		public DateTime OrderDate { get; set; } = DateTime.Now;
 
 		[Column(TypeName = "decimal(10, 2)")]
 		public decimal TotalAmount { get; set; }
 
-		public ICollection<OrderItem> OrderItems { get; set; }
-		public ICollection<Transaction> Transactions { get; set; }
+		public ICollection<OrderItem>? OrderItems { get; set; }
+		public ICollection<Transaction>? Transactions { get; set; }
 	}
 }

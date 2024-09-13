@@ -12,47 +12,47 @@ namespace apiAquaGuardians.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RobotRentalsController : ControllerBase
+    public class RentalsController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
 
-        public RobotRentalsController(ApplicationDbContext context)
+        public RentalsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/RobotRentals
+        // GET: api/Rentals
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RobotRental>>> GetRobotRental()
+        public async Task<ActionResult<IEnumerable<Rental>>> GetRobotRentals()
         {
-            return await _context.RobotRental.ToListAsync();
+            return await _context.RobotRentals.ToListAsync();
         }
 
-        // GET: api/RobotRentals/5
+        // GET: api/Rentals/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<RobotRental>> GetRobotRental(Guid id)
+        public async Task<ActionResult<Rental>> GetRental(Guid id)
         {
-            var robotRental = await _context.RobotRental.FindAsync(id);
+            var rental = await _context.RobotRentals.FindAsync(id);
 
-            if (robotRental == null)
+            if (rental == null)
             {
                 return NotFound();
             }
 
-            return robotRental;
+            return rental;
         }
 
-        // PUT: api/RobotRentals/5
+        // PUT: api/Rentals/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutRobotRental(Guid id, RobotRental robotRental)
+        public async Task<IActionResult> PutRental(Guid id, Rental rental)
         {
-            if (id != robotRental.RobotRentalId)
+            if (id != rental.RentalId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(robotRental).State = EntityState.Modified;
+            _context.Entry(rental).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +60,7 @@ namespace apiAquaGuardians.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RobotRentalExists(id))
+                if (!RentalExists(id))
                 {
                     return NotFound();
                 }
@@ -73,36 +73,36 @@ namespace apiAquaGuardians.Controllers
             return NoContent();
         }
 
-        // POST: api/RobotRentals
+        // POST: api/Rentals
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<RobotRental>> PostRobotRental(RobotRental robotRental)
+        public async Task<ActionResult<Rental>> PostRental(Rental rental)
         {
-            _context.RobotRental.Add(robotRental);
+            _context.RobotRentals.Add(rental);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRobotRental", new { id = robotRental.RobotRentalId }, robotRental);
+            return CreatedAtAction("GetRental", new { id = rental.RentalId }, rental);
         }
 
-        // DELETE: api/RobotRentals/5
+        // DELETE: api/Rentals/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteRobotRental(Guid id)
+        public async Task<IActionResult> DeleteRental(Guid id)
         {
-            var robotRental = await _context.RobotRental.FindAsync(id);
-            if (robotRental == null)
+            var rental = await _context.RobotRentals.FindAsync(id);
+            if (rental == null)
             {
                 return NotFound();
             }
 
-            _context.RobotRental.Remove(robotRental);
+            _context.RobotRentals.Remove(rental);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool RobotRentalExists(Guid id)
+        private bool RentalExists(Guid id)
         {
-            return _context.RobotRental.Any(e => e.RobotRentalId == id);
+            return _context.RobotRentals.Any(e => e.RentalId == id);
         }
     }
 }

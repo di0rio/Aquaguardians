@@ -11,7 +11,7 @@ namespace apiAquaGuardians.Data
 
 		public DbSet<Transaction> Transactions { get; set; }
 		public DbSet<RobotStation> RobotStations { get; set; }
-		public DbSet<RobotRental> RobotRentals { get; set; }
+		public DbSet<Rental> RobotRentals { get; set; }
 		public DbSet<Robot> Robots { get; set; }
 		public DbSet<Reward> Rewards { get; set; }
 		public DbSet<ProductCategory> ProductCategories { get; set; }
@@ -31,7 +31,7 @@ namespace apiAquaGuardians.Data
 			base.OnModelCreating(modelBuilder);
 			modelBuilder.Entity<Transaction>().ToTable("Transactions");
 			modelBuilder.Entity<RobotStation>().ToTable("RobotStations");
-			modelBuilder.Entity<RobotRental>().ToTable("RobotRentals");
+			modelBuilder.Entity<Rental>().ToTable("RobotRentals");
 			modelBuilder.Entity<Robot>().ToTable("Robots");
 			modelBuilder.Entity<Reward>().ToTable("Rewards");
 			modelBuilder.Entity<ProductCategory>().ToTable("ProductCategories");
@@ -44,6 +44,7 @@ namespace apiAquaGuardians.Data
 			modelBuilder.Entity<Company>().ToTable("Companies");
 			modelBuilder.Entity<Player>().ToTable("Players");
 		}
+	    public DbSet<apiAquaGuardians.Models.RobotRental> RobotRental { get; set; } = default!;
 
 
 	}

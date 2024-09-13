@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apiAquaGuardians.Data;
 
@@ -11,9 +12,11 @@ using apiAquaGuardians.Data;
 namespace apiAquaGuardians.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240913121754_RobotRental2")]
+    partial class RobotRental2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -254,7 +257,12 @@ namespace apiAquaGuardians.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<Guid?>("RobotRentalId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("CompanyId");
+
+                    b.HasIndex("RobotRentalId");
 
                     b.ToTable("Companies", (string)null);
                 });
@@ -514,34 +522,6 @@ namespace apiAquaGuardians.Migrations
                     b.ToTable("ProductCategories", (string)null);
                 });
 
-            modelBuilder.Entity("apiAquaGuardians.Models.Rental", b =>
-                {
-                    b.Property<Guid>("RentalId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(10, 2)");
-
-                    b.Property<DateTime?>("RentalEndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("RentalStartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RentalStatus")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("RentalId");
-
-                    b.ToTable("RobotRentals", (string)null);
-                });
-
             modelBuilder.Entity("apiAquaGuardians.Models.Reward", b =>
                 {
                     b.Property<Guid>("RewardId")
@@ -586,10 +566,15 @@ namespace apiAquaGuardians.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<Guid?>("RobotRentalId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<Guid?>("StationId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("RobotId");
+
+                    b.HasIndex("RobotRentalId");
 
                     b.HasIndex("StationId");
 
@@ -605,14 +590,22 @@ namespace apiAquaGuardians.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(10, 2)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.Property<DateTime?>("RentalEndDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<Guid>("RentalId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<DateTime>("RentalStartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RentalStatus")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<Guid>("RobotId")
                         .HasColumnType("uniqueidentifier");
@@ -621,11 +614,9 @@ namespace apiAquaGuardians.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.HasIndex("RentalId");
-
                     b.HasIndex("RobotId");
 
-                    b.ToTable("RobotRental");
+                    b.ToTable("RobotRentals", (string)null);
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.RobotStation", b =>
@@ -773,6 +764,13 @@ namespace apiAquaGuardians.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("apiAquaGuardians.Models.Company", b =>
+                {
+                    b.HasOne("apiAquaGuardians.Models.RobotRental", null)
+                        .WithMany("Companies")
+                        .HasForeignKey("RobotRentalId");
+                });
+
             modelBuilder.Entity("apiAquaGuardians.Models.GameStatistic", b =>
                 {
                     b.HasOne("apiAquaGuardians.Models.Player", "Player")
@@ -853,6 +851,10 @@ namespace apiAquaGuardians.Migrations
 
             modelBuilder.Entity("apiAquaGuardians.Models.Robot", b =>
                 {
+                    b.HasOne("apiAquaGuardians.Models.RobotRental", null)
+                        .WithMany("Robots")
+                        .HasForeignKey("RobotRentalId");
+
                     b.HasOne("apiAquaGuardians.Models.RobotStation", "Station")
                         .WithMany("Robots")
                         .HasForeignKey("StationId");
@@ -868,12 +870,6 @@ namespace apiAquaGuardians.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("apiAquaGuardians.Models.Rental", "Rental")
-                        .WithMany()
-                        .HasForeignKey("RentalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("apiAquaGuardians.Models.Robot", "Robot")
                         .WithMany()
                         .HasForeignKey("RobotId")
@@ -881,8 +877,6 @@ namespace apiAquaGuardians.Migrations
                         .IsRequired();
 
                     b.Navigation("Company");
-
-                    b.Navigation("Rental");
 
                     b.Navigation("Robot");
                 });
@@ -963,6 +957,13 @@ namespace apiAquaGuardians.Migrations
             modelBuilder.Entity("apiAquaGuardians.Models.ProductCategory", b =>
                 {
                     b.Navigation("Products");
+                });
+
+            modelBuilder.Entity("apiAquaGuardians.Models.RobotRental", b =>
+                {
+                    b.Navigation("Companies");
+
+                    b.Navigation("Robots");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.RobotStation", b =>

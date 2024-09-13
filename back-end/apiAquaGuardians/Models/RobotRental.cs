@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace apiAquaGuardians.Models
 {
@@ -7,23 +8,18 @@ namespace apiAquaGuardians.Models
 		[Key]
 		public Guid RobotRentalId { get; set; }
 
-		public Guid CompanyId { get; set; }
-		public Company? Company { get; set; }
+		public Guid RentalId { get; set; }
+		public Rental Rental { get; set; }
+
+
+		public int Quantity { get; set; }
+
+		[Column(TypeName = "decimal(10, 2)")]
+		public decimal Price { get; set; }
 
 		public Guid RobotId { get; set; }
-		public Robot? Robot { get; set; }
-
-		public DateTime RentalStartDate { get; set; }
-
-		public DateTime? RentalEndDate { get; set; }
-
-		[Required]
-		[MaxLength(50)]
-		public string RentalStatus { get; set; }
-
-		public DateTime CreatedAt { get; set; } = DateTime.Now;
-
-		public ICollection<Robot>? Robots { get; set; }
-		public ICollection<Company>? Companies { get; set; }
+		public Robot Robot { get; set; }
+		public Guid CompanyId { get; set; }
+		public Company? Company { get; set; }
 	}
 }

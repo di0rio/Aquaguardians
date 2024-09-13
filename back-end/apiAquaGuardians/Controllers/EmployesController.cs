@@ -42,9 +42,134 @@ namespace apiAquaGuardians.Controllers
             return employee;
         }
 
-        // PUT: api/Employes/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("name/{name}")]
+		public async Task<ActionResult<Employee>> GetEmployeeByName(string name)
+		{
+			var employee = await _context.Employees.FirstOrDefaultAsync(c => c.Name == name);
+
+			if (employee == null)
+			{
+				return NotFound();
+			}
+
+			return employee;
+		}
+
+		[HttpGet("position/{position}")]
+		public async Task<ActionResult<Employee>> GetEmployeeByPosition(string position)
+		{
+			var employee = await _context.Employees.FirstOrDefaultAsync(c => c.Position == position);
+
+			if (employee == null)
+			{
+				return NotFound();
+			}
+
+			return employee;
+		}
+
+		// Busca por Ano de Nascimento
+		[HttpGet("year/{year}")]
+		public async Task<ActionResult<List<Employee>>> GetEmployeesByYearOfBirth(int year)
+		{
+			var employees = await _context.Employees
+				.Where(e => e.DateOfBirth.HasValue && e.DateOfBirth.Value.Year == year)
+				.ToListAsync();
+
+			if (employees == null || !employees.Any())
+			{
+				return NotFound();
+			}
+
+			return employees;
+		}
+
+		// Busca por Mês de Nascimento
+		[HttpGet("month/{month}")]
+		public async Task<ActionResult<List<Employee>>> GetEmployeesByMonthOfBirth(int month)
+		{
+			var employees = await _context.Employees
+				.Where(e => e.DateOfBirth.HasValue && e.DateOfBirth.Value.Month == month)
+				.ToListAsync();
+
+			if (employees == null || !employees.Any())
+			{
+				return NotFound();
+			}
+
+			return employees;
+		}
+
+		// Busca por Dia de Nascimento
+		[HttpGet("day/{day}")]
+		public async Task<ActionResult<List<Employee>>> GetEmployeesByDayOfBirth(int day)
+		{
+			var employees = await _context.Employees
+				.Where(e => e.DateOfBirth.HasValue && e.DateOfBirth.Value.Day == day)
+				.ToListAsync();
+
+			if (employees == null || !employees.Any())
+			{
+				return NotFound();
+			}
+
+			return employees;
+		}
+
+		[HttpGet("salary/{minSalary}/{maxSalary}")]
+		public async Task<ActionResult<List<Employee>>> GetEmployeesBySalaryRange(decimal minSalary, decimal maxSalary)
+		{
+			// Verifica se os valores mínimos e máximos são válidos
+			if (minSalary < 0 || maxSalary < 0 || minSalary > maxSalary)
+			{
+				return BadRequest("Salário mínimo ou máximo inválido.");
+			}
+
+			var employees = await _context.Employees
+				.Where(e => e.Salary.HasValue && e.Salary >= minSalary && e.Salary <= maxSalary)
+				.ToListAsync();
+
+			if (employees == null || !employees.Any())
+			{
+				return NotFound();
+			}
+
+			return employees;
+		}
+
+		[HttpGet("hiredate/{date}")]
+		public async Task<ActionResult<List<Employee>>> GetEmployeesByHireDate(DateTime date)
+		{
+			var employees = await _context.Employees
+				.Where(e => e.HireDate.Date == date.Date) // Comparar apenas a data, ignorando a hora
+				.ToListAsync();
+
+			if (employees == null || !employees.Any())
+			{
+				return NotFound();
+			}
+
+			return employees;
+		}
+
+		[HttpGet("station/{stationId}")]
+		public async Task<ActionResult<List<Employee>>> GetEmployeesByStation(Guid stationId)
+		{
+			var employees = await _context.Employees
+				.Where(e => e.RobotStationId == stationId) // Agora a comparação funciona corretamente
+				.ToListAsync();
+
+			if (employees == null || !employees.Any())
+			{
+				return NotFound();
+			}
+
+			return employees;
+		}
+
+		// PUT: api/Employes/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutEmployee(Guid id, Employee employee)
         {
             if (id != employee.EmployeeId)

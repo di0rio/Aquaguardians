@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace apiAquaGuardians.Migrations
 {
     /// <inheritdoc />
-    public partial class Models : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,24 +51,37 @@ namespace apiAquaGuardians.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Companies",
+                columns: table => new
+                {
+                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    ContactName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    ContactEmail = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    ContactPhone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Companies", x => x.CompanyId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Employees",
                 columns: table => new
                 {
                     EmployeeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Department = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Position = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     DateOfBirth = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Salary = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
-                    Department = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    EmergencyContactName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    EmergencyContactPhone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    EmploymentStatus = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    JobTitle = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     HireDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    StationId = table.Column<long>(type: "bigint", nullable: true)
+                    StationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -100,6 +113,37 @@ namespace apiAquaGuardians.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProductCategories", x => x.ProductCategoryId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RobotRentals",
+                columns: table => new
+                {
+                    RentalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    RentalStartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RentalEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    RentalStatus = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RobotRentals", x => x.RentalId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RobotStations",
+                columns: table => new
+                {
+                    RobotStationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Capacity = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RobotStations", x => x.RobotStationId);
                 });
 
             migrationBuilder.CreateTable(
@@ -214,7 +258,7 @@ namespace apiAquaGuardians.Migrations
                 {
                     PlayerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Nickname = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: true),
                     Address = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true)
@@ -227,30 +271,6 @@ namespace apiAquaGuardians.Migrations
                         column: x => x.UserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RobotStations",
-                columns: table => new
-                {
-                    RobotStationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Status = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    LastMaintenance = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Capacity = table.Column<int>(type: "int", nullable: true),
-                    ManagerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    OperatingHours = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    SafetyProtocols = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false),
-                    MaintenanceSchedule = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RobotStations", x => x.RobotStationId);
-                    table.ForeignKey(
-                        name: "FK_RobotStations_Employees_ManagerId",
-                        column: x => x.ManagerId,
-                        principalTable: "Employees",
-                        principalColumn: "EmployeeId");
                 });
 
             migrationBuilder.CreateTable(
@@ -273,6 +293,27 @@ namespace apiAquaGuardians.Migrations
                         principalTable: "ProductCategories",
                         principalColumn: "ProductCategoryId",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Robots",
+                columns: table => new
+                {
+                    RobotId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    Model = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsAvailableForRent = table.Column<bool>(type: "bit", nullable: false),
+                    StationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Robots", x => x.RobotId);
+                    table.ForeignKey(
+                        name: "FK_Robots_RobotStations_StationId",
+                        column: x => x.StationId,
+                        principalTable: "RobotStations",
+                        principalColumn: "RobotStationId");
                 });
 
             migrationBuilder.CreateTable(
@@ -312,6 +353,64 @@ namespace apiAquaGuardians.Migrations
                         column: x => x.PlayerId,
                         principalTable: "Players",
                         principalColumn: "PlayerId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "GameStatistics",
+                columns: table => new
+                {
+                    GameStatisticId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RobotId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    GameDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    PlayerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GameStatistics", x => x.GameStatisticId);
+                    table.ForeignKey(
+                        name: "FK_GameStatistics_Players_PlayerId",
+                        column: x => x.PlayerId,
+                        principalTable: "Players",
+                        principalColumn: "PlayerId");
+                    table.ForeignKey(
+                        name: "FK_GameStatistics_Robots_RobotId",
+                        column: x => x.RobotId,
+                        principalTable: "Robots",
+                        principalColumn: "RobotId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RobotRental",
+                columns: table => new
+                {
+                    RobotRentalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    RentalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    RobotId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RobotRental", x => x.RobotRentalId);
+                    table.ForeignKey(
+                        name: "FK_RobotRental_Companies_CompanyId",
+                        column: x => x.CompanyId,
+                        principalTable: "Companies",
+                        principalColumn: "CompanyId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RobotRental_RobotRentals_RentalId",
+                        column: x => x.RentalId,
+                        principalTable: "RobotRentals",
+                        principalColumn: "RentalId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RobotRental_Robots_RobotId",
+                        column: x => x.RobotId,
+                        principalTable: "Robots",
+                        principalColumn: "RobotId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -383,93 +482,6 @@ namespace apiAquaGuardians.Migrations
                         principalColumn: "RewardId");
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Companies",
-                columns: table => new
-                {
-                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    ContactName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    ContactEmail = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    ContactPhone = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RobotRentalId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Companies", x => x.CompanyId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "GameStatistics",
-                columns: table => new
-                {
-                    GameStatisticId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RobotId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    GameDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    PlayerId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_GameStatistics", x => x.GameStatisticId);
-                    table.ForeignKey(
-                        name: "FK_GameStatistics_Players_PlayerId",
-                        column: x => x.PlayerId,
-                        principalTable: "Players",
-                        principalColumn: "PlayerId");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RobotRentals",
-                columns: table => new
-                {
-                    RobotRentalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RobotId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    RentalStartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RentalEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    RentalStatus = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RobotRentals", x => x.RobotRentalId);
-                    table.ForeignKey(
-                        name: "FK_RobotRentals_Companies_CompanyId",
-                        column: x => x.CompanyId,
-                        principalTable: "Companies",
-                        principalColumn: "CompanyId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Robots",
-                columns: table => new
-                {
-                    RobotId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Model = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsAvailableForRent = table.Column<bool>(type: "bit", nullable: false),
-                    StationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    RobotRentalId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Robots", x => x.RobotId);
-                    table.ForeignKey(
-                        name: "FK_Robots_RobotRentals_RobotRentalId",
-                        column: x => x.RobotRentalId,
-                        principalTable: "RobotRentals",
-                        principalColumn: "RobotRentalId");
-                    table.ForeignKey(
-                        name: "FK_Robots_RobotStations_StationId",
-                        column: x => x.StationId,
-                        principalTable: "RobotStations",
-                        principalColumn: "RobotStationId");
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -508,11 +520,6 @@ namespace apiAquaGuardians.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Companies_RobotRentalId",
-                table: "Companies",
-                column: "RobotRentalId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_GameStatistics_PlayerId",
@@ -555,31 +562,24 @@ namespace apiAquaGuardians.Migrations
                 column: "PlayerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RobotRentals_CompanyId",
-                table: "RobotRentals",
+                name: "IX_RobotRental_CompanyId",
+                table: "RobotRental",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RobotRentals_RobotId",
-                table: "RobotRentals",
-                column: "RobotId");
+                name: "IX_RobotRental_RentalId",
+                table: "RobotRental",
+                column: "RentalId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Robots_RobotRentalId",
-                table: "Robots",
-                column: "RobotRentalId");
+                name: "IX_RobotRental_RobotId",
+                table: "RobotRental",
+                column: "RobotId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Robots_StationId",
                 table: "Robots",
                 column: "StationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_RobotStations_ManagerId",
-                table: "RobotStations",
-                column: "ManagerId",
-                unique: true,
-                filter: "[ManagerId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_OrderId",
@@ -600,42 +600,11 @@ namespace apiAquaGuardians.Migrations
                 name: "IX_Transactions_RewardId",
                 table: "Transactions",
                 column: "RewardId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Companies_RobotRentals_RobotRentalId",
-                table: "Companies",
-                column: "RobotRentalId",
-                principalTable: "RobotRentals",
-                principalColumn: "RobotRentalId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_GameStatistics_Robots_RobotId",
-                table: "GameStatistics",
-                column: "RobotId",
-                principalTable: "Robots",
-                principalColumn: "RobotId",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_RobotRentals_Robots_RobotId",
-                table: "RobotRentals",
-                column: "RobotId",
-                principalTable: "Robots",
-                principalColumn: "RobotId",
-                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Companies_RobotRentals_RobotRentalId",
-                table: "Companies");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Robots_RobotRentals_RobotRentalId",
-                table: "Robots");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -652,10 +621,16 @@ namespace apiAquaGuardians.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Employees");
+
+            migrationBuilder.DropTable(
                 name: "GameStatistics");
 
             migrationBuilder.DropTable(
                 name: "OrderItems");
+
+            migrationBuilder.DropTable(
+                name: "RobotRental");
 
             migrationBuilder.DropTable(
                 name: "Transactions");
@@ -665,6 +640,15 @@ namespace apiAquaGuardians.Migrations
 
             migrationBuilder.DropTable(
                 name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Companies");
+
+            migrationBuilder.DropTable(
+                name: "RobotRentals");
+
+            migrationBuilder.DropTable(
+                name: "Robots");
 
             migrationBuilder.DropTable(
                 name: "Orders");
@@ -679,25 +663,13 @@ namespace apiAquaGuardians.Migrations
                 name: "ProductCategories");
 
             migrationBuilder.DropTable(
+                name: "RobotStations");
+
+            migrationBuilder.DropTable(
                 name: "Players");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
-                name: "RobotRentals");
-
-            migrationBuilder.DropTable(
-                name: "Companies");
-
-            migrationBuilder.DropTable(
-                name: "Robots");
-
-            migrationBuilder.DropTable(
-                name: "RobotStations");
-
-            migrationBuilder.DropTable(
-                name: "Employees");
         }
     }
 }

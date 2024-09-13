@@ -18,7 +18,7 @@ namespace apiAquaGuardians.Models
 		public DateTime CreatedAt { get; set; } = DateTime.Now;
 		public bool IsAvailableForRent { get; set; } = true;
 
-		public Guid? StationId { get; set; }
+		public Guid? RobotStationId { get; set; }
 		public RobotStation? Station { get; set; }
 
 

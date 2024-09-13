@@ -42,9 +42,22 @@ namespace apiAquaGuardians.Controllers
             return company;
         }
 
-        // PUT: api/Companies/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("name/{name}")]
+		public async Task<ActionResult<Company>> GetCompanyByName(string name)
+		{
+			var company = await _context.Companies.FirstOrDefaultAsync(c => c.Name == name);
+
+			if (company == null)
+			{
+				return NotFound();
+			}
+
+			return company;
+		}
+
+		// PUT: api/Companies/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutCompany(Guid id, Company company)
         {
             if (id != company.CompanyId)
@@ -99,8 +112,7 @@ namespace apiAquaGuardians.Controllers
 
             return NoContent();
         }
-
-        private bool CompanyExists(Guid id)
+		private bool CompanyExists(Guid id)
         {
             return _context.Companies.Any(e => e.CompanyId == id);
         }

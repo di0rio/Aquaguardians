@@ -43,9 +43,22 @@ namespace apiAquaGuardians.Controllers
             return player;
         }
 
-        // PUT: api/Players/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("nickname/{nickname}")]
+		public async Task<ActionResult<Player>> GetEmployeeByName(string nickname)
+		{
+			var player = await _context.Players.FirstOrDefaultAsync(c => c.Nickname == nickname);
+
+			if (player == null)
+			{
+				return NotFound();
+			}
+
+			return player;
+		}
+
+		// PUT: api/Players/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutPlayer(Guid id, Player player)
         {
             if (id != player.PlayerId)

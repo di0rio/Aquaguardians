@@ -42,6 +42,42 @@ namespace apiAquaGuardians.Controllers
             return rental;
         }
 
+        [HttpGet("rentalDateStart/{dateStart}")]
+        public async Task<ActionResult<List<Rental>>> GetRentalStartDate(DateTime date)
+        {
+            var rentals = await _context.RobotRentals
+                .Where(e => e.RentalStartDate.Date == date.Date) // Comparar apenas a data, ignorando a hora
+                .ToListAsync();
+
+            if (rentals == null || !rentals.Any())
+            {
+                return NotFound();
+            }
+
+            return rentals;
+        }
+
+        [HttpGet("rentalPrice/{minPrice}/{maxPrice}")]
+        public async Task<ActionResult<List<Rental>>> GetRentalBySalaryRange(decimal minPrice, decimal maxPrice)
+        {
+            // Verifica se os valores mínimos e máximos são válidos
+            if (minPrice < 0 || maxPrice < 0 || minPrice > maxPrice)
+            {
+                return BadRequest("Salário mínimo ou máximo inválido.");
+            }
+
+            var rentals = await _context.RobotRentals
+                .Where(e => e.Price.HasValue && e.Price >= minPrice && e.Price <= maxPrice)
+                .ToListAsync();
+
+            if (rentals == null || !rentals.Any())
+            {
+                return NotFound();
+            }
+
+            return rentals;
+        }
+
         // PUT: api/Rentals/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

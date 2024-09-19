@@ -19,7 +19,6 @@ namespace apiAquaGuardians.Models
 
         public Guid? OrderId { get; set; }
 		public Order Order { get; set; }
-
 		public Guid PlayerId { get; set; }
 		public Player? Player { get; set; }
 

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace apiAquaGuardians.Models
 {
@@ -7,11 +6,9 @@ namespace apiAquaGuardians.Models
 	{
 		[Key]
 		public Guid GameStatisticId { get; set; }
+		public int Addpoints { get; set; }
 		public Guid RobotId { get; set; }
-		public Robot Robot { get; set; }
 		public DateTime GameDate { get; set; } = DateTime.Now;
-
 		public Guid? PlayerId { get; set; }
-		public Player? Player { get; set; }
 	}
 }

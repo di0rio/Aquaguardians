@@ -56,6 +56,21 @@ namespace apiAquaGuardians.Controllers
 			return player;
 		}
 
+		[HttpGet("createat/{date}")]
+		public async Task<ActionResult<List<Player>>> GetPlayerByCreateAt(DateTime date)
+		{
+			var CreatedAt = await _context.Players
+				.Where(e => e.CreatedAt.Date == date.Date) // Comparar apenas a data, ignorando a hora
+				.ToListAsync();
+
+			if (CreatedAt == null || !CreatedAt.Any())
+			{
+				return NotFound();
+			}
+
+			return CreatedAt;
+		}
+
 		// PUT: api/Players/5
 		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
 		[HttpPut("{id}")]

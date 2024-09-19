@@ -42,9 +42,49 @@ namespace apiAquaGuardians.Controllers
             return gameStatistic;
         }
 
-        // PUT: api/GameStatistics/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("gamedate/{date}")]
+		public async Task<ActionResult<List<GameStatistic>>> GetGameEstatisticsByGameDate(DateTime date)
+		{
+			var gameStatistic = await _context.GameStatistics
+				.Where(e => e.GameDate.Date == date.Date) // Comparar apenas a data, ignorando a hora
+				.ToListAsync();
+
+			if (gameStatistic == null || !gameStatistic.Any())
+			{
+				return NotFound();
+			}
+
+			return gameStatistic;
+		}
+
+		[HttpGet("playerid/{id}")]
+		public async Task<ActionResult<GameStatistic>> GetGameStatistcByPlayerId(Guid id)
+		{
+			var gameStatistic = await _context.GameStatistics.FirstOrDefaultAsync(c => c.PlayerId == id);
+
+			if (gameStatistic == null)
+			{
+				return NotFound();
+			}
+
+			return gameStatistic;
+		}
+
+		[HttpGet("robotid/{id}")]
+		public async Task<ActionResult<GameStatistic>> GetGameStatistcByRobotId(Guid id)
+		{
+			var gameStatistic = await _context.GameStatistics.FirstOrDefaultAsync(c => c.RobotId == id);
+
+			if (gameStatistic == null)
+			{
+				return NotFound();
+			}
+
+			return gameStatistic;
+		}
+		// PUT: api/GameStatistics/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutGameStatistic(Guid id, GameStatistic gameStatistic)
         {
             if (id != gameStatistic.GameStatisticId)

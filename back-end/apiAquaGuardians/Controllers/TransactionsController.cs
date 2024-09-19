@@ -42,6 +42,77 @@ namespace apiAquaGuardians.Controllers
             return transaction;
         }
 
+        // GET: api/Transactions/Date
+        [HttpGet("transactiondate/{date}")]
+        public async Task<ActionResult<List<Transaction>>> GeTransactionDate(DateTime date)
+        {
+            var transaction = await _context.Transactions
+                .Where(e => e.TransactionDate.Date == date.Date) // Comparar apenas a data, ignorando a hora
+                .ToListAsync();
+
+            if (transaction == null || !transaction.Any())
+            {
+                return NotFound();
+            }
+
+            return transaction;
+        }
+
+        [HttpGet("transactionbyplayerid/{id}")]
+        public async Task<ActionResult<Transaction>> GetTransactionByPlayerId(Guid id)
+        {
+            var transaction = await _context.Transactions.FirstOrDefaultAsync(c => c.PlayerId == id);
+
+            if (transaction == null)
+            {
+                return NotFound();
+            }
+
+            return transaction;
+        }
+
+        [HttpGet("transactionbytype/{type}")]
+        public async Task<ActionResult<Transaction>> GetTransactionByType(string type)
+        {
+            var transaction = await _context.Transactions.FirstOrDefaultAsync(c => c.Type == type);
+
+            if (transaction == null)
+            {
+                return NotFound();
+            }
+
+            return transaction;
+        }
+
+        [HttpGet("transactionbyIdPaymentMethod/{paymentMethod}")]
+        public async Task<ActionResult<Transaction>> GetTransactionByIdPaymentMethod(long PaymentMethodId)
+        {
+            var listTransactions = await _context.Transactions.Where(t => t.PaymentMethodId == PaymentMethodId).ToListAsync();
+            if (listTransactions.Count == 0) 
+            { 
+                return NotFound();
+            }
+            return Ok(listTransactions);
+        }
+
+        [HttpGet("transactionbyNamePaymentMethod/{paymentMethod}")]
+        public async Task<ActionResult<Transaction>> GetTransactionByNamePaymentMethod(string namePayment)
+        {
+            var UserPaymentMethod = await _context.PaymentMethods.Where(m => m.Name.Contains("namePayment")).FirstOrDefaultAsync();
+            if (UserPaymentMethod == null)
+            {
+                return NotFound(); 
+            }
+            
+            var listTransactions = await _context.Transactions.Where(t => t.PaymentMethodId == UserPaymentMethod.PaymentMethodId).ToListAsync();
+            if(listTransactions.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(listTransactions);
+         
+        }
+
         // PUT: api/Transactions/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

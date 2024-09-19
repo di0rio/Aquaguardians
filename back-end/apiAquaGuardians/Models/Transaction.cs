@@ -25,7 +25,5 @@ namespace apiAquaGuardians.Models
 		public long PaymentMethodId { get; set; }
 		public PaymentMethod PaymentMethod { get; set; }
 
-		public Guid? RewardId { get; set; }
-		public Reward? Reward { get; set; }
 	}
 }

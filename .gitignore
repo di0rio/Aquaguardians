@@ -28,9 +28,7 @@ ExportedObj/
 *.pidb
 *.suo
 *.user
-*sln
 *.userprefs
-*.csproj
 *.unityproj
 *.dll
 *.svd

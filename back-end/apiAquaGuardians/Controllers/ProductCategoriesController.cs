@@ -42,6 +42,22 @@ namespace apiAquaGuardians.Controllers
             return productCategory;
         }
 
+
+        
+
+        [HttpGet("nameCategory/{name}")]
+        public async Task<ActionResult<ProductCategory>> GetCagtegoryByName(string name)
+        {
+            var Category = await _context.ProductCategories.FirstOrDefaultAsync(c => c.Name == name);
+
+            if (Category == null)
+            {
+                return NotFound();
+            }
+
+            return Category;
+        }
+
         // PUT: api/ProductCategories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

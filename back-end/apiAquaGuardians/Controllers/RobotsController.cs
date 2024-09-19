@@ -42,6 +42,42 @@ namespace apiAquaGuardians.Controllers
             return robot;
         }
 
+
+
+
+        // GET: api/Robots/
+
+        [HttpGet("{station}")]
+        public async Task<ActionResult<Robot>> GetRobotsByStation(Guid station)
+        {
+            var listRobots = await _context.Robots.Where(r => r.RobotStationId == station).ToListAsync();
+
+            if (listRobots.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(listRobots);
+        }
+
+        // GET: api/Robots/
+
+        [HttpGet("models/{model}")]
+        public async Task<ActionResult<Robot>> GetRobotByNodel(string model)
+        {
+            var robot = await _context.Robots.FirstOrDefaultAsync(c => c.Model == model);
+
+            if (robot == null)
+            {
+                return NotFound();
+            }
+
+            return robot;
+        }
+
+
+
+
         // PUT: api/Robots/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

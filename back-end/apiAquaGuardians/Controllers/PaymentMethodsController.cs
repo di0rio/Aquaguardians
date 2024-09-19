@@ -100,6 +100,38 @@ namespace apiAquaGuardians.Controllers
             return NoContent();
         }
 
+        // GET: api/PaymentMethods/nome
+        [HttpGet("name/{name}")]
+        public async Task<ActionResult<PaymentMethod>> GetPaymentMethodByName(string name)
+        {
+            var paymentMethod = await _context.PaymentMethods.FirstOrDefaultAsync(c => c.Name == name);
+
+            if (paymentMethod == null)
+            {
+                return NotFound();
+            }
+
+            return paymentMethod;
+        }
+
+        // GET: api/PaymentMethods/description
+        [HttpGet("description/{description}")]
+        public async Task<ActionResult<List<PaymentMethod>>> GetPaymentMethodByDescription(string description)
+        {
+            var paymentMethod = await _context.PaymentMethods
+                .Where(c => c.Description.Contains(description))
+                .ToListAsync();
+
+            if (paymentMethod == null)
+            {
+                return NotFound();
+            }
+
+            return paymentMethod;
+        }
+
+
+
         private bool PaymentMethodExists(long id)
         {
             return _context.PaymentMethods.Any(e => e.PaymentMethodId == id);

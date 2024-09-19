@@ -42,9 +42,56 @@ namespace apiAquaGuardians.Controllers
             return order;
         }
 
-        // PUT: api/Orders/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("orderbyPlayerId/{playerId}")]
+		public async Task<ActionResult<Order>> GetOrderByPlayerId(Guid playerId)
+		{
+			var listOrders = await _context.Orders.Where(t => t.PlayerId == playerId).ToListAsync();
+			if (listOrders.Count == 0)
+			{
+				return NotFound();
+			}
+			return Ok(listOrders);
+		}
+
+		[HttpGet("orderDate/{orderDate}")]
+		public async Task<ActionResult<List<Order>>> GetOrderByOrderDate(DateTime orderDate)
+		{
+			var orders = await _context.Orders
+				.Where(e => e.OrderDate.Date == orderDate.Date) // Comparar apenas a data, ignorando a hora
+				.ToListAsync();
+
+			if (orders == null || !orders.Any())
+			{
+				return NotFound();
+			}
+
+			return orders;
+		}
+
+		[HttpGet("Amount/{minAmount}/{maxAmount}")]
+		public async Task<ActionResult<List<Order>>> GetOrdersByAmountRange(decimal minAmount, decimal maxAmount)
+		{
+			// Verifica se os valores mínimos e máximos são válidos
+			if (minAmount < 0 || maxAmount < 0 || minAmount > maxAmount)
+			{
+				return BadRequest("Montante mínimo ou máximo inválido.");
+			}
+
+			var orders = await _context.Orders
+				.Where(e => e.TotalAmount.HasValue && e.TotalAmount >= minAmount && e.TotalAmount <= maxAmount)
+				.ToListAsync();
+
+			if (orders == null || !orders.Any())
+			{
+				return NotFound();
+			}
+
+			return orders;
+		}
+
+		// PUT: api/Orders/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutOrder(Guid id, Order order)
         {
             if (id != order.OrderId)

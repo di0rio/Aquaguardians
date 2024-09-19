@@ -42,6 +42,17 @@ namespace apiAquaGuardians.Controllers
             return robotRental;
         }
 
+        [HttpGet("idRentalsbyIdRobots/{rentalRobot}")]
+        public async Task<ActionResult<RobotRental>> GetRentalByIdRobots(Guid RobotId)
+        {
+            var listRobotRentals = await _context.RobotRental.Where(t => t.RobotId == RobotId).ToListAsync();
+            if (listRobotRentals.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(listRobotRentals);
+        }
+
         // PUT: api/RobotRentals/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

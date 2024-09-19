@@ -19,10 +19,13 @@ namespace apiAquaGuardians.Models
 		public string Description { get; set; }
 
 		[Column(TypeName = "decimal(10, 2)")]
-		public decimal Price { get; set; }
+		public decimal? Price { get; set; }
 
 		public int StockQuantity { get; set; } = 0;
 
 		public ICollection<OrderItem>? OrderItems { get; set; }
+
+		public long ProductCategoryId { get; set; }
+		public ProductCategory ProductCategory { get; set; }
 	}
 }

@@ -42,9 +42,93 @@ namespace apiAquaGuardians.Controllers
             return product;
         }
 
-        // PUT: api/Products/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
+		[HttpGet("name/{name}")]
+		public async Task<ActionResult<Product>> GetProductByName(string name)
+		{
+			var player = await _context.Products.FirstOrDefaultAsync(c => c.Name == name);
+
+			if (player == null)
+			{
+				return NotFound();
+			}
+
+			return player;
+		}
+
+		[HttpGet("Price/{minPrice}/{maxPrice}")]
+		public async Task<ActionResult<List<Product>>> GetProductsByPriceRange(decimal minPrice, decimal maxPrice)
+		{
+			// Verifica se os valores mínimos e máximos são válidos
+			if (minPrice < 0 || maxPrice < 0 || minPrice > maxPrice)
+			{
+				return BadRequest("Preço mínimo ou máximo inválido.");
+			}
+
+			var products = await _context.Products
+				.Where(e => e.Price.HasValue && e.Price >= minPrice && e.Price <= maxPrice)
+				.ToListAsync();
+
+			if (products == null || !products.Any())
+			{
+				return NotFound();
+			}
+
+			return products;
+		}
+
+		[HttpGet("Stock/{minStock}/{maxStock}")]
+		public async Task<ActionResult<List<Product>>> GetProductsByStockRange(decimal minStock, decimal maxStock)
+		{
+			// Verifica se os valores mínimos e máximos são válidos
+			if (minStock < 0 || maxStock < 0 || minStock > maxStock)
+			{
+				return BadRequest("Estoque mínimo ou máximo inválido.");
+			}
+
+			var products = await _context.Products
+				.Where(e => e.Price.HasValue && e.Price >= minStock && e.Price <= maxStock)
+				.ToListAsync();
+
+			if (products == null || !products.Any())
+			{
+				return NotFound();
+			}
+
+			return products;
+		}
+
+		[HttpGet("productbyIdProductCategory/{product}")]
+		public async Task<ActionResult<Product>> GetProductByIdProductCategory(long ProductCategoryId)
+		{
+			var listProducts = await _context.Products.Where(t => t.ProductCategoryId == ProductCategoryId).ToListAsync();
+			if (listProducts.Count == 0)
+			{
+				return NotFound();
+			}
+			return Ok(listProducts);
+		}
+
+		[HttpGet("productbyNameProductCategory/{product}")]
+		public async Task<ActionResult<Product>> GetProductByNameProductCategory(long NameProductCategory)
+		{
+			var CategoryMethod = await _context.ProductCategories.Where(m => m.Name.Contains("NameProductCategory")).FirstOrDefaultAsync();
+			if (CategoryMethod == null)
+			{
+				return NotFound();
+			}
+
+			var listProducts = await _context.ProductCategories.Where(t => t.ProductCategoryId == CategoryMethod.ProductCategoryId).ToListAsync();
+			if (listProducts.Count == 0)
+			{
+				return NotFound();
+			}
+			return Ok(listProducts);
+
+		}
+
+		// PUT: api/Products/5
+		// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+		[HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(Guid id, Product product)
         {
             if (id != product.ProductId)

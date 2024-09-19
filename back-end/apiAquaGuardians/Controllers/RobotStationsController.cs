@@ -100,6 +100,65 @@ namespace apiAquaGuardians.Controllers
             return NoContent();
         }
 
+        // GET: api/RobotStations/nome
+        [HttpGet("name/{name}")]
+        public async Task<ActionResult<RobotStation>> GetRobotStationByName(string name)
+        {
+            var robotStation = await _context.RobotStations.FirstOrDefaultAsync(c => c.Name == name);
+            if (robotStation == null)
+            {
+                return NotFound();
+            }
+            return robotStation;
+        }
+
+        // GET: api/RobotStations/localização
+        [HttpGet("location/{location}")]
+        public async Task<ActionResult<RobotStation>> GetRobotStationByLocation(string location)
+        {
+            var robotStation = await _context.RobotStations.FirstOrDefaultAsync(c => c.Location == location);
+            if (robotStation == null)
+            {
+                return NotFound();
+            }
+            return robotStation;
+        }
+
+        // GET: api/RobotStations/statusDeFuncionamento
+        [HttpGet("status/{status}")]
+        public async Task<ActionResult<RobotStation>> GetRobotStationByStatus(string status)
+        {
+            var robotStation = await _context.RobotStations.FirstOrDefaultAsync(c => c.Status == status);
+            if (robotStation == null)
+            {
+                return NotFound();
+            }
+            return robotStation;
+        }
+
+        // GET: api/RobotStations/CapacidadeDeRobôs
+        [HttpGet("capacity/{minCapacity}/{maxCapacity}")]
+        public async Task<ActionResult<List<RobotStation>>> GetRobotStationByCapacityRange(int minCapacity, int maxCapacity)
+        {
+            // Verifica se os valores mínimos e máximos são válidos
+            if (minCapacity < 0 || maxCapacity <= 0 || minCapacity > maxCapacity)
+            {
+                return BadRequest("Não é possível encontrar localizações com essa capacidade");
+            }
+
+            var robotStation = await _context.RobotStations
+                .Where(r => r.Capacity.HasValue && r.Capacity >= minCapacity && r.Capacity <= maxCapacity)
+                .ToListAsync();
+
+            if (robotStation == null || !robotStation.Any())
+            {
+                return NotFound();
+            }
+
+            return robotStation;
+        }
+
+
         private bool RobotStationExists(Guid id)
         {
             return _context.RobotStations.Any(e => e.RobotStationId == id);

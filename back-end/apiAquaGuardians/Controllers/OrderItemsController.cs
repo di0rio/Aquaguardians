@@ -42,6 +42,17 @@ namespace apiAquaGuardians.Controllers
             return orderItem;
         }
 
+        [HttpGet("orderbyIdItems/{orderItems}")]
+        public async Task<ActionResult<OrderItem>> GetTransactionByIdPaymentMethod(Guid ProductId)
+        {
+            var listOrderItems = await _context.OrderItens.Where(t => t.ProductId == ProductId).ToListAsync();
+            if (listOrderItems.Count == 0)
+            {
+                return NotFound();
+            }
+            return Ok(listOrderItems);
+        }
+
         // PUT: api/OrderItems/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

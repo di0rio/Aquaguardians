@@ -15,7 +15,7 @@ namespace apiAquaGuardians.Models
 		public DateTime OrderDate { get; set; } = DateTime.Now;
 
 		[Column(TypeName = "decimal(10, 2)")]
-		public decimal TotalAmount { get; set; }
+		public decimal? TotalAmount { get; set; }
 
 		public ICollection<OrderItem>? OrderItems { get; set; }
 		public ICollection<Transaction>? Transactions { get; set; }

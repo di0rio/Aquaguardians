@@ -9,7 +9,7 @@ namespace apiAquaGuardians.Models
 		public Guid RentalId { get; set; }
 
 		[Column(TypeName = "decimal(10, 2)")]
-		public decimal Price { get; set; }
+		public decimal? Price { get; set; }
 		public DateTime RentalStartDate { get; set; }
 
 		public DateTime? RentalEndDate { get; set; }

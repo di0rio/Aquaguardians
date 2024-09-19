@@ -8,26 +8,21 @@ namespace apiAquaGuardians.Models
 	{
 		[Key]
 		public Guid TransactionId { get; set; }
-
-		public Guid? OrderId { get; set; }
-		public Order Order { get; set; }
-
-		public Guid PlayerId { get; set; }
-		public Player? Player { get; set; }
-
-		public Guid PaymentMethodId { get; set; }
-		public PaymentMethod PaymentMethod { get; set; }
-
-		[Column(TypeName = "decimal(10, 2)")]
+		public int AltPoints { get; set; }
 		public decimal Amount { get; set; }
-
-		public DateTime TransactionDate { get; set; } = DateTime.Now;
-
 		[Required]
 		[MaxLength(50)]
 		public string Type { get; set; }
+		[Column(TypeName = "decimal(10, 2)")]
+		public PaymentMethod PaymentMethod { get; set; }
+		public DateTime TransactionDate { get; set; } = DateTime.Now;
 
-		public Guid? RewardId { get; set; }
-		public Reward? Reward { get; set; }
+
+		public Guid? OrderId { get; set; }
+		public Order Order { get; set; }
+		public Guid PlayerId { get; set; }
+		public Player? Player { get; set; }
+		public Guid PaymentMethodId { get; set; }
+
 	}
 }

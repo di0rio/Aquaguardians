@@ -31,9 +31,10 @@ namespace apiAquaGuardians.Models
 
 		[Column(TypeName = "decimal(10, 2)")]
 		public decimal? Salary { get; set; }
-		public DateTime HireDate { get; set; } = DateTime.Now;
+		public DateTime HireDate { get; set; }
 
 		public Guid? RobotStationId { get; set; }
-		public RobotStation? RobotStation { get; set; }
+
+		public ICollection<RobotStation> RobotStations { get; set; }
 	}
 }

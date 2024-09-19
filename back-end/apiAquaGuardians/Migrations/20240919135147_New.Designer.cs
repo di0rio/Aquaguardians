@@ -12,8 +12,8 @@ using apiAquaGuardians.Data;
 namespace apiAquaGuardians.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240913191348_RobotStationEmployee")]
-    partial class RobotStationEmployee
+    [Migration("20240919135147_New")]
+    partial class New
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -312,8 +312,6 @@ namespace apiAquaGuardians.Migrations
 
                     b.HasKey("EmployeeId");
 
-                    b.HasIndex("RobotStationId");
-
                     b.ToTable("Employees", (string)null);
                 });
 
@@ -322,6 +320,9 @@ namespace apiAquaGuardians.Migrations
                     b.Property<Guid>("GameStatisticId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Addpoints")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("GameDate")
                         .HasColumnType("datetime2");
@@ -335,8 +336,6 @@ namespace apiAquaGuardians.Migrations
                     b.HasKey("GameStatisticId");
 
                     b.HasIndex("PlayerId");
-
-                    b.HasIndex("RobotId");
 
                     b.ToTable("GameStatistics", (string)null);
                 });
@@ -439,6 +438,9 @@ namespace apiAquaGuardians.Migrations
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int>("points")
+                        .HasColumnType("int");
+
                     b.HasKey("PlayerId");
 
                     b.HasIndex("UserId");
@@ -527,28 +529,6 @@ namespace apiAquaGuardians.Migrations
                     b.ToTable("RobotRentals", (string)null);
                 });
 
-            modelBuilder.Entity("apiAquaGuardians.Models.Reward", b =>
-                {
-                    b.Property<Guid>("RewardId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Points")
-                        .HasColumnType("int");
-
-                    b.HasKey("RewardId");
-
-                    b.HasIndex("PlayerId");
-
-                    b.ToTable("Rewards", (string)null);
-                });
-
             modelBuilder.Entity("apiAquaGuardians.Models.Robot", b =>
                 {
                     b.Property<Guid>("RobotId")
@@ -619,6 +599,9 @@ namespace apiAquaGuardians.Migrations
                     b.Property<int?>("Capacity")
                         .HasColumnType("int");
 
+                    b.Property<Guid?>("EmployeeId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Location")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -635,6 +618,8 @@ namespace apiAquaGuardians.Migrations
 
                     b.HasKey("RobotStationId");
 
+                    b.HasIndex("EmployeeId");
+
                     b.ToTable("RobotStations", (string)null);
                 });
 
@@ -644,8 +629,11 @@ namespace apiAquaGuardians.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int>("AltPoints")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(10, 2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid?>("OrderId")
                         .HasColumnType("uniqueidentifier");
@@ -657,9 +645,6 @@ namespace apiAquaGuardians.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<Guid>("PlayerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid?>("RewardId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("TransactionDate")
@@ -677,8 +662,6 @@ namespace apiAquaGuardians.Migrations
                     b.HasIndex("PaymentMethodId1");
 
                     b.HasIndex("PlayerId");
-
-                    b.HasIndex("RewardId");
 
                     b.ToTable("Transactions", (string)null);
                 });
@@ -734,30 +717,11 @@ namespace apiAquaGuardians.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("apiAquaGuardians.Models.Employee", b =>
-                {
-                    b.HasOne("apiAquaGuardians.Models.RobotStation", "RobotStation")
-                        .WithMany()
-                        .HasForeignKey("RobotStationId");
-
-                    b.Navigation("RobotStation");
-                });
-
             modelBuilder.Entity("apiAquaGuardians.Models.GameStatistic", b =>
                 {
-                    b.HasOne("apiAquaGuardians.Models.Player", "Player")
+                    b.HasOne("apiAquaGuardians.Models.Player", null)
                         .WithMany("GameStatistics")
                         .HasForeignKey("PlayerId");
-
-                    b.HasOne("apiAquaGuardians.Models.Robot", "Robot")
-                        .WithMany()
-                        .HasForeignKey("RobotId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Player");
-
-                    b.Navigation("Robot");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Order", b =>
@@ -810,17 +774,6 @@ namespace apiAquaGuardians.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("apiAquaGuardians.Models.Reward", b =>
-                {
-                    b.HasOne("apiAquaGuardians.Models.Player", "Player")
-                        .WithMany("Rewards")
-                        .HasForeignKey("PlayerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Player");
-                });
-
             modelBuilder.Entity("apiAquaGuardians.Models.Robot", b =>
                 {
                     b.HasOne("apiAquaGuardians.Models.RobotStation", "Station")
@@ -857,6 +810,13 @@ namespace apiAquaGuardians.Migrations
                     b.Navigation("Robot");
                 });
 
+            modelBuilder.Entity("apiAquaGuardians.Models.RobotStation", b =>
+                {
+                    b.HasOne("apiAquaGuardians.Models.Employee", null)
+                        .WithMany("RobotStations")
+                        .HasForeignKey("EmployeeId");
+                });
+
             modelBuilder.Entity("apiAquaGuardians.Models.Transaction", b =>
                 {
                     b.HasOne("apiAquaGuardians.Models.Order", "Order")
@@ -875,17 +835,16 @@ namespace apiAquaGuardians.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("apiAquaGuardians.Models.Reward", "Reward")
-                        .WithMany()
-                        .HasForeignKey("RewardId");
-
                     b.Navigation("Order");
 
                     b.Navigation("PaymentMethod");
 
                     b.Navigation("Player");
+                });
 
-                    b.Navigation("Reward");
+            modelBuilder.Entity("apiAquaGuardians.Models.Employee", b =>
+                {
+                    b.Navigation("RobotStations");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Order", b =>
@@ -905,8 +864,6 @@ namespace apiAquaGuardians.Migrations
                     b.Navigation("GameStatistics");
 
                     b.Navigation("Orders");
-
-                    b.Navigation("Rewards");
 
                     b.Navigation("Transactions");
                 });

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace apiAquaGuardians.Migrations
 {
     /// <inheritdoc />
-    public partial class New : Migration
+    public partial class dois : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -92,8 +92,7 @@ namespace apiAquaGuardians.Migrations
                 name: "PaymentMethods",
                 columns: table => new
                 {
-                    PaymentMethodId = table.Column<long>(type: "bigint", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PaymentMethodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },
@@ -120,7 +119,7 @@ namespace apiAquaGuardians.Migrations
                 columns: table => new
                 {
                     RentalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
                     RentalStartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     RentalEndDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     RentalStatus = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -285,18 +284,18 @@ namespace apiAquaGuardians.Migrations
                 columns: table => new
                 {
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    StockQuantity = table.Column<int>(type: "int", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
+                    StockQuantity = table.Column<int>(type: "int", nullable: false),
+                    ProductCategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.ProductId);
                     table.ForeignKey(
-                        name: "FK_Products_ProductCategories_CategoryId",
-                        column: x => x.CategoryId,
+                        name: "FK_Products_ProductCategories_ProductCategoryId",
+                        column: x => x.ProductCategoryId,
                         principalTable: "ProductCategories",
                         principalColumn: "ProductCategoryId",
                         onDelete: ReferentialAction.Cascade);
@@ -329,7 +328,7 @@ namespace apiAquaGuardians.Migrations
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PlayerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TotalAmount = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
+                    TotalAmount = table.Column<decimal>(type: "decimal(10,2)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -395,14 +394,12 @@ namespace apiAquaGuardians.Migrations
                 columns: table => new
                 {
                     TransactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    AltPoints = table.Column<int>(type: "int", nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     PlayerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PaymentMethodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PaymentMethodId1 = table.Column<long>(type: "bigint", nullable: false),
-                    TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    PaymentMethodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -413,8 +410,8 @@ namespace apiAquaGuardians.Migrations
                         principalTable: "Orders",
                         principalColumn: "OrderId");
                     table.ForeignKey(
-                        name: "FK_Transactions_PaymentMethods_PaymentMethodId1",
-                        column: x => x.PaymentMethodId1,
+                        name: "FK_Transactions_PaymentMethods_PaymentMethodId",
+                        column: x => x.PaymentMethodId,
                         principalTable: "PaymentMethods",
                         principalColumn: "PaymentMethodId",
                         onDelete: ReferentialAction.Cascade);
@@ -431,7 +428,7 @@ namespace apiAquaGuardians.Migrations
                 columns: table => new
                 {
                     RobotRentalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
                     RentalId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     RobotId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CompanyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
@@ -524,9 +521,9 @@ namespace apiAquaGuardians.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Products_CategoryId",
+                name: "IX_Products_ProductCategoryId",
                 table: "Products",
-                column: "CategoryId");
+                column: "ProductCategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RobotRental_CompanyId",
@@ -559,9 +556,9 @@ namespace apiAquaGuardians.Migrations
                 column: "OrderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transactions_PaymentMethodId1",
+                name: "IX_Transactions_PaymentMethodId",
                 table: "Transactions",
-                column: "PaymentMethodId1");
+                column: "PaymentMethodId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Transactions_PlayerId",

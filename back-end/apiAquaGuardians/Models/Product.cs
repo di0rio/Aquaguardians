@@ -8,9 +8,6 @@ namespace apiAquaGuardians.Models
 		[Key]
 		public Guid ProductId { get; set; }
 
-		public Guid CategoryId { get; set; }
-		public ProductCategory Category { get; set; }
-
 		[Required]
 		[MaxLength(255)]
 		public string Name { get; set; }
@@ -25,7 +22,7 @@ namespace apiAquaGuardians.Models
 
 		public ICollection<OrderItem>? OrderItems { get; set; }
 
-		public long ProductCategoryId { get; set; }
-		public ProductCategory ProductCategory { get; set; }
+		public Guid ProductCategoryId { get; set; }
+		public ProductCategory? ProductCategory { get; set; }
 	}
 }

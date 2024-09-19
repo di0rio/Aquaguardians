@@ -30,7 +30,7 @@ namespace apiAquaGuardians.Controllers
 
         // GET: api/PaymentMethods/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PaymentMethod>> GetPaymentMethod(long id)
+        public async Task<ActionResult<PaymentMethod>> GetPaymentMethod(Guid id)
         {
             var paymentMethod = await _context.PaymentMethods.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace apiAquaGuardians.Controllers
         // PUT: api/PaymentMethods/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPaymentMethod(long id, PaymentMethod paymentMethod)
+        public async Task<IActionResult> PutPaymentMethod(Guid id, PaymentMethod paymentMethod)
         {
             if (id != paymentMethod.PaymentMethodId)
             {
@@ -86,7 +86,7 @@ namespace apiAquaGuardians.Controllers
 
         // DELETE: api/PaymentMethods/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeletePaymentMethod(long id)
+        public async Task<IActionResult> DeletePaymentMethod(Guid id)
         {
             var paymentMethod = await _context.PaymentMethods.FindAsync(id);
             if (paymentMethod == null)
@@ -132,7 +132,7 @@ namespace apiAquaGuardians.Controllers
 
 
 
-        private bool PaymentMethodExists(long id)
+        private bool PaymentMethodExists(Guid id)
         {
             return _context.PaymentMethods.Any(e => e.PaymentMethodId == id);
         }

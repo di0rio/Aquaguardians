@@ -98,7 +98,7 @@ namespace apiAquaGuardians.Controllers
 		}
 
 		[HttpGet("productbyIdProductCategory/{product}")]
-		public async Task<ActionResult<Product>> GetProductByIdProductCategory(long ProductCategoryId)
+		public async Task<ActionResult<Product>> GetProductByIdProductCategory(Guid ProductCategoryId)
 		{
 			var listProducts = await _context.Products.Where(t => t.ProductCategoryId == ProductCategoryId).ToListAsync();
 			if (listProducts.Count == 0)
@@ -109,7 +109,7 @@ namespace apiAquaGuardians.Controllers
 		}
 
 		[HttpGet("productbyNameProductCategory/{product}")]
-		public async Task<ActionResult<Product>> GetProductByNameProductCategory(long NameProductCategory)
+		public async Task<ActionResult<Product>> GetProductByNameProductCategory(string NameProductCategory)
 		{
 			var CategoryMethod = await _context.ProductCategories.Where(m => m.Name.Contains("NameProductCategory")).FirstOrDefaultAsync();
 			if (CategoryMethod == null)

@@ -85,7 +85,7 @@ namespace apiAquaGuardians.Controllers
         }
 
         [HttpGet("transactionbyIdPaymentMethod/{paymentMethod}")]
-        public async Task<ActionResult<Transaction>> GetTransactionByIdPaymentMethod(long PaymentMethodId)
+        public async Task<ActionResult<Transaction>> GetTransactionByIdPaymentMethod(Guid PaymentMethodId)
         {
             var listTransactions = await _context.Transactions.Where(t => t.PaymentMethodId == PaymentMethodId).ToListAsync();
             if (listTransactions.Count == 0) 

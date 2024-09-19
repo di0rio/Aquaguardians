@@ -22,7 +22,7 @@ namespace apiAquaGuardians.Models
 		public Guid PlayerId { get; set; }
 		public Player? Player { get; set; }
 
-		public long PaymentMethodId { get; set; }
+		public Guid PaymentMethodId { get; set; }
 		public PaymentMethod PaymentMethod { get; set; }
 
 	}

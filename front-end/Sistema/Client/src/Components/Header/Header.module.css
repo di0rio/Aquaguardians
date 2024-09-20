@@ -1,0 +1,78 @@
+.container *{
+}
+
+.container nav{
+  background: #160B28 !important;
+}
+
+/* Logo do AquaGuardians */
+.aquaGuardians{
+  text-decoration: none;
+
+  font-family: "BabaPro" !important;
+  font-weight: 600;
+  font-size: 26px !important;
+
+  color: #A1FFE0 !important;
+}
+
+/* Botão para abrir a NavBar em Mobile */
+.container nav > :nth-child(2){
+  background: none;
+  border: none;
+}
+
+.container nav > :nth-child(2) i{
+  font-size: 26px;
+  color: #fff;
+}
+
+.container nav > :nth-child(3){
+  background: #160B28;
+  color: #fff;
+}
+
+/* Botão para abrir as configurações de perfil */
+.container nav > :nth-child(3) button {
+  background: none;
+  border: none;
+}
+
+.container nav > :nth-child(3) button > i{
+  background: #160B28;
+  color: #fff;
+  font-size: 20px;
+}
+
+/* Links na NavBar */
+.container a {
+  text-transform: uppercase;
+
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.container nav div h5{
+  text-transform: uppercase;
+
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.container nav > :nth-child(2) > span{
+  color: #284AC6;
+  font-size: 20px;
+  font-weight: bolder;
+};
+
+/* Restante da NavBar */
+.container nav > h5{
+  
+}
+
+.container nav > Link{
+  text-decoration: none;
+  font-size: 40px;
+}

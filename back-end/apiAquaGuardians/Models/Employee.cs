@@ -35,6 +35,6 @@ namespace apiAquaGuardians.Models
 
 		public Guid? RobotStationId { get; set; }
 
-		public ICollection<RobotStation> RobotStations { get; set; }
+		public ICollection<RobotStation>? RobotStations { get; set; }
 	}
 }

@@ -8,6 +8,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Usuarios from "./routes/Usuarios/Usuarios.jsx";
 import Robos from "./routes/Robos/Robos.jsx";
 import Postos from "./routes/Postos/Postos.jsx";
+import Login from "./routes/Login/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +16,8 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Error />,
     children: [
-      { path: "/", element: <Usuarios /> },
+      { path: "/", element: <Login /> },
+      { path: "users", element: <Usuarios /> },
       { path: "robos", element: <Robos /> },
       { path: "postos", element: <Postos /> },
     ],

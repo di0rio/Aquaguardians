@@ -12,8 +12,8 @@ using apiAquaGuardians.Data;
 namespace apiAquaGuardians.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240919191157_dois")]
-    partial class dois
+    [Migration("20240920133712_OrderTransaction2")]
+    partial class OrderTransaction2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -371,7 +371,7 @@ namespace apiAquaGuardians.Migrations
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(10, 2)");
 
                     b.Property<Guid>("ProductId")
@@ -630,9 +630,6 @@ namespace apiAquaGuardians.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("decimal(10, 2)");
 
-                    b.Property<Guid?>("OrderId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<Guid>("PaymentMethodId")
                         .HasColumnType("uniqueidentifier");
 
@@ -648,8 +645,6 @@ namespace apiAquaGuardians.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("TransactionId");
-
-                    b.HasIndex("OrderId");
 
                     b.HasIndex("PaymentMethodId");
 
@@ -811,10 +806,6 @@ namespace apiAquaGuardians.Migrations
 
             modelBuilder.Entity("apiAquaGuardians.Models.Transaction", b =>
                 {
-                    b.HasOne("apiAquaGuardians.Models.Order", "Order")
-                        .WithMany("Transactions")
-                        .HasForeignKey("OrderId");
-
                     b.HasOne("apiAquaGuardians.Models.PaymentMethod", "PaymentMethod")
                         .WithMany("Transactions")
                         .HasForeignKey("PaymentMethodId")
@@ -826,8 +817,6 @@ namespace apiAquaGuardians.Migrations
                         .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Order");
 
                     b.Navigation("PaymentMethod");
 
@@ -842,8 +831,6 @@ namespace apiAquaGuardians.Migrations
             modelBuilder.Entity("apiAquaGuardians.Models.Order", b =>
                 {
                     b.Navigation("OrderItems");
-
-                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.PaymentMethod", b =>

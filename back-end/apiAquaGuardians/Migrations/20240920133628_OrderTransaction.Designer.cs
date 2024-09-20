@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apiAquaGuardians.Data;
 
@@ -11,9 +12,11 @@ using apiAquaGuardians.Data;
 namespace apiAquaGuardians.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240920133628_OrderTransaction")]
+    partial class OrderTransaction
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -352,14 +355,9 @@ namespace apiAquaGuardians.Migrations
                     b.Property<decimal?>("TotalAmount")
                         .HasColumnType("decimal(10, 2)");
 
-                    b.Property<Guid?>("TransactionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("OrderId");
 
                     b.HasIndex("PlayerId");
-
-                    b.HasIndex("TransactionId");
 
                     b.ToTable("Orders", (string)null);
                 });
@@ -721,13 +719,7 @@ namespace apiAquaGuardians.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("apiAquaGuardians.Models.Transaction", "Transaction")
-                        .WithMany()
-                        .HasForeignKey("TransactionId");
-
                     b.Navigation("Player");
-
-                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.OrderItem", b =>

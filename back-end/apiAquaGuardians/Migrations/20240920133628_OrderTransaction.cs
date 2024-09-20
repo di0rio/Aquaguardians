@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace apiAquaGuardians.Migrations
 {
     /// <inheritdoc />
-    public partial class dois : Migration
+    public partial class OrderTransaction : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -342,6 +342,34 @@ namespace apiAquaGuardians.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Transactions",
+                columns: table => new
+                {
+                    TransactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Amount = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PlayerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PaymentMethodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transactions", x => x.TransactionId);
+                    table.ForeignKey(
+                        name: "FK_Transactions_PaymentMethods_PaymentMethodId",
+                        column: x => x.PaymentMethodId,
+                        principalTable: "PaymentMethods",
+                        principalColumn: "PaymentMethodId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Transactions_Players_PlayerId",
+                        column: x => x.PlayerId,
+                        principalTable: "Players",
+                        principalColumn: "PlayerId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Robots",
                 columns: table => new
                 {
@@ -370,7 +398,7 @@ namespace apiAquaGuardians.Migrations
                     OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(10,2)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -386,40 +414,6 @@ namespace apiAquaGuardians.Migrations
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Transactions",
-                columns: table => new
-                {
-                    TransactionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TransactionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    OrderId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
-                    PlayerId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PaymentMethodId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Transactions", x => x.TransactionId);
-                    table.ForeignKey(
-                        name: "FK_Transactions_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
-                        principalColumn: "OrderId");
-                    table.ForeignKey(
-                        name: "FK_Transactions_PaymentMethods_PaymentMethodId",
-                        column: x => x.PaymentMethodId,
-                        principalTable: "PaymentMethods",
-                        principalColumn: "PaymentMethodId",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Transactions_Players_PlayerId",
-                        column: x => x.PlayerId,
-                        principalTable: "Players",
-                        principalColumn: "PlayerId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -551,11 +545,6 @@ namespace apiAquaGuardians.Migrations
                 column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transactions_OrderId",
-                table: "Transactions",
-                column: "OrderId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Transactions_PaymentMethodId",
                 table: "Transactions",
                 column: "PaymentMethodId");
@@ -600,6 +589,9 @@ namespace apiAquaGuardians.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Orders");
+
+            migrationBuilder.DropTable(
                 name: "Products");
 
             migrationBuilder.DropTable(
@@ -612,10 +604,10 @@ namespace apiAquaGuardians.Migrations
                 name: "Robots");
 
             migrationBuilder.DropTable(
-                name: "Orders");
+                name: "PaymentMethods");
 
             migrationBuilder.DropTable(
-                name: "PaymentMethods");
+                name: "Players");
 
             migrationBuilder.DropTable(
                 name: "ProductCategories");
@@ -624,13 +616,10 @@ namespace apiAquaGuardians.Migrations
                 name: "RobotStations");
 
             migrationBuilder.DropTable(
-                name: "Players");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Employees");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
         }
     }
 }

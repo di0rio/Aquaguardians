@@ -1,28 +1,4 @@
-.container {
-  display: flex;
-  flex-direction: row;
-  margin-top: 0;
-}
-
-.container h1 {
-  gap: 1.7em;
-}
-
-.links {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  gap: 2.5em;
-  font-size: 1.3em;
-}
-
-.link {
+.navLink{
   text-decoration: none;
-  color: black;
-}
-
-.link:hover {
-  color: rgb(64, 64, 148);
-  animation: 0.5s;
-  transition: 0.5s;
+  
 }

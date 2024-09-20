@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom"
 
-import styles from "./Header.module.css"
-
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
@@ -13,7 +11,7 @@ const navigation = [
 
 const Header = () => {
   return (
-    <nav className="navbar navbar-expand-md fixed-top bg-info">
+    <nav className="navbar navbar-expand-md bg-info top-0">
       <div className="container-fluid">
 
         {/* 

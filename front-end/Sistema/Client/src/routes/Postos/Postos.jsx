@@ -1,20 +1,22 @@
 import styles from "./Postos.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import "../../api/Api.js";
+
 const Postos = () => {
+
   return (
     <div className={styles.tabelas}>
-
-      <table class="table" >
-          <thead className={styles.Header}>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Localização</th>
-              <th scope="col">Status</th>
-              <th scope="col">Capacidade</th>
-            </tr>
-          </thead>
+      <table class="table">
+        <thead className={styles.Header}>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Localização</th>
+            <th scope="col">Status</th>
+            <th scope="col">Capacidade</th>
+          </tr>
+        </thead>
         <tbody className={styles.Row}>
           <tr>
             <th scope="row">1</th>

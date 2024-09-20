@@ -4,7 +4,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 
 const navigation = [
-  { componente: "/", name: "Usuários" },
+  { componente: "/users", name: "Usuários" },
   { componente: "/robos", name: "Robôs" },
   { componente: "/postos", name: "Postos" },
 ];

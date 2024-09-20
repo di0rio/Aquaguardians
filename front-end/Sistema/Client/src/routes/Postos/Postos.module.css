@@ -1,4 +1,4 @@
-.Header tr th{
+/* .Header tr th{
     color: white;
     background-color: #160B28;
     text-transform: uppercase;
@@ -24,11 +24,43 @@
 
 .Row tr th{
     border: solid 1px #DAD5E7;
+    color: #160B28;
     text-align: center;
     font-family: 'Poppins';
     font-weight: 400;
 }
 
-.tabelas{
+.table{
     margin: 20px 3%;
+
+} */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2% 2%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  color: #160b28;
+  padding: 8px;
+  text-transform: uppercase;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 600;
+  padding: 1%;
+}
+
+th {
+  background-color: #160b28;
+  color: white;
+  text-transform: uppercase;
 }

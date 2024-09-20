@@ -5,7 +5,7 @@ namespace apiAquaGuardians.Models
 	public class PaymentMethod
 	{
 		[Key]
-		public long PaymentMethodId { get; set; }
+		public Guid PaymentMethodId { get; set; }
 
 		[Required]
 		[MaxLength(255)]

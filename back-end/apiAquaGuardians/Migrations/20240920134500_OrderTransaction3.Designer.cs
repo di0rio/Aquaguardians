@@ -12,8 +12,8 @@ using apiAquaGuardians.Data;
 namespace apiAquaGuardians.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240919135147_New")]
-    partial class New
+    [Migration("20240920134500_OrderTransaction3")]
+    partial class OrderTransaction3
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -352,12 +352,17 @@ namespace apiAquaGuardians.Migrations
                     b.Property<Guid>("PlayerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("TotalAmount")
+                    b.Property<decimal?>("TotalAmount")
                         .HasColumnType("decimal(10, 2)");
+
+                    b.Property<Guid?>("TransactionId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("OrderId");
 
                     b.HasIndex("PlayerId");
+
+                    b.HasIndex("TransactionId");
 
                     b.ToTable("Orders", (string)null);
                 });
@@ -371,7 +376,7 @@ namespace apiAquaGuardians.Migrations
                     b.Property<Guid>("OrderId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(10, 2)");
 
                     b.Property<Guid>("ProductId")
@@ -391,11 +396,9 @@ namespace apiAquaGuardians.Migrations
 
             modelBuilder.Entity("apiAquaGuardians.Models.PaymentMethod", b =>
                 {
-                    b.Property<long>("PaymentMethodId")
+                    b.Property<Guid>("PaymentMethodId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("PaymentMethodId"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -454,9 +457,6 @@ namespace apiAquaGuardians.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -467,15 +467,18 @@ namespace apiAquaGuardians.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(10, 2)");
+
+                    b.Property<Guid>("ProductCategoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("StockQuantity")
                         .HasColumnType("int");
 
                     b.HasKey("ProductId");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("ProductCategoryId");
 
                     b.ToTable("Products", (string)null);
                 });
@@ -510,7 +513,7 @@ namespace apiAquaGuardians.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(10, 2)");
 
                     b.Property<DateTime?>("RentalEndDate")
@@ -570,7 +573,7 @@ namespace apiAquaGuardians.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("Price")
+                    b.Property<decimal?>("Price")
                         .HasColumnType("decimal(10, 2)");
 
                     b.Property<Guid>("RentalId")
@@ -629,20 +632,11 @@ namespace apiAquaGuardians.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("AltPoints")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<Guid?>("OrderId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("decimal(10, 2)");
 
                     b.Property<Guid>("PaymentMethodId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<long>("PaymentMethodId1")
-                        .HasColumnType("bigint");
 
                     b.Property<Guid>("PlayerId")
                         .HasColumnType("uniqueidentifier");
@@ -657,9 +651,7 @@ namespace apiAquaGuardians.Migrations
 
                     b.HasKey("TransactionId");
 
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("PaymentMethodId1");
+                    b.HasIndex("PaymentMethodId");
 
                     b.HasIndex("PlayerId");
 
@@ -732,7 +724,13 @@ namespace apiAquaGuardians.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("apiAquaGuardians.Models.Transaction", "Transaction")
+                        .WithMany()
+                        .HasForeignKey("TransactionId");
+
                     b.Navigation("Player");
+
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.OrderItem", b =>
@@ -765,13 +763,13 @@ namespace apiAquaGuardians.Migrations
 
             modelBuilder.Entity("apiAquaGuardians.Models.Product", b =>
                 {
-                    b.HasOne("apiAquaGuardians.Models.ProductCategory", "Category")
+                    b.HasOne("apiAquaGuardians.Models.ProductCategory", "ProductCategory")
                         .WithMany("Products")
-                        .HasForeignKey("CategoryId")
+                        .HasForeignKey("ProductCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.Navigation("ProductCategory");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.Robot", b =>
@@ -819,13 +817,9 @@ namespace apiAquaGuardians.Migrations
 
             modelBuilder.Entity("apiAquaGuardians.Models.Transaction", b =>
                 {
-                    b.HasOne("apiAquaGuardians.Models.Order", "Order")
-                        .WithMany("Transactions")
-                        .HasForeignKey("OrderId");
-
                     b.HasOne("apiAquaGuardians.Models.PaymentMethod", "PaymentMethod")
                         .WithMany("Transactions")
-                        .HasForeignKey("PaymentMethodId1")
+                        .HasForeignKey("PaymentMethodId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -834,8 +828,6 @@ namespace apiAquaGuardians.Migrations
                         .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Order");
 
                     b.Navigation("PaymentMethod");
 
@@ -850,8 +842,6 @@ namespace apiAquaGuardians.Migrations
             modelBuilder.Entity("apiAquaGuardians.Models.Order", b =>
                 {
                     b.Navigation("OrderItems");
-
-                    b.Navigation("Transactions");
                 });
 
             modelBuilder.Entity("apiAquaGuardians.Models.PaymentMethod", b =>

@@ -25,7 +25,7 @@ const Login = () => {
           <a href="#">esqueceu a senha?</a>
         </div>
       </div>
-      <div className={styles.divBtn}>
+      <div>
         <div className={styles.Btn}>
           {navigation.map((nav) => (
             <Link
@@ -33,7 +33,7 @@ const Login = () => {
               key={nav.name}
               to={nav.componente}
             >
-              {nav.name}
+              <button className={styles.divBtn}>{nav.name}</button>
             </Link>
           ))}
         </div>

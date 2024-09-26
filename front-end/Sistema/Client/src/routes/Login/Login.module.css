@@ -58,15 +58,24 @@ Input::placeholder {
   box-shadow: 3px;
 }
 
+.Btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .divBtn {
   background-color: brown;
   width: 250px;
   height: 45px;
   margin-top: auto;
   border-radius: 6px;
+  color: white;
 
   display: flex;
-
+  align-items: center;
+  justify-content: center;
+  
   transition: 0.4s;
   cursor: pointer;
 }

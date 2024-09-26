@@ -32,7 +32,7 @@ const Header = () => {
 
           {/* Ícone NavBar no Mobile */}
           <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
-            <i class="bi bi-justify"></i>
+            <i className="bi bi-justify"></i>
           </button>
 
           {/* Restante da NavBar */}
@@ -42,9 +42,9 @@ const Header = () => {
 
               <div className="dropstart ms-5">
                 <button className="dropdown" data-bs-toggle="dropdown">
-                  <i class="bi bi-person-circle"></i>
+                  <i className="bi bi-person-circle"></i>
                 </button>
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu">
                   <li><p className="mx-2 text-center">Perfil</p></li>
                   <li><hr className="dropdown-divider"/></li>
                   <li> <button className="dropdown-item" href="#"> Dark/Light Mode </button> </li>
@@ -73,9 +73,9 @@ const Header = () => {
             <p className="my-auto ms-5 me-3">Nome do Adiministrador</p>
             <div className="dropstart">
               <button className="dropdown" data-bs-toggle="dropdown">
-                <i class="bi bi-person-circle"></i>
+                <i className="bi bi-person-circle"></i>
               </button>
-              <ul class="dropdown-menu">
+              <ul className="dropdown-menu">
                 <li><p className="mx-2 text-center">Perfil do Administrador</p></li>
                 <li><hr className="dropdown-divider"/></li>
                 <li><a className="dropdown-item" href="#">Dark/Light Mode</a></li>

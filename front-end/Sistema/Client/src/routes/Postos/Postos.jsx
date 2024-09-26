@@ -1,6 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import styles from "./Postos.module.css";
+import { Link } from "react-router-dom";
+
+const navigation = [
+  { componente: "/create", name: "Criar" },
+  // { componente: "/edit", name: "Editar" },
+];
 
 const Postos = () => {
   const [postos, setPostos] = useState([]);
@@ -36,7 +42,11 @@ const Postos = () => {
 
   return (
     <div className={styles.container}>
-      <button className={styles.create}>ADICIONAR</button>
+      {navigation.map((nav) => (
+        <Link key={nav.name} to={nav.componente}>
+          <button className={styles.create}>{nav.name}</button>
+        </Link>
+      ))}
       <table className={styles.table}>
         <thead>
           <tr>
@@ -49,7 +59,6 @@ const Postos = () => {
           </tr>
         </thead>
         <tbody>
-          
           {postos.map((posto) => (
             <tr key={posto.robotStationId}>
               {" "}
@@ -59,7 +68,14 @@ const Postos = () => {
               <td>{posto.location}</td>
               <td>{posto.status}</td>
               <td>{posto.capacity}</td>
-              <td><button style={{background:'rgb(200, 201, 200)'}}><ion-icon name="create-outline"></ion-icon></button><button style={{background:'rgb(250, 10, 20)'}}><ion-icon name="trash-outline"></ion-icon></button></td>
+              <td>
+                <button style={{ background: "rgb(200, 201, 200)" }}>
+                  <ion-icon name="create-outline"></ion-icon>
+                </button>
+                <button style={{ background: "rgb(250, 10, 20)" }}>
+                  <ion-icon name="trash-outline"></ion-icon>
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

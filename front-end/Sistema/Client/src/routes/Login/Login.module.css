@@ -84,3 +84,12 @@ Input::placeholder {
   text-decoration: none;
   color: aquamarine;
 }
+
+@media (min-width: 801px) and (max-width: 1400px) {
+}
+
+@media (max-width: 800px) {
+  .Container {
+    scale: 0.2;
+  }
+}

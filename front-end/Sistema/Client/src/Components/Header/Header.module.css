@@ -56,26 +56,3 @@
 .container a {
   font-size: 14px;
 }
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .container nav > :nth-child(3) div > h5{
-    font-size: 12px;
-  }
-  .container nav > :nth-child(3) div > button{
-    width: 1.5em;
-    height: 1.5em;
-  }
-  .container nav > :nth-child(3) div > button > i{
-    font-size: 16px;
-  }
-  /* Ajustar o tamanho da fonte dos links */
-  .container a {
-    font-size: 12px;
-  }
-  /* Ajustar o tamanho da fonte do nome do administrador */
-  .container nav > :nth-child(4) h5,
-  .container nav > :nth-child(3) div > h5 {
-    font-size: 12px;
-  }
-}

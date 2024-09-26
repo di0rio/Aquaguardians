@@ -13,8 +13,7 @@ const Postos = () => {
     const fetchPostos = async () => {
       try {
         const response = await axios.get(
-          "http://apiaquaguardians.somee.com/api/RobotStations"
-        
+          "https://apiaquaguardians.somee.com/api/RobotStations"
         );
         setPostos(response.data);
       } catch (error) {
@@ -31,8 +30,10 @@ const Postos = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Tem certeza que deseja deletar este posto?")) {
       try {
-        await axios.delete(`http://apiaquaguardians.somee.com/api/RobotStations/${id}`);
-        setPostos(postos.filter(posto => posto.robotStationId !== id));
+        await axios.delete(
+          `http://apiaquaguardians.somee.com/api/RobotStations/${id}`
+        );
+        setPostos(postos.filter((posto) => posto.robotStationId !== id));
       } catch (error) {
         console.error("Erro ao deletar o posto:", error);
         alert("Erro ao deletar o posto.");
@@ -75,14 +76,16 @@ const Postos = () => {
               <td>{posto.status}</td>
               <td>{posto.capacity}</td>
               <td>
-                <Link to="/editposto" state={{ RobotStationId: posto.robotStationId
-                 }}>
+                <Link
+                  to="/editposto"
+                  state={{ RobotStationId: posto.robotStationId }}
+                >
                   <button style={{ background: "rgb(200,201, 200)" }}>
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
-                <button 
-                  onClick={() => handleDelete(posto.robotStationId)} 
+                <button
+                  onClick={() => handleDelete(posto.robotStationId)}
                   style={{ background: "rgb(250, 10, 20)" }}
                 >
                   <ion-icon name="trash-outline"></ion-icon>

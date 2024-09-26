@@ -1,4 +1,4 @@
-import React from "react";
+import styles from "./Edit.module.css";
 
 import { useNavigate, useLocation } from "react-router-dom";
 

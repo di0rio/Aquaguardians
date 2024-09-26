@@ -3,10 +3,9 @@ import React, { useState, useEffect } from "react";
 import styles from "./Postos.module.css";
 import { Link } from "react-router-dom";
 
-const navigation = [
-  { componente: "/create", name: "Criar" },
-  // { componente: "/edit", name: "Editar" },
-];
+const navigation = [{ componente: "/create", name: "Criar" }];
+
+const navigation2 = [{ componente: "/edit", name: "Editar" }];
 
 const Postos = () => {
   const [postos, setPostos] = useState([]);
@@ -69,9 +68,13 @@ const Postos = () => {
               <td>{posto.status}</td>
               <td>{posto.capacity}</td>
               <td>
-                <button style={{ background: "rgb(200, 201, 200)" }}>
-                  <ion-icon name="create-outline"></ion-icon>
-                </button>
+                {navigation2.map((nav) => (
+                  <Link key={nav.name} to={nav.componente}>
+                    <button style={{ background: "rgb(200,201, 200)" }}>
+                      <ion-icon name="create-outline"></ion-icon>
+                    </button>
+                  </Link>
+                ))}
                 <button style={{ background: "rgb(250, 10, 20)" }}>
                   <ion-icon name="trash-outline"></ion-icon>
                 </button>

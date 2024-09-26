@@ -1,45 +1,10 @@
-/* .Header tr th{
-    color: white;
-    background-color: #160B28;
-    text-transform: uppercase;
-    font-family: 'Poppins';
-    font-weight: 400;
-    font-size: 15px;
-    text-align: center;
-}
-.Row{
-    background-color: #160B28;
-    
-}
-.Row tr td{
-    color: #160B28;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-size: 15px;
-    border: solid 1px #DAD5E7;
-    text-align: center;
-    font-family: 'Poppins';
-    font-weight: 600;
-}
-
-.Row tr th{
-    border: solid 1px #DAD5E7;
-    color: #160B28;
-    text-align: center;
-    font-family: 'Poppins';
-    font-weight: 400;
-}
-
-.table{
-    margin: 20px 3%;
-
-} */
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2% 2%;
+  flex-direction: column;
+  gap: 30px;
 }
 
 table {
@@ -63,4 +28,49 @@ th {
   background-color: #160b28;
   color: white;
   text-transform: uppercase;
+}
+
+button {
+  border: none;
+  margin: 2px 2px;
+  font-size: 20px;
+  border-radius: 4px;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.create{
+  padding: 10px 90px;
+  border: solid 2px black;
+  background-color: #A1FFE0;
+
+}
+
+button:hover{
+  scale: 1.03;
+}
+
+@media (min-width: 350px) and (max-width: 780px) {
+  .container{
+    gap: 10px;
+  }
+  
+  table{
+
+  }
+
+  th{
+    font-size: 10px;
+    padding: 5px;  
+  }
+
+  td{
+    font-size: 10px;
+  }
+
+  .create{
+    padding: 5px 45px;
+    font-size: 18px;
+  }
+
 }

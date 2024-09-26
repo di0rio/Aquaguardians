@@ -36,6 +36,7 @@ const Postos = () => {
 
   return (
     <div className={styles.container}>
+      <button className={styles.create}>ADICIONAR</button>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -44,9 +45,11 @@ const Postos = () => {
             <th scope="col">Localização</th>
             <th scope="col">Status</th>
             <th scope="col">Capacidade</th>
+            <th scope="col">Editar</th>
           </tr>
         </thead>
         <tbody>
+          
           {postos.map((posto) => (
             <tr key={posto.robotStationId}>
               {" "}
@@ -56,6 +59,7 @@ const Postos = () => {
               <td>{posto.location}</td>
               <td>{posto.status}</td>
               <td>{posto.capacity}</td>
+              <td><button style={{background:'rgb(200, 201, 200)'}}><ion-icon name="create-outline"></ion-icon></button><button style={{background:'rgb(250, 10, 20)'}}><ion-icon name="trash-outline"></ion-icon></button></td>
             </tr>
           ))}
         </tbody>

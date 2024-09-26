@@ -3,18 +3,24 @@
   padding: auto;
 }
 
+.Page{
+  background-image: linear-gradient(45deg, #160B28, #442575, #17DEE2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .Container {
-  background-color: rgb(65, 156, 216);
+  background-color: rgb(22, 11, 40, 70%);
   width: 650px;
   height: 580px;
   border-radius: 14px;
-
-  margin-top: 7.5em;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* box-shadow: rgb(59, 141, 196) 10px 10px 20px; */
 }
 
 .Title {
@@ -23,7 +29,7 @@
 }
 
 .Title h2 {
-  color: white;
+  color: #17DEE2;
   font-size: 42px;
 }
 
@@ -65,13 +71,13 @@ Input::placeholder {
 }
 
 .divBtn {
-  background-color: brown;
-  width: 250px;
+  background-color: #10a7aa;
+  width: 260px;
   height: 45px;
   margin-top: auto;
   border-radius: 6px;
   color: white;
-
+  text-transform: uppercase;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,11 +105,10 @@ Input::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-    
     width: 640px;
   }
   .Inputs input {
-    width: 220px;
+    width: 260px;
   }
 }
 
@@ -112,11 +117,10 @@ Input::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    scale: 0.7;
-    width: 300px;
+    height: 100%;
+    border-radius: 0px;
   }
   .Inputs input {
-    width: 180px;
+    width: 260px;
   }
 }

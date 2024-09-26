@@ -10,9 +10,11 @@ import Robos from "./routes/Robos/Robos.jsx";
 import Postos from "./routes/Postos/Postos.jsx";
 import Login from "./routes/Login/Login.jsx";
 import CreatePosto from "./routes/CreatePosto/CreatePosto.jsx";
+import CreateRobot from "./routes/CreateRobot/CreateRobot.jsx";
 import EditPosto from "./routes/EditPosto/EditPosto.jsx";
+import EditRobot from "./routes/EditRobot/EditRobot.jsx";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([  
   {
     path: "/",
     element: <App />,
@@ -23,7 +25,9 @@ const router = createBrowserRouter([
       { path: "robos", element: <Robos /> },
       { path: "postos", element: <Postos /> },
       { path: "createposto", element: <CreatePosto /> },
+      { path: "createrobot", element: <CreateRobot /> },
       { path: "editposto", element: <EditPosto /> },
+      { path: "editrobot", element: <EditRobot /> },
     ],
   },
 ]);

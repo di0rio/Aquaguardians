@@ -1,19 +1,19 @@
-.container *{
-}
-
+/* Configurações gerais */
 .container nav{
   background: #160B28 !important;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Poppins";
+  font-weight: 500;
 }
 
 /* Logo do AquaGuardians */
 .aquaGuardians{
   text-decoration: none;
-
   font-family: "BabaPro" !important;
   font-weight: 600;
   font-size: 26px !important;
-
-  color: #A1FFE0 !important;
+  color: #09BDE6 !important;
 }
 
 /* Botão para abrir a NavBar em Mobile */
@@ -21,58 +21,61 @@
   background: none;
   border: none;
 }
-
 .container nav > :nth-child(2) i{
   font-size: 26px;
   color: #fff;
 }
 
+/* Nav no Mobile */
 .container nav > :nth-child(3){
   background: #160B28;
   color: #fff;
 }
 
-/* Botão para abrir as configurações de perfil */
-.container nav > :nth-child(3) button {
-  background: none;
-  border: none;
+/* Configurações de perfil no Desktop  */
+.container nav > :nth-child(4) h5 {
+  font-size: 14px;
 }
 
-.container nav > :nth-child(3) button > i{
-  background: #160B28;
+/* Cnfigurações de Perfil no Mobile */
+.container nav > :nth-child(3) div > h5{
+  font-size: 14px;
+}
+.container nav > :nth-child(3) div > button{
+  background: none;
+  border: none;
+  width: 1.85em;
+  height: 1.85em;
+}
+.container nav > :nth-child(3) div > button > i{
   color: #fff;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* Links na NavBar */
 .container a {
-  text-transform: uppercase;
-
-  font-family: "Poppins";
   font-size: 14px;
-  font-weight: 500;
 }
 
-.container nav div h5{
-  text-transform: uppercase;
-
-  font-family: "Poppins";
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.container nav > :nth-child(2) > span{
-  color: #284AC6;
-  font-size: 20px;
-  font-weight: bolder;
-};
-
-/* Restante da NavBar */
-.container nav > h5{
-  
-}
-
-.container nav > Link{
-  text-decoration: none;
-  font-size: 40px;
+/* Responsividade */
+@media (max-width: 768px) {
+  .container nav > :nth-child(3) div > h5{
+    font-size: 12px;
+  }
+  .container nav > :nth-child(3) div > button{
+    width: 1.5em;
+    height: 1.5em;
+  }
+  .container nav > :nth-child(3) div > button > i{
+    font-size: 16px;
+  }
+  /* Ajustar o tamanho da fonte dos links */
+  .container a {
+    font-size: 12px;
+  }
+  /* Ajustar o tamanho da fonte do nome do administrador */
+  .container nav > :nth-child(4) h5,
+  .container nav > :nth-child(3) div > h5 {
+    font-size: 12px;
+  }
 }

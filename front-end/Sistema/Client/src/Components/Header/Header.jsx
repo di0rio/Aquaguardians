@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import styles from "./Header.module.css"
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import ConfigPerfil from "../ConfigPerfil/ConfigPerfil";
+import ConfigPerfil from "../ConfigPerfil/ConfigPerfil"
 
 const navigation = [
   { componente: "/users", name: "Usuários" },
@@ -43,9 +43,9 @@ const Header = () => {
             {/* Header no Mobile */}
             <div className="offcanvas-header px-0">
               <h5 className="offcanvas-title me-5">Nome do Administrador</h5>
-              <ConfigPerfil className="mx-1"/>
+              <ConfigPerfil />
               <button type="button" className="btn-close ms-5 p-0" data-bs-dismiss="offcanvas">
-                <i class="bi bi-x-lg" />
+                <i className="bi bi-x-lg" />
               </button>
             </div>
 

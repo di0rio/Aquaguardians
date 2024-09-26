@@ -1,5 +1,5 @@
 .container *{
-    color: #fff;
+    color: #fff !important;
 }
 
 /* Botão para abrir o DropDown */
@@ -11,9 +11,10 @@
     font-size: 20px;
 }
 
+/* DropDown */
 .container div > ul {
     background: #160B28;
-    border: solid 2px #e5e5e5;
+    border: solid 2px #fff;
 }
 
 /* Perfil */
@@ -25,23 +26,11 @@
 .container div > ul > :nth-child(3) > a{
     font-size: 14px;
 }
-
+.container div > ul > :nth-child(3) > a:hover{
+    color: #160B28 !important;
+}
 /* Sair */
-.container div > ul > :nth-child(4) > button{
+.container div > ul > :nth-child(4) > a{
     text-transform: uppercase;
     font-size: 14px;
 }
-
-@media (max-width: 768px) {
-    /* Ajustes para telas menores que 768px */
-    .container div > button > i {
-      font-size: 18px; /* Reduz o tamanho do ícone do botão */
-    }
-    .container div > ul > :nth-child(1) > h5 {
-      font-size: 14px; /* Reduz o tamanho da fonte do "Perfil" */
-    }
-    .container div > ul > :nth-child(3) > a,
-    .container div > ul > :nth-child(4) > button {
-      font-size: 12px; /* Reduz o tamanho da fonte dos links */
-    }
-  }

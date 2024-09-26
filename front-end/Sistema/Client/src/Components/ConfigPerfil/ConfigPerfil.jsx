@@ -1,19 +1,20 @@
-import styles from './ConfigPerfil.module.css'
+import styles from './ConfigPerfil.module.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const ConfigPerfil = () => {
   return (
     <div className={styles.container}>
       <div className="dropstart">
-          <button className="dropdown" data-bs-toggle="dropdown">
-            <i class="bi bi-person-circle"></i>
+          <button className="dropdown p-0" type="button" data-bs-toggle="dropdown">
+            <i className="bi bi-person-circle" />
           </button>
-          <ul class="dropdown-menu">
+          <ul className="dropdown-menu">
             <li><h5 className="text-center my-0">Perfil</h5></li>
             <li><hr className="dropdown-divider mx-3 my-2" style={{backgroundColor:"#fff"}}/></li>
             <li><a className="dropdown-item" href="#">Dark/Light Mode</a></li>
-            <li><button className="dropdown-item text-bg-danger" href="#">Sair</button></li>
+            <li><a className="dropdown-item text-bg-danger" href="#">Sair</a></li>
           </ul>
-      </div> 
+      </div>
     </div>
   )
 }

@@ -1,44 +1,123 @@
-import styles from "./Create.module.css";
+import styles from "./CreateRobot.module.css";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-import { useNavigate, useLocation } from "react-router-dom";
-
-const Create = () => {
+const CreateRobot = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+  const [name, setName] = useState("");
+  const [model, setModel] = useState("");
+  const [robotStationId, setRobotStationId] = useState("");
+  const [stations, setStations] = useState([]);
+  const [isAvaliableForRent, setIsAvaliableForRent] = useState(false);
 
-  const handleGoBack = () => {
-    if (location.state && location.state.from) {
-      navigate(location.state.from);
-    } else {
-      navigate(-1);
+  const fetchStations = async () => {
+    try {
+      const resposta = await axios.get(
+        "http://apiaquaguardians.somee.com/api/RobotStations"
+      );
+      if (resposta.status === 200) {
+        setStations(resposta.data);
+      } else {
+        console.error("Erro ao buscar estações:", resposta.statusText);
+      }
+    } catch (erro) {
+      console.error("Erro ao buscar estações:", erro);
     }
   };
 
+  useEffect(() => {
+    fetchStations();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const currentDate = new Date().toISOString();
+
+    try {
+      const resposta = await axios.post(
+        "http://apiaquaguardians.somee.com/api/Robots",
+        {
+          name,
+          model,
+          createdAt: currentDate,
+          isAvaliableForRent,
+          robotStationId,
+        }
+      );
+
+      if (resposta.status === 200 || resposta.status === 201) {
+        console.log("Item criado:", resposta.data);
+        setName("");
+        setModel("");
+        setRobotStationId("");
+        setIsAvaliableForRent(false);
+      } else {
+        console.error("Erro ao criar o item:", resposta.statusText);
+      }
+    } catch (erro) {
+      console.error(
+        "Erro ao criar o item:",
+        erro.response ? erro.response.data : erro
+      );
+      alert("Erro ao criar o robô. Verifique os dados e tente novamente.");
+    }
+  };
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className={styles.Container}>
-      <div className={styles.Conteudo}>
-        <div className={styles.Title}>
-          <h2>Adicionar</h2>
-        </div>
-        <div className={styles.Input}>
-          <div>
-            <input type="text" placeholder="" />
-          </div>
-          <div>
-            <input type="text" placeholder="" />
-        </div>
-        </div>
-      </div>
-      <div className={styles.Btns}>
-        <div className={styles.BtnCriar}>
-          <button onClick={handleGoBack}>Adicionar</button>
-        </div>
-        <div onClick={handleGoBack} className={styles.BtnVoltar}>
-          <button>Voltar</button>
-        </div>
-      </div>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Nome"
+        required
+      />
+      <input
+        type="text"
+        value={model}
+        onChange={(e) => setModel(e.target.value)}
+        placeholder="Modelo"
+        required
+      />
+      <input
+        type="text"
+        value={new Date().toISOString()} // Mostrando a data atual
+        placeholder="Horário de Criação"
+        readOnly // Campo somente leitura
+      />
+      <label>
+        <input
+          type="checkbox"
+          checked={isAvaliableForRent}
+          onChange={(e) => setIsAvaliableForRent(e.target.checked)}
+        />
+        Disponível
+      </label>
+      <select
+        value={robotStationId}
+        onChange={(e) => setRobotStationId(e.target.value)}
+        required
+      >
+        <option value="" disabled>
+          Selecione a estação
+        </option>
+        {stations.map((station) => (
+          <option key={station.id} value={station.id}>
+            {station.name}
+          </option>
+        ))}
+      </select>
+      <button type="submit">Adicionar Item</button>
+      <button type="button" onClick={handleGoBack}>
+        Voltar
+      </button>
+    </form>
   );
 };
 
-export default Create;
+export default CreateRobot;

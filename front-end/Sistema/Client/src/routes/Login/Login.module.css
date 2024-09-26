@@ -85,11 +85,29 @@ Input::placeholder {
   color: aquamarine;
 }
 
-@media (min-width: 801px) and (max-width: 1400px) {
+@media (min-width: 767px) and (max-width: 1400px) {
+  .Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 640px;
+  }
+  .Inputs input {
+    width: 220px;
+  }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 766px) {
   .Container {
-    scale: 0.2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    scale: 0.7;
+    width: 300px;
+  }
+  .Inputs input {
+    width: 180px;
   }
 }

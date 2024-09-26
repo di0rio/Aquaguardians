@@ -1,15 +1,22 @@
 import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom";
+
 import styles from "./Header.module.css"
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-
 const navigation = [
-  { componente: "/", name: "Usuários" },
+  { componente: "/users", name: "Usuários" },
   { componente: "/robos", name: "Robôs" },
   { componente: "/postos", name: "Postos" },
 ];
 
 const Header = () => {
+  const location = useLocation();
+
+  if (location.pathname === "/") {
+    return null;
+  }
+
   return (
     <div className={styles.container}>
       <nav className="navbar navbar-expand-md bg-info top-0 container-fluid px-5">
@@ -81,4 +88,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;

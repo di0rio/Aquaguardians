@@ -1,14 +1,43 @@
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import styles from "./Postos.module.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-import "../../api/Api.js";
 
 const Postos = () => {
+  const [postos, setPostos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPostos = async () => {
+      try {
+        const response = await axios.get(
+          "http://apiaquaguardians.somee.com/api/RobotStations"
+        );
+        console.log(response.data); // Verifique a estrutura dos dados
+        setPostos(response.data);
+      } catch (error) {
+        setError("Erro ao carregar dados dos postos.");
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPostos();
+  }, []);
+
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
-    <div className={styles.tabelas}>
-      <table class="table">
-        <thead className={styles.Header}>
+    <div className={styles.container}>
+      <table className={styles.table}>
+        <thead>
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
@@ -17,25 +46,20 @@ const Postos = () => {
             <th scope="col">Capacidade</th>
           </tr>
         </thead>
-        <tbody className={styles.Row}>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@twitter</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@twitter</td>
-          </tr>
+        <tbody>
+          {postos.map((posto) => (
+            <tr key={posto.robotStationId}>
+              {" "}
+              {/* Verifique se RobotStationId é único */}
+              <td>{posto.robotStationId}</td>
+              <td>{posto.name}</td>
+              <td>{posto.location}</td>
+              <td>{posto.status}</td>
+              <td>{posto.capacity}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
-
-      <div></div>
     </div>
   );
 };

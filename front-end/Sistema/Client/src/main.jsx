@@ -9,6 +9,8 @@ import Usuarios from "./routes/Usuarios/Usuarios.jsx";
 import Robos from "./routes/Robos/Robos.jsx";
 import Postos from "./routes/Postos/Postos.jsx";
 import Login from "./routes/Login/Login.jsx";
+import Create from "./routes/Create/Create.jsx";
+import Edit from "./routes/Edit/Edit.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,8 @@ const router = createBrowserRouter([
       { path: "users", element: <Usuarios /> },
       { path: "robos", element: <Robos /> },
       { path: "postos", element: <Postos /> },
+      { path: "create", element: <Create /> },
+      { path: "edit", element: <Edit /> },
     ],
   },
 ]);

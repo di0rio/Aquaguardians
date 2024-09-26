@@ -1,8 +1,8 @@
-import styles from "./Edit.module.css";
+import styles from "./Create.module.css";
 
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Edit = () => {
+const Create = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -18,7 +18,7 @@ const Edit = () => {
     <div className={styles.Container}>
       <div className={styles.Conteudo}>
         <div className={styles.Title}>
-          <h2>Editar</h2>
+          <h2>Adicionar</h2>
         </div>
         <div className={styles.Input}>
           <div>
@@ -26,12 +26,12 @@ const Edit = () => {
           </div>
           <div>
             <input type="text" placeholder="" />
-          </div>
+        </div>
         </div>
       </div>
       <div className={styles.Btns}>
         <div className={styles.BtnCriar}>
-          <button onClick={handleGoBack}>Editar</button>
+          <button onClick={handleGoBack}>Adicionar</button>
         </div>
         <div onClick={handleGoBack} className={styles.BtnVoltar}>
           <button>Voltar</button>
@@ -41,4 +41,4 @@ const Edit = () => {
   );
 };
 
-export default Edit;
+export default Create;

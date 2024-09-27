@@ -1,30 +1,36 @@
 import styles from "./CreatePosto.module.css";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Removido useLocation, não necessário aqui
-import axios from 'axios';
+import axios from "axios";
 
 const CreatePosto = () => {
   const navigate = useNavigate(); // Inicialize o hook useNavigate
-  const [location, setLocation] = useState('');
-  const [status, setStatus] = useState('');
-  const [name, setName] = useState('');
-  const [capacity, setCapacity] = useState('');
+  const [location, setLocation] = useState("");
+  const [status, setStatus] = useState("");
+  const [name, setName] = useState("");
+  const [capacity, setCapacity] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const resposta = await axios.post('http://apiaquaguardians.somee.com/api/RobotStations', {
-        location, status, name, capacity,
-      });
-      console.log('Item criado:', resposta.data);
+      const resposta = await axios.post(
+        "http://apiaquaguardians.somee.com/api/RobotStations",
+        {
+          location,
+          status,
+          name,
+          capacity,
+        }
+      );
+      console.log("Item criado:", resposta.data);
       // Limpar os campos após o envio, se necessário
-      setLocation('');
-      setStatus('');
-      setName('');
-      setCapacity('');
+      setLocation("");
+      setStatus("");
+      setName("");
+      setCapacity("");
     } catch (erro) {
-      console.error('Erro ao criar o item:', erro);
+      console.error("Erro ao criar o item:", erro);
     }
   };
 
@@ -33,7 +39,10 @@ const CreatePosto = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.Form} onSubmit={handleSubmit}>
+      <div className={styles.Content}>
+        <h2>Cadastrar Posto</h2>
+      </div>
       <input
         type="text"
         value={location}
@@ -57,13 +66,20 @@ const CreatePosto = () => {
       />
       <input
         type="text"
-        value={capacity}  
+        value={capacity}
         onChange={(e) => setCapacity(e.target.value)}
         placeholder="Capacidade"
         required
       />
-      <button type="submit">Adicionar Item</button>
-      <button type="button" onClick={handleGoBack}>Voltar</button> {/* Modificado para chamar handleGoBack */}
+      <div className={styles.btns}>
+        {/* Modificado para chamar handleGoBack */}
+        <button className={styles.Add} type="submit">
+          Adicionar Item
+        </button>
+        <button className={styles.Voltar} type="button" onClick={handleGoBack}>
+          Voltar
+        </button>{" "}
+      </div>
     </form>
   );
 };

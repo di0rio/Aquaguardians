@@ -13,7 +13,7 @@ const Postos = () => {
     const fetchPostos = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/RobotStations"
+          "http://apiaquaguardians.somee.com/api/RobotStations"
         );
         setPostos(response.data);
       } catch (error) {

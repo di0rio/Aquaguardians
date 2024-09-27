@@ -42,24 +42,6 @@ namespace apiAquaGuardians.Controllers
             return robot;
         }
 
-
-
-
-        // GET: api/Robots/
-
-        [HttpGet("{station}")]
-        public async Task<ActionResult<Robot>> GetRobotsByStation(Guid station)
-        {
-            var listRobots = await _context.Robots.Where(r => r.RobotStationId == station).ToListAsync();
-
-            if (listRobots.Count == 0)
-            {
-                return NotFound();
-            }
-
-            return Ok(listRobots);
-        }
-
         // GET: api/Robots/
 
         [HttpGet("models/{model}")]

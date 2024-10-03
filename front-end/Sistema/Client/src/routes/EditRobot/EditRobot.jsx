@@ -12,13 +12,12 @@ const EditRobot = () => {
     robotStationId: "", // ID da estação
     name: "",
     model: "",
-    createdAt: "",
+    createdAt: "", // Inicialize com uma string vazia
     isAvaliableForRent: false,
   });
 
   const [stations, setStations] = useState([]);
 
-  // Fetch stations for the select dropdown
   const fetchStations = async () => {
     try {
       const response = await axios.get(
@@ -50,14 +49,13 @@ const EditRobot = () => {
           `https://apiaquaguardians.somee.com/api/Robots/${location.state.robotId}`
         );
         console.log("Dados do robô:", response.data);
-        // Verifique se robotStationId existe na resposta
         setFormData({
           robotId: location.state.robotId, // Adicione o robotId
-          robotStationId: response.data.robotStationId || "",
-          name: response.data.name,
-          model: response.data.model,
-          createdAt: response.data.createdAt,
-          isAvaliableForRent: response.data.isAvaliableForRent,
+          robotStationId: response.data.robotStationId || "", // Garante uma string vazia se não estiver definido
+          name: response.data.name || "", // Garante que tenha um valor
+          model: response.data.model || "", // Garante que tenha um valor
+          createdAt: response.data.createdAt || "", // Garante que tenha um valor
+          isAvaliableForRent: response.data.isAvaliableForRent || false, // Garante um booleano
         });
       } catch (error) {
         console.error("Erro ao buscar dados do robô:", error);
@@ -81,7 +79,7 @@ const EditRobot = () => {
 
     try {
       const response = await axios.put(
-        `https://apiaquaguardians.somee.com/api/Robots/${formData.robotId}`, // Use o robotId do formData
+        `https://apiaquaguardians.somee.com/api/Robots/${formData.robotId}`,
         formData
       );
 
@@ -127,7 +125,7 @@ const EditRobot = () => {
         <input
           type="text"
           name="createdAt"
-          value={formData.createdAt}
+          value={formData.createdAt} // Certifique-se de que sempre tenha um valor
           placeholder="Data de Criação"
           readOnly
         />

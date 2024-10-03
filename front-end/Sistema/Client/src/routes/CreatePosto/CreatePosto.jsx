@@ -1,30 +1,36 @@
 import styles from "./CreatePosto.module.css";
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Removido useLocation, não necessário aqui
-import axios from 'axios';
+import axios from "axios";
 
 const CreatePosto = () => {
   const navigate = useNavigate(); // Inicialize o hook useNavigate
-  const [location, setLocation] = useState('');
-  const [status, setStatus] = useState('');
-  const [name, setName] = useState('');
-  const [capacity, setCapacity] = useState('');
+  const [location, setLocation] = useState("");
+  const [status, setStatus] = useState("");
+  const [name, setName] = useState("");
+  const [capacity, setCapacity] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const resposta = await axios.post('http://apiaquaguardians.somee.com/api/RobotStations', {
-        location, status, name, capacity,
-      });
-      console.log('Item criado:', resposta.data);
+      const resposta = await axios.post(
+        "https://apiaquaguardians.somee.com/api/RobotStations",
+        {
+          location,
+          status,
+          name,
+          capacity,
+        }
+      );
+      console.log("Item criado:", resposta.data);
       // Limpar os campos após o envio, se necessário
-      setLocation('');
-      setStatus('');
-      setName('');
-      setCapacity('');
+      setLocation("");
+      setStatus("");
+      setName("");
+      setCapacity("");
     } catch (erro) {
-      console.error('Erro ao criar o item:', erro);
+      console.error("Erro ao criar o item:", erro);
     }
   };
 
@@ -57,13 +63,16 @@ const CreatePosto = () => {
       />
       <input
         type="text"
-        value={capacity}  
+        value={capacity}
         onChange={(e) => setCapacity(e.target.value)}
         placeholder="Capacidade"
         required
       />
       <button type="submit">Adicionar Item</button>
-      <button type="button" onClick={handleGoBack}>Voltar</button> {/* Modificado para chamar handleGoBack */}
+      <button type="button" onClick={handleGoBack}>
+        Voltar
+      </button>{" "}
+      {/* Modificado para chamar handleGoBack */}
     </form>
   );
 };

@@ -26,7 +26,7 @@ const EditPosto = () => {
     const fetchPosto = async () => {
       try {
         const response = await axios.get(
-          `http://apiaquaguardians.somee.com/api/RobotStations/${location.state.RobotStationId}`
+          `https://apiaquaguardians.somee.com/api/RobotStations/${location.state.RobotStationId}`
         );
         setFormData({
           RobotStationId: location.state.RobotStationId, // Adiciona o ID ao formData
@@ -53,7 +53,7 @@ const EditPosto = () => {
     try {
       // Faz a requisição PUT para atualizar os dados do posto
       const response = await axios.put(
-        `http://apiaquaguardians.somee.com/api/RobotStations/${formData.RobotStationId}`,
+        `https://apiaquaguardians.somee.com/api/RobotStations/${formData.RobotStationId}`,
         formData // Passando o objeto formData, que agora inclui o RobotStationId
       );
 

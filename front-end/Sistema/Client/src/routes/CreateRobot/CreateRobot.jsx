@@ -14,7 +14,7 @@ const CreateRobot = () => {
   const fetchStations = async () => {
     try {
       const resposta = await axios.get(
-        "http://apiaquaguardians.somee.com/api/RobotStations"
+        "https://apiaquaguardians.somee.com/api/RobotStations"
       );
       if (resposta.status === 200) {
         setStations(resposta.data);
@@ -36,17 +36,17 @@ const CreateRobot = () => {
 
     try {
       const resposta = await axios.post(
-        "http://apiaquaguardians.somee.com/api/Robots",
+        "https://apiaquaguardians.somee.com/api/Robots",
         {
           name,
           model,
           createdAt: currentDate,
           isAvaliableForRent,
-          robotStationId,
+          robotStationId, // Converte para número
         }
       );
 
-      if (resposta.status === 200 || resposta.status === 201) {
+      if (resposta.status === 201) {
         console.log("Item criado:", resposta.data);
         setName("");
         setModel("");
@@ -56,10 +56,11 @@ const CreateRobot = () => {
         console.error("Erro ao criar o item:", resposta.statusText);
       }
     } catch (erro) {
-      console.error(
-        "Erro ao criar o item:",
-        erro.response ? erro.response.data : erro
-      );
+      if (erro.response && erro.response.data) {
+        console.error("Erro de validação:", erro.response.data);
+      } else {
+        console.error("Erro ao criar o item:", erro);
+      }
       alert("Erro ao criar o robô. Verifique os dados e tente novamente.");
     }
   };
@@ -107,11 +108,12 @@ const CreateRobot = () => {
           Selecione a estação
         </option>
         {stations.map((station) => (
-          <option key={station.id} value={station.id}>
-            {station.name}
+          <option key={station.robotStationId} value={station.robotStationId}>
+            {station.name} {/* Exibindo o nome da estação */}
           </option>
         ))}
       </select>
+
       <button type="submit">Adicionar Item</button>
       <button type="button" onClick={handleGoBack}>
         Voltar

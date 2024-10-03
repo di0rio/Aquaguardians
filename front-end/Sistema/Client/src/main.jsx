@@ -14,6 +14,7 @@ import CreateRobot from "./routes/CreateRobot/CreateRobot.jsx";
 import EditPosto from "./routes/EditPosto/EditPosto.jsx";
 import EditRobot from "./routes/EditRobot/EditRobot.jsx";
 
+
 const router = createBrowserRouter([  
   {
     path: "/",

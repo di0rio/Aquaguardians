@@ -8,6 +8,7 @@ const EditRobot = () => {
   const location = useLocation();
 
   const [formData, setFormData] = useState({
+    robotId: "", // ID do robô
     robotStationId: "", // ID da estação
     name: "",
     model: "",
@@ -36,12 +37,9 @@ const EditRobot = () => {
   useEffect(() => {
     fetchStations();
 
-    console.log("location.state:", location.state);
-
-    // !location.state ||     || !location.state.RobotStationId
-    if (!location.state.robotId) {
-      console.error("RobotId ou RobotStationId não estão disponíveis.");
-      alert("Robô ou Estação não encontrados. Redirecionando...");
+    if (!location.state || !location.state.robotId) {
+      console.error("RobotId não está disponível.");
+      alert("Robô não encontrado. Redirecionando...");
       navigate(-1);
       return;
     }
@@ -54,6 +52,7 @@ const EditRobot = () => {
         console.log("Dados do robô:", response.data);
         // Verifique se robotStationId existe na resposta
         setFormData({
+          robotId: location.state.robotId, // Adicione o robotId
           robotStationId: response.data.robotStationId || "",
           name: response.data.name,
           model: response.data.model,
@@ -68,6 +67,7 @@ const EditRobot = () => {
 
     fetchRobot();
   }, [location, navigate]);
+
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -81,13 +81,13 @@ const EditRobot = () => {
 
     try {
       const response = await axios.put(
-        `https://apiaquaguardians.somee.com/api/Robots/${location.state.robotId}`,
-        formData // Passando o objeto formData
+        `https://apiaquaguardians.somee.com/api/Robots/${formData.robotId}`, // Use o robotId do formData
+        formData
       );
 
-      if (response.status === 200) {
+      if (response.status === 200 || response.status === 204) {
         alert("Robô editado com sucesso!");
-        navigate(-1); // Redireciona de volta após a edição
+        navigate(-1);
       } else {
         alert("Erro ao editar robô. Verifique os dados e tente novamente.");
       }
@@ -127,9 +127,9 @@ const EditRobot = () => {
         <input
           type="text"
           name="createdAt"
-          value={formData.createdAt} // Exibir a data de criação
+          value={formData.createdAt}
           placeholder="Data de Criação"
-          readOnly // Campo somente leitura
+          readOnly
         />
         <label>
           <input

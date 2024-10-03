@@ -15,7 +15,7 @@ const CreatePosto = () => {
 
     try {
       const resposta = await axios.post(
-        "http://apiaquaguardians.somee.com/api/RobotStations",
+        "https://apiaquaguardians.somee.com/api/RobotStations",
         {
           location,
           status,
@@ -71,15 +71,11 @@ const CreatePosto = () => {
         placeholder="Capacidade"
         required
       />
-      <div className={styles.btns}>
-        {/* Modificado para chamar handleGoBack */}
-        <button className={styles.Add} type="submit">
-          Adicionar Item
-        </button>
-        <button className={styles.Voltar} type="button" onClick={handleGoBack}>
-          Voltar
-        </button>{" "}
-      </div>
+      <button type="submit">Adicionar Item</button>
+      <button type="button" onClick={handleGoBack}>
+        Voltar
+      </button>{" "}
+      {/* Modificado para chamar handleGoBack */}
     </form>
   );
 };

@@ -3,72 +3,100 @@ import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./EditRobot.module.css";
 
-const EditPosto = () => {
+const EditRobot = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const [formData, setFormData] = useState({
-    RobotStationId: "", // Adicionado ao estado
-    location: "",
-    status: "",
+    robotStationId: "", // ID da estação
     name: "",
-    capacity: "",
+    model: "",
+    createdAt: "",
+    isAvaliableForRent: false,
   });
 
+  const [stations, setStations] = useState([]);
+
+  // Fetch stations for the select dropdown
+  const fetchStations = async () => {
+    try {
+      const response = await axios.get(
+        `https://apiaquaguardians.somee.com/api/RobotStations`
+      );
+      if (response.status === 200) {
+        setStations(response.data);
+      } else {
+        console.error("Erro ao buscar estações:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Erro ao buscar estações:", error);
+    }
+  };
+
   useEffect(() => {
-    if (!location.state || !location.state.RobotStationId) {
-      console.error("RobotStationId não está disponível.");
-      alert("Posto não encontrado. Redirecionando...");
-      navigate(-1); // Redireciona se não encontrar o ID
+    fetchStations();
+
+    console.log("location.state:", location.state);
+
+    // !location.state ||     || !location.state.RobotStationId
+    if (!location.state.robotId) {
+      console.error("RobotId ou RobotStationId não estão disponíveis.");
+      alert("Robô ou Estação não encontrados. Redirecionando...");
+      navigate(-1);
       return;
     }
 
-    const fetchPosto = async () => {
+    const fetchRobot = async () => {
       try {
         const response = await axios.get(
-          `http://apiaquaguardians.somee.com/api/RobotStations/${location.state.RobotStationId}`
+          `https://apiaquaguardians.somee.com/api/Robots/${location.state.robotId}`
         );
+        console.log("Dados do robô:", response.data);
+        // Verifique se robotStationId existe na resposta
         setFormData({
-          RobotStationId: location.state.RobotStationId, // Adiciona o ID ao formData
-          location: response.data.location,
-          status: response.data.status,
+          robotStationId: response.data.robotStationId || "",
           name: response.data.name,
-          capacity: response.data.capacity,
+          model: response.data.model,
+          createdAt: response.data.createdAt,
+          isAvaliableForRent: response.data.isAvaliableForRent,
         });
       } catch (error) {
-        console.error("Erro ao buscar dados do posto:", error);
-        alert("Erro ao carregar os dados do posto.");
+        console.error("Erro ao buscar dados do robô:", error);
+        alert("Erro ao carregar os dados do robô.");
       }
     };
 
-    fetchPosto();
+    fetchRobot();
   }, [location, navigate]);
-
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { name, value, type, checked } = e.target;
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
   };
 
-  const handleEdit = async () => {
+  const handleEdit = async (e) => {
+    e.preventDefault();
+
     try {
-      // Faz a requisição PUT para atualizar os dados do posto
       const response = await axios.put(
-        `http://apiaquaguardians.somee.com/api/RobotStations/${formData.RobotStationId}`,
-        formData // Passando o objeto formData, que agora inclui o RobotStationId
+        `https://apiaquaguardians.somee.com/api/Robots/${location.state.robotId}`,
+        formData // Passando o objeto formData
       );
 
-      if (response.status === 204) {
-        alert("Posto editado com sucesso!");
+      if (response.status === 200) {
+        alert("Robô editado com sucesso!");
         navigate(-1); // Redireciona de volta após a edição
       } else {
-        alert("Erro ao editar posto. Verifique os dados e tente novamente.");
+        alert("Erro ao editar robô. Verifique os dados e tente novamente.");
       }
     } catch (error) {
       console.error(
-        "Erro ao editar posto:",
+        "Erro ao editar robô:",
         error.response ? error.response.data : error
       );
-      alert("Erro ao editar posto. Tente novamente.");
+      alert("Erro ao editar robô. Tente novamente.");
     }
   };
 
@@ -78,63 +106,63 @@ const EditPosto = () => {
 
   return (
     <div className={styles.Container}>
-      <div className={styles.Conteudo}>
-        <div className={styles.Title}>
-          <h2>Editar</h2>
-        </div>
-        <div className={styles.Input}>
-          <div>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="Nome do Posto"
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              name="status"
-              value={formData.status}
-              onChange={handleChange}
-              placeholder="Status do Posto"
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="text"
-              name="location"
-              value={formData.location}
-              onChange={handleChange}
-              placeholder="Localização do Posto"
-              required
-            />
-          </div>
-          <div>
-            <input
-              type="number" // Mantido como number para garantir um formato adequado
-              name="capacity"
-              value={formData.capacity}
-              onChange={handleChange}
-              placeholder="Capacidade do Posto"
-              required
-            />
-          </div>
-        </div>
-      </div>
-      <div className={styles.Btns}>
-        <div className={styles.BtnCriar}>
-          <button onClick={handleEdit}>Editar</button>
-        </div>
-        <div className={styles.BtnVoltar}>
-          <button onClick={handleGoBack}>Voltar</button>
-        </div>
-      </div>
+      <h2>Editar Robô</h2>
+      <form onSubmit={handleEdit}>
+        <input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Nome do Robô"
+          required
+        />
+        <input
+          type="text"
+          name="model"
+          value={formData.model}
+          onChange={handleChange}
+          placeholder="Modelo do Robô"
+          required
+        />
+        <input
+          type="text"
+          name="createdAt"
+          value={formData.createdAt} // Exibir a data de criação
+          placeholder="Data de Criação"
+          readOnly // Campo somente leitura
+        />
+        <label>
+          <input
+            type="checkbox"
+            name="isAvaliableForRent"
+            checked={formData.isAvaliableForRent}
+            onChange={handleChange}
+          />
+          Disponível para Aluguel
+        </label>
+        <select
+          name="robotStationId"
+          value={formData.robotStationId}
+          onChange={handleChange}
+          required
+        >
+          <option value="" disabled>
+            Selecione a Estação
+          </option>
+          {stations.map((station) => (
+            <option key={station.robotStationId} value={station.robotStationId}>
+              {station.name}
+            </option>
+          ))}
+        </select>
+
+        <button type="submit">Editar Robô</button>
+        <button type="button" onClick={handleGoBack}>
+          Voltar
+        </button>
+      </form>
     </div>
   );
 };
 
-export default EditPosto;
+export default EditRobot;

@@ -68,7 +68,7 @@ const Funcionarios = () => {
       <div className={styles.cont}>
         {navigation.map((nav) => (
           <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Criar</button>
+            <button className={styles.button}>Create</button>
           </Link>
         ))}
         <div className={styles.pesquisa}>

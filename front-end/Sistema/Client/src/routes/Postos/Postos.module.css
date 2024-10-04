@@ -95,7 +95,6 @@ button:hover {
   font-weight: 600;
   cursor: pointer;
   color: rgba(51, 65, 85, 1);
-  z-index: 1;
 }
 
 .button:before {

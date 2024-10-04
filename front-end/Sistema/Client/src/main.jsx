@@ -18,6 +18,8 @@ import CreateFuncionario from "./routes/CreateFuncionarios/CreateFuncionarios.js
 import EditPosto from "./routes/EditPosto/EditPosto.jsx";
 import EditRobot from "./routes/EditRobot/EditRobot.jsx";
 import EditFuncionario from "./routes/EditFuncionario/EditFuncionario.jsx"
+import CreateUser from "./routes/CreateUser/CreateUser.jsx";
+import EditUser from "./routes/EditUser/EditUser.jsx";
 
 
 const router = createBrowserRouter([  
@@ -34,13 +36,9 @@ const router = createBrowserRouter([
       { path: "createfuncionario", element: <CreateFuncionario /> },
       { path: "createposto", element: <CreatePosto /> },
       { path: "createrobot", element: <CreateRobot /> },
+      { path: "createuser", element: <CreateUser /> },
       { path: "editposto", element: <EditPosto /> },
       { path: "editrobot", element: <EditRobot /> },
-      { path: "editfuncionario", element: <EditFuncionario /> },
-
- 
-      
-
     ],
   },
 ]);

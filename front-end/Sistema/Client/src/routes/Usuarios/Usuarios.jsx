@@ -4,8 +4,6 @@ import { Link } from "react-router-dom";
 
 const navigation = [{ componente: "/create", name: "Criar" }];
 
-// const navigation2 = [{ componente: "/edit", name: "Editar" }];
-
 const Usuarios = () => {
   return (
     <div className={styles.Container}>

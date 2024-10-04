@@ -21,7 +21,7 @@
   font-size: 2.6em;
 }
 
-.Input hr {
+.Conteudo hr {
   width: 100%;
   border: rgb(23, 222, 226) solid 2px;
   margin: 0.5em 0;
@@ -78,33 +78,6 @@
   transform: translateY(-2px);
 }
 
-/* Media query para telas menores */
-@media (max-width: 768px) {
-  .ButtonSubmit {
-    font-size: 1em;
-    padding: 0.7em;
-  }
-
-  .ButtonSubmit:hover {
-    box-shadow: 0 3px 6px #17dee233;
-    transform: translateY(-1px);
-  }
-}
-
-/* Media query para telas muito pequenas (como celulares) */
-@media (max-width: 480px) {
-  .ButtonSubmit {
-    font-size: 0.8em;
-    padding: 0.5em;
-    height: 2.4em;
-  }
-
-  .ButtonSubmit:hover {
-    box-shadow: none;
-    transform: none;
-  }
-}
-
 /* Responsividade para telas de celulares (smartphones) */
 @media (max-width: 768px) {
   .Input {
@@ -126,6 +99,16 @@
     height: 2.5em;
     margin: 0.6em 0;
   }
+
+  .ButtonSubmit {
+    font-size: 1em;
+    padding: 0.7em;
+  }
+
+  .ButtonSubmit:hover {
+    box-shadow: 0 3px 6px #17dee233;
+    transform: translateY(-1px);
+  }
 }
 
 /* Para telas menores que 480px (celulares pequenos) */
@@ -145,5 +128,16 @@
   input {
     font-size: 14px;
     height: 2.3em;
+  }
+
+  .ButtonSubmit {
+    font-size: 0.8em;
+    padding: 0.5em;
+    height: 2.4em;
+  }
+
+  .ButtonSubmit:hover {
+    box-shadow: none;
+    transform: none;
   }
 }

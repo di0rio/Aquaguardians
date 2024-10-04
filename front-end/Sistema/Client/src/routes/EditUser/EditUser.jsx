@@ -99,9 +99,19 @@ const EditUser = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h2>Editar Usuário</h2>
-      <form onSubmit={handleEdit}>
+    <div className={styles.form}>
+        <div className={styles.header}>
+          <h2>Editar Usuário</h2>
+          <div className={styles.iconVoltar}>
+            <ion-icon
+              name="arrow-back-outline"
+              type="button"
+              onClick={handleGoBack}
+            />
+          </div>
+        </div>
+      <hr className={styles.linha} style={{ background: "#17DEE2", color: "#17DEE2" }} />
+      <form className={styles.Container} onSubmit={handleEdit}>
         <input
           type="text"
           name="nickname"
@@ -122,15 +132,12 @@ const EditUser = () => {
         <input type="hidden" name="points" value={formData.points} />
         <input type="hidden" name="address" value={formData.address} />
         
-        <div>
+        <div className={styles.Input}>
           <label>Data de Criação:</label>
           <span>{new Date(formData.createdAt).toLocaleString()}</span>
         </div>
         <input type="hidden" name="userId" value={formData.userId} />
-        <button type="submit">Salvar Alterações</button>
-        <button type="button" onClick={handleGoBack}>
-          Voltar
-        </button>
+        <button className={styles.ButtonSubmit} type="submit">Editar</button>
       </form>
     </div>
   );

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./EditPosto.module.css";
-import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
 
 const EditPosto = () => {
   const navigate = useNavigate();
@@ -90,6 +89,7 @@ const EditPosto = () => {
             />
           </div>
         </div>
+      <hr style={{ background: "#17DEE2", color: "#17DEE2" }} />
         <div className={styles.Input}>
           <div>
             <input

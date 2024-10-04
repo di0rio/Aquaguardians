@@ -43,10 +43,13 @@ const CreatePosto = () => {
     <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.header}>
         <h2>Cadastrar Posto</h2>
-        <ion-icon
-          name="arrow-back-outline"
-          type="button"
-          onClick={handleGoBack} />
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
+          />
+        </div>
       </div>
       <hr style={{ background: "#17DEE2", color: "#17DEE2" }} />
       <div className={styles.container}>

@@ -16,7 +16,7 @@
     margin: 0;
 }
 
-ion-icon{
+.iconVoltar{
     margin: auto 0;
     font-size: 2.6em;
 }
@@ -24,6 +24,7 @@ ion-icon{
 .form hr{
     width: 100%;
     border: rgb(23, 222, 226) solid 2px;
+    margin: 0.5em 0;
 }
 
 .container{
@@ -66,7 +67,7 @@ input::placeholder{
         font-size: 32px;
     }
 
-    ion-icon{
+    .iconVoltar{
         font-size: 2em;
     }
 
@@ -87,7 +88,7 @@ input::placeholder{
         font-size: 28px;
     }
 
-    ion-icon{
+    .iconVoltar{
         font-size: 1.6em;
     }
 

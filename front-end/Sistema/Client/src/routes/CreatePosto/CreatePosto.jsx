@@ -51,7 +51,7 @@ const CreatePosto = () => {
           />
         </div>
       </div>
-      <hr/>
+      <hr />
       <div className={styles.container}>
         <input
           type="text"

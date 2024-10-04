@@ -2,6 +2,7 @@ import styles from "./CreateFuncionarios.module.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
 
 const CreateFuncionarios = () => {
   const navigate = useNavigate();
@@ -54,80 +55,86 @@ const CreateFuncionarios = () => {
   };
 
   return (
-    <form className={styles.Form} onSubmit={handleSubmit}>
-      <div className={styles.Content}>
-        <h2>Cadastrar Funcionário</h2>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.header}>
+        <h2> Cadstrar Funcionário </h2>
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
+          />
+        </div>
       </div>
-      <input
-        type="text"
-        value={department}
-        onChange={(e) => setDepartment(e.target.value)}
-        placeholder="Departamento"
-        required
-      />
-      <input
-        type="text"
-        value={position}
-        onChange={(e) => setPosition(e.target.value)}
-        placeholder="Cargo"
-        required
-      />
-      <input
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)} // Corrigido para email
-        placeholder="Email"
-        required
-      />
-      <input
-        type="text"
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-        placeholder="Telefone"
-        required
-      />
-      <input
-        type="text"
-        value={address}
-        onChange={(e) => setAddress(e.target.value)} // Corrigido para address
-        placeholder="Endereço"
-        required
-      />
-      <input
-        type="date"
-        value={dateOfBirth}
-        onChange={(e) => setDateOfBirth(e.target.value)} // Corrigido para data de nascimento
-        placeholder="Data de Nascimento"
-        required
-      />
-      <input
-        type="date"
-        value={hireDate}
-        onChange={(e) => setHireDate(e.target.value)} // Corrigido para data de contratação
-        placeholder="Data de Contratação"
-        required
-      />
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Nome"
-        required
-      />
-      <input
-        type="text"
-        value={salary}
-        onChange={(e) => setSalary(e.target.value)}
-        placeholder="Salário"
-        required
-      />
-      <button type="submit">Adicionar Funcionário</button>
-      <button type="button" onClick={handleGoBack}>
-        Voltar
-      </button>
+      <hr />
+      <div className={styles.container}>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Nome"
+          required
+        />
+        <input
+          type="text"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)} // Corrigido para email
+          placeholder="Email"
+          required
+        />
+        <input
+          type="text"
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          placeholder="Telefone"
+          required
+        />
+        <input
+          type="text"
+          value={department}
+          onChange={(e) => setDepartment(e.target.value)}
+          placeholder="Departamento"
+          required
+        />
+        <input
+          type="text"
+          value={position}
+          onChange={(e) => setPosition(e.target.value)}
+          placeholder="Cargo"
+          required
+        />
+        <input
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)} // Corrigido para address
+          placeholder="Endereço"
+          required
+        />
+        <input
+          type="date"
+          value={dateOfBirth}
+          onChange={(e) => setDateOfBirth(e.target.value)} // Corrigido para data de nascimento
+          placeholder="Data de Nascimento"
+          required
+        />
+        <input
+          type="date"
+          value={hireDate}
+          onChange={(e) => setHireDate(e.target.value)} // Corrigido para data de contratação
+          placeholder="Data de Contratação"
+          required
+        />
+        <input
+          type="text"
+          value={salary}
+          onChange={(e) => setSalary(e.target.value)}
+          placeholder="Salário"
+          required
+        />
+        <ButtonSubmit text="Adicionar Item" />
+      </div>
     </form>
   );
 };
 
 export default CreateFuncionarios;
-    

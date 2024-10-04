@@ -1,8 +1,8 @@
-import styles from "./Create.module.css";
+import styles from "./CreateUser.module.css";
 
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Create = () => {
+const CreateUser = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -41,4 +41,4 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default CreateUser;

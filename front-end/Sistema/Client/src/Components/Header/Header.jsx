@@ -7,6 +7,7 @@ import ConfigPerfil from "../ConfigPerfil/ConfigPerfil"
 
 const navigation = [
   { componente: "/users", name: "Usuários" },
+  { componente: "/funcionarios", name: "Funcionarios" },
   { componente: "/robos", name: "Robôs" },
   { componente: "/postos", name: "Postos" },
 ];

@@ -46,7 +46,7 @@ button:hover {
 }
 
 
-@media (min-width: 350px) and (max-width: 780px) {
+@media (min-width: 350px) and (max-width: 1180px) {
   .container {
     gap: 10px;
   }
@@ -59,23 +59,15 @@ button:hover {
   td {
     font-size: 10px;
   }
-
-  .create {
-    padding: 5px 45px;
-    font-size: 18px;
-    width: 100%;
-  }
-
+  
   .cont{
     flex-direction: column; 
+
     scale: 0.9;
     margin-bottom: 20px;
   }
   .pesquisa{
     margin-top: 20px;
-  }
-  .button{
-    width: 450px;
   }
   
 }
@@ -93,9 +85,7 @@ button:hover {
 
 /* From Uiverse.io by cssbuttons-io */
 .button {
-  display: inline-block;
-  height: 40px;
-  padding: 12px 24px;
+  padding: 12px 160px;
   border: 1px solid #4f4f4f;
   border-radius: 4px;
   transition: all 0.2s ease-in;
@@ -207,7 +197,6 @@ input:hover {
   box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
   padding: 0.25rem;
   font-size: 14px;
-  gap: 20px;
 }
 
 .radioInputs .radio {

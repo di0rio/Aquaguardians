@@ -35,7 +35,9 @@ const Funcionarios = () => {
         await axios.delete(
           `https://apiaquaguardians.somee.com/api/Employes/${id}`
         );
-        setFuncionarios(funcionarios.filter((funcionario) => funcionario.employeeId !== id));
+        setFuncionarios(
+          funcionarios.filter((funcionario) => funcionario.employeeId !== id)
+        );
       } catch (error) {
         console.error("Erro ao deletar o funcionário:", error);
         alert("Erro ao deletar o funcionário.");
@@ -69,14 +71,35 @@ const Funcionarios = () => {
             <button className={styles.button}>Criar</button>
           </Link>
         ))}
+        <div className={styles.pesquisa}>
+          <div className={styles.radioInputs}>
+            <label className={styles.radio}>
+              <input type="radio" name="radio" />
+              <span className={styles.name}>ID</span>
+            </label>
 
-        <div className={styles.group}>
-          <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
-            <g>
-              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-            </g>
-          </svg>
-          <input className={styles.input} type="search" placeholder="Buscar" />
+            <label className={styles.radio}>
+              <input type="radio" name="radio" />
+              <span className={styles.name}>NOME</span>
+            </label>
+
+            <label className={styles.radio}>
+              <input type="radio" name="radio" />
+              <span className={styles.name}>STATUS</span>
+            </label>
+          </div>
+          <div className={styles.group}>
+            <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
+              <g>
+                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+              </g>
+            </svg>
+            <input
+              className={styles.input}
+              type="search"
+              placeholder="Search"
+            />
+          </div>
         </div>
       </div>
 
@@ -102,10 +125,16 @@ const Funcionarios = () => {
               <td>{funcionario.phoneNumber}</td>
               <td>{funcionario.salary}</td>
               <td>
-                <button onClick={() => openModal(funcionario)} className={styles.button}>
+                <button
+                  onClick={() => openModal(funcionario)}
+                  className={styles.button2}
+                >
                   Ver Detalhes
                 </button>
-                <Link to="/editfuncionario" state={{ employeeId: funcionario.employeeId }}>
+                <Link
+                  to="/editfuncionario"
+                  state={{ employeeId: funcionario.employeeId }}
+                >
                   <button style={{ background: "rgb(200,201, 200)" }}>
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
@@ -126,18 +155,41 @@ const Funcionarios = () => {
         <div className={styles.modalOverlay}>
           <div className={styles.modalContent}>
             <h2>Detalhes do Funcionário</h2>
-            <p><strong>ID:</strong> {selectedFuncionario.employeeId}</p>
-            <p><strong>Nome:</strong> {selectedFuncionario.name}</p>
-            <p><strong>Departamento:</strong> {selectedFuncionario.department}</p>
-            <p><strong>Cargo:</strong> {selectedFuncionario.position}</p>
-            <p><strong>Email:</strong> {selectedFuncionario.email}</p>
-            <p><strong>Telefone:</strong> {selectedFuncionario.phoneNumber}</p>
-            <p><strong>Endereço:</strong> {selectedFuncionario.adress}</p>
-            <p><strong>Data de Nascimento:</strong> {selectedFuncionario.dateOfBirth}</p>
-            <p><strong>Data de Admição:</strong> {selectedFuncionario.hireDate}</p>
-            <p><strong>Salário:</strong> {selectedFuncionario.salary}</p>
+            <p>
+              <strong>ID:</strong> {selectedFuncionario.employeeId}
+            </p>
+            <p>
+              <strong>Nome:</strong> {selectedFuncionario.name}
+            </p>
+            <p>
+              <strong>Departamento:</strong> {selectedFuncionario.department}
+            </p>
+            <p>
+              <strong>Cargo:</strong> {selectedFuncionario.position}
+            </p>
+            <p>
+              <strong>Email:</strong> {selectedFuncionario.email}
+            </p>
+            <p>
+              <strong>Telefone:</strong> {selectedFuncionario.phoneNumber}
+            </p>
+            <p>
+              <strong>Endereço:</strong> {selectedFuncionario.adress}
+            </p>
+            <p>
+              <strong>Data de Nascimento:</strong>{" "}
+              {selectedFuncionario.dateOfBirth}
+            </p>
+            <p>
+              <strong>Data de Admição:</strong> {selectedFuncionario.hireDate}
+            </p>
+            <p>
+              <strong>Salário:</strong> {selectedFuncionario.salary}
+            </p>
             {/* Adicione mais informações conforme necessário */}
-            <button onClick={closeModal} className={styles.closeButton}>Fechar</button>
+            <button onClick={closeModal} className={styles.closeButton}>
+              Fechar
+            </button>
           </div>
         </div>
       )}

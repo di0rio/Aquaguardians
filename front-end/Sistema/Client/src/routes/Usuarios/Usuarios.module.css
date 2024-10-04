@@ -37,13 +37,13 @@ th {
 button:hover {
   scale: 1.03;
 }
-
-.Btn {
+/* 
+.Btn{
   margin: 3% 3%;
   border: none;
   padding: 5% 10%;
   border-radius: 2px;
-}
+} */
 
 @media (min-width: 350px) and (max-width: 1180px) {
   .container {
@@ -58,14 +58,14 @@ button:hover {
   td {
     font-size: 10px;
   }
-
-  .cont {
-    flex-direction: column;
+  
+  .cont{
+    flex-direction: column; 
 
     scale: 0.9;
     margin-bottom: 20px;
   }
-  .pesquisa {
+  .pesquisa{
     margin-top: 20px;
   }
 }
@@ -224,3 +224,4 @@ input:hover {
   font-weight: 600;
   color: #17dee2;
 }
+

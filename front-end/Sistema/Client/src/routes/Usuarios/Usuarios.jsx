@@ -112,11 +112,11 @@ const Usuarios = () => {
               <td>{u.createdAt}</td>
               <td>
                 <Link to="/edituser" state={{ playerId: u.playerId }}>
-                  <button style={{ background: "rgb(200,201, 200)" }}>
+                  <button className={styles.Btn} style={{ background: "rgb(200,201, 200)" }}>
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
-                <button
+                <button className={styles.Btn}
                   onClick={() => handleDelete(u.playerId)}
                   style={{ background: "rgb(250, 10, 20)" }}
                 >

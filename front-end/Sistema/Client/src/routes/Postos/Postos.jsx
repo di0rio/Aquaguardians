@@ -98,7 +98,7 @@ const Postos = () => {
             <th scope="col">Localização</th>
             <th scope="col">Status</th>
             <th scope="col">Capacidade</th>
-            <th scope="col">Editar</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -115,12 +115,13 @@ const Postos = () => {
                   state={{ RobotStationId: posto.robotStationId }}
                 >
                   <button
-                    className={styles.Btn}
                     style={{ background: "rgb(200,201, 200)" }}
+                    className={styles.Btn}
                   >
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
+                
                 <button
                   className={styles.Btn}
                   onClick={() => handleDelete(posto.robotStationId)}

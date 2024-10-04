@@ -38,10 +38,10 @@ button:hover {
   scale: 1.03;
 }
 
-.Btn {
-  margin: 3% 3%;
+.Btn{
+  margin: 2px 3px;
   border: none;
-  padding: 5% 10%;
+  padding: 12px 10px;
   border-radius: 2px;
 }
 
@@ -67,6 +67,14 @@ button:hover {
   }
   .pesquisa {
     margin-top: 20px;
+  }
+
+  .button2{
+    margin: 2px 3px;
+    border: none;
+    padding: 12px 10px;
+    border-radius: 2px;
+    font-size: 9px;
   }
 }
 

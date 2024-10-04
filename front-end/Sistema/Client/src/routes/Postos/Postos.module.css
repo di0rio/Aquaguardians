@@ -39,9 +39,9 @@ button:hover {
 }
 
 .Btn{
-  margin: 3% 3%;
+  margin: 2px 3px;
   border: none;
-  padding: 5% 10%;
+  padding: 12px 10px;
   border-radius: 2px;
 }
 

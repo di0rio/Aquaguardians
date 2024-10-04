@@ -55,11 +55,8 @@ const Usuarios = () => {
   return (
     <div className={styles.container}>
       <div className={styles.cont}>
-        {navigation.map((nav) => (
-          <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Create</button>
-          </Link>
-        ))}
+        
+        
 
         <div className={styles.pesquisa}>
           <div className={styles.radioInputs}>

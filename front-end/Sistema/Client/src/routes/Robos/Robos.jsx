@@ -110,6 +110,7 @@ const Robos = () => {
           </div>
         </div>
       </div>
+      
       <table className={styles.table}>
         <thead>
           <tr>
@@ -131,11 +132,16 @@ const Robos = () => {
               <td>{rob.robotStationId || "Desconhecida"}</td>
               <td>
                 <Link to="/editrobot" state={{ robotId: rob.robotId }}>
-                  <button style={{ background: "rgb(200,201, 200)" }}>
+                  <button
+                    className={styles.Btn}
+                    style={{ background: "rgb(200,201, 200)" }}
+                  >
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
+
                 <button
+                  className={styles.Btn}
                   onClick={() => handleDelete(rob.robotId)}
                   style={{ background: "rgb(250, 10, 20)" }}
                 >

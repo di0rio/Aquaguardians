@@ -68,7 +68,7 @@ const Funcionarios = () => {
       <div className={styles.cont}>
         {navigation.map((nav) => (
           <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Criar</button>
+            <button className={styles.button}>Create</button>
           </Link>
         ))}
         <div className={styles.pesquisa}>
@@ -110,7 +110,7 @@ const Funcionarios = () => {
             <th scope="col">Nome</th>
             <th scope="col">Departamento</th>
             <th scope="col">Cargo</th>
-            <th scope="col">Telefone</th>
+            {/* <th scope="col">Telefone</th> */}
             <th scope="col">Salário</th>
             <th scope="col">Ações</th>
           </tr>
@@ -122,7 +122,7 @@ const Funcionarios = () => {
               <td>{funcionario.name}</td>
               <td>{funcionario.department}</td>
               <td>{funcionario.position}</td>
-              <td>{funcionario.phoneNumber}</td>
+              {/* <td>{funcionario.phoneNumber}</td> */}
               <td>{funcionario.salary}</td>
               <td>
                 <button
@@ -135,11 +135,12 @@ const Funcionarios = () => {
                   to="/editfuncionario"
                   state={{ employeeId: funcionario.employeeId }}
                 >
-                  <button style={{ background: "rgb(200,201, 200)" }}>
+                  <button className={styles.Btn} style={{ background: "rgb(200,201, 200)" }}>
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
                 <button
+                className={styles.Btn}
                   onClick={() => handleDelete(funcionario.employeeId)}
                   style={{ background: "rgb(250, 10, 20)" }}
                 >

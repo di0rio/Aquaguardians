@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./EditRobot.module.css";
+import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
 
 const EditRobot = () => {
   const navigate = useNavigate();
@@ -103,9 +104,18 @@ const EditRobot = () => {
   };
 
   return (
-    <div className={styles.Container}>
-      <h2>Editar Robô</h2>
-      <form onSubmit={handleEdit}>
+    <div className={styles.form}>
+      <div className={styles.header}>
+        <h2>Editar Robô</h2>
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
+          />
+        </div>
+      </div>
+      <form className={styles.Container} onSubmit={handleEdit}>
         <input
           type="text"
           name="name"
@@ -130,7 +140,7 @@ const EditRobot = () => {
           readOnly
         />
         <label>
-          <input
+          <input className={styles.custombox}
             type="checkbox"
             name="isAvaliableForRent"
             checked={formData.isAvaliableForRent}
@@ -138,7 +148,7 @@ const EditRobot = () => {
           />
           Disponível para Aluguel
         </label>
-        <select
+        <select className={styles.Label}
           name="robotStationId"
           value={formData.robotStationId}
           onChange={handleChange}
@@ -153,11 +163,7 @@ const EditRobot = () => {
             </option>
           ))}
         </select>
-
-        <button type="submit">Editar Robô</button>
-        <button type="button" onClick={handleGoBack}>
-          Voltar
-        </button>
+        <ButtonSubmit text="Editar" />
       </form>
     </div>
   );

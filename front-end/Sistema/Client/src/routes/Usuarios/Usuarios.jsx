@@ -61,15 +61,38 @@ const Usuarios = () => {
           </Link>
         ))}
 
-        <div className={styles.group}>
-          <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
-            <g>
-              <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-            </g>
-          </svg>
-          <input className={styles.input} type="search" placeholder="Search" />
+        <div className={styles.pesquisa}>
+          <div className={styles.radioInputs}>
+            <label className={styles.radio}>
+              <input type="radio" name="radio" />
+              <span className={styles.name}>ID</span>
+            </label>
+
+            <label className={styles.radio}>
+              <input type="radio" name="radio" />
+              <span className={styles.name}>NOME</span>
+            </label>
+
+            <label className={styles.radio}>
+              <input type="radio" name="radio" />
+              <span className={styles.name}>STATUS</span>
+            </label>
+          </div>
+          <div className={styles.group}>
+            <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
+              <g>
+                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
+              </g>
+            </svg>
+            <input
+              className={styles.input}
+              type="search"
+              placeholder="Search"
+            />
+          </div>
         </div>
       </div>
+
       <table className={styles.table}>
         <thead>
           <tr>
@@ -77,7 +100,7 @@ const Usuarios = () => {
             <th scope="col">Nome</th>
             <th scope="col">Modelo</th>
             <th scope="col">Criado</th>
-            <th scope="col">Ações</th> 
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -86,7 +109,7 @@ const Usuarios = () => {
               <td>{u.playerId}</td>
               <td>{u.nickname}</td>
               <td>{u.email}</td>
-              <td>{u.createdAt}</td> 
+              <td>{u.createdAt}</td>
               <td>
                 <Link to="/edituser" state={{ playerId: u.playerId }}>
                   <button style={{ background: "rgb(200,201, 200)" }}>

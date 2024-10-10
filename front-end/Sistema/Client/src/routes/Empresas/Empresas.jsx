@@ -94,7 +94,7 @@ const Empresas = () => {
               <td>{empresa.contactName}</td>
               <td>{empresa.contactEmail}</td>
               <td>{empresa.contactPhone}</td>
-              <td>{empresa.Address}</td>
+              <td>{empresa.address}</td>
               <td>{empresa.createdAt}</td>
               <td>
                 <Link

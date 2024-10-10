@@ -14,6 +14,7 @@ import Funcionarios from "./routes/Funcionarios/Funcionarios.jsx"
 import Login from "./routes/Login/Login.jsx";
 import Produtos from "./routes/Produtos/Produtos.jsx"
 import Empresas from "./routes/Empresas/Empresas.jsx"
+import Transiction from "./routes/Transictions/Transictions.jsx"
 
 import CreatePosto from "./routes/CreatePosto/CreatePosto.jsx";
 import CreateRobot from "./routes/CreateRobot/CreateRobot.jsx";
@@ -21,6 +22,7 @@ import CreateFuncionario from "./routes/CreateFuncionarios/CreateFuncionarios.js
 import CreateProduct  from "./routes/CreateProduct/CreateProduct.jsx";
 import CreateProductCategory from "./routes/CreateProdutoCategory/CreateProductCategory.jsx";
 import CreateEmpresas from "./routes/CreateEmpresa/CreateEmpresa.jsx"
+import CreateTransiction from "./routes/CreateTransiction/CreateTransiction.jsx";
 
 
 import EditPosto from "./routes/EditPosto/EditPosto.jsx";
@@ -30,6 +32,7 @@ import EditUser from "./routes/EditUser/EditUser.jsx";
 import EditProduct from "./routes/EditProduct/EditProduct.jsx";
 import EditProductCategory from "./routes/EditProductCategory/EditProductCategory.jsx";
 import EditEmpresa from "./routes/EditEmpresa/EditEmpresa.jsx"
+import EditTransiction from "./routes/EditTransiction/EditTransiction.jsx";
 
 
 const router = createBrowserRouter([  
@@ -66,6 +69,10 @@ const router = createBrowserRouter([
       { path: "empresas", element: <Empresas /> },
       { path: "createempresa", element: <CreateEmpresas /> },
       { path: "editempresa", element: <EditEmpresa /> },
+      { path: "transiction", element: <Transiction /> },
+      { path: "edittransiction", element: <EditTransiction /> },
+      { path: "createtransiction", element: <CreateTransiction /> },
+      
 
     ],
   },

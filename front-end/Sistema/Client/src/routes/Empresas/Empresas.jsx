@@ -54,10 +54,27 @@ const Empresas = () => {
       <div className={styles.cont}>
         {navigation.map((nav) => (
           <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Criar</button>
+            <button className={styles.button}>Create</button>
           </Link>
         ))}
+
         <div className={styles.pesquisa}>
+          <div className={styles.radioInputs}>
+            <label className={styles.radio}>
+              <input type="radio" name="radio" />
+              <span className={styles.name}>ID</span>
+            </label>
+
+            <label className={styles.radio}>
+              <input type="radio" name="radio" />
+              <span className={styles.name}>NOME</span>
+            </label>
+
+            <label className={styles.radio}>
+              <input type="radio" name="radio" />
+              <span className={styles.name}>STATUS</span>
+            </label>
+          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -101,11 +118,15 @@ const Empresas = () => {
                   to="/editempresa"
                   state={{ companyId: empresa.companyId }}
                 >
-                  <button style={{ background: "rgb(200,201, 200)" }}>
+                  <button
+                    className={styles.Btn}
+                    style={{ background: "rgb(200,201, 200)" }}
+                  >
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
                 <button
+                  className={styles.Btn}
                   onClick={() => handleDelete(empresa.companyId)}
                   style={{ background: "rgb(250, 10, 20)" }}
                 >

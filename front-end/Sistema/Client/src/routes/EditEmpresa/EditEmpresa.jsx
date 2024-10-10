@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./EditEmpresa.module.css";
 import { useEffect, useState } from "react";
 import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
+import axios from "axios"; 
 
 const EditEmpresa = () => {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const EditEmpresa = () => {
     contactEmail: "",
     contactPhone: "",
     address: "",
-    createdAt: "",
+    createdAt: null, 
   });
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const EditEmpresa = () => {
     const fetchEmpresa = async () => {
       try {
         const response = await axios.get(
-          `https://apiaquaguardians.somee.com/api/Companies/${locations.state.companyId}`
+          `https://apiaquaguardians.somee.com/api/Companies/${location.state.companyId}`
         );
         console.log("Dados do funcionário:", response.data);
         setFormData({
@@ -36,9 +37,9 @@ const EditEmpresa = () => {
           name: response.data.name || "",
           contactName: response.data.contactName || "",
           contactEmail: response.data.contactEmail || "",
-          contactPhone: response.data.name || "",
+          contactPhone: response.data.contactPhone || "",
           address: response.data.address || "",
-          createdAt: response.data.createdAt || "",
+          createdAt: new Date(response.data.createdAt),
         });
       } catch (error) {
         console.error("Erro ao buscar dados da empresa", error);
@@ -55,25 +56,24 @@ const EditEmpresa = () => {
   const handleEdit = async (e) => {
     e.preventDefault();
 
-    try{
-        const response = axios.put(
-            `https://apiaquaguardians.somee.com/api/Companies/${formData.companyId}`,
+    try {
+      const response = await axios.put(
+        `https://apiaquaguardians.somee.com/api/Companies/${formData.companyId}`,
         formData
-        );
+      );
 
-        if (response.status === 200 || response.status === 204){
-            alert("Empresa editada com sucesso!");
-            navigate(-1);
-        } else {
-            alert(
-                "Erro ao editar empresa. Verifique os dados e tente novamente."
-            );
-        }
+      if (response.status === 200 || response.status === 204) {
+        alert("Empresa editada com sucesso!");
+        navigate(-1);
+      } else {
+        alert("Erro ao editar empresa. Verifique os dados e tente novamente.");
+      }
     } catch (error) {
-        console.error(
-            "Erro ao editar empresa:", error.response ? error.response.data : error
-        );
-        alert("Erro ao editar empresa. Tente novamente.");
+      console.error(
+        "Erro ao editar empresa:",
+        error.response ? error.response.data : error
+      );
+      alert("Erro ao editar empresa. Tente novamente.");
     }
   };
 
@@ -130,15 +130,17 @@ const EditEmpresa = () => {
           placeholder="Endereço"
           required
         />
+        {/* Campo de data read-only para exibição */}
         <input
           type="text"
+          value={formData.createdAt ? formData.createdAt.toISOString() : ""}
           placeholder="Data de Cadastro"
           readOnly
         />
         <ButtonSubmit text="Editar" />
       </div>
     </form>
-  )
+  );
 };
 
 export default EditEmpresa;

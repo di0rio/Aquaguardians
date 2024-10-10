@@ -1,8 +1,37 @@
-# React + Vite
+**Sistema Web para o Jogo Aquaguardians, feito em React Vite e API C# .NET 8.0**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição
 
-Currently, two official plugins are available:
+Este repositório contém o código fonte do sistema web para o jogo Aquaguardians, um jogo interativo que combate a poluição aquática no Brasil. O sistema é desenvolvido utilizando React Vite para a interface frontend e uma API C# .NET 8.0 para a lógica backend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias
+
+* **Frontend:**
+    * React Vite
+    * JavaScript
+    * CSS
+    * Axios (para requisições HTTP)
+    * Bootstrap (para estilização)
+* **Backend:**
+    * C#
+    * .NET 8.0
+    * ASP.NET Core Web API
+    * Somee (para hospedar API)
+    * Entity Framework Core (para acesso ao banco de dados)
+    * SQL Server (para armazenamento de dados)
+
+## Arquitetura
+
+O sistema é composto por duas partes:
+
+* **Frontend:** A interface web, que permite aos jogadores:
+    * Criar e gerenciar perfis de usuário
+    * Criar e gerenciar funcionários
+    * Criar e gerenciar robôs
+    * Criar e gerenciar postos
+    * Visualizar rankings, estatísticas e outras informações
+* **Backend:** A API, que fornece os seguintes serviços:
+    * Autenticação de usuários
+    * Gerenciamento de jogadores e robôs
+    * Monitoramento de pontos de coleta de lixo
+    * Cálculo de pontuações e rankings

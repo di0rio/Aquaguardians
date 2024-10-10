@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "./EditFuncionario.module.css";
+import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
 
 const EditFuncionario = () => {
   const navigate = useNavigate();
@@ -74,7 +75,9 @@ const EditFuncionario = () => {
         alert("Funcionário editado com sucesso!");
         navigate(-1);
       } else {
-        alert("Erro ao editar funcionário. Verifique os dados e tente novamente.");
+        alert(
+          "Erro ao editar funcionário. Verifique os dados e tente novamente."
+        );
       }
     } catch (error) {
       console.error(
@@ -90,82 +93,91 @@ const EditFuncionario = () => {
   };
 
   return (
-    <div className={styles.Container}>
-      <h2>Editar Funcionário</h2>
-      <form onSubmit={handleEdit}>
-        <input
-          type="text"
-          name="department"
-          value={formData.department}
-          onChange={handleChange}
-          placeholder="Departamento"
-          required
-        />
-        <input
-          type="text"
-          name="position"
-          value={formData.position}
-          onChange={handleChange}
-          placeholder="Cargo"
-          required
-        />
-        <input
-          type="text"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Email"
-          required
-        />
-        <input
-          type="text"
-          name="phoneNumber"
-          value={formData.phoneNumber}
-          onChange={handleChange}
-          placeholder="Telefone"
-          required
-        />
-        <input
-          type="text"
-          name="address"
-          value={formData.address}
-          onChange={handleChange}
-          placeholder="Endereço"
-          required
-        />
-        <input
-          type="hidden"
-          name="dateOfBirth"
-          value={formData.dateOfBirth}
-          readOnly // Apenas visualização
-        />
-        <input
-          type="hidden"
-          name="hireDate"
-          value={formData.hireDate}
-          readOnly // Apenas visualização
-        />
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Nome"
-          required
-        />
-        <input
-          type="text"
-          name="salary"
-          value={formData.salary}
-          onChange={handleChange}
-          placeholder="Salário"
-          required
-        />
-        <button type="submit">Salvar Alterações</button>
-        <button type="button" onClick={handleGoBack}>
-          Voltar
-        </button>
-      </form>
+    <div className={styles.form}>
+      <div className={styles.header}>
+        <h2>Editar Funcionário</h2>
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
+          />
+        </div>
+      </div>
+      <hr/>
+      <div>
+        <form className={styles.Container} onSubmit={handleEdit}>
+          <input
+            type="text"
+            name="department"
+            value={formData.department}
+            onChange={handleChange}
+            placeholder="Departamento"
+            required
+          />
+          <input
+            type="text"
+            name="position"
+            value={formData.position}
+            onChange={handleChange}
+            placeholder="Cargo"
+            required
+          />
+          <input
+            type="text"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Email"
+            required
+          />
+          <input
+            type="text"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            placeholder="Telefone"
+            required
+          />
+          <input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            placeholder="Endereço"
+            required
+          />
+          <input
+            type="hidden"
+            name="dateOfBirth"
+            value={formData.dateOfBirth}
+            readOnly // Apenas visualização
+          />
+          <input
+            type="hidden"
+            name="hireDate"
+            value={formData.hireDate}
+            readOnly // Apenas visualização
+          />
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Nome"
+            required
+          />
+          <input
+            type="text"
+            name="salary"
+            value={formData.salary}
+            onChange={handleChange}
+            placeholder="Salário"
+            required
+          />
+          <ButtonSubmit text="Editar" />
+        </form>
+      </div>
     </div>
   );
 };

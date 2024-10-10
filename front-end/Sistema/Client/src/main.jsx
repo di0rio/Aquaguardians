@@ -5,9 +5,20 @@ import App from "./pages/App";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
+import Login from "./routes/Login/Login.jsx";
+
 import Usuarios from "./routes/Usuarios/Usuarios.jsx";
+import CreateUser from "./routes/CreateUser/CreateUser.jsx";
+import EditUser from "./routes/EditUser/EditUser.jsx";
+
 import Robos from "./routes/Robos/Robos.jsx";
+import CreateRobot from "./routes/CreateRobot/CreateRobot.jsx";
+import EditRobot from "./routes/EditRobot/EditRobot.jsx";
+
 import Postos from "./routes/Postos/Postos.jsx";
+import CreatePosto from "./routes/CreatePosto/CreatePosto.jsx";
+import EditPosto from "./routes/EditPosto/EditPosto.jsx";
+
 import Funcionarios from "./routes/Funcionarios/Funcionarios.jsx"
 import Login from "./routes/Login/Login.jsx";
 import Produtos from "./routes/Produtos/Produtos.jsx"
@@ -35,9 +46,19 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       { path: "/", element: <Login /> },
+
       { path: "users", element: <Usuarios /> },
+      { path: "createuser", element: <CreateUser /> },
+      { path: "edituser", element: <EditUser /> },
+
       { path: "robos", element: <Robos /> },
+      { path: "createrobot", element: <CreateRobot /> },
+      { path: "editrobot", element: <EditRobot /> },
+
       { path: "postos", element: <Postos /> },
+      { path: "createposto", element: <CreatePosto /> },
+      { path: "editposto", element: <EditPosto /> },
+
       { path: "funcionarios", element: <Funcionarios /> },
       { path: "produtos", element: <Produtos /> },
       { path: "createfuncionario", element: <CreateFuncionario /> },

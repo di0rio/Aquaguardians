@@ -72,9 +72,14 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 - **SQL Server**
 - **Trello**
 - **Figma**
+- **Somee**
+- **dot NET 8.0**
+- **React Vite**
+- **Axios**
+- **Bootstrap**
 
 
----
+<!-- ---
 
 **Documentação da API**
 
@@ -100,7 +105,7 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 
 #### add(num1, num2)
 
-Recebe dois números e retorna a sua soma.
+Recebe dois números e retorna a sua soma. -->
 
 ---
 
@@ -132,6 +137,8 @@ Recebe dois números e retorna a sua soma.
 **🔗 Link GDD:** [https://www.canva.com/design/DAGMnBxaEq8/Z2De5KjgWYD13JH4JuNagQ/edit?utm_content=DAGMnBxaEq8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton](https://www.canva.com/design/DAGMnBxaEq8/Z2De5KjgWYD13JH4JuNagQ/edit?utm_content=DAGMnBxaEq8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 **🔗 Link Trello(Geral):** [https://trello.com/b/RgIeR4gn/not-a-number](https://trello.com/b/RgIeR4gn/not-a-number)
+
+**🔗 Link API:** [https://apiaquaguardians.somee.com/swagger/index.html?authuser=0](https://apiaquaguardians.somee.com/swagger/index.html?authuser=0)
 
 **🔗 Link Trello(Unity):** [https://trello.com/b/g9psiyUv/unity-aqg](https://trello.com/b/g9psiyUv/unity-aqg)
 

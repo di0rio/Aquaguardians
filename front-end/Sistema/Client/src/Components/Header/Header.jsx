@@ -11,6 +11,7 @@ const navigation = [
   { componente: "/produtos", name: "Produtos" },
   { componente: "/robos", name: "Robôs" },
   { componente: "/postos", name: "Postos" },
+  { componente: "/empresas", name: "Empresas" },
 ];
 
 const Header = () => {

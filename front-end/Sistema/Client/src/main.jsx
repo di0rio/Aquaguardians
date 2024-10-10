@@ -13,12 +13,15 @@ import Postos from "./routes/Postos/Postos.jsx";
 import Funcionarios from "./routes/Funcionarios/Funcionarios.jsx"
 import Login from "./routes/Login/Login.jsx";
 import Produtos from "./routes/Produtos/Produtos.jsx"
+import Empresas from "./routes/Empresas/Empresas.jsx"
 
 import CreatePosto from "./routes/CreatePosto/CreatePosto.jsx";
 import CreateRobot from "./routes/CreateRobot/CreateRobot.jsx";
 import CreateFuncionario from "./routes/CreateFuncionarios/CreateFuncionarios.jsx";
 import CreateProduct  from "./routes/CreateProduct/CreateProduct.jsx";
 import CreateProductCategory from "./routes/CreateProdutoCategory/CreateProductCategory.jsx";
+import CreateEmpresas from "./routes/CreateEmpresa/CreateEmpresa.jsx"
+import CreateUser from "./routes/CreateUser/CreateUser.jsx";
 
 
 import EditPosto from "./routes/EditPosto/EditPosto.jsx";
@@ -27,13 +30,13 @@ import EditFuncionario from "./routes/EditFuncionario/EditFuncionario.jsx"
 import EditUser from "./routes/EditUser/EditUser.jsx";
 import EditProduct from "./routes/EditProduct/EditProduct.jsx";
 import EditProductCategory from "./routes/EditProductCategory/EditProductCategory.jsx";
+import EditEmpresa from "./routes/EditEmpresa/EditEmpresa.jsx"
 
 
 const router = createBrowserRouter([  
   {
     path: "/",
     element: <App />,
-    errorElement: <Error />,
     children: [
       { path: "/", element: <Login /> },
 
@@ -61,6 +64,9 @@ const router = createBrowserRouter([
       { path: "editproduct", element: <EditProduct /> },
       { path: "editproductcategory", element: <EditProductCategory /> },
       { path: "editfuncionario", element: <EditFuncionario /> },
+      { path: "empresas", element: <Empresas /> },
+      { path: "createempresa", element: <CreateEmpresas /> },
+      { path: "editempresa", element: <EditEmpresa /> },
 
     ],
   },

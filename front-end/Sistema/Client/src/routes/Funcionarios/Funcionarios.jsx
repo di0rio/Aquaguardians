@@ -135,12 +135,15 @@ const Funcionarios = () => {
                   to="/editfuncionario"
                   state={{ employeeId: funcionario.employeeId }}
                 >
-                  <button className={styles.Btn} style={{ background: "rgb(200,201, 200)" }}>
+                  <button
+                    className={styles.Btn}
+                    style={{ background: "rgb(200,201, 200)" }}
+                  >
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
                 <button
-                className={styles.Btn}
+                  className={styles.Btn}
                   onClick={() => handleDelete(funcionario.employeeId)}
                   style={{ background: "rgb(250, 10, 20)" }}
                 >

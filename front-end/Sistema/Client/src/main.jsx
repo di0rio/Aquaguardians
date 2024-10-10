@@ -14,6 +14,7 @@ import Funcionarios from "./routes/Funcionarios/Funcionarios.jsx"
 import Login from "./routes/Login/Login.jsx";
 import Produtos from "./routes/Produtos/Produtos.jsx"
 import Empresas from "./routes/Empresas/Empresas.jsx"
+import Transiction from "./routes/Transictions/Transictions.jsx"
 
 import CreatePosto from "./routes/CreatePosto/CreatePosto.jsx";
 import CreateRobot from "./routes/CreateRobot/CreateRobot.jsx";
@@ -21,7 +22,7 @@ import CreateFuncionario from "./routes/CreateFuncionarios/CreateFuncionarios.js
 import CreateProduct  from "./routes/CreateProduct/CreateProduct.jsx";
 import CreateProductCategory from "./routes/CreateProdutoCategory/CreateProductCategory.jsx";
 import CreateEmpresas from "./routes/CreateEmpresa/CreateEmpresa.jsx"
-import CreateUser from "./routes/CreateUser/CreateUser.jsx";
+import CreateTransiction from "./routes/CreateTransiction/CreateTransiction.jsx";
 
 
 import EditPosto from "./routes/EditPosto/EditPosto.jsx";
@@ -31,6 +32,7 @@ import EditUser from "./routes/EditUser/EditUser.jsx";
 import EditProduct from "./routes/EditProduct/EditProduct.jsx";
 import EditProductCategory from "./routes/EditProductCategory/EditProductCategory.jsx";
 import EditEmpresa from "./routes/EditEmpresa/EditEmpresa.jsx"
+import EditTransiction from "./routes/EditTransiction/EditTransiction.jsx";
 
 
 const router = createBrowserRouter([  
@@ -41,7 +43,6 @@ const router = createBrowserRouter([
       { path: "/", element: <Login /> },
 
       { path: "users", element: <Usuarios /> },
-      { path: "createuser", element: <CreateUser /> },
       { path: "edituser", element: <EditUser /> },
 
       { path: "robos", element: <Robos /> },
@@ -59,7 +60,6 @@ const router = createBrowserRouter([
       { path: "createproduct", element: <CreateProduct /> },
       { path: "createproductcategory", element: <CreateProductCategory /> },
       { path: "createrobot", element: <CreateRobot /> },
-      { path: "createuser", element: <CreateUser /> },
       { path: "editposto", element: <EditPosto /> },
       { path: "editrobot", element: <EditRobot /> },
       { path: "edituser", element: <EditUser /> },
@@ -69,6 +69,10 @@ const router = createBrowserRouter([
       { path: "empresas", element: <Empresas /> },
       { path: "createempresa", element: <CreateEmpresas /> },
       { path: "editempresa", element: <EditEmpresa /> },
+      { path: "transiction", element: <Transiction /> },
+      { path: "edittransiction", element: <EditTransiction /> },
+      { path: "createtransiction", element: <CreateTransiction /> },
+      
 
     ],
   },

@@ -1,0 +1,47 @@
+.container {
+    padding: 20px;
+  }
+  
+  .cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .pesquisa {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radioInputs {
+    display: flex;
+    margin-right: 20px;
+  }
+  
+  .radio {
+    margin-right: 10px;
+  }
+  
+  .group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  

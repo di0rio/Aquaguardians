@@ -17,7 +17,9 @@ const EditProductCategory = () => {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const response = await axios.get(`https://apiaquaguardians.somee.com/api/ProductCategories/${productCategoryId}`);
+        const response = await axios.get(
+          `https://apiaquaguardians.somee.com/api/ProductCategories/${productCategoryId}`
+        );
         const category = response.data;
         setName(category.name);
         setDescription(category.description);
@@ -39,12 +41,15 @@ const EditProductCategory = () => {
     setError(null);
 
     try {
-      await axios.put(`https://apiaquaguardians.somee.com/api/ProductCategories/${productCategoryId}`, {
-        productCategoryId, // ID da categoria
-        name,
-        description,
-        products, // Passa a lista de produtos
-      });
+      await axios.put(
+        `https://apiaquaguardians.somee.com/api/ProductCategories/${productCategoryId}`,
+        {
+          productCategoryId, // ID da categoria
+          name,
+          description,
+          products, // Passa a lista de produtos
+        }
+      );
       alert("Categoria atualizada com sucesso!");
       navigate("/produtos"); // Redireciona após a atualização
     } catch (err) {
@@ -63,10 +68,24 @@ const EditProductCategory = () => {
     return <div>{error}</div>;
   }
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className={styles.container}>
-      <h1>Editar Categoria</h1>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.form}>
+      <div className={styles.header}>
+        <h2>Editar Categoria de Produto</h2>
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
+          />
+        </div>
+      </div>
+      <hr />
+      <form className={styles.Container} onSubmit={handleSubmit}>
         <div>
           <label>Nome:</label>
           <input
@@ -84,8 +103,12 @@ const EditProductCategory = () => {
             required
           />
         </div>
-     
-        <button type="submit" disabled={loading}>
+
+        <button
+          className={styles.ButtonSubmit}
+          type="submit"
+          disabled={loading}
+        >
           {loading ? "Atualizando..." : "Atualizar Categoria"}
         </button>
         {error && <div className={styles.error}>{error}</div>}

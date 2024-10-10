@@ -1,42 +1,58 @@
 import { useEffect, useState } from "react";
-import styles from "./Empresas.module.css";
+import styles from "./Transictions.module.css"; // Estilos específicos para este componente
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const navigation = [{ componente: "/createempresa", name: "Criar" }];
-const Empresas = () => {
-  const [empresas, setEmpresas] = useState([]);
+const Transacoes = () => {
+  const [transacoes, setTransacoes] = useState([]);
+  const [paymentMethods, setPaymentMethods] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchEmpresas = async () => {
+    const fetchTransacoes = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/Companies"
+          "https://apiaquaguardians.somee.com/api/Transactions"
         );
-        setEmpresas(response.data);
+        setTransacoes(response.data);
       } catch (error) {
-        setError("Erro ao carregar dados das Empresas");
+        setError("Erro ao carregar dados das Transações");
         console.error(error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchEmpresas();
+    const fetchPaymentMethods = async () => {
+      try {
+        const response = await axios.get(
+          "https://apiaquaguardians.somee.com/api/PaymentMethods"
+        );
+        const methods = {};
+        response.data.forEach(method => {
+          methods[method.paymentMethodId] = method.name; // Armazena o ID e o nome do método
+        });
+        setPaymentMethods(methods);
+      } catch (error) {
+        console.error("Erro ao carregar métodos de pagamento:", error);
+      }
+    };
+
+    fetchTransacoes();
+    fetchPaymentMethods();
   }, []);
 
   const handleDelete = async (id) => {
-    if (window.confirm("Tem certeza que deseja deletar essa empresa?")) {
+    if (window.confirm("Tem certeza que deseja deletar essa transação?")) {
       try {
         await axios.delete(
-          `https://apiaquaguardians.somee.com/api/Companies/${id}`
+          `https://apiaquaguardians.somee.com/api/Transactions/${id}`
         );
-        setEmpresas(empresas.filter((empresa) => empresa.companyId !== id));
+        setTransacoes(transacoes.filter((transacao) => transacao.transactionId !== id));
       } catch (error) {
-        console.error("Erro ao deletar a empresa:", error);
-        alert("Erro ao deletar a empresa.");
+        console.error("Erro ao deletar a transação:", error);
+        alert("Erro ao deletar a transação.");
       }
     }
   };
@@ -52,11 +68,9 @@ const Empresas = () => {
   return (
     <div className={styles.container}>
       <div className={styles.cont}>
-        {navigation.map((nav) => (
-          <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Create</button>
-          </Link>
-        ))}
+        <Link to="/createtransiction">
+          <button className={styles.button}>Criar Transação</button>
+        </Link>
 
         <div className={styles.pesquisa}>
           <div className={styles.radioInputs}>
@@ -67,12 +81,12 @@ const Empresas = () => {
 
             <label className={styles.radio}>
               <input type="radio" name="radio" />
-              <span className={styles.name}>NOME</span>
+              <span className={styles.name}>DATA</span>
             </label>
 
             <label className={styles.radio}>
               <input type="radio" name="radio" />
-              <span className={styles.name}>STATUS</span>
+              <span className={styles.name}>VALOR</span>
             </label>
           </div>
           <div className={styles.group}>
@@ -84,7 +98,7 @@ const Empresas = () => {
             <input
               className={styles.input}
               type="search"
-              placeholder="Search"
+              placeholder="Pesquisar"
             />
           </div>
         </div>
@@ -94,29 +108,25 @@ const Empresas = () => {
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Nome para Contato</th>
-            <th scope="col">Email para Contato</th>
-            <th scope="col">Telefone para Contato</th>
-            <th scope="col">Endereço</th>
-            <th scope="col">Criado</th>
+            <th scope="col">Data</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Método de Pagamento</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
-          {empresas.map((empresa) => (
-            <tr key={empresa.companyId}>
-              <td>{empresa.companyId}</td>
-              <td>{empresa.name}</td>
-              <td>{empresa.contactName}</td>
-              <td>{empresa.contactEmail}</td>
-              <td>{empresa.contactPhone}</td>
-              <td>{empresa.address}</td>
-              <td>{empresa.createdAt}</td>
+          {transacoes.map((transacao) => (
+            <tr key={transacao.transactionId}>
+              <td>{transacao.transactionId}</td>
+              <td>{new Date(transacao.transactionDate).toLocaleDateString()}</td>
+              <td>{transacao.amount}</td>
+              <td>{transacao.type}</td>
+              <td>{paymentMethods[transacao.paymentMethodId] || 'Desconhecido'}</td> {/* Exibe o nome do método de pagamento */}
               <td>
                 <Link
-                  to="/editempresa"
-                  state={{ companyId: empresa.companyId }}
+                  to="/edittransiction"
+                  state={{ transactionId: transacao.transactionId }}
                 >
                   <button
                     className={styles.Btn}
@@ -127,7 +137,7 @@ const Empresas = () => {
                 </Link>
                 <button
                   className={styles.Btn}
-                  onClick={() => handleDelete(empresa.companyId)}
+                  onClick={() => handleDelete(transacao.transactionId)}
                   style={{ background: "rgb(250, 10, 20)" }}
                 >
                   <ion-icon name="trash-outline"></ion-icon>
@@ -141,4 +151,4 @@ const Empresas = () => {
   );
 };
 
-export default Empresas;
+export default Transacoes;

@@ -12,6 +12,7 @@ const navigation = [
   { componente: "/robos", name: "Robôs" },
   { componente: "/postos", name: "Postos" },
   { componente: "/empresas", name: "Empresas" },
+  { componente: "/transiction", name: "Transações" },
 ];
 
 const Header = () => {

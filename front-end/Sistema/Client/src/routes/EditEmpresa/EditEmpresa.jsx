@@ -1,145 +1,137 @@
-import { useLocation, useNavigate } from "react-router-dom";
-import styles from "./EditEmpresa.module.css";
 import { useEffect, useState } from "react";
-import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
-import axios from "axios"; 
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import styles from "./EditEmpresa.module.css"; // Estilos específicos para este componente
 
 const EditEmpresa = () => {
-  const navigate = useNavigate();
   const location = useLocation();
+  const navigate = useNavigate();
+  const { companyId } = location.state; // Obtém o ID da empresa da navegação
 
-  const [formData, setFormData] = useState({
-    companyId: "",
+  const [empresa, setEmpresa] = useState({
     name: "",
     contactName: "",
     contactEmail: "",
     contactPhone: "",
     address: "",
-    createdAt: null, 
   });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!location.state || !location.state.companyId) {
-      console.error("companyId não está disponível");
-      alert("Empresa não encontrada. Redirecionando...");
-      navigate(-1);
-      return;
-    }
-
     const fetchEmpresa = async () => {
       try {
         const response = await axios.get(
-          `https://apiaquaguardians.somee.com/api/Companies/${location.state.companyId}`
+          `https://apiaquaguardians.somee.com/api/Companies/${companyId}`
         );
-        console.log("Dados do funcionário:", response.data);
-        setFormData({
-          companyId: location.state.companyId,
-          name: response.data.name || "",
-          contactName: response.data.contactName || "",
-          contactEmail: response.data.contactEmail || "",
-          contactPhone: response.data.contactPhone || "",
-          address: response.data.address || "",
-          createdAt: new Date(response.data.createdAt),
-        });
-      } catch (error) {
-        console.error("Erro ao buscar dados da empresa", error);
+        setEmpresa(response.data);
+      } catch (err) {
+        console.error("Erro ao carregar dados da empresa:", err);
+        setError("Erro ao carregar dados da empresa.");
+      } finally {
+        setLoading(false);
       }
     };
+
     fetchEmpresa();
-  }, [location, navigate]);
+  }, [companyId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setEmpresa((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleEdit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
 
     try {
-      const response = await axios.put(
-        `https://apiaquaguardians.somee.com/api/Companies/${formData.companyId}`,
-        formData
+      await axios.put(
+        `https://apiaquaguardians.somee.com/api/Companies/${companyId}`,
+        empresa
       );
-
-      if (response.status === 200 || response.status === 204) {
-        alert("Empresa editada com sucesso!");
-        navigate(-1);
-      } else {
-        alert("Erro ao editar empresa. Verifique os dados e tente novamente.");
-      }
-    } catch (error) {
-      console.error(
-        "Erro ao editar empresa:",
-        error.response ? error.response.data : error
-      );
-      alert("Erro ao editar empresa. Tente novamente.");
+      alert("Empresa atualizada com sucesso!");
+      navigate("/empresas"); // Redireciona para a lista de empresas
+    } catch (err) {
+      console.error("Erro ao atualizar a empresa:", err);
+      setError("Erro ao atualizar a empresa.");
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleGoBack = () => {
-    navigate(-1);
-  };
+  if (loading) {
+    return <div>Carregando...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
-    <form onSubmit={handleEdit} className={styles.form}>
-      <div className={styles.header}>
-        <h2> Editar Empresa </h2>
-        <div className={styles.iconVoltar}>
-          <ion-icon
-            name="arrow-back-outline"
-            type="button"
-            onClick={handleGoBack}
+    <div className={styles.container}>
+      <h1>Editar Empresa</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Nome:</label>
+          <input
+            type="text"
+            name="name"
+            value={empresa.name}
+            onChange={handleChange}
+            required
           />
         </div>
-      </div>
-      <hr />
-      <div className={styles.container}>
-        <input
-          type="text"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Nome"
-          required
-        />
-        <input
-          type="text"
-          value={formData.contactName}
-          onChange={handleChange}
-          placeholder="Nome para Contato"
-          required
-        />
-        <input
-          type="text"
-          value={formData.contactEmail}
-          onChange={handleChange}
-          placeholder="Email para Contato"
-          required
-        />
-        <input
-          type="text"
-          value={formData.contactPhone}
-          onChange={handleChange}
-          placeholder="Telefone para Contato"
-          required
-        />
-        <input
-          type="text"
-          value={formData.address}
-          onChange={handleChange}
-          placeholder="Endereço"
-          required
-        />
-        {/* Campo de data read-only para exibição */}
-        <input
-          type="text"
-          value={formData.createdAt ? formData.createdAt.toISOString() : ""}
-          placeholder="Data de Cadastro"
-          readOnly
-        />
-        <ButtonSubmit text="Editar" />
-      </div>
-    </form>
+        <div>
+          <label>Nome para Contato:</label>
+          <input
+            type="text"
+            name="contactName"
+            value={empresa.contactName}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Email para Contato:</label>
+          <input
+            type="email"
+            name="contactEmail"
+            value={empresa.contactEmail}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Telefone para Contato:</label>
+          <input
+            type="tel"
+            name="contactPhone"
+            value={empresa.contactPhone}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label>Endereço:</label>
+          <input
+            type="text"
+            name="address"
+            value={empresa.address}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" disabled={loading}>
+          {loading ? "Atualizando..." : "Salvar Alterações"}
+        </button>
+        {error && <div className={styles.error}>{error}</div>}
+      </form>
+    </div>
   );
 };
 

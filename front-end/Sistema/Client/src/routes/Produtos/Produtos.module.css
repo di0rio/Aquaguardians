@@ -74,6 +74,7 @@ button:hover {
   display: flex;
   width: 100%;
   gap: 40%;
+  margin-top: 1rem;
 }
 
 .pesquisa {

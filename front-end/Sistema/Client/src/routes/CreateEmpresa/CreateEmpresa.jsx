@@ -49,7 +49,7 @@ const CreateEmpresa = () => {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.header}>
-        <h2> Cadstrar Empresa </h2>
+        <h2> Cadastrar Empresa </h2>
         <div className={styles.iconVoltar}>
           <ion-icon
             name="arrow-back-outline"

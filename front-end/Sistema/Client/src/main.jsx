@@ -5,20 +5,11 @@ import App from "./pages/App";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Login from "./routes/Login/Login.jsx";
+
 
 import Usuarios from "./routes/Usuarios/Usuarios.jsx";
-import CreateUser from "./routes/CreateUser/CreateUser.jsx";
-import EditUser from "./routes/EditUser/EditUser.jsx";
-
 import Robos from "./routes/Robos/Robos.jsx";
-import CreateRobot from "./routes/CreateRobot/CreateRobot.jsx";
-import EditRobot from "./routes/EditRobot/EditRobot.jsx";
-
 import Postos from "./routes/Postos/Postos.jsx";
-import CreatePosto from "./routes/CreatePosto/CreatePosto.jsx";
-import EditPosto from "./routes/EditPosto/EditPosto.jsx";
-
 import Funcionarios from "./routes/Funcionarios/Funcionarios.jsx"
 import Login from "./routes/Login/Login.jsx";
 import Produtos from "./routes/Produtos/Produtos.jsx"

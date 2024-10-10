@@ -1,0 +1,143 @@
+.form{
+    margin: 1em 3em;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #17DEE2;
+}
+
+.header h2{
+    text-transform: uppercase;
+    font-size: 2.6em;
+    margin: 0;
+}
+
+.iconVoltar{
+    margin: auto 0;
+    font-size: 2.6em;
+}
+
+.form hr{
+    width: 100%;
+    border: rgb(23, 222, 226) solid 2px;
+    margin: 0.5em 0;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr;
+    grid-column-gap: 2em;
+    margin: 2em 0em;
+}
+
+input{
+    width: 100%;
+    height: 2.8em;
+    padding: 0px 10px;
+
+    border-radius: 0.5em;
+    border: #17DEE2 solid 2px;
+    color: #160B28;
+    background: none;
+    
+    font-size: 18px;
+    font-weight: 500;
+}
+
+input::placeholder{
+    color: #160B2866;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+select{
+    width: 100%;
+    height: 2.8em;
+    padding: 0px 10px;
+
+    border-radius: 0.5em;
+    border: #17DEE2 solid 2px;
+    color: #160B28;
+    background: none;
+    
+    font-size: 18px;
+    font-weight: 500;
+}
+
+select::placeholder{
+    color: #160B2866;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.8em;
+
+    text-transform: uppercase;
+    color: #17DEE2;
+    font-weight: 500;
+}
+
+.label input{
+    padding: 0;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.label:hover{
+    border-top: #17DEE2 solid 2px;
+    border-bottom: #17DEE2 solid 2px;
+    transform: translateY(-2px);
+}
+
+/* Responsividade para telas de celulares (smartphones) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-column-gap: 0;
+        margin: 1em 0;
+    }
+
+    .header h2 {
+        font-size: 32px;
+    }
+
+    .iconVoltar{
+        font-size: 2em;
+    }
+
+    input {
+        font-size: 16px;
+        height: 2.5em;
+        margin: 0.6em 0;
+    }
+}
+
+/* Para telas menores que 480px (celulares pequenos) */
+@media (max-width: 480px) {
+    .form {
+        margin: 1em;
+    }
+
+    .header h2 {
+        font-size: 28px;
+    }
+
+    .iconVoltar{
+        font-size: 1.6em;
+    }
+
+    input {
+        font-size: 14px;
+        height: 2.3em;
+    }
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./EditTransiction.module.css"; // Estilos para o componente
+import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
 
 const EditTransiction = () => {
   const location = useLocation();
@@ -24,14 +25,20 @@ const EditTransiction = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const transResponse = await axios.get(`https://apiaquaguardians.somee.com/api/Transactions/${transactionId}`);
-        const playersResponse = await axios.get("https://apiaquaguardians.somee.com/api/Players");
-        const paymentMethodsResponse = await axios.get("https://apiaquaguardians.somee.com/api/PaymentMethods");
-        
+        const transResponse = await axios.get(
+          `https://apiaquaguardians.somee.com/api/Transactions/${transactionId}`
+        );
+        const playersResponse = await axios.get(
+          "https://apiaquaguardians.somee.com/api/Players"
+        );
+        const paymentMethodsResponse = await axios.get(
+          "https://apiaquaguardians.somee.com/api/PaymentMethods"
+        );
+
         // Preenche todos os campos necessários
         setTransactionData({
           transactionId: transResponse.data.transactionId,
-          transactionDate: transResponse.data.transactionDate.split('T')[0], // Formata a data
+          transactionDate: transResponse.data.transactionDate.split("T")[0], // Formata a data
           amount: transResponse.data.amount,
           type: transResponse.data.type,
           playerId: transResponse.data.playerId,
@@ -64,7 +71,10 @@ const EditTransiction = () => {
     setError(null);
 
     try {
-      await axios.put(`https://apiaquaguardians.somee.com/api/Transactions/${transactionId}`, transactionData);
+      await axios.put(
+        `https://apiaquaguardians.somee.com/api/Transactions/${transactionId}`,
+        transactionData
+      );
       alert("Transação atualizada com sucesso!");
       navigate("/transiction"); // Redireciona de volta para a lista de transações
     } catch (err) {
@@ -83,79 +93,78 @@ const EditTransiction = () => {
     return <div>{error}</div>;
   }
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className={styles.container}>
-      <h1>Editar Transação</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Data da Transação:</label>
-          <input
-            type="date"
-            name="transactionDate"
-            value={transactionData.transactionDate}
-            onChange={handleChange}
-            required
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <div className={styles.header}>
+        <h2> Editar Transação </h2>
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
           />
         </div>
-        <div>
-          <label>Valor:</label>
-          <input
-            type="number"
-            name="amount"
-            value={transactionData.amount}
-            onChange={handleChange}
-            required
-            min="0"
-          />
-        </div>
-        <div>
-          <label>Tipo:</label>
-          <input
-            type="text"
-            name="type"
-            value={transactionData.type}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label>ID do Jogador:</label>
-          <select
-            name="playerId"
-            value={transactionData.playerId}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Selecione um jogador</option>
-            {players.map((player) => (
-              <option key={player.playerId} value={player.playerId}>
-                {player.nickname}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label>Método de Pagamento:</label>
-          <select
-            name="paymentMethodId"
-            value={transactionData.paymentMethodId}
-            onChange={handleChange}
-            required
-          >
-            <option value="">Selecione um método de pagamento</option>
-            {paymentMethods.map((method) => (
-              <option key={method.paymentMethodId} value={method.paymentMethodId}>
-                {method.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <button type="submit" disabled={loading}>
+      </div>
+      <hr />
+      <div className={styles.container}>
+        <input
+          type="date"
+          name="transactionDate"
+          value={transactionData.transactionDate}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="number"
+          name="amount"
+          value={transactionData.amount}
+          onChange={handleChange}
+          required
+          min="0"
+        />
+        <input
+          type="text"
+          name="type"
+          value={transactionData.type}
+          onChange={handleChange}
+          required
+        />
+        <select
+          name="playerId"
+          value={transactionData.playerId}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Selecione um jogador</option>
+          {players.map((player) => (
+            <option key={player.playerId} value={player.playerId}>
+              {player.nickname}
+            </option>
+          ))}
+        </select>
+        <select
+          name="paymentMethodId"
+          value={transactionData.paymentMethodId}
+          onChange={handleChange}
+          required
+        >
+          <option value="">Selecione um método de pagamento</option>
+          {paymentMethods.map((method) => (
+            <option key={method.paymentMethodId} value={method.paymentMethodId}>
+              {method.name}
+            </option>
+          ))}
+        </select>
+        <ButtonSubmit text="Editar Transação" disabled={loading}>
           {loading ? "Salvando..." : "Salvar Transação"}
-        </button>
+        </ButtonSubmit>
         {error && <div className={styles.error}>{error}</div>}
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 

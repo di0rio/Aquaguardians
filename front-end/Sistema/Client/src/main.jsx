@@ -25,6 +25,7 @@ import EditFuncionario from "./routes/EditFuncionario/EditFuncionario.jsx"
 
 import Empresas from "./routes/Empresas/Empresas.jsx";
 import CreateEmpresa from "./routes/CreateEmpresa/CreateEmpresa.jsx";
+import EditEmpresa from "./routes/EditEmpresa/EditEmpresa.jsx";
 
 
 const router = createBrowserRouter([  
@@ -52,7 +53,8 @@ const router = createBrowserRouter([
       { path: "editfuncionario", element: <EditFuncionario /> },
 
       { path: "empresas", element: <Empresas /> },
-      { path: "createempresa", element: <CreateEmpresa /> }
+      { path: "createempresa", element: <CreateEmpresa /> },
+      { path: "editempresa", element: <EditEmpresa /> },
     ],
   },
 ]);

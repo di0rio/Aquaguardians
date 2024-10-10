@@ -104,7 +104,7 @@ const EditFuncionario = () => {
           />
         </div>
       </div>
-      <hr style={{ background: "#17DEE2", color: "#17DEE2" }} />
+      <hr/>
       <div>
         <form className={styles.Container} onSubmit={handleEdit}>
           <input

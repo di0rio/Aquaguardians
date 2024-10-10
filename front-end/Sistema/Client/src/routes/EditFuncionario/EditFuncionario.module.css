@@ -32,6 +32,7 @@
   grid-template-columns: 3.5fr 1.5fr 3fr 2fr 2fr;
   grid-column-gap: 2em;
   margin: 2em 0em;
+  gap: 1.5em;
 }
 
 .Container input {
@@ -53,17 +54,6 @@
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
-}
-
-.custombox input {
-  width: 10px;
-  height: 10px;
-}
-
-.Label{
-    width: 220px;
-    height: 50px;
-    border-radius: 4px;
 }
 
 /* Responsividade para telas de celulares (smartphones) */

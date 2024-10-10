@@ -1,42 +1,42 @@
+import { useEffect, useState } from "react";
+import styles from "./Empresas.module.css";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import styles from "./Postos.module.css";
 import { Link } from "react-router-dom";
 
-const navigation = [{ componente: "/createposto", name: "Criar" }];
-const Postos = () => {
-  const [postos, setPostos] = useState([]);
+const navigation = [{ componente: "/createempresa", name: "Criar" }];
+const Empresas = () => {
+  const [empresas, setEmpresas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchPostos = async () => {
+    const fetchEmpresas = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/RobotStations"
+          "https://apiaquaguardians.somee.com/api/Companies"
         );
-        setPostos(response.data);
+        setEmpresas(response.data);
       } catch (error) {
-        setError("Erro ao carregar dados dos postos.");
+        setError("Erro ao carregar dados das Empresas");
         console.error(error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchPostos();
+    fetchEmpresas();
   }, []);
 
   const handleDelete = async (id) => {
-    if (window.confirm("Tem certeza que deseja deletar este posto?")) {
+    if (window.confirm("Tem certeza que deseja deletar essa empresa?")) {
       try {
         await axios.delete(
-          `https://apiaquaguardians.somee.com/api/RobotStations/${id}`
+          `https://apiaquaguardians.somee.com/api/Companies/${id}`
         );
-        setPostos(postos.filter((posto) => posto.robotStationId !== id));
+        setEmpresas(empresas.filter((empresa) => empresa.companyId !== id));
       } catch (error) {
-        console.error("Erro ao deletar o posto:", error);
-        alert("Erro ao deletar o posto.");
+        console.error("Erro ao deletar a empresa:", error);
+        alert("Erro ao deletar a empresa.");
       }
     }
   };
@@ -54,27 +54,10 @@ const Postos = () => {
       <div className={styles.cont}>
         {navigation.map((nav) => (
           <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Create</button>
+            <button className={styles.button}>Criar</button>
           </Link>
         ))}
-
         <div className={styles.pesquisa}>
-          <div className={styles.radioInputs}>
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>ID</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>NOME</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>STATUS</span>
-            </label>
-          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -95,36 +78,35 @@ const Postos = () => {
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nome</th>
-            <th scope="col">Localização</th>
-            <th scope="col">Status</th>
-            <th scope="col">Capacidade</th>
+            <th scope="col">Nome para Contato</th>
+            <th scope="col">Email para Contato</th>
+            <th scope="col">Telefone para Contato</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Criado</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
-          {postos.map((posto) => (
-            <tr key={posto.robotStationId}>
-              <td>{posto.robotStationId}</td>
-              <td>{posto.name}</td>
-              <td>{posto.location}</td>
-              <td>{posto.status}</td>
-              <td>{posto.capacity}</td>
+          {empresas.map((empresa) => (
+            <tr key={empresa.companyId}>
+              <td>{empresa.companyId}</td>
+              <td>{empresa.name}</td>
+              <td>{empresa.contactName}</td>
+              <td>{empresa.contactEmail}</td>
+              <td>{empresa.contactPhone}</td>
+              <td>{empresa.Address}</td>
+              <td>{empresa.createdAt}</td>
               <td>
                 <Link
-                  to="/editposto"
-                  state={{ RobotStationId: posto.robotStationId }}
+                  to="/editempresa"
+                  state={{ companyId: empresa.companyId }}
                 >
-                  <button
-                    style={{ background: "rgb(200,201, 200)" }}
-                    className={styles.Btn}
-                  >
+                  <button style={{ background: "rgb(200,201, 200)" }}>
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
-                
                 <button
-                  className={styles.Btn}
-                  onClick={() => handleDelete(posto.robotStationId)}
+                  onClick={() => handleDelete(empresa.companyId)}
                   style={{ background: "rgb(250, 10, 20)" }}
                 >
                   <ion-icon name="trash-outline"></ion-icon>
@@ -138,4 +120,4 @@ const Postos = () => {
   );
 };
 
-export default Postos;
+export default Empresas;

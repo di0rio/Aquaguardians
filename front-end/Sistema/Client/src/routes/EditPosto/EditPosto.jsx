@@ -19,7 +19,7 @@ const EditPosto = () => {
     if (!location.state || !location.state.RobotStationId) {
       console.error("RobotStationId não está disponível.");
       alert("Posto não encontrado. Redirecionando...");
-      navigate(-1); // Redireciona se não encontrar o ID
+      navigate(-1);
       return;
     }
 
@@ -80,8 +80,16 @@ const EditPosto = () => {
     <div className={styles.Container}>
       <div className={styles.Conteudo}>
         <div className={styles.Title}>
-          <h2>Editar</h2>
+          <h2>Editar Posto</h2>
+          <div className={styles.iconVoltar}>
+            <ion-icon
+              name="arrow-back-outline"
+              type="button"
+              onClick={handleGoBack}
+            />
+          </div>
         </div>
+      <hr style={{ background: "#17DEE2", color: "#17DEE2" }} />
         <div className={styles.Input}>
           <div>
             <input
@@ -115,7 +123,7 @@ const EditPosto = () => {
           </div>
           <div>
             <input
-              type="number" // Mantido como number para garantir um formato adequado
+              type="number"
               name="capacity"
               value={formData.capacity}
               onChange={handleChange}
@@ -123,14 +131,13 @@ const EditPosto = () => {
               required
             />
           </div>
-        </div>
-      </div>
-      <div className={styles.Btns}>
-        <div className={styles.BtnCriar}>
-          <button onClick={handleEdit}>Editar</button>
-        </div>
-        <div className={styles.BtnVoltar}>
-          <button onClick={handleGoBack}>Voltar</button>
+          <div className={styles.Btns}>
+            <div className={styles.BtnCriar}>
+              <button className={styles.ButtonSubmit} onClick={handleEdit}>
+                Editar
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,49 @@
+.ButtonSubmit{
+    width: 100%;
+    height: 2.8em;
+    padding: 0.2em;
+
+    border-radius: 0.5em;
+    border: none;
+    background: #17DEE2;
+
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #fff;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ButtonSubmit:hover {
+    background: #4ceff2;
+    box-shadow: 0 4px 8px #17dee233;
+    transform: translateY(-2px);
+}
+
+/* Media query para telas menores */
+@media (max-width: 768px) {
+    .ButtonSubmit {
+        font-size: 1em; 
+        padding: 0.7em;   
+    }
+
+    .ButtonSubmit:hover {
+        box-shadow: 0 3px 6px #17dee233;
+        transform: translateY(-1px);
+    }
+}
+
+/* Media query para telas muito pequenas (como celulares) */
+@media (max-width: 480px) {
+    .ButtonSubmit {
+        font-size: 0.8em;
+        padding: 0.5em;
+        height: 2.4em; 
+    }
+
+    .ButtonSubmit:hover {
+        box-shadow: none;
+        transform: none;
+    }
+}

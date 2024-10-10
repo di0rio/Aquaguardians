@@ -2,6 +2,7 @@ import styles from "./CreatePosto.module.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Removido useLocation, não necessário aqui
 import axios from "axios";
+import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
 
 const CreatePosto = () => {
   const navigate = useNavigate(); // Inicialize o hook useNavigate
@@ -39,43 +40,49 @@ const CreatePosto = () => {
   };
 
   return (
-    <form className={styles.Form} onSubmit={handleSubmit}>
-      <div className={styles.Content}>
-        <h2>Cadastrar Posto</h2>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.header}>
+        <h2> Criar Posto </h2>
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
+          />
+        </div>
       </div>
-      <input
-        type="text"
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-        placeholder="Localização"
-        required
-      />
-      <input
-        type="text"
-        value={status}
-        onChange={(e) => setStatus(e.target.value)}
-        placeholder="Status"
-        required
-      />
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Nome"
-        required
-      />
-      <input
-        type="text"
-        value={capacity}
-        onChange={(e) => setCapacity(e.target.value)}
-        placeholder="Capacidade"
-        required
-      />
-      <button type="submit">Adicionar Item</button>
-      <button type="button" onClick={handleGoBack}>
-        Voltar
-      </button>{" "}
-      {/* Modificado para chamar handleGoBack */}
+      <hr />
+      <div className={styles.container}>
+        <input
+          type="text"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          placeholder="Localização"
+          required
+        />
+        <input
+          type="text"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+          placeholder="Status"
+          required
+        />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Nome"
+          required
+        />
+        <input
+          type="text"
+          value={capacity}
+          onChange={(e) => setCapacity(e.target.value)}
+          placeholder="Capacidade"
+          required
+        />
+        <ButtonSubmit text="Adicionar Item" />
+      </div>
     </form>
   );
 };

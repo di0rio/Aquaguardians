@@ -29,9 +29,10 @@
 
 .container{
     display: grid;
-    grid-template-columns: 4fr 7fr 5fr 4fr 1fr 3fr;
+    grid-template-columns: 4fr 3fr 2fr 3fr 3fr;
     grid-column-gap: 2em;
     margin: 2em 0em;
+    row-gap: 1.6em;
 }
 
 input{
@@ -53,50 +54,6 @@ input::placeholder{
     font-size: 18px;
     font-weight: 500;
     text-transform: uppercase;
-}
-
-select{
-    width: 100%;
-    height: 2.8em;
-    padding: 0px 10px;
-
-    border-radius: 0.5em;
-    border: #17DEE2 solid 2px;
-    color: #160B28;
-    background: none;
-    
-    font-size: 18px;
-    font-weight: 500;
-}
-
-select::placeholder{
-    color: #160B2866;
-    font-size: 18px;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.label{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.8em;
-
-    text-transform: uppercase;
-    color: #17DEE2;
-    font-weight: 500;
-}
-
-.label input{
-    padding: 0;
-    margin: 0;
-    transition: all 0.3s ease;
-}
-
-.label:hover{
-    border-top: #17DEE2 solid 2px;
-    border-bottom: #17DEE2 solid 2px;
-    transform: translateY(-2px);
 }
 
 /* Responsividade para telas de celulares (smartphones) */

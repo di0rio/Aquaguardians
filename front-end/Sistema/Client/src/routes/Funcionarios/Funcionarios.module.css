@@ -58,15 +58,23 @@ button:hover {
   td {
     font-size: 10px;
   }
-  
-  .cont{
-    flex-direction: column; 
+
+  .cont {
+    flex-direction: column;
 
     scale: 0.9;
     margin-bottom: 20px;
   }
-  .pesquisa{
+  .pesquisa {
     margin-top: 20px;
+  }
+
+  .button2{
+    margin: 2px 3px;
+    border: none;
+    padding: 12px 10px;
+    border-radius: 2px;
+    font-size: 9px;
   }
 }
 
@@ -93,7 +101,6 @@ button:hover {
   font-weight: 600;
   cursor: pointer;
   color: rgba(51, 65, 85, 1);
-  z-index: 1;
 }
 
 .button:before {
@@ -225,3 +232,38 @@ input:hover {
   color: #17dee2;
 }
 
+.button2{
+  margin: 3% 3%;
+  border: none;
+  padding: 5% 10%;
+  border-radius: 2px;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px; /* Ajuste conforme necessário */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.closeButton {
+  margin-top: 10px;
+  background: rgb(250, 10, 20);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}

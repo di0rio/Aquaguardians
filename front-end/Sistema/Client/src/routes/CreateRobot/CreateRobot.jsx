@@ -2,6 +2,7 @@ import styles from "./CreateRobot.module.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
 
 const CreateRobot = () => {
   const navigate = useNavigate();
@@ -70,54 +71,64 @@ const CreateRobot = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Nome"
-        required
-      />
-      <input
-        type="text"
-        value={model}
-        onChange={(e) => setModel(e.target.value)}
-        placeholder="Modelo"
-        required
-      />
-      <input
-        type="text"
-        value={new Date().toISOString()} // Mostrando a data atual
-        placeholder="Horário de Criação"
-        readOnly // Campo somente leitura
-      />
-      <label>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.header}>
+        <h2> Criar Robô </h2>
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
+          />
+        </div>
+      </div>
+      <hr />
+      <div className={styles.container}>
         <input
-          type="checkbox"
-          checked={isAvaliableForRent}
-          onChange={(e) => setIsAvaliableForRent(e.target.checked)}
+          type="text"
+          value={new Date().toISOString()}
+          placeholder="Horário de Criação"
+          readOnly
         />
-        Disponível
-      </label>
-      <select
-        value={robotStationId}
-        onChange={(e) => setRobotStationId(e.target.value)}
-        required
-      >
-        <option value="" disabled>
-          Selecione a estação
-        </option>
-        {stations.map((station) => (
-          <option key={station.robotStationId} value={station.robotStationId}>
-            {station.name} {/* Exibindo o nome da estação */}
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Nome"
+          required
+        />
+        <input
+          type="text"
+          value={model}
+          onChange={(e) => setModel(e.target.value)}
+          placeholder="Modelo"
+          required
+        />
+        <select
+          value={robotStationId}
+          onChange={(e) => setRobotStationId(e.target.value)}
+          required
+        >
+          <option value="" disabled>
+            Selecione o Posto
           </option>
-        ))}
-      </select>
+          {stations.map((station) => (
+            <option key={station.robotStationId} value={station.robotStationId}>
+              {station.name} {/* Exibindo o nome da estação */}
+            </option>
+          ))}
+        </select>
+        <label className={styles.label}>
+          <input
+            type="checkbox"
+            checked={isAvaliableForRent}
+            onChange={(e) => setIsAvaliableForRent(e.target.checked)}
+          />
+          Status
+        </label>
 
-      <button type="submit">Adicionar Item</button>
-      <button type="button" onClick={handleGoBack}>
-        Voltar
-      </button>
+        <ButtonSubmit text="Adicionar Item"/>
+      </div>
     </form>
   );
 };

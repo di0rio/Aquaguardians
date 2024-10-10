@@ -6,9 +6,9 @@ import styles from "./EditProduct.module.css"; // Certifique-se de ter um arquiv
 const EditProduct = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   const productId = location.state?.productId;
-  
+
   const [product, setProduct] = useState({
     productId: "",
     name: "",
@@ -16,7 +16,7 @@ const EditProduct = () => {
     price: 0,
     stockQuantity: 0,
     productCategoryId: "",
-    orderItems: [] // Assumindo que este campo pode ser vazio inicialmente
+    orderItems: [], // Assumindo que este campo pode ser vazio inicialmente
   });
 
   const [loading, setLoading] = useState(true);
@@ -25,7 +25,9 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`https://apiaquaguardians.somee.com/api/Products/${productId}`);
+        const response = await axios.get(
+          `https://apiaquaguardians.somee.com/api/Products/${productId}`
+        );
         setProduct(response.data);
       } catch (error) {
         console.error("Erro ao carregar produto:", error);
@@ -42,7 +44,10 @@ const EditProduct = () => {
     const { name, value } = e.target;
     setProduct((prev) => ({
       ...prev,
-      [name]: name === "price" || name === "stockQuantity" ? parseFloat(value) : value
+      [name]:
+        name === "price" || name === "stockQuantity"
+          ? parseFloat(value)
+          : value,
     }));
   };
 
@@ -52,7 +57,10 @@ const EditProduct = () => {
     setError(null);
 
     try {
-      await axios.put(`https://apiaquaguardians.somee.com/api/Products/${productId}`, product);
+      await axios.put(
+        `https://apiaquaguardians.somee.com/api/Products/${productId}`,
+        product
+      );
       alert("Produto editado com sucesso!");
       navigate("/produtos"); // Redirecionar para a lista de produtos
     } catch (err) {
@@ -71,10 +79,24 @@ const EditProduct = () => {
     return <div>{error}</div>;
   }
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className={styles.container}>
-      <h1>Editar Produto</h1>
-      <form onSubmit={handleSubmit}>
+    <div className={styles.form}>
+      <div className={styles.header}>
+        <h2>Editar Produto</h2>
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
+          />
+        </div>
+      </div>
+      <hr />
+      <form className={styles.Container} onSubmit={handleSubmit}>
         <div>
           <label>Nome:</label>
           <input
@@ -126,7 +148,11 @@ const EditProduct = () => {
             required
           />
         </div>
-        <button type="submit" disabled={loading}>
+        <button
+          className={styles.ButtonSubmit}
+          type="submit"
+          disabled={loading}
+        >
           {loading ? "Salvando..." : "Salvar Produto"}
         </button>
         {error && <div className={styles.error}>{error}</div>}

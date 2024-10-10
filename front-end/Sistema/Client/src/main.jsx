@@ -19,7 +19,6 @@ import CreateRobot from "./routes/CreateRobot/CreateRobot.jsx";
 import CreateFuncionario from "./routes/CreateFuncionarios/CreateFuncionarios.jsx";
 import CreateProduct  from "./routes/CreateProduct/CreateProduct.jsx";
 import CreateProductCategory from "./routes/CreateProdutoCategory/CreateProductCategory.jsx";
-import CreateUser from "./routes/CreateUser/CreateUser.jsx";
 
 
 import EditPosto from "./routes/EditPosto/EditPosto.jsx";
@@ -39,7 +38,6 @@ const router = createBrowserRouter([
       { path: "/", element: <Login /> },
 
       { path: "users", element: <Usuarios /> },
-      { path: "createuser", element: <CreateUser /> },
       { path: "edituser", element: <EditUser /> },
 
       { path: "robos", element: <Robos /> },
@@ -57,7 +55,6 @@ const router = createBrowserRouter([
       { path: "createproduct", element: <CreateProduct /> },
       { path: "createproductcategory", element: <CreateProductCategory /> },
       { path: "createrobot", element: <CreateRobot /> },
-      { path: "createuser", element: <CreateUser /> },
       { path: "editposto", element: <EditPosto /> },
       { path: "editrobot", element: <EditRobot /> },
       { path: "edituser", element: <EditUser /> },

@@ -21,7 +21,6 @@ import CreateFuncionario from "./routes/CreateFuncionarios/CreateFuncionarios.js
 import CreateProduct  from "./routes/CreateProduct/CreateProduct.jsx";
 import CreateProductCategory from "./routes/CreateProdutoCategory/CreateProductCategory.jsx";
 import CreateEmpresas from "./routes/CreateEmpresa/CreateEmpresa.jsx"
-import CreateUser from "./routes/CreateUser/CreateUser.jsx";
 
 
 import EditPosto from "./routes/EditPosto/EditPosto.jsx";

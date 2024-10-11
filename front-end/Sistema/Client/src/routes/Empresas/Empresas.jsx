@@ -8,6 +8,7 @@ const Empresas = () => {
   const [empresas, setEmpresas] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchEmpresas = async () => {
@@ -41,6 +42,15 @@ const Empresas = () => {
     }
   };
 
+  // Filtrando empresas com base no termo de pesquisa
+  const filteredEmpresas = empresas.filter((empresa) => {
+    const searchValue = searchTerm.toLowerCase();
+    return (
+      empresa.companyId.toString().toLowerCase().includes(searchValue) ||
+      empresa.name.toLowerCase().includes(searchValue)
+    );
+  });
+
   if (loading) {
     return <div>Carregando...</div>;
   }
@@ -54,27 +64,11 @@ const Empresas = () => {
       <div className={styles.cont}>
         {navigation.map((nav) => (
           <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Create</button>
+            <button className={styles.button}>Criar</button>
           </Link>
         ))}
 
         <div className={styles.pesquisa}>
-          <div className={styles.radioInputs}>
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>ID</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>NOME</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>STATUS</span>
-            </label>
-          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -84,7 +78,9 @@ const Empresas = () => {
             <input
               className={styles.input}
               type="search"
-              placeholder="Search"
+              placeholder="Pesquisar"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </div>
@@ -104,7 +100,7 @@ const Empresas = () => {
           </tr>
         </thead>
         <tbody>
-          {empresas.map((empresa) => (
+          {filteredEmpresas.map((empresa) => (
             <tr key={empresa.companyId}>
               <td>{empresa.companyId}</td>
               <td>{empresa.name}</td>

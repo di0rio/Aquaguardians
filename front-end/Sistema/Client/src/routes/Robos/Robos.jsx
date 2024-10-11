@@ -10,6 +10,7 @@ const Robos = () => {
   const [estacoes, setEstacoes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchEstacoes = async () => {
@@ -17,7 +18,7 @@ const Robos = () => {
         const response = await axios.get(
           "https://apiaquaguardians.somee.com/api/RobotStations"
         );
-        console.log("Estações:", response.data); // Verificando a estrutura
+        console.log("Estações:", response.data);
         setEstacoes(response.data);
       } catch (error) {
         console.error("Erro ao carregar estações:", error);
@@ -30,7 +31,7 @@ const Robos = () => {
         const response = await axios.get(
           "https://apiaquaguardians.somee.com/api/Robots"
         );
-        console.log("Robôs:", response.data); // Verificando a estrutura
+        console.log("Robôs:", response.data);
         setRobos(response.data);
       } catch (error) {
         setError("Erro ao carregar dados dos robôs.");
@@ -58,6 +59,15 @@ const Robos = () => {
     }
   };
 
+  const filteredRobos = robos.filter((rob) => {
+    const searchLower = searchTerm.toLowerCase();
+    return (
+      rob.robotId.toLowerCase().includes(searchLower) || // Busca por ID
+      rob.name.toLowerCase().includes(searchLower) || // Busca por Nome
+      (rob.status && rob.status.toLowerCase().includes(searchLower)) // Busca por Status
+    );
+  });
+
   if (loading) {
     return <div>Carregando...</div>;
   }
@@ -76,26 +86,10 @@ const Robos = () => {
       <div className={styles.cont}>
         {navigation.map((nav) => (
           <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Create</button>
+            <button className={styles.button}>Criar</button>
           </Link>
         ))}
         <div className={styles.pesquisa}>
-          <div className={styles.radioInputs}>
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>ID</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>NOME</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>STATUS</span>
-            </label>
-          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -105,7 +99,9 @@ const Robos = () => {
             <input
               className={styles.input}
               type="search"
-              placeholder="Search"
+              placeholder="Pesquisar"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </div>
@@ -123,13 +119,13 @@ const Robos = () => {
           </tr>
         </thead>
         <tbody>
-          {robos.map((rob) => (
+          {filteredRobos.map((rob) => (
             <tr key={rob.robotId}>
               <td>{rob.robotId}</td>
               <td>{rob.name}</td>
               <td>{rob.model}</td>
               <td>{rob.createdAt}</td>
-              <td>{rob.robotStationId || "Desconhecida"}</td>
+              <td>{estacaoMap[rob.robotStationId] || "Desconhecida"}</td>
               <td>
                 <Link to="/editrobot" state={{ robotId: rob.robotId }}>
                   <button

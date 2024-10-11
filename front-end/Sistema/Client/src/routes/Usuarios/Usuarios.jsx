@@ -1,16 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
 import styles from "./Usuarios.module.css";
-
 import { Link } from "react-router-dom";
-
-const navigation = [{ componente: "/createrobot", name: "Criar" }];
 
 const Usuarios = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [search, setSearch] = useState(""); // Texto de pesquisa
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -18,7 +15,6 @@ const Usuarios = () => {
         const response = await axios.get(
           "https://apiaquaguardians.somee.com/api/Players"
         );
-        console.log("Usuários:", response.data); // Verificando a estrutura
         setUsers(response.data);
       } catch (error) {
         console.error("Erro ao carregar usuários:", error);
@@ -36,13 +32,24 @@ const Usuarios = () => {
         await axios.delete(
           `https://apiaquaguardians.somee.com/api/Players/${id}`
         );
-        setUsuarios(users.filter((u) => u.playerId !== id));
+        setUsers(users.filter((u) => u.playerId !== id));
       } catch (error) {
         console.error("Erro ao deletar o usuário:", error);
         alert("Erro ao deletar o usuário.");
       }
     }
   };
+
+  // Função para filtrar usuários com base na entrada de pesquisa
+  const filteredUsers = users.filter((u) => {
+    const searchValue = search.toLowerCase();
+    const isIdSearch = !isNaN(search) && search.trim() !== ""; // Verifica se a pesquisa é um número
+    if (isIdSearch) {
+      return u.playerId.toString().includes(searchValue);
+    } else {
+      return u.nickname.toLowerCase().includes(searchValue);
+    }
+  });
 
   if (loading) {
     return <div>Carregando...</div>;
@@ -55,26 +62,7 @@ const Usuarios = () => {
   return (
     <div className={styles.container}>
       <div className={styles.cont}>
-        
-        
-
         <div className={styles.pesquisa}>
-          <div className={styles.radioInputs}>
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>ID</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>NOME</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>STATUS</span>
-            </label>
-          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -84,7 +72,9 @@ const Usuarios = () => {
             <input
               className={styles.input}
               type="search"
-              placeholder="Search"
+              placeholder="Pesquisar"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
@@ -101,7 +91,7 @@ const Usuarios = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((u) => (
+          {filteredUsers.map((u) => (
             <tr key={u.playerId}>
               <td>{u.playerId}</td>
               <td>{u.nickname}</td>

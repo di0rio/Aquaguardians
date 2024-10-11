@@ -4,10 +4,12 @@ import styles from "./Postos.module.css";
 import { Link } from "react-router-dom";
 
 const navigation = [{ componente: "/createposto", name: "Criar" }];
+
 const Postos = () => {
   const [postos, setPostos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchPostos = async () => {
@@ -41,6 +43,14 @@ const Postos = () => {
     }
   };
 
+  const filteredPostos = postos.filter((posto) => {
+    const searchValue = searchTerm.toLowerCase();
+    return (
+      posto.robotStationId.toString().toLowerCase().includes(searchValue) ||
+      posto.name.toLowerCase().includes(searchValue)
+    );
+  });
+
   if (loading) {
     return <div>Carregando...</div>;
   }
@@ -54,27 +64,11 @@ const Postos = () => {
       <div className={styles.cont}>
         {navigation.map((nav) => (
           <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Create</button>
+            <button className={styles.button}>Criar</button>
           </Link>
         ))}
 
         <div className={styles.pesquisa}>
-          <div className={styles.radioInputs}>
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>ID</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>NOME</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>STATUS</span>
-            </label>
-          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -84,7 +78,9 @@ const Postos = () => {
             <input
               className={styles.input}
               type="search"
-              placeholder="Search"
+              placeholder="Pesquisar"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </div>
@@ -102,7 +98,7 @@ const Postos = () => {
           </tr>
         </thead>
         <tbody>
-          {postos.map((posto) => (
+          {filteredPostos.map((posto) => (
             <tr key={posto.robotStationId}>
               <td>{posto.robotStationId}</td>
               <td>{posto.name}</td>

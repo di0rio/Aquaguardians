@@ -60,14 +60,15 @@ const Funcionarios = () => {
   // Função para filtrar funcionários com base na entrada de pesquisa
   const filteredFuncionarios = funcionarios.filter((funcionario) => {
     const searchValue = search.toLowerCase();
-    const isIdSearch = !isNaN(search) && search.trim() !== ""; // Verifica se a pesquisa é um número
-    if (isIdSearch) {
-      // Convertendo search para número para comparação
-      const searchId = Number(search);
-      return funcionario.employeeId === searchId; // Comparação direta
-    } else {
-      return funcionario.name.toLowerCase().includes(searchValue);
-    }
+    
+    // Permite pesquisa de ID usando números e letras
+    const idMatches = funcionario.employeeId.toString().toLowerCase().includes(searchValue);
+
+    // Permite pesquisa de nome apenas usando letras
+    const nameMatches = funcionario.name.toLowerCase().includes(searchValue);
+
+    // Retorna true se corresponder ao ID (números e letras) ou ao nome (apenas letras)
+    return idMatches || nameMatches;
   });
 
   if (loading) {

@@ -8,6 +8,7 @@ const Transacoes = () => {
   const [paymentMethods, setPaymentMethods] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchTransacoes = async () => {
@@ -57,6 +58,16 @@ const Transacoes = () => {
     }
   };
 
+  // Filtrando transações com base no termo de pesquisa
+  const filteredTransacoes = transacoes.filter((transacao) => {
+    const searchValue = searchTerm.toLowerCase();
+    return (
+      transacao.transactionId.toString().toLowerCase().includes(searchValue) ||
+      new Date(transacao.transactionDate).toLocaleDateString().toLowerCase().includes(searchValue) ||
+      transacao.amount.toString().toLowerCase().includes(searchValue)
+    );
+  });
+
   if (loading) {
     return <div>Carregando...</div>;
   }
@@ -73,22 +84,6 @@ const Transacoes = () => {
         </Link>
 
         <div className={styles.pesquisa}>
-          <div className={styles.radioInputs}>
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>ID</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>DATA</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>VALOR</span>
-            </label>
-          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -99,6 +94,8 @@ const Transacoes = () => {
               className={styles.input}
               type="search"
               placeholder="Pesquisar"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
         </div>
@@ -116,13 +113,13 @@ const Transacoes = () => {
           </tr>
         </thead>
         <tbody>
-          {transacoes.map((transacao) => (
+          {filteredTransacoes.map((transacao) => (
             <tr key={transacao.transactionId}>
               <td>{transacao.transactionId}</td>
               <td>{new Date(transacao.transactionDate).toLocaleDateString()}</td>
               <td>{transacao.amount}</td>
               <td>{transacao.type}</td>
-              <td>{paymentMethods[transacao.paymentMethodId] || 'Desconhecido'}</td> {/* Exibe o nome do método de pagamento */}
+              <td>{paymentMethods[transacao.paymentMethodId] || 'Desconhecido'}</td>
               <td>
                 <Link
                   to="/edittransiction"

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import styles from "./Produtos.module.css"; // Altere o nome do módulo de CSS
+import styles from "./Produtos.module.css"; // Módulo de CSS
 import { Link } from "react-router-dom";
 
 const navigation = [
@@ -14,6 +14,8 @@ const ProductCategories = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [categorySearch, setCategorySearch] = useState("");
+  const [productSearch, setProductSearch] = useState("");
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -64,6 +66,20 @@ const ProductCategories = () => {
     }
   };
 
+  const filteredCategories = categories.filter((category) => {
+    return (
+      category.productCategoryId.toString().includes(categorySearch) || // Busca pelo ID
+      category.name.toLowerCase().includes(categorySearch.toLowerCase()) // Busca pelo Nome
+    );
+  });
+
+  const filteredProducts = products.filter((product) => {
+    return (
+      product.productId.toString().includes(productSearch) || // Busca pelo ID
+      product.name.toLowerCase().includes(productSearch.toLowerCase()) // Busca pelo Nome
+    );
+  });
+
   if (loading) {
     return <div>Carregando...</div>;
   }
@@ -81,22 +97,6 @@ const ProductCategories = () => {
           </Link>
         ))}
         <div className={styles.pesquisa}>
-          <div className={styles.radioInputs}>
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>ID</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>NOME</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>STATUS</span>
-            </label>
-          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -106,7 +106,9 @@ const ProductCategories = () => {
             <input
               className={styles.input}
               type="search"
-              placeholder="Search"
+              placeholder="Pesquisar Categoria"
+              value={categorySearch}
+              onChange={(e) => setCategorySearch(e.target.value)}
             />
           </div>
         </div>
@@ -122,7 +124,7 @@ const ProductCategories = () => {
           </tr>
         </thead>
         <tbody>
-          {categories.map((category) => (
+          {filteredCategories.map((category) => (
             <tr key={category.productCategoryId}>
               <td>{category.productCategoryId}</td>
               <td>{category.name}</td>
@@ -159,22 +161,6 @@ const ProductCategories = () => {
           </Link>
         ))}
         <div className={styles.pesquisa}>
-          <div className={styles.radioInputs}>
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>ID</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>NOME</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>STATUS</span>
-            </label>
-          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -184,7 +170,9 @@ const ProductCategories = () => {
             <input
               className={styles.input}
               type="search"
-              placeholder="Search"
+              placeholder="Pesquisar Produto"
+              value={productSearch}
+              onChange={(e) => setProductSearch(e.target.value)}
             />
           </div>
         </div>
@@ -202,7 +190,7 @@ const ProductCategories = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <tr key={product.productId}>
               <td>{product.productId}</td>
               <td>{product.name}</td>

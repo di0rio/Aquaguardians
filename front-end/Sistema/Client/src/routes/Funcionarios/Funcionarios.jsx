@@ -4,12 +4,14 @@ import styles from "./Funcionarios.module.css";
 import { Link } from "react-router-dom";
 
 const navigation = [{ componente: "/createfuncionario", name: "Criar" }];
+
 const Funcionarios = () => {
   const [funcionarios, setFuncionarios] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedFuncionario, setSelectedFuncionario] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [search, setSearch] = useState(""); // Texto de pesquisa
 
   useEffect(() => {
     const fetchFuncionarios = async () => {
@@ -55,6 +57,19 @@ const Funcionarios = () => {
     setSelectedFuncionario(null);
   };
 
+  // Função para filtrar funcionários com base na entrada de pesquisa
+  const filteredFuncionarios = funcionarios.filter((funcionario) => {
+    const searchValue = search.toLowerCase();
+    const isIdSearch = !isNaN(search) && search.trim() !== ""; // Verifica se a pesquisa é um número
+    if (isIdSearch) {
+      // Convertendo search para número para comparação
+      const searchId = Number(search);
+      return funcionario.employeeId === searchId; // Comparação direta
+    } else {
+      return funcionario.name.toLowerCase().includes(searchValue);
+    }
+  });
+
   if (loading) {
     return <div>Carregando...</div>;
   }
@@ -68,26 +83,10 @@ const Funcionarios = () => {
       <div className={styles.cont}>
         {navigation.map((nav) => (
           <Link key={nav.name} to={nav.componente}>
-            <button className={styles.button}>Create</button>
+            <button className={styles.button}>Criar</button>
           </Link>
         ))}
         <div className={styles.pesquisa}>
-          <div className={styles.radioInputs}>
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>ID</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>NOME</span>
-            </label>
-
-            <label className={styles.radio}>
-              <input type="radio" name="radio" />
-              <span className={styles.name}>STATUS</span>
-            </label>
-          </div>
           <div className={styles.group}>
             <svg viewBox="0 0 24 24" aria-hidden="true" className={styles.icon}>
               <g>
@@ -97,7 +96,9 @@ const Funcionarios = () => {
             <input
               className={styles.input}
               type="search"
-              placeholder="Search"
+              placeholder="Pesquisar"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </div>
         </div>
@@ -110,19 +111,17 @@ const Funcionarios = () => {
             <th scope="col">Nome</th>
             <th scope="col">Departamento</th>
             <th scope="col">Cargo</th>
-            {/* <th scope="col">Telefone</th> */}
             <th scope="col">Salário</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
-          {funcionarios.map((funcionario) => (
+          {filteredFuncionarios.map((funcionario) => (
             <tr key={funcionario.employeeId}>
               <td>{funcionario.employeeId}</td>
               <td>{funcionario.name}</td>
               <td>{funcionario.department}</td>
               <td>{funcionario.position}</td>
-              {/* <td>{funcionario.phoneNumber}</td> */}
               <td>{funcionario.salary}</td>
               <td>
                 <button
@@ -181,8 +180,7 @@ const Funcionarios = () => {
               <strong>Endereço:</strong> {selectedFuncionario.adress}
             </p>
             <p>
-              <strong>Data de Nascimento:</strong>{" "}
-              {selectedFuncionario.dateOfBirth}
+              <strong>Data de Nascimento:</strong> {selectedFuncionario.dateOfBirth}
             </p>
             <p>
               <strong>Data de Admição:</strong> {selectedFuncionario.hireDate}
@@ -190,7 +188,6 @@ const Funcionarios = () => {
             <p>
               <strong>Salário:</strong> {selectedFuncionario.salary}
             </p>
-            {/* Adicione mais informações conforme necessário */}
             <button onClick={closeModal} className={styles.closeButton}>
               Fechar
             </button>

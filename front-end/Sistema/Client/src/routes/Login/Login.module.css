@@ -1,10 +1,17 @@
+@font-face {
+  font-family: "BabaPro"; /* Nome da sua fonte */
+  src: url("./public/BabaPro-Bold.ttf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: auto;
   padding: auto;
 }
 
-.Page{
-  background-image: linear-gradient(45deg, #160B28, #442575, #17DEE2);
+.Page {
+  background-image: linear-gradient(45deg, #160b28, #442575, #17dee2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,8 +36,12 @@
 }
 
 .Title h2 {
-  color: #17DEE2;
+  color: #17dee2;
   font-size: 42px;
+  text-decoration: none;
+  font-family: "BabaPro" !important;
+  font-weight: 600;
+  font-size: 36px !important;
 }
 
 .Inputs {
@@ -64,7 +75,7 @@ Input::placeholder {
   box-shadow: 3px;
 }
 
-.Btn{
+.Btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,7 +92,7 @@ Input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   transition: 0.4s;
   cursor: pointer;
 }

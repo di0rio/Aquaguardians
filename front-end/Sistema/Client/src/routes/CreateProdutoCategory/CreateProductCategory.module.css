@@ -35,7 +35,7 @@
   row-gap: 1.6em;
 }
 
-input {
+.container input {
   width: 100%;
   height: 2.8em;
   padding: 0px 10px;
@@ -49,7 +49,7 @@ input {
   font-weight: 500;
 }
 
-input::placeholder {
+.container input::placeholder {
   color: #160b2866;
   font-size: 18px;
   font-weight: 500;
@@ -129,7 +129,7 @@ input::placeholder {
     font-size: 2em;
   }
 
-  input {
+  .container input {
     font-size: 16px;
     height: 2.5em;
     margin: 0.6em 0;
@@ -150,7 +150,7 @@ input::placeholder {
     font-size: 1.6em;
   }
 
-  input {
+  .cntainer input {
     font-size: 14px;
     height: 2.3em;
   }

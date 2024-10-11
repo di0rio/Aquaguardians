@@ -170,8 +170,7 @@ button:hover {
   font-size: 15px;
 }
 
-.input:focus,
-input:hover {
+.input:focus, .input:hover {
   outline: none;
   border-color: #17dee2;
   background-color: #fff;

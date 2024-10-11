@@ -80,7 +80,7 @@ const Transacoes = () => {
     <div className={styles.container}>
       <div className={styles.cont}>
         <Link to="/createtransiction">
-          <button className={styles.button}>Criar Transação</button>
+          <button className={styles.button}>Criar</button>
         </Link>
 
         <div className={styles.pesquisa}>

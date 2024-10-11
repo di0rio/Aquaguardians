@@ -1,6 +1,13 @@
+@font-face {
+  font-family: "BabaPro"; /* Nome da sua fonte */
+  src: url("./public/BabaPro-Bold.ttf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Configurações gerais */
-.container nav{
-  background: #160B28 !important;
+.container nav {
+  background: #160b28 !important;
   color: #fff;
   text-transform: uppercase;
   font-family: "Poppins";
@@ -8,27 +15,27 @@
 }
 
 /* Logo do AquaGuardians */
-.aquaGuardians{
+.aquaGuardians {
   text-decoration: none;
   font-family: "BabaPro" !important;
   font-weight: 600;
   font-size: 26px !important;
-  color: #09BDE6 !important;
+  color: #09bde6 !important;
 }
 
 /* Botão para abrir a NavBar em Mobile */
-.container nav > :nth-child(2){
+.container nav > :nth-child(2) {
   background: none;
   border: none;
 }
-.container nav > :nth-child(2) i{
+.container nav > :nth-child(2) i {
   font-size: 26px;
   color: #fff;
 }
 
 /* Nav no Mobile */
-.container nav > :nth-child(3){
-  background: #160B28;
+.container nav > :nth-child(3) {
+  background: #160b28;
   color: #fff;
 }
 
@@ -38,16 +45,16 @@
 }
 
 /* Cnfigurações de Perfil no Mobile */
-.container nav > :nth-child(3) div > h5{
+.container nav > :nth-child(3) div > h5 {
   font-size: 14px;
 }
-.container nav > :nth-child(3) div > button{
+.container nav > :nth-child(3) div > button {
   background: none;
   border: none;
   width: 1.85em;
   height: 1.85em;
 }
-.container nav > :nth-child(3) div > button > i{
+.container nav > :nth-child(3) div > button > i {
   color: #fff;
   font-size: 18px;
 }

@@ -2,6 +2,18 @@
   margin: 1em 3em;
 }
 
+
+.form input::placeholder {
+  color: #17dee2;
+}
+
+.container input, select {
+  color: #17dee2 !important;
+}
+
+
+
+
 .header {
   width: 100%;
   display: flex;
@@ -41,7 +53,7 @@
 
   border-radius: 0.5em;
   border: #17dee2 solid 2px;
-  color: #160b28;
+
   background: none;
 
   font-size: 18px;
@@ -49,7 +61,7 @@
 }
 
 .container input::placeholder {
-  color: #160b2866;
+
   font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;

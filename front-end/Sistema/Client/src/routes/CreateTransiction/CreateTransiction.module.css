@@ -10,6 +10,14 @@
   color: #17dee2;
 }
 
+.form input::placeholder {
+  color: #17dee2;
+}
+
+.container input, select {
+  color: #17dee2 !important;
+}
+
 .header h2 {
   text-transform: uppercase;
   font-size: 2.6em;
@@ -38,21 +46,18 @@
   width: 100%;
   height: 2.8em;
   padding: 0px 10px;
-
   border-radius: 0.5em;
   border: #17dee2 solid 2px;
-  color: #160b28;
   background: none;
-
   font-size: 18px;
   font-weight: 500;
 }
 
 .container input::placeholder {
-  color: #160b2866;
   font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;
+  color: #17dee2;
 }
 
 select {
@@ -62,7 +67,7 @@ select {
 
   border-radius: 0.5em;
   border: #17dee2 solid 2px;
-  color: #160b28;
+
   background: none;
 
   font-size: 18px;
@@ -70,7 +75,7 @@ select {
 }
 
 select::placeholder {
-  color: #160b2866;
+  
   font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;

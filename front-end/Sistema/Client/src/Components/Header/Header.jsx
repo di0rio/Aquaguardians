@@ -86,7 +86,7 @@
               Dropdown na direita em desktop
             */}
           <div className="d-none d-md-inline-flex">
-            <h5 className="my-auto ms-5 me-3">Nome do Adiministrador</h5>
+            <h5 className="my-auto ms-5 me-3">Nome do Administrador</h5>
             <ConfigPerfil className={styles.Perf} />
           </div>
         </nav>

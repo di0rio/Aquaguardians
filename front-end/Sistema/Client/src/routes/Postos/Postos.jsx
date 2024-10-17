@@ -63,7 +63,7 @@ const Postos = () => {
     <div className={styles.container}>
       <div className={styles.cont}>
         {navigation.map((nav) => (
-          <Link key={nav.name} to={nav.componente}>
+          <Link to="/postos/create">
             <button className={styles.button}>Criar</button>
           </Link>
         ))}
@@ -107,7 +107,7 @@ const Postos = () => {
               <td>{posto.capacity}</td>
               <td>
                 <Link
-                  to="/editposto"
+                  to="/postos/edit/:id"
                   state={{ RobotStationId: posto.robotStationId }}
                 >
                   <button

@@ -92,7 +92,7 @@ const ProductCategories = () => {
     <div className={styles.container}>
       <div className={styles.cont}>
         {navigation.map((nav) => (
-          <Link key={nav.name} to={nav.componente}>
+          <Link to="/produtos/category/create">
             <button className={styles.button}>{nav.name}</button>
           </Link>
         ))}
@@ -131,7 +131,7 @@ const ProductCategories = () => {
               <td>{category.description}</td>
               <td>
                 <Link
-                  to="/editproductcategory"
+                  to="/produtos/category/edit/:id"
                   state={{ productCategoryId: category.productCategoryId }}
                 >
                   <button
@@ -156,7 +156,7 @@ const ProductCategories = () => {
 
       <div className={styles.cont}>
         {navigation2.map((nav) => (
-          <Link key={nav.name} to={nav.componente}>
+          <Link to="/produtos/create">
             <button className={styles.button}>{nav.name}</button>
           </Link>
         ))}
@@ -199,7 +199,7 @@ const ProductCategories = () => {
               <td>{product.stockQuantity}</td>
               <td>
                 <Link
-                  to="/editproduct"
+                  to="/produtos/edit/:id"
                   state={{ productId: product.productId }}
                 >
                   <button

@@ -79,7 +79,7 @@ const Transacoes = () => {
   return (
     <div className={styles.container}>
       <div className={styles.cont}>
-        <Link to="/createtransiction">
+        <Link to="/transiction/create">
           <button className={styles.button}>Criar</button>
         </Link>
 
@@ -122,7 +122,7 @@ const Transacoes = () => {
               <td>{paymentMethods[transacao.paymentMethodId] || 'Desconhecido'}</td>
               <td>
                 <Link
-                  to="/edittransiction"
+                  to="/transiction/edit/:id"
                   state={{ transactionId: transacao.transactionId }}
                 >
                   <button

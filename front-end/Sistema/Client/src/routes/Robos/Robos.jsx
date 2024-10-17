@@ -85,7 +85,7 @@ const Robos = () => {
     <div className={styles.container}>
       <div className={styles.cont}>
         {navigation.map((nav) => (
-          <Link key={nav.name} to={nav.componente}>
+          <Link to="/robos/create">
             <button className={styles.button}>Criar</button>
           </Link>
         ))}
@@ -127,7 +127,7 @@ const Robos = () => {
               <td>{rob.createdAt}</td>
               <td>{estacaoMap[rob.robotStationId] || "Desconhecida"}</td>
               <td>
-                <Link to="/editrobot" state={{ robotId: rob.robotId }}>
+                <Link to="/robos/edit/:id" state={{ robotId: rob.robotId }}>
                   <button
                     className={styles.Btn}
                     style={{ background: "rgb(200,201, 200)" }}

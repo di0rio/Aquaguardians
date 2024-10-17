@@ -1,27 +1,29 @@
 import styles from "./Login.module.css";
-import { useState } from "react"; // Importa useState para gerenciar o estado
-import { Link, useNavigate } from "react-router-dom"; // Importa useNavigate para redirecionar
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-
-const navigation = [{ componente: "/users", name: "Login" }];
+import { useAuth } from "../../Auth";
 
 const Login = () => {
-  const [email, setEmail] = useState(""); // Estado para o e-mail
-  const [password, setPassword] = useState(""); // Estado para a senha
-  const [error, setError] = useState(""); // Estado para mensagens de erro
-  const navigate = useNavigate(); // Hook para redirecionamento
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const { loginAsAdmin, loginAsUser, logout } = useAuth();
 
   const handleLogin = (e) => {
-    e.preventDefault(); // Impede o envio do formulário
+    e.preventDefault();
 
-    // Verificação de e-mail e senha
     const correctEmail = "adm@gmail.com";
-    const correctPassword = "Adm123@!#Ç";
+    const correctPassword = "admin";
 
     if (email === correctEmail && password === correctPassword) {
-      navigate("/users"); // Redireciona para a próxima página
-    } else {  alert("Email ou senha incorretos");
-      setError(""); // Define mensagem de erro
+      // Autentica como admin
+      loginAsAdmin(email);
+      navigate("/users"); // Caminho absoluto
+    } else {
+      logout(); // Autentica como usuário comum
+      setError("Email ou senha incorretos");
     }
   };
 
@@ -32,14 +34,14 @@ const Login = () => {
           <div className={styles.Title}>
             <h2>LOGIN</h2>
           </div>
-          <form onSubmit={handleLogin}> {/* Formulário para capturar o login */}
+          <form onSubmit={handleLogin}>
             <div className={styles.Inputs}>
               <div className={styles.Email}>
                 <input
                   type="email"
                   placeholder="E-mail"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)} // Atualiza o estado do e-mail
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </div>
@@ -48,17 +50,19 @@ const Login = () => {
                   type="password"
                   placeholder="Senha"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)} // Atualiza o estado da senha
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
             </div>
-            {error && <div className={styles.error}>{error}</div>} {/* Exibe mensagem de erro, se houver */}
+            {error && <div className={styles.error}>{error}</div>}
             <div className={styles.Duvida}>
               <a href="#">Esqueceu a senha?</a>
             </div>
             <div className={styles.Btn}>
-              <button type="submit" className={styles.divBtn}>Login</button> {/* Botão de envio */}
+              <button type="submit" className={styles.divBtn}>
+                Login
+              </button>
             </div>
           </form>
         </div>

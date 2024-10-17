@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import styles from "./CreateEmpresa.module.css";
 import { useState } from "react";
+import styles from "./CreateEmpresa.module.css";
 import axios from "axios";
 import ButtonSubmit from "../../Components/ButtonSubmit/ButtonSubmit";
 
@@ -60,7 +60,7 @@ const CreateEmpresa = () => {
       </div>
       <hr />
       <div className={styles.container}>
-        <input
+        <input              
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}

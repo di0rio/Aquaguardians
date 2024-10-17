@@ -10,6 +10,14 @@
   color: #17dee2;
 }
 
+.form input::placeholder {
+  color: #17dee2;
+}
+
+.container input, select {
+  color: #17dee2 !important;
+}
+
 .header h2 {
   text-transform: uppercase;
   font-size: 2.6em;

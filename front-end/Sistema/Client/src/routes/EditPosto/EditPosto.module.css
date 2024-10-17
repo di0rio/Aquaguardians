@@ -16,6 +16,14 @@
   margin: 0;
 }
 
+.form input::placeholder {
+  color: #17dee2;
+}
+
+.container input, select {
+  color: #17dee2 !important;
+}
+
 .iconVoltar {
   margin: auto 0;
   font-size: 2.6em;
@@ -41,7 +49,7 @@
 
   border-radius: 0.5em;
   border: #17dee2 solid 2px;
-  color: #160b28;
+
   background: none;
 
   font-size: 18px;
@@ -49,7 +57,7 @@
 }
 
 .Input input::placeholder {
-  color: #160b2866;
+
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;

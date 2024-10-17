@@ -57,7 +57,7 @@ const CreateFuncionarios = () => {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.header}>
-        <h2> Cadstrar Funcionário </h2>
+        <h2> Cadastrar Funcionário </h2>
         <div className={styles.iconVoltar}>
           <ion-icon
             name="arrow-back-outline"

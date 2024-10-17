@@ -41,7 +41,7 @@ const CreateProductCategory = () => {
   return (
     <div className={styles.form}>
       <div className={styles.header}>
-        <h2> Criar Produto </h2>
+        <h2> Criar Categoria </h2>
         <div className={styles.iconVoltar}>
           <ion-icon
             name="arrow-back-outline"

@@ -11,6 +11,10 @@
   color: #17dee2;
 }
 
+.Container input{ 
+  color: #17dee2;
+}
+
 .form input::placeholder {
   color: #17dee2;
 }

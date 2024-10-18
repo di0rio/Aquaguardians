@@ -87,8 +87,8 @@ const EditProductCategory = () => {
       <hr />
       <form className={styles.Container} onSubmit={handleSubmit}>
         <div>
-          <label>Nome:</label>
           <input
+          placeholder="NOME"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -96,8 +96,8 @@ const EditProductCategory = () => {
           />
         </div>
         <div>
-          <label>Descrição:</label>
-          <textarea
+          <input
+          placeholder="DESCRIÇÃO"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required

@@ -77,8 +77,8 @@ const CreateProduct = () => {
       <hr />
       <form className={styles.container} onSubmit={handleSubmit}>
         <div className={styles.Label}>
-          <label>Nome:</label>
           <input
+            placeholder="NOME"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -86,16 +86,16 @@ const CreateProduct = () => {
           />
         </div>
         <div className={styles.Label}>
-          <label>Descrição:</label>
-          <textarea
+          <input
+            placeholder="DESCRIÇÃO"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
           />
         </div>
         <div className={styles.Label}>
-          <label>Preço:</label>
           <input
+            placeholder="PREÇO"
             type="number"
             value={price}
             onChange={(e) => setPrice(parseFloat(e.target.value))}
@@ -104,8 +104,8 @@ const CreateProduct = () => {
           />
         </div>
         <div className={styles.Label}>
-          <label>Quantidade em Estoque:</label>
           <input
+            placeholder="QNTD EM ESTOQUE"
             type="number"
             value={stockQuantity}
             onChange={(e) => setStockQuantity(parseInt(e.target.value))}
@@ -114,8 +114,9 @@ const CreateProduct = () => {
           />
         </div>
         <div className={styles.Label}>
-          <label>Selecionar Categoria:</label>
+
           <select
+            placeholder="SELECIONAR CATEGORIA"
             value={productCategoryId}
             onChange={(e) => setProductCategoryId(e.target.value)}
             required

@@ -10,6 +10,10 @@
   color: #17dee2;
 }
 
+.Container input {
+  color: #17dee2;
+}
+
 .Title h2 {
   text-transform: uppercase;
   font-size: 2.6em;
@@ -20,7 +24,8 @@
   color: #17dee2;
 }
 
-.container input, select {
+.container input,
+select {
   color: #17dee2 !important;
 }
 
@@ -37,9 +42,10 @@
 
 .Input {
   display: grid;
-  grid-template-columns: 3.5fr 1.5fr 3fr 2fr 2fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
   grid-column-gap: 2em;
   margin: 2em 0em;
+  row-gap: 1.6em;
 }
 
 .Input input {
@@ -57,7 +63,6 @@
 }
 
 .Input input::placeholder {
-
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;

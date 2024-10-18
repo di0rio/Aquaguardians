@@ -21,6 +21,10 @@
   font-size: 2.6em;
 }
 
+.Container input{ 
+  color: #17dee2;
+}
+
 .form input::placeholder {
   color: #17dee2;
 }

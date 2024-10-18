@@ -11,10 +11,10 @@
 }
 
 .form input::placeholder {
-  color: #17dee2;
+  color: #17dee2 !important;
 }
 
-.container input, select {
+.form input, select {
   color: #17dee2 !important;
 }
 

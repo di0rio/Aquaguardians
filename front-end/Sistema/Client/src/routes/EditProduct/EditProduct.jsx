@@ -109,7 +109,7 @@ const EditProduct = () => {
         </div>
         <div>
           <label>Descrição:</label>
-          <textarea
+          <input
             name="description"
             value={product.description}
             onChange={handleChange}

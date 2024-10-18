@@ -80,7 +80,7 @@ const EditEmpresa = () => {
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.header}>
-        <h2> Cadstrar Funcionário </h2>
+        <h2>Editar</h2>
         <div className={styles.iconVoltar}>
           <ion-icon
             name="arrow-back-outline"

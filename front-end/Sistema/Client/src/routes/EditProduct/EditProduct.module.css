@@ -2,6 +2,10 @@
   margin: 1em 3em;
 }
 
+.Container input{ 
+  color: #17dee2;
+}
+
 .header {
   width: 100%;
   display: flex;

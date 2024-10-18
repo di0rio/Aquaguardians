@@ -53,8 +53,8 @@ const CreateProductCategory = () => {
       <hr />
       <form className={styles.container} onSubmit={handleSubmit}>
         <div className={styles.Label}>
-          <label>Nome:</label>
           <input
+            placeholder="NOME"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -62,8 +62,8 @@ const CreateProductCategory = () => {
           />
         </div>
         <div className={styles.Label}>
-          <label>Descrição:</label>
-          <textarea
+          <input
+            placeholder="DESCRIÇÃO"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required

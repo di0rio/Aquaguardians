@@ -37,7 +37,7 @@
           <a className={styles.aquaGuardians} href="/">
             AquaGuardians
           </a>
-
+          
           {/* Ícone NavBar no Mobile */}
           <button
             className="navbar-toggler"

@@ -8,7 +8,7 @@
         <!-- Header -->
         <Grid Grid.Row="0" 
               Padding="20,10" 
-              ColumnDefinitions="*,Auto,Auto"
+              ColumnDefinitions="*,Auto"
               BackgroundColor="#252525">
             <Label Text="AQUAGUARDIANS" 
                    TextColor="#00F2FE"
@@ -70,10 +70,13 @@
                     BackgroundColor="Transparent"
                     Clicked="OnHomeClicked"/>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f6eb7b7f9fb0abd209af4dfe945da6452389963d
+            <Button Grid.Column="1"
+        Text="CONFIGURAÇÕES"
+        TextColor="#666666"
+        BackgroundColor="Transparent"
+        Clicked="OnSettingsClicked"/>
+            
+            
             <Button Grid.Column="2"
                     Text="DASHBOARDS"
                     TextColor="#666666"

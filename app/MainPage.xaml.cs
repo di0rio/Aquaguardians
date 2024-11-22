@@ -32,7 +32,7 @@ public partial class MainPage : ContentPage
 
     private async void OnRobotsClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PageRobots());
+        await Navigation.PushAsync(new Dashboards());
     }
 
     private async void OnEmpresasClicked(object sender, EventArgs e)

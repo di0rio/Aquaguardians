@@ -25,40 +25,5 @@ public partial class MainPage : ContentPage
         return;
     }
 
-    private async void OnUsersClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new PageUsers());
-    }
-
-    private async void OnRobotsClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new Dashboards());
-    }
-
-    private async void OnEmpresasClicked(object sender, EventArgs e)
-    {
-      //  await Navigation.PushAsync(new PageEmpresas());
-    }
-
-    private async void OnFunionariosClicked(object sender, EventArgs e)
-    {
-       // await Navigation.PushAsync(new PageFuncionarios());
-    }
-
-    private async void OnPostosClicked(object sender, EventArgs e)
-    {
-      //  await Navigation.PushAsync(new PagePostos());
-    }
-
-    private async void OnTransacoesClicked(object sender, EventArgs e)
-    {
-      //  await Navigation.PushAsync(new PageTransacoes());
-    }
-
-    private async void OnProdutosClicked(object sender, EventArgs e)
-    {
-        //await Navigation.PushAsync(new PageProdutos());
-    }
-
 
 }

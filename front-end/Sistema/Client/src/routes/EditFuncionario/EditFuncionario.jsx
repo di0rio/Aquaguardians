@@ -33,7 +33,7 @@ const EditFuncionario = () => {
     const fetchFuncionario = async () => {
       try {
         const response = await axios.get(
-          `https://apiaquaguardians.somee.com/api/Employes/${location.state.employeeId}`
+          `https://aquaguardians.somee.com/api/Employes/${location.state.employeeId}`
         );
         console.log("Dados do funcionário:", response.data);
         setFormData({
@@ -67,7 +67,7 @@ const EditFuncionario = () => {
 
     try {
       const response = await axios.put(
-        `https://apiaquaguardians.somee.com/api/Employes/${formData.employeeId}`,
+        `https://aquaguardians.somee.com/api/Employes/${formData.employeeId}`,
         formData
       );
 
@@ -104,7 +104,7 @@ const EditFuncionario = () => {
           />
         </div>
       </div>
-      <hr/>
+      <hr />
       <div>
         <form className={styles.Container} onSubmit={handleEdit}>
           <input

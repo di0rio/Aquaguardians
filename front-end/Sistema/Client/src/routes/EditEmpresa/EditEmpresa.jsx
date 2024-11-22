@@ -23,7 +23,7 @@ const EditEmpresa = () => {
     const fetchEmpresa = async () => {
       try {
         const response = await axios.get(
-          `https://apiaquaguardians.somee.com/api/Companies/${companyId}`
+          `https://aquaguardians.somee.com/api/Companies/${companyId}`
         );
         setEmpresa(response.data);
       } catch (err) {
@@ -52,7 +52,7 @@ const EditEmpresa = () => {
 
     try {
       await axios.put(
-        `https://apiaquaguardians.somee.com/api/Companies/${companyId}`,
+        `https://aquaguardians.somee.com/api/Companies/${companyId}`,
         empresa
       );
       alert("Empresa atualizada com sucesso!");

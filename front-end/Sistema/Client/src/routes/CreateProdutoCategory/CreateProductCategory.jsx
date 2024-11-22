@@ -17,7 +17,7 @@ const CreateProductCategory = () => {
 
     try {
       await axios.post(
-        "https://apiaquaguardians.somee.com/api/ProductCategories",
+        "https://aquaguardians.somee.com/api/ProductCategories",
         {
           name,
           description,

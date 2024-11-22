@@ -15,7 +15,7 @@ const Postos = () => {
     const fetchPostos = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/RobotStations"
+          "https://aquaguardians.somee.com/api/RobotStations"
         );
         setPostos(response.data);
       } catch (error) {
@@ -33,7 +33,7 @@ const Postos = () => {
     if (window.confirm("Tem certeza que deseja deletar este posto?")) {
       try {
         await axios.delete(
-          `https://apiaquaguardians.somee.com/api/RobotStations/${id}`
+          `https://aquaguardians.somee.com/api/RobotStations/${id}`
         );
         setPostos(postos.filter((posto) => posto.robotStationId !== id));
       } catch (error) {
@@ -117,7 +117,7 @@ const Postos = () => {
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
-                
+
                 <button
                   className={styles.Btn}
                   onClick={() => handleDelete(posto.robotStationId)}

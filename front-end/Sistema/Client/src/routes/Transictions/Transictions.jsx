@@ -14,7 +14,7 @@ const Transacoes = () => {
     const fetchTransacoes = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/Transactions"
+          "https://aquaguardians.somee.com/api/Transactions"
         );
         setTransacoes(response.data);
       } catch (error) {
@@ -28,10 +28,10 @@ const Transacoes = () => {
     const fetchPaymentMethods = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/PaymentMethods"
+          "https://aquaguardians.somee.com/api/PaymentMethods"
         );
         const methods = {};
-        response.data.forEach(method => {
+        response.data.forEach((method) => {
           methods[method.paymentMethodId] = method.name; // Armazena o ID e o nome do método
         });
         setPaymentMethods(methods);
@@ -48,9 +48,11 @@ const Transacoes = () => {
     if (window.confirm("Tem certeza que deseja deletar essa transação?")) {
       try {
         await axios.delete(
-          `https://apiaquaguardians.somee.com/api/Transactions/${id}`
+          `https://aquaguardians.somee.com/api/Transactions/${id}`
         );
-        setTransacoes(transacoes.filter((transacao) => transacao.transactionId !== id));
+        setTransacoes(
+          transacoes.filter((transacao) => transacao.transactionId !== id)
+        );
       } catch (error) {
         console.error("Erro ao deletar a transação:", error);
         alert("Erro ao deletar a transação.");
@@ -63,7 +65,10 @@ const Transacoes = () => {
     const searchValue = searchTerm.toLowerCase();
     return (
       transacao.transactionId.toString().toLowerCase().includes(searchValue) ||
-      new Date(transacao.transactionDate).toLocaleDateString().toLowerCase().includes(searchValue) ||
+      new Date(transacao.transactionDate)
+        .toLocaleDateString()
+        .toLowerCase()
+        .includes(searchValue) ||
       transacao.amount.toString().toLowerCase().includes(searchValue)
     );
   });
@@ -116,10 +121,14 @@ const Transacoes = () => {
           {filteredTransacoes.map((transacao) => (
             <tr key={transacao.transactionId}>
               <td>{transacao.transactionId}</td>
-              <td>{new Date(transacao.transactionDate).toLocaleDateString()}</td>
+              <td>
+                {new Date(transacao.transactionDate).toLocaleDateString()}
+              </td>
               <td>{transacao.amount}</td>
               <td>{transacao.type}</td>
-              <td>{paymentMethods[transacao.paymentMethodId] || 'Desconhecido'}</td>
+              <td>
+                {paymentMethods[transacao.paymentMethodId] || "Desconhecido"}
+              </td>
               <td>
                 <Link
                   to="/transiction/edit/:id"

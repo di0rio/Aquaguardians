@@ -16,7 +16,7 @@ const Robos = () => {
     const fetchEstacoes = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/RobotStations"
+          "https://aquaguardians.somee.com/api/RobotStations"
         );
         console.log("Estações:", response.data);
         setEstacoes(response.data);
@@ -29,7 +29,7 @@ const Robos = () => {
     const fetchRobos = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/Robots"
+          "https://aquaguardians.somee.com/api/Robots"
         );
         console.log("Robôs:", response.data);
         setRobos(response.data);
@@ -48,9 +48,7 @@ const Robos = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Tem certeza que deseja deletar este robô?")) {
       try {
-        await axios.delete(
-          `https://apiaquaguardians.somee.com/api/Robots/${id}`
-        );
+        await axios.delete(`https://aquaguardians.somee.com/api/Robots/${id}`);
         setRobos(robos.filter((rob) => rob.robotId !== id));
       } catch (error) {
         console.error("Erro ao deletar o robô:", error);
@@ -106,7 +104,7 @@ const Robos = () => {
           </div>
         </div>
       </div>
-      
+
       <table className={styles.table}>
         <thead>
           <tr>

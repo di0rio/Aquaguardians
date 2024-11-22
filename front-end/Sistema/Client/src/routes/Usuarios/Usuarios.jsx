@@ -13,7 +13,7 @@ const Usuarios = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/Players"
+          "https://aquaguardians.somee.com/api/Players"
         );
         setUsers(response.data);
       } catch (error) {
@@ -29,9 +29,7 @@ const Usuarios = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Tem certeza que deseja deletar este Usuário?")) {
       try {
-        await axios.delete(
-          `https://apiaquaguardians.somee.com/api/Players/${id}`
-        );
+        await axios.delete(`https://aquaguardians.somee.com/api/Players/${id}`);
         setUsers(users.filter((u) => u.playerId !== id));
       } catch (error) {
         console.error("Erro ao deletar o usuário:", error);
@@ -99,11 +97,15 @@ const Usuarios = () => {
               <td>{u.createdAt}</td>
               <td>
                 <Link to="/edituser" state={{ playerId: u.playerId }}>
-                  <button className={styles.Btn} style={{ background: "rgb(200,201, 200)" }}>
+                  <button
+                    className={styles.Btn}
+                    style={{ background: "rgb(200,201, 200)" }}
+                  >
                     <ion-icon name="create-outline"></ion-icon>
                   </button>
                 </Link>
-                <button className={styles.Btn}
+                <button
+                  className={styles.Btn}
                   onClick={() => handleDelete(u.playerId)}
                   style={{ background: "rgb(250, 10, 20)" }}
                 >

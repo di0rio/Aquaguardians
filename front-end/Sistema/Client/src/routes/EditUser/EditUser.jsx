@@ -28,7 +28,7 @@ const EditUser = () => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          `https://apiaquaguardians.somee.com/api/Players/${location.state.playerId}`
+          `https://aquaguardians.somee.com/api/Players/${location.state.playerId}`
         );
         console.log("Dados do usuário:", response.data);
         setFormData({
@@ -74,7 +74,7 @@ const EditUser = () => {
 
     try {
       const response = await axios.put(
-        `https://apiaquaguardians.somee.com/api/Players/${formData.playerId}`,
+        `https://aquaguardians.somee.com/api/Players/${formData.playerId}`,
         dataToSend
       );
 
@@ -100,17 +100,20 @@ const EditUser = () => {
 
   return (
     <div className={styles.form}>
-        <div className={styles.header}>
-          <h2>Editar Usuário</h2>
-          <div className={styles.iconVoltar}>
-            <ion-icon
-              name="arrow-back-outline"
-              type="button"
-              onClick={handleGoBack}
-            />
-          </div>
+      <div className={styles.header}>
+        <h2>Editar Usuário</h2>
+        <div className={styles.iconVoltar}>
+          <ion-icon
+            name="arrow-back-outline"
+            type="button"
+            onClick={handleGoBack}
+          />
         </div>
-      <hr className={styles.linha} style={{ background: "#17DEE2", color: "#17DEE2" }} />
+      </div>
+      <hr
+        className={styles.linha}
+        style={{ background: "#17DEE2", color: "#17DEE2" }}
+      />
       <form className={styles.Container} onSubmit={handleEdit}>
         <input
           type="text"
@@ -131,13 +134,15 @@ const EditUser = () => {
         {/* Campos invisíveis para o usuário */}
         <input type="hidden" name="points" value={formData.points} />
         <input type="hidden" name="address" value={formData.address} />
-        
+
         <div className={styles.Input}>
           <label>Data de Criação:</label>
           <span>{new Date(formData.createdAt).toLocaleString()}</span>
         </div>
         <input type="hidden" name="userId" value={formData.userId} />
-        <button className={styles.ButtonSubmit} type="submit">Editar</button>
+        <button className={styles.ButtonSubmit} type="submit">
+          Editar
+        </button>
       </form>
     </div>
   );

@@ -26,13 +26,13 @@ const EditTransiction = () => {
     const fetchData = async () => {
       try {
         const transResponse = await axios.get(
-          `https://apiaquaguardians.somee.com/api/Transactions/${transactionId}`
+          `https://aquaguardians.somee.com/api/Transactions/${transactionId}`
         );
         const playersResponse = await axios.get(
-          "https://apiaquaguardians.somee.com/api/Players"
+          "https://aquaguardians.somee.com/api/Players"
         );
         const paymentMethodsResponse = await axios.get(
-          "https://apiaquaguardians.somee.com/api/PaymentMethods"
+          "https://aquaguardians.somee.com/api/PaymentMethods"
         );
 
         // Preenche todos os campos necessários
@@ -72,7 +72,7 @@ const EditTransiction = () => {
 
     try {
       await axios.put(
-        `https://apiaquaguardians.somee.com/api/Transactions/${transactionId}`,
+        `https://aquaguardians.somee.com/api/Transactions/${transactionId}`,
         transactionData
       );
       alert("Transação atualizada com sucesso!");

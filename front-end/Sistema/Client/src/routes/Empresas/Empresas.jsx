@@ -14,7 +14,7 @@ const Empresas = () => {
     const fetchEmpresas = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/Companies"
+          "https://aquaguardians.somee.com/api/Companies"
         );
         setEmpresas(response.data);
       } catch (error) {
@@ -32,7 +32,7 @@ const Empresas = () => {
     if (window.confirm("Tem certeza que deseja deletar essa empresa?")) {
       try {
         await axios.delete(
-          `https://apiaquaguardians.somee.com/api/Companies/${id}`
+          `https://aquaguardians.somee.com/api/Companies/${id}`
         );
         setEmpresas(empresas.filter((empresa) => empresa.companyId !== id));
       } catch (error) {

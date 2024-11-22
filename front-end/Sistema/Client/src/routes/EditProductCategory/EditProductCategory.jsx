@@ -18,7 +18,7 @@ const EditProductCategory = () => {
     const fetchCategory = async () => {
       try {
         const response = await axios.get(
-          `https://apiaquaguardians.somee.com/api/ProductCategories/${productCategoryId}`
+          `https://aquaguardians.somee.com/api/ProductCategories/${productCategoryId}`
         );
         const category = response.data;
         setName(category.name);
@@ -42,7 +42,7 @@ const EditProductCategory = () => {
 
     try {
       await axios.put(
-        `https://apiaquaguardians.somee.com/api/ProductCategories/${productCategoryId}`,
+        `https://aquaguardians.somee.com/api/ProductCategories/${productCategoryId}`,
         {
           productCategoryId, // ID da categoria
           name,
@@ -88,7 +88,7 @@ const EditProductCategory = () => {
       <form className={styles.Container} onSubmit={handleSubmit}>
         <div>
           <input
-          placeholder="NOME"
+            placeholder="NOME"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -97,7 +97,7 @@ const EditProductCategory = () => {
         </div>
         <div>
           <input
-          placeholder="DESCRIÇÃO"
+            placeholder="DESCRIÇÃO"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required

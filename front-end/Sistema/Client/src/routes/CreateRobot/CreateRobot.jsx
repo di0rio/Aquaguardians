@@ -15,7 +15,7 @@ const CreateRobot = () => {
   const fetchStations = async () => {
     try {
       const resposta = await axios.get(
-        "https://apiaquaguardians.somee.com/api/RobotStations"
+        "https://aquaguardians.somee.com/api/RobotStations"
       );
       if (resposta.status === 200) {
         setStations(resposta.data);
@@ -37,7 +37,7 @@ const CreateRobot = () => {
 
     try {
       const resposta = await axios.post(
-        "https://apiaquaguardians.somee.com/api/Robots",
+        "https://aquaguardians.somee.com/api/Robots",
         {
           name,
           model,
@@ -127,7 +127,7 @@ const CreateRobot = () => {
           Status
         </label>
 
-        <ButtonSubmit text="Adicionar Item"/>
+        <ButtonSubmit text="Adicionar Item" />
       </div>
     </form>
   );

@@ -19,7 +19,7 @@ const CreateProduct = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/ProductCategories"
+          "https://aquaguardians.somee.com/api/ProductCategories"
         );
         setCategories(response.data);
       } catch (err) {
@@ -37,7 +37,7 @@ const CreateProduct = () => {
     setError(null);
 
     try {
-      await axios.post("https://apiaquaguardians.somee.com/api/Products", {
+      await axios.post("https://aquaguardians.somee.com/api/Products", {
         name,
         description,
         price,
@@ -114,7 +114,6 @@ const CreateProduct = () => {
           />
         </div>
         <div className={styles.Label}>
-
           <select
             placeholder="SELECIONAR CATEGORIA"
             value={productCategoryId}

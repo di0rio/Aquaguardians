@@ -16,7 +16,7 @@ const CreatePosto = () => {
 
     try {
       const resposta = await axios.post(
-        "https://apiaquaguardians.somee.com/api/RobotStations",
+        "https://aquaguardians.somee.com/api/RobotStations",
         {
           location,
           status,

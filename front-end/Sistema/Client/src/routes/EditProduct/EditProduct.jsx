@@ -26,7 +26,7 @@ const EditProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `https://apiaquaguardians.somee.com/api/Products/${productId}`
+          `https://aquaguardians.somee.com/api/Products/${productId}`
         );
         setProduct(response.data);
       } catch (error) {
@@ -58,7 +58,7 @@ const EditProduct = () => {
 
     try {
       await axios.put(
-        `https://apiaquaguardians.somee.com/api/Products/${productId}`,
+        `https://aquaguardians.somee.com/api/Products/${productId}`,
         product
       );
       alert("Produto editado com sucesso!");

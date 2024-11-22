@@ -23,10 +23,10 @@ const CreateTransiction = () => {
     const fetchPlayersAndPaymentMethods = async () => {
       try {
         const playersResponse = await axios.get(
-          "https://apiaquaguardians.somee.com/api/Players"
+          "https://aquaguardians.somee.com/api/Players"
         );
         const paymentMethodsResponse = await axios.get(
-          "https://apiaquaguardians.somee.com/api/PaymentMethods"
+          "https://aquaguardians.somee.com/api/PaymentMethods"
         );
 
         setPlayers(playersResponse.data);
@@ -64,7 +64,7 @@ const CreateTransiction = () => {
 
     try {
       await axios.post(
-        "https://apiaquaguardians.somee.com/api/Transactions",
+        "https://aquaguardians.somee.com/api/Transactions",
         payload
       );
       alert("Transação criada com sucesso!");

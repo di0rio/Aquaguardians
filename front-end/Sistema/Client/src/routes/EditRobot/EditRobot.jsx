@@ -22,7 +22,7 @@ const EditRobot = () => {
   const fetchStations = async () => {
     try {
       const response = await axios.get(
-        `https://apiaquaguardians.somee.com/api/RobotStations`
+        `https://aquaguardians.somee.com/api/RobotStations`
       );
       if (response.status === 200) {
         setStations(response.data);
@@ -47,7 +47,7 @@ const EditRobot = () => {
     const fetchRobot = async () => {
       try {
         const response = await axios.get(
-          `https://apiaquaguardians.somee.com/api/Robots/${location.state.robotId}`
+          `https://aquaguardians.somee.com/api/Robots/${location.state.robotId}`
         );
         console.log("Dados do robô:", response.data);
         setFormData({
@@ -80,7 +80,7 @@ const EditRobot = () => {
 
     try {
       const response = await axios.put(
-        `https://apiaquaguardians.somee.com/api/Robots/${formData.robotId}`,
+        `https://aquaguardians.somee.com/api/Robots/${formData.robotId}`,
         formData
       );
 
@@ -141,7 +141,8 @@ const EditRobot = () => {
           readOnly
         />
         <label>
-          <input className={styles.custombox}
+          <input
+            className={styles.custombox}
             type="checkbox"
             name="isAvaliableForRent"
             checked={formData.isAvaliableForRent}
@@ -149,7 +150,8 @@ const EditRobot = () => {
           />
           Disponível para Aluguel
         </label>
-        <select className={styles.Label}
+        <select
+          className={styles.Label}
           name="robotStationId"
           value={formData.robotStationId}
           onChange={handleChange}

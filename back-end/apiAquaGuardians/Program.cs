@@ -15,7 +15,7 @@ options.AddPolicy("AllowAll", builder => { builder.AllowAnyOrigin().AllowAnyMeth
 builder.Services.AddControllers();
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("Production") ?? throw new InvalidOperationException
+var connectionString = builder.Configuration.GetConnectionString("DbConnection") ?? throw new InvalidOperationException
 	("Error String!"); builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
 // Serviço de EndPoints do Identity Framework

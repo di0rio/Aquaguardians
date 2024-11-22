@@ -17,7 +17,7 @@ const Funcionarios = () => {
     const fetchFuncionarios = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/Employes"
+          "https://aquaguardians.somee.com/api/Employes"
         );
         setFuncionarios(response.data);
       } catch (error) {
@@ -35,7 +35,7 @@ const Funcionarios = () => {
     if (window.confirm("Tem certeza que deseja deletar este funcionário?")) {
       try {
         await axios.delete(
-          `https://apiaquaguardians.somee.com/api/Employes/${id}`
+          `https://aquaguardians.somee.com/api/Employes/${id}`
         );
         setFuncionarios(
           funcionarios.filter((funcionario) => funcionario.employeeId !== id)
@@ -60,9 +60,12 @@ const Funcionarios = () => {
   // Função para filtrar funcionários com base na entrada de pesquisa
   const filteredFuncionarios = funcionarios.filter((funcionario) => {
     const searchValue = search.toLowerCase();
-    
+
     // Permite pesquisa de ID usando números e letras
-    const idMatches = funcionario.employeeId.toString().toLowerCase().includes(searchValue);
+    const idMatches = funcionario.employeeId
+      .toString()
+      .toLowerCase()
+      .includes(searchValue);
 
     // Permite pesquisa de nome apenas usando letras
     const nameMatches = funcionario.name.toLowerCase().includes(searchValue);
@@ -181,7 +184,8 @@ const Funcionarios = () => {
               <strong>Endereço:</strong> {selectedFuncionario.adress}
             </p>
             <p>
-              <strong>Data de Nascimento:</strong> {selectedFuncionario.dateOfBirth}
+              <strong>Data de Nascimento:</strong>{" "}
+              {selectedFuncionario.dateOfBirth}
             </p>
             <p>
               <strong>Data de Admição:</strong> {selectedFuncionario.hireDate}

@@ -21,7 +21,7 @@ const ProductCategories = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/ProductCategories"
+          "https://aquaguardians.somee.com/api/ProductCategories"
         );
         console.log("Categorias:", response.data);
         setCategories(response.data);
@@ -36,7 +36,7 @@ const ProductCategories = () => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "https://apiaquaguardians.somee.com/api/Products"
+          "https://aquaguardians.somee.com/api/Products"
         );
         console.log("Produtos:", response.data);
         setProducts(response.data);
@@ -54,7 +54,7 @@ const ProductCategories = () => {
     if (window.confirm("Tem certeza que deseja deletar esta categoria?")) {
       try {
         await axios.delete(
-          `https://apiaquaguardians.somee.com/api/ProductCategories/${id}`
+          `https://aquaguardians.somee.com/api/ProductCategories/${id}`
         );
         setCategories(
           categories.filter((category) => category.productCategoryId !== id)

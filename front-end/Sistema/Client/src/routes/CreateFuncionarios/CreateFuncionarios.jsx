@@ -21,7 +21,7 @@ const CreateFuncionarios = () => {
 
     try {
       const resposta = await axios.post(
-        "https://apiaquaguardians.somee.com/api/Employes",
+        "https://aquaguardians.somee.com/api/Employes",
         {
           department,
           position,

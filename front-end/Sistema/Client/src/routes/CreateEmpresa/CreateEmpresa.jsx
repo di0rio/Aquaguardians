@@ -18,7 +18,7 @@ const CreateEmpresa = () => {
 
     try {
       const response = await axios.post(
-        "https://apiaquaguardians.somee.com/api/Companies",
+        "https://aquaguardians.somee.com/api/Companies",
         {
           name,
           contactName,
@@ -60,7 +60,7 @@ const CreateEmpresa = () => {
       </div>
       <hr />
       <div className={styles.container}>
-        <input              
+        <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}

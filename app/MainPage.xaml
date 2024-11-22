@@ -71,7 +71,7 @@
                     Clicked="OnHomeClicked"/>
 
             <Button Grid.Column="1"
-                    Text="USUÁRIOS"
+                    Text="CADASTRO"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
                     Clicked="OnUsersClicked"/>

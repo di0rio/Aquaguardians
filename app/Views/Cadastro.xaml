@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaGuardians.Views.Cadastro">
+    <VerticalStackLayout Spacing="20" Padding="20" VerticalOptions="Center" HorizontalOptions="Center">
+        <Label 
+            Text="Selecione uma opção:"
+            FontSize="20"
+            HorizontalOptions="Center" />
+
+        <Button 
+            Text="Clientes"
+            Clicked="OnClientesClicked" />
+        <Button 
+            Text="Empresas"
+            Clicked="OnEmpresasClicked" />
+        <Button 
+            Text="Usuários"
+            Clicked="OnUsuariosClicked" />
+        <Button 
+            Text="Robôs"
+            Clicked="OnRobosClicked" />
+        <Button 
+            Text="Funcionários"
+            Clicked="OnFuncionariosClicked" />
+        <Button 
+            Text="Postos"
+            Clicked="OnPostosClicked" />
+    </VerticalStackLayout>
+</ContentView>

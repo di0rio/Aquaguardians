@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\app"
   ],
+<<<<<<< HEAD
   "SelectedNode": "\\apiAquaGuardians.sln",
+=======
+  "SelectedNode": "\\app\\AquaGuardians.sln",
+>>>>>>> di0rio
   "PreviewInSolutionExplorer": false
 }

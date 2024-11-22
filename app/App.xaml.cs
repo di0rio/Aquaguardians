@@ -1,5 +1,4 @@
 ﻿using AquaGuardians;
-using AquaGuardians.Views;
 
 namespace AquaGuardians
 {
@@ -9,6 +8,8 @@ namespace AquaGuardians
         {
             InitializeComponent();
             MainPage = new NavigationPage(new LoginPage());
+
+            //COmentario
         }
     }
 }

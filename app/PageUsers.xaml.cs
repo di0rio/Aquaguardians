@@ -25,12 +25,12 @@ namespace AquaGuardians
 
         private async void OnHomeClicked(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopToRootAsync();
         }
 
         private async void OnRobotsClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Navegação", "Página de Robôs em desenvolvimento", "OK");
+                await Navigation.PushAsync(new PageRobots());
         }
     }
 

@@ -22,7 +22,6 @@ public partial class MainPage : ContentPage
 
     private async void OnHomeClicked(object sender, EventArgs e)
     {
-        // Já estamos na página inicial
         return;
     }
 
@@ -33,7 +32,6 @@ public partial class MainPage : ContentPage
 
     private async void OnRobotsClicked(object sender, EventArgs e)
     {
-        // Implementar navegação para página de robôs
-        //await DisplayAlert("Navegação", "Página de Robôs em desenvolvimento", "OK");
+        await Navigation.PushAsync(new PageRobots());
     }
 }

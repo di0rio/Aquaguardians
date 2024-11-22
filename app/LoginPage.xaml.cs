@@ -1,30 +1,39 @@
-﻿using AquaGuardians;
-using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls;
 
-namespace SeuProjeto
+namespace AquaGuardians
 {
     public partial class LoginPage : ContentPage
     {
         public LoginPage()
         {
-            InitializeComponent();
+            InitializeComponent(); // Este método é gerado automaticamente pelo compilador
         }
 
-        private void OnLoginClicked(object sender, EventArgs e)
+        private async void OnLoginClicked(object sender, EventArgs e)
         {
             // Exemplo de lógica para validação do login
-            bool loginValido = true; // Substitua com sua lógica real
+            bool loginValido = ValidateLogin(); // Substitua com sua lógica real
 
             if (loginValido)
             {
-                // Navegar para a MainPage ou outra página
+                // Navegar para a página principal (AppShell ou outra página)
                 Application.Current.MainPage = new AppShell();
             }
             else
             {
-                DisplayAlert("Erro", "E-mail ou senha inválidos!", "OK");
+                // Exibir mensagem de erro
+                await DisplayAlert("Erro", "E-mail ou senha inválidos!", "OK");
             }
+        }
+
+        private bool ValidateLogin()
+        {
+            // Exemplo de validação (você pode adicionar lógica real aqui)
+            string email = EmailEntry.Text;
+            string senha = PasswordEntry.Text;
+
+            // Lógica simples para validar (substitua com sua lógica de autenticação)
+            return !string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(senha);
         }
     }
 }
-

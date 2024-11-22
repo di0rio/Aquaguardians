@@ -72,10 +72,13 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> buttton alterado
 =======
+=======
+>>>>>>> e99a99d74072e41fff378df9bb8b61e1232ff834
             <Button Grid.Column="1"
         Text="CONFIGURAÇÕES"
         TextColor="#666666"
@@ -83,7 +86,10 @@
         Clicked="OnSettingsClicked"/>
             
             
+<<<<<<< HEAD
 >>>>>>> corrigido erros login
+=======
+>>>>>>> e99a99d74072e41fff378df9bb8b61e1232ff834
             <Button Grid.Column="2"
                     Text="DASHBOARDS"
                     TextColor="#666666"

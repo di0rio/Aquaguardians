@@ -89,6 +89,7 @@
 	<ItemGroup>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	  <Compile Update="Views\Dashboards.xaml.cs">
 	    <DependentUpon>Dashboards.xaml</DependentUpon>
@@ -96,10 +97,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+=======
+>>>>>>> e99a99d74072e41fff378df9bb8b61e1232ff834
 	  <MauiXaml Update="Views\Dashboards.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\LoginPage.xaml">
+<<<<<<< HEAD
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PageEmpresas.xaml">
@@ -118,6 +122,8 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PageTransacoes.xaml">
+=======
+>>>>>>> e99a99d74072e41fff378df9bb8b61e1232ff834
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PageUsers.xaml">

@@ -70,6 +70,10 @@
                     BackgroundColor="Transparent"
                     Clicked="OnHomeClicked"/>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f6eb7b7f9fb0abd209af4dfe945da6452389963d
             <Button Grid.Column="2"
                     Text="DASHBOARDS"
                     TextColor="#666666"

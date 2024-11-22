@@ -1,5 +1,5 @@
 ﻿using AquaGuardians;
-using SeuProjeto.Pages;
+using AquaGuardians.Views;
 
 namespace AquaGuardians
 {

@@ -1,4 +1,6 @@
-﻿namespace AquaGuardians;
+﻿using AquaGuardians.Views;
+
+namespace AquaGuardians;
 
 public partial class MainPage : ContentPage
 {
@@ -23,6 +25,11 @@ public partial class MainPage : ContentPage
     private async void OnHomeClicked(object sender, EventArgs e)
     {
         return;
+    }
+
+    private async void OnDashBoardsClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Dashboards());
     }
 
 

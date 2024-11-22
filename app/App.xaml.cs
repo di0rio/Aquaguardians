@@ -1,5 +1,4 @@
 ﻿using AquaGuardians;
-using AquaGuardians.Views;
 
 namespace AquaGuardians
 {

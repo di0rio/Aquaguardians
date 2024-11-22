@@ -1,12 +1,13 @@
-﻿namespace AquaGuardians
+﻿using AquaGuardians;
+
+namespace AquaGuardians
 {
     public partial class App : Application
     {
         public App()
         {
             InitializeComponent();
-
-            MainPage = new AppShell();
+            MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

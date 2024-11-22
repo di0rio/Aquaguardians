@@ -1,25 +1,37 @@
-﻿namespace AquaGuardians
+﻿namespace AquaGuardians;
+
+public partial class MainPage : ContentPage
 {
-    public partial class MainPage : ContentPage
+    int count = 0;
+
+    public MainPage()
     {
-        int count = 0;
-
-        public MainPage()
-        {
-            InitializeComponent();
-        }
-
-        private void OnCounterClicked(object sender, EventArgs e)
-        {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
-        }
+        InitializeComponent();
     }
 
+    private void OnCounterClicked(object sender, EventArgs e)
+    {
+        count++;
+        if (count == 1)
+            ((Button)sender).Text = $"Clicked {count} time";
+        else
+            ((Button)sender).Text = $"Clicked {count} times";
+
+        SemanticScreenReader.Announce(((Button)sender).Text);
+    }
+
+    private async void OnHomeClicked(object sender, EventArgs e)
+    {
+        return;
+    }
+
+    private async void OnUsersClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PageUsers());
+    }
+
+    private async void OnRobotsClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PageRobots());
+    }
 }

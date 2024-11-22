@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace AquaGuardians;
 
-namespace AquaGuardians
+public partial class PageEmpresas : ContentView
 {
-    internal class PageEmpresas
-    {
-    }
+	public PageEmpresas()
+	{
+		InitializeComponent();
+	}
 }

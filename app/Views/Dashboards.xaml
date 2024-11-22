@@ -1,12 +1,53 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:local="clr-namespace:AquaGuardians"
-                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                 x:Class="AquaGuardians.PageRobots"
-                 BackgroundColor="#1A1A2E">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaGuardians.Dashboards"
+             BackgroundColor="#1A1A2E">
+    <VerticalStackLayout>
+        <Grid RowDefinitions="Auto,*" ColumnDefinitions="*,*" Padding="20">
+            <Label Text="Aquaguardians Dashboard" FontSize="20" FontAttributes="Bold" TextColor="White" Grid.ColumnSpan="2" />
 
-    <Grid RowDefinitions="Auto,*,Auto">
-        <!-- Header -->
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="10">
+                <Label Text="$851.04" FontSize="24" TextColor="White" FontAttributes="Bold" />
+                <Label Text="Daily Sales" TextColor="#C1C1C1" />
+                <Label Text="$293.81" FontSize="24" TextColor="White" FontAttributes="Bold" />
+                <Label Text="New Users" TextColor="#C1C1C1" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="10">
+                <Label Text="403" FontSize="24" TextColor="White" FontAttributes="Bold" />
+                <Label Text="Orders" TextColor="#C1C1C1" />
+                <Label Text="$20.89" FontSize="24" TextColor="White" FontAttributes="Bold" />
+                <Label Text="Average Order Value" TextColor="#C1C1C1" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <BoxView Color="#3C3C3C" HeightRequest="1" Margin="20,10" />
+
+        <Grid RowDefinitions="Auto,*" ColumnDefinitions="*,*" Padding="20">
+            <Label Text="Sales by Product" FontSize="16" TextColor="White" Grid.ColumnSpan="2" />
+
+            <VerticalStackLayout Grid.Row="1" Grid.Column="0">
+                <Label Text="Hoodie" TextColor="#C1C1C1" />
+                <ProgressBar Progress="0.7" ProgressColor="#4C6EF5" />
+                <Label Text="Shirt" TextColor="#C1C1C1" />
+                <ProgressBar Progress="0.5" ProgressColor="#4C6EF5" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="1" Grid.Column="1">
+                <Label Text="Pants" TextColor="#C1C1C1" />
+                <ProgressBar Progress="0.4" ProgressColor="#4C6EF5" />
+                <Label Text="Accessories" TextColor="#C1C1C1" />
+                <ProgressBar Progress="0.3" ProgressColor="#4C6EF5" />
+            </VerticalStackLayout>
+            
+            
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
+
+<!--<Grid RowDefinitions="Auto,*,Auto">
+        --><!-- Header --><!--
         <Grid Grid.Row="0" 
                   Padding="20,10" 
                   ColumnDefinitions="*,Auto,Auto"
@@ -30,7 +71,7 @@
             </Frame>
         </Grid>
 
-        <!-- Search and Filter -->
+        --><!-- Search and Filter --><!--
         <Grid Grid.Row="1" 
                   RowDefinitions="Auto,*" 
                   Padding="20,10">
@@ -61,7 +102,7 @@
                             Padding="15,0"/>
             </Grid>
 
-            <!-- Robots List -->
+            --><!-- Robots List --><!--
             <CollectionView Grid.Row="1" 
                                ItemsSource="{Binding Robots}"
                                SelectionMode="Single">
@@ -152,7 +193,7 @@
             </CollectionView>
         </Grid>
 
-        <!-- Bottom Navigation -->
+        --><!-- Bottom Navigation --><!--
         <Grid Grid.Row="2" 
                   ColumnDefinitions="*,*,*"
                   BackgroundColor="#252525"
@@ -174,5 +215,4 @@
                         TextColor="#00F2FE"
                         BackgroundColor="Transparent"/>
         </Grid>
-    </Grid>
-</ContentPage>
+    </Grid>-->

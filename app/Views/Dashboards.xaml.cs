@@ -3,18 +3,17 @@ using System.Windows.Input;
 
 namespace AquaGuardians
 {
-    public partial class PageRobots : ContentPage
+    public partial class Dashboards : ContentPage
     {
         public ObservableCollection<RobotModel> Robots { get; set; }
         public ICommand DetailCommand { get; private set; }
         public ICommand ControlCommand { get; private set; }
         public ICommand TelemetryCommand { get; private set; }
 
-        public PageRobots()
+        public Dashboards()
         {
             InitializeComponent();
             Robots = new ObservableCollection<RobotModel>();
-            InitializeCommands();
             LoadRobots();
             BindingContext = this;
         }

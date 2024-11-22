@@ -5,29 +5,6 @@
              BackgroundColor="#1A1A2E">
 
     <Grid RowDefinitions="Auto,*,Auto">
-        <!-- Header -->
-        <Grid Grid.Row="0" 
-              Padding="20,10" 
-              ColumnDefinitions="*,Auto,Auto"
-              BackgroundColor="#252525">
-            <Label Text="AQUAGUARDIANS" 
-                   TextColor="#00F2FE"
-                   FontSize="24"
-                   FontAttributes="Bold"
-                   VerticalOptions="Center"/>
-
-            <Frame Grid.Column="1" 
-                   Padding="0"
-                   CornerRadius="25"
-                   HeightRequest="40"
-                   WidthRequest="40"
-                   Margin="0,0,15,0"
-                   BackgroundColor="#333333">
-                <Image Source="dotnet_bot.png"
-                       Aspect="AspectFit"
-                       Margin="8"/>
-            </Frame>
-        </Grid>
 
         <!-- Search and Filter -->
         <Grid Grid.Row="1" 
@@ -99,12 +76,12 @@
                     Clicked="OnHomeClicked"/>
 
             <Button Grid.Column="1"
-                    Text="USUÁRIOS"
+                    Text="CADASTROS"
                     TextColor="#00F2FE"
                     BackgroundColor="Transparent"/>
 
             <Button Grid.Column="2"
-                    Text="ROBÔS"
+                    Text="DASHBOARDS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
                     Clicked="OnRobotsClicked"/>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SeuProjeto.LoginPage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#2D046E" Offset="0.0" />
+            <GradientStop Color="#1CB5E0" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="30" Spacing="20">
+            <Frame BackgroundColor="#1C1C2D" CornerRadius="15" Padding="20" WidthRequest="300" HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="LOGIN" FontSize="24" FontAttributes="Bold" TextColor="#00FFFF" HorizontalOptions="Center" />
+
+                    <VerticalStackLayout>
+                        <Label Text="E-mail" FontSize="14" TextColor="White" />
+                        <Entry Placeholder="Digite seu e-mail" TextColor="White" PlaceholderColor="#999999" />
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout>
+                        <Label Text="Senha" FontSize="14" TextColor="White" />
+                        <Entry Placeholder="Digite sua senha" IsPassword="True" TextColor="White" PlaceholderColor="#999999" />
+                    </VerticalStackLayout>
+
+                    <Label Text="Esqueceu a senha?" FontSize="14" TextColor="#00FFFF" HorizontalOptions="End" />
+
+                    <Button Text="LOGIN"
+                            BackgroundColor="#00FFFF"
+                            TextColor="Black"
+                            CornerRadius="10"
+                            FontAttributes="Bold"
+                            HeightRequest="50"
+                            Clicked="OnLoginClicked" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

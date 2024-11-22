@@ -67,28 +67,28 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="LoginPage.xaml">
+	  <MauiXaml Update="Views\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PageEmpresas.xaml">
+	  <MauiXaml Update="Views\PageEmpresas.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PageFuncionarios.xaml">
+	  <MauiXaml Update="Views\PageFuncionarios.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PagePostos.xaml">
+	  <MauiXaml Update="Views\PagePostos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PageProdutos.xaml">
+	  <MauiXaml Update="Views\PageProdutos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PageRobots.xaml">
+	  <MauiXaml Update="Views\PageRobots.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PageTransacoes.xaml">
+	  <MauiXaml Update="Views\PageTransacoes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PageUsers.xaml">
+	  <MauiXaml Update="Views\PageUsers.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Transacoes.xaml">

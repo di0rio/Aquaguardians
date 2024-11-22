@@ -41,4 +41,13 @@ public partial class MainPage : ContentPage
         Console.WriteLine("Configurações clicado!");
         await DisplayAlert("Configurações", "Botão Configurações clicado!", "OK");
     }
+<<<<<<< HEAD
 }
+=======
+
+    private async void OnEmpresasClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PageEmpresas());
+    }
+}
+>>>>>>> origin/n4rdelli

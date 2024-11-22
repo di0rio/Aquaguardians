@@ -61,7 +61,7 @@
 
         <!-- Bottom Navigation -->
         <Grid Grid.Row="2" 
-              ColumnDefinitions="*,*,*"
+              ColumnDefinitions="*,*,*,*"
               BackgroundColor="#252525"
               HeightRequest="60">
             <Button Grid.Column="0"
@@ -94,7 +94,16 @@
                     Text="DASHBOARDS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
+<<<<<<< HEAD
                     Clicked="OnDashBoardsClicked"/>
+=======
+                    Clicked="OnRobotsClicked"/>
+            <Button Grid.Column="3"
+                    Text="EMPRESAS"
+                    TextColor="#666666"
+                    BackgroundColor="Transparent"
+                    Clicked="OnEmpresasClicked"/>
+>>>>>>> origin/n4rdelli
         </Grid>
     </Grid>
 </ContentPage>

@@ -56,6 +56,33 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="NovaPasta1\**" />
+	  <AndroidResource Remove="NovaPasta\**" />
+	  <AndroidResource Remove="Platforms\NovaPasta\**" />
+	  <AndroidResource Remove="Views\**" />
+	  <Compile Remove="NovaPasta1\**" />
+	  <Compile Remove="NovaPasta\**" />
+	  <Compile Remove="Platforms\NovaPasta\**" />
+	  <Compile Remove="Views\**" />
+	  <EmbeddedResource Remove="NovaPasta1\**" />
+	  <EmbeddedResource Remove="NovaPasta\**" />
+	  <EmbeddedResource Remove="Platforms\NovaPasta\**" />
+	  <EmbeddedResource Remove="Views\**" />
+	  <MauiCss Remove="NovaPasta1\**" />
+	  <MauiCss Remove="NovaPasta\**" />
+	  <MauiCss Remove="Platforms\NovaPasta\**" />
+	  <MauiCss Remove="Views\**" />
+	  <MauiXaml Remove="NovaPasta1\**" />
+	  <MauiXaml Remove="NovaPasta\**" />
+	  <MauiXaml Remove="Platforms\NovaPasta\**" />
+	  <MauiXaml Remove="Views\**" />
+	  <None Remove="NovaPasta1\**" />
+	  <None Remove="NovaPasta\**" />
+	  <None Remove="Platforms\NovaPasta\**" />
+	  <None Remove="Views\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Remove="Posts.xaml.cs" />
 	</ItemGroup>
 
@@ -66,30 +93,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\LoginPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PageEmpresas.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PageFuncionarios.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PagePostos.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PageProdutos.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PageRobots.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PageTransacoes.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\PageUsers.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Transacoes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

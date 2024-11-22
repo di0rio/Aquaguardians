@@ -1,6 +1,4 @@
-﻿using AquaGuardians.Views;
-
-namespace AquaGuardians;
+﻿namespace AquaGuardians;
 
 public partial class MainPage : ContentPage
 {
@@ -24,21 +22,21 @@ public partial class MainPage : ContentPage
 
     private async void OnHomeClicked(object sender, EventArgs e)
     {
-        // Lógica para o botão Home
-        Console.WriteLine("Home clicado!");
         return;
     }
 
-    private async void OnDashBoardsClicked(object sender, EventArgs e)
+    private async void OnUsersClicked(object sender, EventArgs e)
     {
-        // Navegação para a página Dashboards
-        await Navigation.PushAsync(new Dashboards());
+        await Navigation.PushAsync(new PageUsers());
     }
 
-    private async void OnSettingsClicked(object sender, EventArgs e)
+    private async void OnRobotsClicked(object sender, EventArgs e)
     {
-        // Lógica para o botão Configurações
-        Console.WriteLine("Configurações clicado!");
-        await DisplayAlert("Configurações", "Botão Configurações clicado!", "OK");
+        await Navigation.PushAsync(new PageRobots());
+    }
+
+    private async void OnEmpresasClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PageEmpresas());
     }
 }

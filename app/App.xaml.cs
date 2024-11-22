@@ -9,6 +9,8 @@ namespace AquaGuardians
         {
             InitializeComponent();
             MainPage = new NavigationPage(new LoginPage());
+
+            //COmentario
         }
     }
 }

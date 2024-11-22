@@ -8,7 +8,7 @@
         <!-- Header -->
         <Grid Grid.Row="0" 
               Padding="20,10" 
-              ColumnDefinitions="*,Auto"
+              ColumnDefinitions="*,Auto,Auto"
               BackgroundColor="#252525">
             <Label Text="AQUAGUARDIANS" 
                    TextColor="#00F2FE"
@@ -70,40 +70,22 @@
                     BackgroundColor="Transparent"
                     Clicked="OnHomeClicked"/>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> buttton alterado
-=======
-=======
->>>>>>> e99a99d74072e41fff378df9bb8b61e1232ff834
             <Button Grid.Column="1"
-        Text="CONFIGURAÇÕES"
-        TextColor="#666666"
-        BackgroundColor="Transparent"
-        Clicked="OnSettingsClicked"/>
-            
-            
-<<<<<<< HEAD
->>>>>>> corrigido erros login
-=======
->>>>>>> e99a99d74072e41fff378df9bb8b61e1232ff834
-            <Button Grid.Column="2"
-                    Text="DASHBOARDS"
+                    Text="USUÁRIOS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
-<<<<<<< HEAD
-                    Clicked="OnDashBoardsClicked"/>
-=======
+                    Clicked="OnUsersClicked"/>
+
+            <Button Grid.Column="2"
+                    Text="ROBÔS"
+                    TextColor="#666666"
+                    BackgroundColor="Transparent"
                     Clicked="OnRobotsClicked"/>
             <Button Grid.Column="3"
                     Text="EMPRESAS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
                     Clicked="OnEmpresasClicked"/>
->>>>>>> origin/n4rdelli
         </Grid>
     </Grid>
 </ContentPage>

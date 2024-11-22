@@ -77,7 +77,7 @@
                     Clicked="OnUsersClicked"/>
 
             <Button Grid.Column="2"
-                    Text="ROBÔS"
+                    Text="DASHBOARDS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
                     Clicked="OnRobotsClicked"/>

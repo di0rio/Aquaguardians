@@ -70,21 +70,11 @@
                     BackgroundColor="Transparent"
                     Clicked="OnHomeClicked"/>
 
-            <Button Grid.Column="1"
-                    Text="CADASTRO"
-                    TextColor="#666666"
-                    BackgroundColor="Transparent"
-                    Clicked="OnUsersClicked"/>
-
             <Button Grid.Column="2"
                     Text="DASHBOARDS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
-                    Clicked="OnRobotsClicked"/>
-
-
-         
-
+                    Clicked="OnDashBoardsClicked"/>
         </Grid>
     </Grid>
 </ContentPage>

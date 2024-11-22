@@ -34,4 +34,9 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new PageRobots());
     }
+
+    private async void OnEmpresasClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PageEmpresas());
+    }
 }

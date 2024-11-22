@@ -8,7 +8,7 @@
         <!-- Header -->
         <Grid Grid.Row="0" 
               Padding="20,10" 
-              ColumnDefinitions="*,Auto,Auto"
+              ColumnDefinitions="*,Auto"
               BackgroundColor="#252525">
             <Label Text="AQUAGUARDIANS" 
                    TextColor="#00F2FE"
@@ -71,9 +71,19 @@
                     Clicked="OnHomeClicked"/>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> buttton alterado
+=======
+            <Button Grid.Column="1"
+        Text="CONFIGURAÇÕES"
+        TextColor="#666666"
+        BackgroundColor="Transparent"
+        Clicked="OnSettingsClicked"/>
+            
+            
+>>>>>>> corrigido erros login
             <Button Grid.Column="2"
                     Text="DASHBOARDS"
                     TextColor="#666666"

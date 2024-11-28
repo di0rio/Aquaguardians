@@ -105,7 +105,7 @@ namespace AquaGuardians
                     var json = JsonSerializer.Serialize(robotStation);
                     var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
 
-                    var response = await _httpClient.PostAsync("https://aquaguardians.somee.com/api/RobotSstations", content);
+                    var response = await _httpClient.PostAsync("https://aquaguardians.somee.com/api/RobotStations", content);
 
                     if (response.IsSuccessStatusCode)
                     {

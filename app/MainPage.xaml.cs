@@ -27,7 +27,7 @@ public partial class MainPage : ContentPage
 
     private async void OnUsersClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PageUsers());
+        await Navigation.PushAsync(new PagePlayers());
     }
 
     private async void OnRobotsClicked(object sender, EventArgs e)

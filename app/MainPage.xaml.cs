@@ -39,4 +39,12 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new PageEmpresas());
     }
+
+
+    private async void OnMenuClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PageMenu());
+    }
+
+
 }

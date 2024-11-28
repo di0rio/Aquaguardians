@@ -91,10 +91,8 @@
 	  <MauiXaml Update="PageUsers.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
->>>>>>> ajustes pageLogin
 	  <MauiXaml Update="Transacoes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
-
 </Project>

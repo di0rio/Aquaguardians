@@ -15,8 +15,8 @@
                     <DataTemplate>
                         <StackLayout Padding="10">
                             <Label Text="{Binding PlayerId}" FontSize="14" FontAttributes="Bold" />
-                            <Label Text="{Binding nickname}" FontSize="14" />
-                            <Label Text="{Binding email}" FontSize="14" />
+                            <Label Text="{Binding Name}" FontSize="16" />
+                            <Label Text="{Binding Username}" FontSize="14" />
                             <Label Text="{Binding Level}" FontSize="14" />
                             <Label Text="{Binding Score}" FontSize="14" />
                             <Label Text="{Binding JoinedAt}" FontSize="14" />

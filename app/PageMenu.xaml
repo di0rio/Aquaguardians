@@ -4,26 +4,49 @@
              x:Class="AquaGuardians.PageMenu"
              Title="Menu">
 
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#2A004F" Offset="0.0" />
+            <GradientStop Color="#0E0848" Offset="0.5" />
+            <GradientStop Color="#020024" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-            <Label Text="Selecione uma página"
+            <Label Text="SELECIONE UMA PÁGINA"
                    FontSize="24"
-                   HorizontalOptions="Center" />
+                   HorizontalOptions="Center"
+                   TextColor="White" />
 
             <Button Text="Empresas" 
-                    Clicked="NavigateToPageEmpresas" />
+                    Clicked="NavigateToPageEmpresas" 
+                    BackgroundColor="#1C1B33"
+                    TextColor="White" />
             <Button Text="Funcionários" 
-                    Clicked="NavigateToPageFuncionarios" />
+                    Clicked="NavigateToPageFuncionarios" 
+                    BackgroundColor="#1C1B33"
+                    TextColor="White" />
             <Button Text="Postos" 
-                    Clicked="NavigateToPagePostos" />
+                    Clicked="NavigateToPagePostos" 
+                    BackgroundColor="#1C1B33"
+                    TextColor="White" />
             <Button Text="Produtos" 
-                    Clicked="NavigateToPageProdutos" />
-            <Button Text="Robots" 
-                    Clicked="NavigateToPageRobots" />
+                    Clicked="NavigateToPageProdutos" 
+                    BackgroundColor="#1C1B33"
+                    TextColor="White" />
+            <Button Text="Robôs" 
+                    Clicked="NavigateToPageRobots" 
+                    BackgroundColor="#1C1B33"
+                    TextColor="White" />
             <Button Text="Transações" 
-                    Clicked="NavigateToPageTransacoes" />
+                    Clicked="NavigateToPageTransacoes" 
+                    BackgroundColor="#1C1B33"
+                    TextColor="White" />
             <Button Text="Usuários" 
-                    Clicked="NavigateToPageUsers" />
+                    Clicked="NavigateToPageUsers" 
+                    BackgroundColor="#1C1B33"
+                    TextColor="White" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

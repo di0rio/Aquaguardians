@@ -1,29 +1,84 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AquaGuardians.PageMenu"
-             Title="Menu">
-
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="AquaGuardians.PageMenu"
+          Title="Menu">
+    <ContentPage.Background>
+        <LinearGradientBrush EndPoint="0,1">
+            <GradientStop Color="#2A004F" Offset="0.0" />
+            <GradientStop Color="#0E0848" Offset="0.5" />
+            <GradientStop Color="#020024" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-            <Label Text="Selecione uma página"
-                   FontSize="24"
-                   HorizontalOptions="Center" />
+            <Label Text="SELECIONE UMA PÁGINA"
+                FontSize="24"
+                HorizontalOptions="Center"
+                TextColor="White" />
 
-            <Button Text="Empresas" 
-                    Clicked="NavigateToPageEmpresas" />
-            <Button Text="Funcionários" 
-                    Clicked="NavigateToPageFuncionarios" />
-            <Button Text="Postos" 
-                    Clicked="NavigateToPagePostos" />
-            <Button Text="Produtos" 
-                    Clicked="NavigateToPageProdutos" />
-            <Button Text="Robots" 
-                    Clicked="NavigateToPageRobots" />
-            <Button Text="Transações" 
-                    Clicked="NavigateToPageTransacoes" />
-            <Button Text="Usuários" 
-                    Clicked="NavigateToPageUsers" />
+            <!-- Caixa para Empresas -->
+            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
+                <Label Text="Empresas" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextColor="White"
+                    FontSize="18" />
+            </Frame>
+
+            <!-- Caixa para Funcionários -->
+            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
+                <Label Text="Funcionários" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextColor="White"
+                    FontSize="18" />
+            </Frame>
+
+            <!-- Caixa para Postos -->
+            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
+                <Label Text="Postos" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextColor="White"
+                    FontSize="18" />
+            </Frame>
+
+            <!-- Caixa para Produtos -->
+            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
+                <Label Text="Produtos" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextColor="White"
+                    FontSize="18" />
+            </Frame>
+
+            <!-- Caixa para Robôs -->
+            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
+                <Label Text="Robôs" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextColor="White"
+                    FontSize="18" />
+            </Frame>
+
+            <!-- Caixa para Transações -->
+            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
+                <Label Text="Transações" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextColor="White"
+                    FontSize="18" />
+            </Frame>
+
+            <!-- Caixa para Usuários -->
+            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
+                <Label Text="Usuários" 
+                    HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    TextColor="White"
+                    FontSize="18" />
+            </Frame>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

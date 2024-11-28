@@ -34,7 +34,7 @@
                                         TextColor="#fff"/>
                                     <Label 
                                         Text="{Binding EmployeeId}" 
-                                        TextColor="#fff"/>
+                                        TextColor="#B2B8C0"/>
                                 </HorizontalStackLayout>
 
                                 <Label 
@@ -52,7 +52,7 @@
                                     <Label 
                                         Grid.Row="0" Grid.Column="1"
                                         Text="{Binding Department}" 
-                                        TextColor="#fff"/>
+                                        TextColor="#B2B8C0"/>
 
                                     <Label 
                                         Grid.Row="1" Grid.Column="0"
@@ -62,7 +62,7 @@
                                     <Label 
                                         Grid.Row="1" Grid.Column="1"
                                         Text="{Binding Position}" 
-                                        TextColor="#fff"/>
+                                        TextColor="#B2B8C0"/>
 
                                     <Label 
                                         Grid.Row="2" Grid.Column="0"
@@ -72,7 +72,7 @@
                                     <Label 
                                         Grid.Row="2" Grid.Column="1"
                                         Text="{Binding HireDate}" 
-                                        TextColor="#fff"/>
+                                        TextColor="#B2B8C0"/>
                                 </Grid>
 
                                 <BoxView 

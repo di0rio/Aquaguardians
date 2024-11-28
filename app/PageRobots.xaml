@@ -4,96 +4,116 @@
              x:Class="AquaGuardians.PageRobots"
              BackgroundColor="#1A1A2E">
     <ContentPage.Content>
-        <Grid RowDefinitions="Auto,*" Padding="16">
-            <Label 
-                Grid.Row="0"
-                Text="Robôs"
-                FontSize="28"
-                FontAttributes="Bold"
-                TextColor="#FFFFFF"
-                HorizontalOptions="Center"
-                Margin="0,0,0,16"/>
+        <Grid RowDefinitions="Auto,Auto,*" Padding="16">
+            <Label Grid.Row="0"
+                   Text="Robôs"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="#FFFFFF"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,16"/>
+
+            <Button Grid.Row="1"
+                    Text="Criar Robô"
+                    BackgroundColor="#2ECC71"
+                    TextColor="#fff"
+                    Clicked="OnCreateRobotClicked"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,16"
+                    WidthRequest="200"/>
 
             <CollectionView x:Name="RobotsCollectionView"
-                            Grid.Row="1"
-                            SelectionMode="None">
+                          Grid.Row="2"
+                          SelectionMode="Single"
+                          SelectionChanged="OnRobotSelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame 
-                            BackgroundColor="#2C2E43"
-                            BorderColor="#3E4359"
-                            CornerRadius="12"
-                            HasShadow="True"
-                            Margin="0,0,0,12"
-                            Padding="16">
+                        <Frame BackgroundColor="#2C2E43"
+                               BorderColor="#3E4359"
+                               CornerRadius="12"
+                               HasShadow="True"
+                               Margin="0,0,0,12"
+                               Padding="16">
                             <VerticalStackLayout Spacing="8">
-                                <HorizontalStackLayout Spacing="8" HorizontalOptions="Start">
-                                    <Label 
-                                        Text="ID:" 
-                                        FontAttributes="Bold" 
-                                        TextColor="#FFFFFF"/>
-                                    <Label 
-                                        Text="{Binding RobotId}" 
-                                        TextColor="#B2B8C0"/>
+                                <Label Text="{Binding Name}" 
+                                       FontSize="20" 
+                                       FontAttributes="Bold" 
+                                       TextColor="#FFFFFF"/>
+                                <Label Text="{Binding Model}" 
+                                       TextColor="#FFFFFF"/>
+                                <Label Text="{Binding IsAvailableForRent}" 
+                                       TextColor="#FFFFFF"/>
+                                <Label Text="{Binding CreatedAt, StringFormat='Criado em: {0:d}'}" 
+                                       TextColor="#FFFFFF"/>
+
+                                <HorizontalStackLayout Spacing="12" 
+                                                     HorizontalOptions="Center">
+                                    <Button Text="Editar"
+                                            BackgroundColor="#F39C12"
+                                            TextColor="#fff"
+                                            Clicked="OnEditRobotClicked"
+                                            CommandParameter="{Binding .}"/>
+                                    <Button Text="Excluir"
+                                            BackgroundColor="#E74C3C"
+                                            TextColor="#fff"
+                                            Clicked="OnDeleteRobotClicked"
+                                            CommandParameter="{Binding .}"/>
                                 </HorizontalStackLayout>
-
-                                <Label 
-                                    Text="{Binding Name}" 
-                                    FontSize="20" 
-                                    FontAttributes="Bold" 
-                                    TextColor="#FFFFFF"/>
-
-                                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto">
-                                    <Label 
-                                        Grid.Row="0" Grid.Column="0"
-                                        Text="Modelo:" 
-                                        FontAttributes="Bold" 
-                                        TextColor="#FFFFFF"/>
-                                    <Label 
-                                        Grid.Row="0" Grid.Column="1"
-                                        Text="{Binding Model}" 
-                                        TextColor="#B2B8C0"/>
-
-                                    <Label 
-                                        Grid.Row="1" Grid.Column="0"
-                                        Text="Número de Série:" 
-                                        FontAttributes="Bold" 
-                                        TextColor="#FFFFFF"/>
-                                    <Label 
-                                        Grid.Row="1" Grid.Column="1"
-                                        Text="{Binding SerialNumber}" 
-                                        TextColor="#B2B8C0"/>
-
-                                    <Label 
-                                        Grid.Row="2" Grid.Column="0"
-                                        Text="Status:" 
-                                        FontAttributes="Bold" 
-                                        TextColor="#FFFFFF"/>
-                                    <Label 
-                                        Grid.Row="2" Grid.Column="1"
-                                        Text="{Binding Status}" 
-                                        TextColor="#B2B8C0"/>
-
-                                    <Label 
-                                        Grid.Row="3" Grid.Column="0"
-                                        Text="Criado em:" 
-                                        FontAttributes="Bold" 
-                                        TextColor="#FFFFFF"/>
-                                    <Label 
-                                        Grid.Row="3" Grid.Column="1"
-                                        Text="{Binding CreatedAt}" 
-                                        TextColor="#B2B8C0"/>
-                                </Grid>
-
-                                <BoxView 
-                                    HeightRequest="1" 
-                                    Color="#3E4359" 
-                                    Margin="0,8"/>
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Grid x:Name="RobotFormModal"
+                  Grid.Row="0"
+                  Grid.RowSpan="3"
+                  IsVisible="False"
+                  BackgroundColor="#1A1A2E">
+                <StackLayout HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           BackgroundColor="#2C2E43"
+                           Padding="16"
+                           Spacing="16"
+                           WidthRequest="400">
+                    <Label x:Name="ModalTitleLabel"
+                           Text="Criar/Editar Robô"
+                           FontSize="24"
+                           FontAttributes="Bold"
+                           TextColor="#FFFFFF"
+                           HorizontalOptions="Center"/>
+
+                    <Entry x:Name="NameEntry"
+                           Placeholder="Nome do Robô"
+                           TextColor="#FFFFFF"
+                           PlaceholderColor="#B2B8C0"/>
+                    <Entry x:Name="ModelEntry"
+                           Placeholder="Modelo"
+                           TextColor="#FFFFFF"
+                           PlaceholderColor="#B2B8C0"/>
+                    <Entry x:Name="IsAvailableForRentEntry"
+                           Placeholder="IsAvailableForRent"
+                           TextColor="#FFFFFF"
+                           PlaceholderColor="#B2B8C0"/>
+                    <Entry x:Name="RobotStationIdEntry"
+                           Placeholder="ID do Posto"
+                           TextColor="#FFFFFF"
+                           PlaceholderColor="#B2B8C0"/>
+
+                    <StackLayout Orientation="Horizontal" 
+                               Spacing="16" 
+                               HorizontalOptions="Center">
+                        <Button Text="Salvar"
+                                BackgroundColor="#2ECC71"
+                                TextColor="#fff"
+                                Clicked="OnSaveRobotClicked"/>
+                        <Button Text="Cancelar"
+                                BackgroundColor="#E74C3C"
+                                TextColor="#fff"
+                                Clicked="OnCancelClicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

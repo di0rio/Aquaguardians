@@ -38,27 +38,53 @@
                                Padding="16">
                             <VerticalStackLayout Spacing="8">
                                 <HorizontalStackLayout Spacing="8" HorizontalOptions="Start">
-                                    <Label Text="ID:" FontAttributes="Bold" TextColor="#fff"/>
-                                    <Label Text="{Binding CompanyId}" TextColor="#fff"/>
+                                    <Label 
+                                        Text="ID:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#fff"/>
+                                    <Label 
+                                        Text="{Binding CompanyId}" 
+                                        TextColor="#fff"/>
                                 </HorizontalStackLayout>
 
                                 <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold" TextColor="#fff"/>
 
                                 <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto">
-                                    <Label Grid.Row="0" Grid.Column="0" Text="Contato:" FontAttributes="Bold" TextColor="#fff"/>
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding ContactName}" TextColor="#fff"/>
-                                    <Label Grid.Row="1" Grid.Column="0" Text="Email:" FontAttributes="Bold" TextColor="#fff"/>
-                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding ContactEmail}" TextColor="#fff"/>
-                                    <Label Grid.Row="2" Grid.Column="0" Text="Telefone:" FontAttributes="Bold" TextColor="#fff"/>
-                                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding ContactPhone}" TextColor="#fff"/>
+                                    <Label 
+                                        Grid.Row="0" Grid.Column="0"
+                                        Text="Contato:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#fff"/>
+                                    <Label 
+                                        Grid.Row="0" Grid.Column="1"
+                                        Text="{Binding ContactName}" 
+                                        TextColor="#fff"/>
+
+                                    <Label 
+                                        Grid.Row="1" Grid.Column="0"
+                                        Text="Email:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#fff"/>
+                                    <Label 
+                                        Grid.Row="1" Grid.Column="1"
+                                        Text="{Binding ContactEmail}" 
+                                        TextColor="#fff"/>
+
+                                    <Label 
+                                        Grid.Row="2" Grid.Column="0"
+                                        Text="Telefone:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#fff"/>
+                                    <Label 
+                                        Grid.Row="2" Grid.Column="1"
+                                        Text="{Binding ContactPhone}" 
+                                        TextColor="#fff"/>
                                 </Grid>
 
-                                <BoxView HeightRequest="1" Color="#E0E0E0" Margin="0,8"/>
-
-                                <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
-                                    <Label Text="{Binding Address}" TextColor="#3498DB"/>
-                                    <Label Text="{Binding CreatedAt}" TextColor="#2ECC71"/>
-                                </HorizontalStackLayout>
+                                <BoxView 
+                                    HeightRequest="1" 
+                                    Color="#E0E0E0" 
+                                    Margin="0,8"/>
 
                                 <!-- Botões de Editar e Excluir -->
                                 <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
@@ -84,12 +110,13 @@
                   Grid.Row="0" 
                   Grid.RowSpan="3" 
                   IsVisible="False" 
-                  BackgroundColor="#1A1A2E" 
+                  BackgroundColor="#000000" 
+                  Opacity="0.7" 
                   VerticalOptions="FillAndExpand" 
                   HorizontalOptions="FillAndExpand">
                 <StackLayout HorizontalOptions="Center" 
                              VerticalOptions="Center" 
-                             BackgroundColor="#2C2E49" 
+                             BackgroundColor="#2C2E43" 
                              Padding="16" 
                              Spacing="16" 
                              WidthRequest="400">

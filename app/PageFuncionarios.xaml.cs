@@ -204,9 +204,5 @@ namespace AquaGuardians
         public string RobotStationId { get; set; }
     }
 
-    public class RobotStation
-    {
-        public Guid RobotStationId { get; set; }
-        public string StationName { get; set; }
-    }
+
 }

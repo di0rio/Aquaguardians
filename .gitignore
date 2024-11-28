@@ -43,3 +43,5 @@ ExportedObj/
 .pidb.meta
 sysinfo.txt
 *.apk
+/app/bin/Debug/net8.0-android/AquaGuardians.pdb
+/app/bin/Debug/net8.0-android/com.companyname.aquaguardians-Signed.apk.idsig

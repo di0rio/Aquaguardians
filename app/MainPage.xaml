@@ -71,6 +71,12 @@
                     Clicked="OnHomeClicked"/>
 
             <Button Grid.Column="1"
+         Text="MENU"
+         TextColor="#666666"
+         BackgroundColor="Transparent"
+         Clicked="OnMenuClicked"/>
+
+            <!--<Button Grid.Column="1"
                     Text="USUÁRIOS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
@@ -85,7 +91,7 @@
                     Text="EMPRESAS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
-                    Clicked="OnEmpresasClicked"/>
+                    Clicked="OnEmpresasClicked"/>-->
         </Grid>
     </Grid>
 </ContentPage>

@@ -29,32 +29,52 @@
                             Padding="16">
                             <VerticalStackLayout Spacing="8">
 
-                                <Label 
+
+                                <HorizontalStackLayout Spacing="8" HorizontalOptions="Start">
+                                    <Label 
+                                        Text="ID:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#FFFFFF"/>
+                                    <Label 
                                     Text="{Binding TransactionId}" 
-                                    FontSize="20" 
+                                    FontSize="15" 
                                     FontAttributes="Bold" 
                                     TextColor="#FFFFFF"/>
+                                </HorizontalStackLayout>
 
-                                <Label 
-                                    Text="{Binding Amount, StringFormat='R$ {0:F2}'}" 
-                                    FontSize="16" 
-                                    TextColor="#B2B8C0"/>
-
-                                <Label 
-                                    Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" 
-                                    FontSize="14" 
-                                    TextColor="#B2B8C0"/>
-
-                                <Label 
-                                    Text="{Binding Description}" 
-                                    FontSize="14" 
-                                    TextColor="#B2B8C0"/>
-
-                                <Label 
-                                    Text="{Binding Status}" 
+                                <HorizontalStackLayout Spacing="8" HorizontalOptions="Start">
+                                    <Label 
+                                        Text="Player ID:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#FFFFFF"/>
+                                    <Label 
+                                    Text="{Binding PlayerId}" 
                                     FontSize="14" 
                                     TextColor="#FFFFFF"
                                     FontAttributes="Bold"/>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="8" HorizontalOptions="Start">
+                                    <Label 
+                                        Text="Valor:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#FFFFFF"/>
+                                    <Label 
+                                    Text="{Binding Amount, StringFormat='R$ {0:F2}'}" 
+                                    FontSize="16" 
+                                    TextColor="#B2B8C0"/>
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="8" HorizontalOptions="Start">
+                                    <Label 
+                                        Text="Data:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#FFFFFF"/>
+                                    <Label 
+                                    Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}" 
+                                    FontSize="14" 
+                                    TextColor="#B2B8C0"/>
+                                </HorizontalStackLayout>
 
                                 <BoxView 
                                     HeightRequest="1" 

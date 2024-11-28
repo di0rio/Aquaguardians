@@ -23,7 +23,7 @@ namespace AquaGuardians
                 {
                     var json = await response.Content.ReadAsStringAsync();
 
-                    var postos = JsonSerializer.Deserialize<List<Company>>(json, new JsonSerializerOptions
+                    var postos = JsonSerializer.Deserialize<List<Posto>>(json, new JsonSerializerOptions
                     {
                         PropertyNameCaseInsensitive = true,
                     });

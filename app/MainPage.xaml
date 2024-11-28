@@ -61,37 +61,27 @@
 
         <!-- Bottom Navigation -->
         <Grid Grid.Row="2" 
-              ColumnDefinitions="*,*,*,*"
-              BackgroundColor="#252525"
-              HeightRequest="60">
-            <Button Grid.Column="0"
-                    Text="HOME"
-                    TextColor="#00F2FE"
-                    BackgroundColor="Transparent"
-                    Clicked="OnHomeClicked"/>
+      ColumnDefinitions="*,Auto,Auto,*"
+      BackgroundColor="#252525"
+      HeightRequest="60">
 
+            <!-- Botão HOME -->
             <Button Grid.Column="1"
-         Text="MENU"
-         TextColor="#666666"
-         BackgroundColor="Transparent"
-         Clicked="OnMenuClicked"/>
+            Text="HOME"
+            TextColor="#00F2FE"
+            BackgroundColor="Transparent"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Clicked="OnHomeClicked" />
 
-            <!--<Button Grid.Column="1"
-                    Text="USUÁRIOS"
-                    TextColor="#666666"
-                    BackgroundColor="Transparent"
-                    Clicked="OnUsersClicked"/>
-
+            <!-- Botão MENU -->
             <Button Grid.Column="2"
-                    Text="ROBÔS"
-                    TextColor="#666666"
-                    BackgroundColor="Transparent"
-                    Clicked="OnRobotsClicked"/>
-            <Button Grid.Column="3"
-                    Text="EMPRESAS"
-                    TextColor="#666666"
-                    BackgroundColor="Transparent"
-                    Clicked="OnEmpresasClicked"/>-->
+            Text="MENU"
+            TextColor="#666666"
+            BackgroundColor="Transparent"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Clicked="OnMenuClicked" />
         </Grid>
     </Grid>
 </ContentPage>

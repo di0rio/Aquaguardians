@@ -37,7 +37,7 @@ public partial class MainPage : ContentPage
 
     private async void OnEmpresasClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PageEmpresas());
+        await Navigation.PushAsync(new PageFuncionarios());
     }
 
     private async void OnTransacoesClicked(object sender, EventArgs e)

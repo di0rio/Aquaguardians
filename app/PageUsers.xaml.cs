@@ -17,7 +17,7 @@ namespace AquaGuardians
         {
             try
             {
-                string url = "https://aquaguardians.somee.com/api/Players"; // Substitua pela URL correta do endpoint
+                string url = "https://aquaguardians.somee.com/api/Players"; // Substitua pelo endpoint correto
                 var response = await _httpClient.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)
@@ -46,8 +46,8 @@ namespace AquaGuardians
     public class Player
     {
         public string PlayerId { get; set; }
-        public string nickname { get; set; }
-        public string email { get; set; }
+        public string Name { get; set; }
+        public string Username { get; set; }
         public int Level { get; set; }
         public int Score { get; set; }
         public DateTime JoinedAt { get; set; }

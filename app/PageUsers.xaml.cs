@@ -1,42 +1,55 @@
-using System.Collections.ObjectModel;
+using System.Text.Json;
 
 namespace AquaGuardians
 {
-    public partial class PageUsers : ContentPage
+    public partial class PagePlayers : ContentPage
     {
-        public ObservableCollection<UserModel> Users { get; set; }
+        private readonly HttpClient _httpClient;
 
-        public PageUsers()
+        public PagePlayers()
         {
             InitializeComponent();
-            Users = new ObservableCollection<UserModel>();
-            LoadUsers();
-            BindingContext = this;
+            _httpClient = new HttpClient();
+            LoadPlayers();
         }
 
-        private void LoadUsers()
+        private async void LoadPlayers()
         {
-            // Exemplo de dados - substitua pela sua fonte de dados real
-            Users.Add(new UserModel { Id = "001", Info = "João Silva" });
-            Users.Add(new UserModel { Id = "002", Info = "Maria Santos" });
-            Users.Add(new UserModel { Id = "003", Info = "Pedro Oliveira" });
-            // Adicione mais usuários conforme necessário
-        }
+            try
+            {
+                string url = "https://aquaguardians.somee.com/api/Players"; // Substitua pela URL correta do endpoint
+                var response = await _httpClient.GetAsync(url);
 
-        private async void OnHomeClicked(object sender, EventArgs e)
-        {
-            await Navigation.PopToRootAsync();
-        }
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
 
-        private async void OnRobotsClicked(object sender, EventArgs e)
-        {
-                await Navigation.PushAsync(new PageRobots());
+                    var players = JsonSerializer.Deserialize<List<Player>>(json, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    });
+
+                    PlayersCollectionView.ItemsSource = players;
+                }
+                else
+                {
+                    Console.WriteLine("Erro: Não foi possível carregar os dados.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro: {ex.Message}");
+            }
         }
     }
 
-    public class UserModel
+    public class Player
     {
-        public string Id { get; set; }
-        public string Info { get; set; }
+        public string PlayerId { get; set; }
+        public string nickname { get; set; }
+        public string email { get; set; }
+        public int Level { get; set; }
+        public int Score { get; set; }
+        public DateTime JoinedAt { get; set; }
     }
 }

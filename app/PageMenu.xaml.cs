@@ -41,6 +41,6 @@ public partial class PageMenu : ContentPage
 
     private async void NavigateToPageUsers(object sender, EventArgs e)
     {
-       // await Navigation.PushAsync(new PageUsers());
+       await Navigation.PushAsync(new PagePlayers());
     }
 }

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AquaGuardians.PageMenu"
-             Title="Menu">
-
+          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          x:Class="AquaGuardians.PageMenu"
+          Title="Menu">
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="0,1">
             <GradientStop Color="#2A004F" Offset="0.0" />
@@ -11,42 +10,81 @@
             <GradientStop Color="#020024" Offset="1.0" />
         </LinearGradientBrush>
     </ContentPage.Background>
-
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            <Label Text="SELECIONE UMA PÁGINA"
-                   FontSize="24"
-                   HorizontalOptions="Center"
-                   TextColor="White" />
+        <Grid RowSpacing="20" ColumnSpacing="20" Padding="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-            <Button Text="Empresas" 
+            <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Empresas" 
                     Clicked="NavigateToPageEmpresas" 
-                    BackgroundColor="#1C1B33"
-                    TextColor="White" />
-            <Button Text="Funcionários" 
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    FontSize="16"
+                    HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Funcionários" 
                     Clicked="NavigateToPageFuncionarios" 
-                    BackgroundColor="#1C1B33"
-                    TextColor="White" />
-            <Button Text="Postos" 
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    FontSize="16"
+                    HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Postos" 
                     Clicked="NavigateToPagePostos" 
-                    BackgroundColor="#1C1B33"
-                    TextColor="White" />
-            <Button Text="Produtos" 
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    FontSize="16"
+                    HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Produtos" 
                     Clicked="NavigateToPageProdutos" 
-                    BackgroundColor="#1C1B33"
-                    TextColor="White" />
-            <Button Text="Robôs" 
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    FontSize="16"
+                    HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Robôs" 
                     Clicked="NavigateToPageRobots" 
-                    BackgroundColor="#1C1B33"
-                    TextColor="White" />
-            <Button Text="Transações" 
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    FontSize="16"
+                    HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Transações" 
                     Clicked="NavigateToPageTransacoes" 
-                    BackgroundColor="#1C1B33"
-                    TextColor="White" />
-            <Button Text="Usuários" 
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    FontSize="16"
+                    HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Usuários" 
                     Clicked="NavigateToPageUsers" 
-                    BackgroundColor="#1C1B33"
-                    TextColor="White" />
-        </VerticalStackLayout>
+                    BackgroundColor="Transparent"
+                    TextColor="White"
+                    FontSize="16"
+                    HorizontalOptions="Center" />
+            </Frame>
+        </Grid>
     </ScrollView>
 </ContentPage>

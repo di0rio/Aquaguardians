@@ -27,7 +27,7 @@ public partial class MainPage : ContentPage
 
     private async void OnUsersClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new PageUsers());
+        await Navigation.PushAsync(new PagePlayers());
     }
 
     private async void OnRobotsClicked(object sender, EventArgs e)
@@ -38,6 +38,15 @@ public partial class MainPage : ContentPage
     private async void OnEmpresasClicked(object sender, EventArgs e)
     {
         await Navigation.PushAsync(new PageFuncionarios());
+    }
+
+    private async void OnTransacoesClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PageTransacoes());
+    }
+    private async void OnProdutosClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new PageProdutos());
     }
 
 

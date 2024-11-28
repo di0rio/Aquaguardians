@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaGuardians.PageProdutos">
+
+    <ContentPage.Content>
+        <VerticalStackLayout>
+            <Label 
+            Text="Lista de Produtos"
+            FontSize="24"
+            HorizontalOptions="Center" />
+
+            <CollectionView x:Name="ProductsCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10">
+                            <Label Text="{Binding ProductId}" FontSize="14" FontAttributes="Bold" />
+                            <Label Text="{Binding Name}" FontSize="16" />
+                            <Label Text="{Binding Description}" FontSize="14" />
+                            <Label Text="{Binding Price, StringFormat='R$ {0:F2}'}" FontSize="14" />
+                            <Label Text="{Binding Category}" FontSize="14" />
+                            <Label Text="{Binding Stock}" FontSize="14" />
+                            <Label Text="{Binding CreatedAt}" FontSize="14" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ContentPage.Content>
+
+</ContentPage>

@@ -1,62 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AquaGuardians.LoginPage"
-             BackgroundColor="Transparent">
+             x:Class="AquaGuardians.Views.LoginPage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#2D046E" Offset="0.0" />
+            <GradientStop Color="#1CB5E0" Offset="1.0" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
 
-	<ContentPage.Background>
-		<LinearGradientBrush EndPoint="0,1">
-			<GradientStop Color="#2A004F" Offset="0.0" />
-			<GradientStop Color="#0E0848" Offset="0.5" />
-			<GradientStop Color="#020024" Offset="1.0" />
-		</LinearGradientBrush>
-	</ContentPage.Background>
+    <ScrollView>
+        <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Padding="30" Spacing="20">
+            <!-- Caixa principal -->
+            <Frame BackgroundColor="#1C1C2D" CornerRadius="15" Padding="20" WidthRequest="300" HasShadow="True">
+                <VerticalStackLayout Spacing="15">
+                    <!-- Título -->
+                    <Label Text="LOGIN" FontSize="24" FontAttributes="Bold" TextColor="#00FFFF" HorizontalOptions="Center" />
 
-	<Grid Padding="0" RowDefinitions="*,Auto" VerticalOptions="FillAndExpand">
-		<Frame BackgroundColor="#1C1B33"
-               CornerRadius="10"
-			   
-			HorizontalOptions="Center"
-			VerticalOptions="Center"
-			WidthRequest="300"
-			HeightRequest="400">
-			<VerticalStackLayout Spacing="20" Padding="20">
-				<!-- Título da Página de Login -->
-				<Label Text="LOGIN"
-                       FontSize="28"
-                       HorizontalOptions="Center"
-                       TextColor="#00FFFF" />
+                    <!-- Campo de E-mail -->
+                    <VerticalStackLayout>
+                        <Label Text="E-mail" FontSize="14" TextColor="White" />
+                        <Entry Placeholder="Digite seu e-mail" TextColor="White" PlaceholderColor="#999999" />
+                    </VerticalStackLayout>
 
-				<!-- Campo para E-mail -->
-				<Entry x:Name="EmailEntry"
-                       Placeholder="E-mail"
-                       FontSize="18"
-                       TextColor="White"
-                       PlaceholderColor="Gray" />
+                    <!-- Campo de Senha -->
+                    <VerticalStackLayout>
+                        <Label Text="Senha" FontSize="14" TextColor="White" />
+                        <Entry Placeholder="Digite sua senha" IsPassword="True" TextColor="White" PlaceholderColor="#999999" />
+                    </VerticalStackLayout>
 
-				<!-- Campo para Senha -->
-				<Entry x:Name="PasswordEntry"
-                       Placeholder="Senha"
-                       IsPassword="True"
-                       FontSize="18"
-                       TextColor="White"
-                       PlaceholderColor="Gray" />
+                    <!-- Esqueceu a senha -->
+                    <Label Text="Esqueceu a senha?" FontSize="14" TextColor="#00FFFF" HorizontalOptions="End" />
 
-				<!-- Link para "Esqueceu a Senha?" -->
-				<Label Text="Esqueceu a senha?"
-                       FontSize="14"
-                       HorizontalOptions="End"
-                       TextColor="#00FFFF" />
-
-				<!-- Botão de Login -->
-				<Button Text="LOGIN"
-                        BackgroundColor="#00FFFF"
-                        TextColor="Black"
-                        CornerRadius="10"
-                        FontAttributes="Bold"
-                        Clicked="OnLoginClicked" />
-				<!-- Evento de Clique -->
-			</VerticalStackLayout>
-		</Frame>
-	</Grid>
+                    <!-- Botão de Login -->
+                    <Button Text="LOGIN"
+                            BackgroundColor="#00FFFF"
+                            TextColor="Black"
+                            CornerRadius="10"
+                            FontAttributes="Bold"
+                            HeightRequest="50" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

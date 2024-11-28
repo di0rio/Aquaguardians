@@ -71,13 +71,19 @@
                     Clicked="OnHomeClicked"/>
 
             <Button Grid.Column="1"
-                    Text="CADASTRO"
+         Text="MENU"
+         TextColor="#666666"
+         BackgroundColor="Transparent"
+         Clicked="OnMenuClicked"/>
+
+            <!--<Button Grid.Column="1"
+                    Text="USUÁRIOS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
                     Clicked="OnUsersClicked"/>
 
             <Button Grid.Column="2"
-                    Text="DASHBOARDS"
+                    Text="ROBÔS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
                     Clicked="OnRobotsClicked"/>
@@ -85,7 +91,7 @@
                     Text="EMPRESAS"
                     TextColor="#666666"
                     BackgroundColor="Transparent"
-                    Clicked="OnEmpresasClicked"/>
+                    Clicked="OnEmpresasClicked"/>-->
         </Grid>
     </Grid>
 </ContentPage>

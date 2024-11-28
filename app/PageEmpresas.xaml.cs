@@ -45,7 +45,7 @@ namespace AquaGuardians
 
     public class Company
     {
-        public string CompanyId { get; set; }
+        public Guid CompanyId { get; set; }
         public string Name { get; set; }
         public string ContactName { get; set; }
         public string ContactEmail { get; set; }

@@ -11,74 +11,80 @@
         </LinearGradientBrush>
     </ContentPage.Background>
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            <Label Text="SELECIONE UMA PÁGINA"
-                FontSize="24"
-                HorizontalOptions="Center"
-                TextColor="White" />
+        <Grid RowSpacing="20" ColumnSpacing="20" Padding="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-            <!-- Caixa para Empresas -->
-            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
-                <Label Text="Empresas" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center" 
+            <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Empresas" 
+                    Clicked="NavigateToPageEmpresas" 
+                    BackgroundColor="Transparent"
                     TextColor="White"
-                    FontSize="18" />
+                    FontSize="16"
+                    HorizontalOptions="Center" />
             </Frame>
 
-            <!-- Caixa para Funcionários -->
-            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
-                <Label Text="Funcionários" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center" 
+            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Funcionários" 
+                    Clicked="NavigateToPageFuncionarios" 
+                    BackgroundColor="Transparent"
                     TextColor="White"
-                    FontSize="18" />
+                    FontSize="16"
+                    HorizontalOptions="Center" />
             </Frame>
 
-            <!-- Caixa para Postos -->
-            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
-                <Label Text="Postos" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center" 
+            <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Postos" 
+                    Clicked="NavigateToPagePostos" 
+                    BackgroundColor="Transparent"
                     TextColor="White"
-                    FontSize="18" />
+                    FontSize="16"
+                    HorizontalOptions="Center" />
             </Frame>
 
-            <!-- Caixa para Produtos -->
-            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
-                <Label Text="Produtos" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center" 
+            <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Produtos" 
+                    Clicked="NavigateToPageProdutos" 
+                    BackgroundColor="Transparent"
                     TextColor="White"
-                    FontSize="18" />
+                    FontSize="16"
+                    HorizontalOptions="Center" />
             </Frame>
 
-            <!-- Caixa para Robôs -->
-            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
-                <Label Text="Robôs" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center" 
+            <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Robôs" 
+                    Clicked="NavigateToPageRobots" 
+                    BackgroundColor="Transparent"
                     TextColor="White"
-                    FontSize="18" />
+                    FontSize="16"
+                    HorizontalOptions="Center" />
             </Frame>
 
-            <!-- Caixa para Transações -->
-            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
-                <Label Text="Transações" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center" 
+            <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Transações" 
+                    Clicked="NavigateToPageTransacoes" 
+                    BackgroundColor="Transparent"
                     TextColor="White"
-                    FontSize="18" />
+                    FontSize="16"
+                    HorizontalOptions="Center" />
             </Frame>
 
-            <!-- Caixa para Usuários -->
-            <Frame BackgroundColor="#1C1B33" BorderColor="White" CornerRadius="10" Padding="15">
-                <Label Text="Usuários" 
-                    HorizontalOptions="Center" 
-                    VerticalOptions="Center" 
+            <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
+                <Button Text="Usuários" 
+                    Clicked="NavigateToPageUsers" 
+                    BackgroundColor="Transparent"
                     TextColor="White"
-                    FontSize="18" />
+                    FontSize="16"
+                    HorizontalOptions="Center" />
             </Frame>
-        </VerticalStackLayout>
+        </Grid>
     </ScrollView>
 </ContentPage>

@@ -76,6 +76,9 @@
 	  <MauiXaml Update="PageFuncionarios.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="PageMenu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="PagePostos.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

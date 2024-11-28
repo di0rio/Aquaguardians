@@ -1,36 +1,98 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AquaGuardians.PageFuncionarios">
-
+             x:Class="AquaGuardians.PageFuncionarios"
+             BackgroundColor="#1A1A2E">
     <ContentPage.Content>
-        <VerticalStackLayout>
+        <Grid RowDefinitions="Auto,*" Padding="16">
             <Label 
-            Text="Lista de Funcionários"
-            FontSize="24"
-            HorizontalOptions="Center" />
+                Grid.Row="0"
+                Text="Funcionários"
+                FontSize="28"
+                FontAttributes="Bold"
+                TextColor="#FFFFFF"
+                HorizontalOptions="Center"
+                Margin="0,0,0,16"/>
 
-            <CollectionView x:Name="EmployesCollectionView">
+            <CollectionView x:Name="EmployesCollectionView"
+                            Grid.Row="1"
+                            SelectionMode="None">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="10">
-                            <Label Text="{Binding EmployeeId}" FontSize="14" FontAttributes="Bold" />
-                            <Label Text="{Binding Name}" FontSize="16" />
-                            <Label Text="{Binding Department}" FontSize="14" />
-                            <Label Text="{Binding Position}" FontSize="14" />
-                            <Label Text="{Binding Email}" FontSize="14" />
-                            <Label Text="{Binding PhoneNumber}" FontSize="14" />
-                            <Label Text="{Binding Address}" FontSize="14" />
-                            <Label Text="{Binding DateOfBirth}" FontSize="14" FontAttributes="Bold" />
-                            <Label Text="{Binding Salary}" FontSize="16" />
-                            <Label Text="{Binding HireDate}" FontSize="14" />
-                        </StackLayout>
+                        <Frame 
+                            BackgroundColor="#2C2E43"
+                            BorderColor="#3E4359"
+                            CornerRadius="12"
+                            HasShadow="True"
+                            Margin="0,0,0,12"
+                            Padding="16">
+                            <VerticalStackLayout Spacing="8">
+                                <HorizontalStackLayout Spacing="8" HorizontalOptions="Start">
+                                    <Label 
+                                        Text="ID:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#fff"/>
+                                    <Label 
+                                        Text="{Binding EmployeeId}" 
+                                        TextColor="#fff"/>
+                                </HorizontalStackLayout>
+
+                                <Label 
+                                    Text="{Binding Name}" 
+                                    FontSize="20" 
+                                    FontAttributes="Bold" 
+                                    TextColor="#fff"/>
+
+                                <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto">
+                                    <Label 
+                                        Grid.Row="0" Grid.Column="0"
+                                        Text="Departamento:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#fff"/>
+                                    <Label 
+                                        Grid.Row="0" Grid.Column="1"
+                                        Text="{Binding Department}" 
+                                        TextColor="#fff"/>
+
+                                    <Label 
+                                        Grid.Row="1" Grid.Column="0"
+                                        Text="Cargo:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#fff"/>
+                                    <Label 
+                                        Grid.Row="1" Grid.Column="1"
+                                        Text="{Binding Position}" 
+                                        TextColor="#fff"/>
+
+                                    <Label 
+                                        Grid.Row="2" Grid.Column="0"
+                                        Text="Data de Admissão:" 
+                                        FontAttributes="Bold" 
+                                        TextColor="#fff"/>
+                                    <Label 
+                                        Grid.Row="2" Grid.Column="1"
+                                        Text="{Binding HireDate}" 
+                                        TextColor="#fff"/>
+                                </Grid>
+
+                                <BoxView 
+                                    HeightRequest="1" 
+                                    Color="#E0E0E0" 
+                                    Margin="0,8"/>
+
+                                <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                                    <Label 
+                                        Text="{Binding Email}" 
+                                        TextColor="#3498DB"/>
+                                    <Label 
+                                        Text="{Binding PhoneNumber}" 
+                                        TextColor="#2ECC71"/>
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-
-
-        </VerticalStackLayout>
+        </Grid>
     </ContentPage.Content>
-
 </ContentPage>

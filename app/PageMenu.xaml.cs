@@ -24,8 +24,10 @@ public partial class PageMenu : ContentPage
 
     private async void NavigateToPageProdutos(object sender, EventArgs e)
     {
-       // await Navigation.PushAsync(new PageProdutos());
+        await Navigation.PushAsync(new PageProdutos());
     }
+
+
 
     private async void NavigateToPageRobots(object sender, EventArgs e)
     {
@@ -34,7 +36,7 @@ public partial class PageMenu : ContentPage
 
     private async void NavigateToPageTransacoes(object sender, EventArgs e)
     {
-      //  await Navigation.PushAsync(new PageTransacoes());
+       await Navigation.PushAsync(new PageTransacoes());
     }
 
     private async void NavigateToPageUsers(object sender, EventArgs e)

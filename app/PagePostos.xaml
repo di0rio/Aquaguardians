@@ -4,7 +4,8 @@
              x:Class="AquaGuardians.PagePostos"
              BackgroundColor="#1A1A2E">
     <ContentPage.Content>
-        <Grid RowDefinitions="Auto,*" Padding="16">
+        <Grid RowDefinitions="Auto,Auto,*" Padding="16">
+            <!-- Título -->
             <Label 
                 Grid.Row="0"
                 Text="Postos"
@@ -14,9 +15,20 @@
                 HorizontalOptions="Center"
                 Margin="0,0,0,16"/>
 
-            <CollectionView x:Name="PostosCollectionView"
-                            Grid.Row="1"
-                            SelectionMode="None">
+            <!-- Botão Criar -->
+            <Button Grid.Row="1"
+        Text="Cadastrar Posto"
+        BackgroundColor="#2ECC71"
+        TextColor="#fff"
+        Clicked="OnCreateRobotStationClicked"
+        HorizontalOptions="Center"
+        Margin="0,0,0,16" 
+        WidthRequest="200"/>
+
+            <!-- Lista de Empresas -->
+            <CollectionView x:Name="RobotStationCollectionView"
+                            Grid.Row="2"
+                            SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame 
@@ -79,11 +91,75 @@
                                     HeightRequest="1" 
                                     Color="#3E4359" 
                                     Margin="0,8"/>
+
+                                <!-- Botões de Editar e Excluir -->
+                                <HorizontalStackLayout Spacing="12" HorizontalOptions="Center">
+                                    <Button Text="Editar"
+             BackgroundColor="#F39C12"
+             TextColor="#fff"
+             Clicked="OnEditRobotStationClicked"
+             CommandParameter="{Binding .}"/>
+                                    <Button Text="Excluir"
+             BackgroundColor="#E74C3C"
+             TextColor="#fff"
+             Clicked="OnDeleteRobotStationClicked"
+             CommandParameter="{Binding .}"/>
+                                </HorizontalStackLayout>
+
                             </VerticalStackLayout>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <!-- Modal de Criação e Edição de Empresa -->
+            <Grid x:Name="RobotStationFormModal" 
+      Grid.Row="0" 
+      Grid.RowSpan="3" 
+      IsVisible="False" 
+      BackgroundColor="#000000" 
+      Opacity="0.7" 
+      VerticalOptions="FillAndExpand" 
+      HorizontalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="Center" 
+                 VerticalOptions="Center" 
+                 BackgroundColor="#2C2E43" 
+                 Padding="16" 
+                 Spacing="16" 
+                 WidthRequest="400">
+                    <Label x:Name="ModalTitleLabel" 
+               Text="Criar/Editar Posto" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               TextColor="#fff" 
+               HorizontalOptions="Center"/>
+
+                    <Entry x:Name="NameEntry" 
+               Placeholder="Nome do Posto" 
+               TextColor="#fff"/>
+                    <Entry x:Name="CapacityEntry" 
+               Placeholder="Capacidade" 
+               TextColor="#fff"/>
+                    <Entry x:Name="LocationEntry" 
+               Placeholder="Endereço" 
+               TextColor="#fff"/>
+                    <Entry x:Name="StatusEntry" 
+Placeholder="Status" 
+TextColor="#fff"/>
+
+                    <!-- Botões de Salvar e Cancelar -->
+                    <StackLayout Orientation="Horizontal" Spacing="16" HorizontalOptions="Center">
+                        <Button Text="Salvar" 
+                    BackgroundColor="#2ECC71" 
+                    TextColor="#fff" 
+                    Clicked="OnSaveRobotStationClicked"/>
+                        <Button Text="Cancelar" 
+                    BackgroundColor="#E74C3C" 
+                    TextColor="#fff" 
+                    Clicked="OnCancelClicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

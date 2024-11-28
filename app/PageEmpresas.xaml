@@ -90,7 +90,7 @@
                   HorizontalOptions="FillAndExpand">
                 <StackLayout HorizontalOptions="Center" 
                              VerticalOptions="Center" 
-                             BackgroundColor="#2C2E43" 
+                             BackgroundColor="#2C2E49" 
                              Padding="16" 
                              Spacing="16" 
                              WidthRequest="400">

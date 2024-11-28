@@ -14,12 +14,12 @@ public partial class PageMenu : ContentPage
 
     private async void NavigateToPageFuncionarios(object sender, EventArgs e)
     {
-       // await Navigation.PushAsync(new PageFuncionarios());
+       await Navigation.PushAsync(new PageFuncionarios());
     }
 
     private async void NavigateToPagePostos(object sender, EventArgs e)
     {
-      //  await Navigation.PushAsync(new PagePostos());
+        await Navigation.PushAsync(new PagePostos());
     }
 
     private async void NavigateToPageProdutos(object sender, EventArgs e)

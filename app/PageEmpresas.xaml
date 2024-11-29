@@ -113,7 +113,9 @@
                   BackgroundColor="#000000" 
                   Opacity="0.7" 
                   VerticalOptions="FillAndExpand" 
-                  HorizontalOptions="FillAndExpand">
+                  HorizontalOptions="FillAndExpand" 
+                  ZIndex="10">
+                <!-- ZIndex garante que o modal estará no topo -->
                 <StackLayout HorizontalOptions="Center" 
                              VerticalOptions="Center" 
                              BackgroundColor="#2C2E43" 

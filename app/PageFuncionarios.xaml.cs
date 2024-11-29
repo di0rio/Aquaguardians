@@ -2,9 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text.Json;
 using System.Threading.Tasks;
-using System.Linq;
 using Microsoft.Maui.Controls;
 
 namespace AquaGuardians
@@ -41,7 +39,7 @@ namespace AquaGuardians
 
             var employee = new Employee
             {
-                EmployeeId = _selectedEmployee?.EmployeeId ?? Guid.NewGuid(),
+                // Removemos o EmployeeId para que a API gere automaticamente
                 Name = NameEntry.Text,
                 Position = PositionEntry.Text,
                 Department = DepartmentEntry.Text,
@@ -76,7 +74,9 @@ namespace AquaGuardians
         private async Task<HttpResponseMessage> SendEmployeeRequest(Employee employee)
         {
             string apiUrl = "https://aquaguardians.somee.com/api/Employes";
-            if (employee.EmployeeId == Guid.NewGuid())
+
+            // Se o EmployeeId estiver vazio (GUID), fazemos o POST para criar um novo funcionário
+            if (_selectedEmployee == null)
             {
                 return await _httpClient.PostAsJsonAsync(apiUrl, employee);
             }
@@ -188,7 +188,6 @@ namespace AquaGuardians
             }
             return true;
         }
-
     }
 
     public class Employee
@@ -203,6 +202,4 @@ namespace AquaGuardians
         public DateTime HireDate { get; set; }
         public string RobotStationId { get; set; }
     }
-
-
 }

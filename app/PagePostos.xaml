@@ -112,13 +112,13 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <!-- Modal de Criação e Edição de Empresa -->
+            <!-- Modal de Criação e Edição de Posto -->
             <Grid x:Name="RobotStationFormModal" 
       Grid.Row="0" 
       Grid.RowSpan="3" 
       IsVisible="False" 
       BackgroundColor="#000000" 
-      Opacity="0.7" 
+      Opacity="1" 
       VerticalOptions="FillAndExpand" 
       HorizontalOptions="FillAndExpand">
                 <StackLayout HorizontalOptions="Center" 

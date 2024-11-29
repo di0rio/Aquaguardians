@@ -64,7 +64,7 @@ namespace AquaGuardians
             if (robotStation != null)
             {
                 _selectedRobotStation = robotStation;
-                ModalTitleLabel.Text = "Editar Empresa";
+                ModalTitleLabel.Text = "Editar Postos";
 
                 // Preencher os campos com os dados da empresa
                 NameEntry.Text = _selectedRobotStation.Name;

@@ -111,7 +111,6 @@
                   Grid.RowSpan="3" 
                   IsVisible="False" 
                   BackgroundColor="#000000" 
-                  Opacity="0.7" 
                   VerticalOptions="FillAndExpand" 
                   HorizontalOptions="FillAndExpand" 
                   ZIndex="10">
@@ -120,7 +119,7 @@
                              VerticalOptions="Center" 
                              BackgroundColor="#2C2E43" 
                              Padding="16" 
-                             Spacing="16" 
+                             Spacing="16"
                              WidthRequest="400">
                     <Label x:Name="ModalTitleLabel" 
                            Text="Criar/Editar Empresa" 

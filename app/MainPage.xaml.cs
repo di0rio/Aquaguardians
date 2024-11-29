@@ -1,59 +1,34 @@
-﻿namespace AquaGuardians;
+﻿using Microsoft.Maui.Controls;
 
-public partial class MainPage : ContentPage
+namespace AquaGuardians
 {
-    int count = 0;
-
-    public MainPage()
+    public partial class MainPage : ContentPage
     {
-        InitializeComponent();
+        public MainPage()
+        {
+            InitializeComponent();
+        }
+
+        private async void OnCounterClicked(object sender, EventArgs e)
+        {
+            // Exemplo de animação no botão
+            var button = (Button)sender;
+            await button.ScaleTo(0.95, 50);
+            await button.ScaleTo(1, 50);
+
+            // Aqui você pode adicionar navegação para página de monitoramento
+            // await Navigation.PushAsync(new MonitoramentoPage());
+        }
+
+        private async void OnHomeClicked(object sender, EventArgs e)
+        {
+            return;
+        }
+
+
+        private async void OnMenuClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PageMenu());
+        }
     }
-
-    private void OnCounterClicked(object sender, EventArgs e)
-    {
-        count++;
-        if (count == 1)
-            ((Button)sender).Text = $"Clicked {count} time";
-        else
-            ((Button)sender).Text = $"Clicked {count} times";
-
-        SemanticScreenReader.Announce(((Button)sender).Text);
-    }
-
-    private async void OnHomeClicked(object sender, EventArgs e)
-    {
-        return;
-    }
-
-    private async void OnUsersClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new PagePlayers());
-    }
-
-    private async void OnRobotsClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new PageRobots());
-    }
-
-    private async void OnEmpresasClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new PageFuncionarios());
-    }
-
-    private async void OnTransacoesClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new PageTransacoes());
-    }
-    private async void OnProdutosClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new PageProdutos());
-    }
-
-
-    private async void OnMenuClicked(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new PageMenu());
-    }
-
-
 }

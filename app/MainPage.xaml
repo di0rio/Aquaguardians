@@ -3,85 +3,82 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AquaGuardians.MainPage"
              BackgroundColor="#1A1A2E">
-
     <Grid RowDefinitions="Auto,*,Auto">
         <!-- Header -->
         <Grid Grid.Row="0" 
               Padding="20,10" 
-              ColumnDefinitions="*,Auto,Auto"
+              ColumnDefinitions="*,Auto"
               BackgroundColor="#252525">
             <Label Text="AQUAGUARDIANS" 
+                   Grid.Column="0"
                    TextColor="#00F2FE"
                    FontSize="24"
                    FontAttributes="Bold"
-                   VerticalOptions="Center"/>
-
-            <Frame Grid.Column="1" 
-                   Padding="0"
-                   CornerRadius="25"
-                   HeightRequest="40"
-                   WidthRequest="40"
-                   Margin="0,0,15,0"
-                   BackgroundColor="#333333">
-                <Image Source="dotnet_bot.png"
-                       Aspect="AspectFit"
-                       Margin="8"/>
-            </Frame>
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"/>
         </Grid>
 
         <!-- Main Content -->
         <ScrollView Grid.Row="1">
-            <VerticalStackLayout Padding="30,20" Spacing="25">
-                <Image Source="dotnet_bot.png"
-                       HeightRequest="185"
-                       Aspect="AspectFit"
-                       SemanticProperties.Description="dot net bot in a race car number eight" />
+            <VerticalStackLayout 
+                Padding="30,40" 
+                Spacing="25" 
+                HorizontalOptions="Center">
+
+                <Border 
+                    BackgroundColor="#252525" 
+                    Stroke="#00F2FE"
+                    StrokeThickness="2"
+                    HeightRequest="200"
+                    WidthRequest="200"
+                    StrokeShape="RoundRectangle 20"
+                    HorizontalOptions="Center">
+                    <Label Text="AQ"
+                           TextColor="#00F2FE"
+                           FontSize="72"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                </Border>
 
                 <Label Text="Bem-vindo ao AquaGuardians"
                        TextColor="White"
                        FontSize="32"
                        FontAttributes="Bold"
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
 
                 <Label Text="Sistema de Monitoramento Aquático"
                        TextColor="#00F2FE"
                        FontSize="20"
-                       HorizontalOptions="Center"/>
-
-                <Button Text="Iniciar Monitoramento"
-                        BackgroundColor="#00F2FE"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        CornerRadius="10"
-                        HeightRequest="50"
-                        Margin="0,20"
-                        Clicked="OnCounterClicked"/>
+                       HorizontalOptions="Center"
+                       HorizontalTextAlignment="Center"/>
             </VerticalStackLayout>
         </ScrollView>
 
         <!-- Bottom Navigation -->
         <Grid Grid.Row="2" 
-      ColumnDefinitions="*,Auto,Auto,*"
-      BackgroundColor="#252525"
-      HeightRequest="60">
-
+              ColumnDefinitions="*,Auto,Auto,*"
+              BackgroundColor="#252525"
+              HeightRequest="60">
             <!-- Botão HOME -->
             <Button Grid.Column="1"
-            Text="HOME"
-            TextColor="#00F2FE"
-            BackgroundColor="Transparent"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            Clicked="OnHomeClicked" />
+                    Text="HOME"
+                    TextColor="#00F2FE"
+                    BackgroundColor="Transparent"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Clicked="OnHomeClicked" />
 
             <!-- Botão MENU -->
             <Button Grid.Column="2"
-            Text="MENU"
-            TextColor="#666666"
-            BackgroundColor="Transparent"
-            HorizontalOptions="Center"
-            VerticalOptions="Center"
-            Clicked="OnMenuClicked" />
+                    Text="MENU"
+                    TextColor="#666666"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Clicked="OnMenuClicked" />
         </Grid>
     </Grid>
 </ContentPage>

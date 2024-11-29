@@ -9,25 +9,37 @@ namespace AquaGuardians
             InitializeComponent();
         }
 
+        // Método para animação no botão
         private async void OnCounterClicked(object sender, EventArgs e)
         {
-            // Exemplo de animação no botão
+            // Animação de escala no botão
             var button = (Button)sender;
-            await button.ScaleTo(0.95, 50);
-            await button.ScaleTo(1, 50);
+            await AnimateButtonClick(button);
 
-            // Aqui você pode adicionar navegação para página de monitoramento
+            // Exemplo de navegação para outra página (comentado por enquanto)
             // await Navigation.PushAsync(new MonitoramentoPage());
         }
 
-        private async void OnHomeClicked(object sender, EventArgs e)
+        // Método de animação para os botões
+        private async Task AnimateButtonClick(Button button)
         {
-            return;
+            // Reduz a escala do botão, cria efeito visual de clique e volta ao normal
+            await button.ScaleTo(0.95, 100); // 0.95 de escala, duração de 100ms
+            await button.ScaleTo(1, 100);     // Retorna para a escala original em 100ms
         }
 
+        // Método para o clique no botão HOME
+        private async void OnHomeClicked(object sender, EventArgs e)
+        {
+            // Exemplo de navegação ou interação que pode ser implementada no futuro
+            // Por enquanto, podemos mostrar uma mensagem ou retornar à tela inicial
+            await DisplayAlert("Home", "Você está na tela inicial!", "OK");
+        }
 
+        // Método para o clique no botão MENU
         private async void OnMenuClicked(object sender, EventArgs e)
         {
+            // Exemplo de navegação para a página do menu
             await Navigation.PushAsync(new PageMenu());
         }
     }

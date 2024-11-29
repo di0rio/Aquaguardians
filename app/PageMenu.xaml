@@ -3,6 +3,7 @@
           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
           x:Class="AquaGuardians.PageMenu"
           Title="Menu">
+
     <ContentPage.Background>
         <LinearGradientBrush EndPoint="0,1">
             <GradientStop Color="#2A004F" Offset="0.0" />
@@ -10,7 +11,8 @@
             <GradientStop Color="#020024" Offset="1.0" />
         </LinearGradientBrush>
     </ContentPage.Background>
-    <ScrollView>
+
+    <ScrollView Padding="20">
         <Grid RowSpacing="20" ColumnSpacing="20" Padding="20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -23,68 +25,126 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
-                <Button Text="Empresas" 
-                    Clicked="NavigateToPageEmpresas" 
-                    BackgroundColor="Transparent"
-                    TextColor="White"
-                    FontSize="16"
-                    HorizontalOptions="Center" />
+            <!-- Botão Empresas -->
+            <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10" HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToPageEmpresas"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Image Source="building.png" HeightRequest="40" HorizontalOptions="Center" BackgroundColor="White" />
+                    <!-- Botão com o texto -->
+                    <Button Text="Empresas"
+                            Clicked="NavigateToPageEmpresas"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                </StackLayout>
             </Frame>
 
-            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10">
-                <Button Text="Funcionários" 
-                    Clicked="NavigateToPageFuncionarios" 
-                    BackgroundColor="Transparent"
-                    TextColor="White"
-                    FontSize="16"
-                    HorizontalOptions="Center" />
+            <!-- Botão Funcionários -->
+            <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10" HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToPageFuncionarios"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Image Source="person_arms_up.png" HeightRequest="40" HorizontalOptions="Center" BackgroundColor="White" />
+                    <Button Text="Funcionários"
+                            Clicked="NavigateToPageFuncionarios"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                </StackLayout>
             </Frame>
 
-            <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
-                <Button Text="Postos" 
-                    Clicked="NavigateToPagePostos" 
-                    BackgroundColor="Transparent"
-                    TextColor="White"
-                    FontSize="16"
-                    HorizontalOptions="Center" />
+            <!-- Botão Postos -->
+            <Frame Grid.Row="1" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10" HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToPagePostos"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Image Source="fuel_pump.png" HeightRequest="40" HorizontalOptions="Center" BackgroundColor="White" />
+                    <Button Text="Postos"
+                            Clicked="NavigateToPagePostos"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                </StackLayout>
             </Frame>
 
-            <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10">
-                <Button Text="Produtos" 
-                    Clicked="NavigateToPageProdutos" 
-                    BackgroundColor="Transparent"
-                    TextColor="White"
-                    FontSize="16"
-                    HorizontalOptions="Center" />
+            <!-- Botão Produtos -->
+            <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10" HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToPageProdutos"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Image Source="archive.png" HeightRequest="40" HorizontalOptions="Center" BackgroundColor="White" />
+                    <Button Text="Produtos"
+                            Clicked="NavigateToPageProdutos"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                </StackLayout>
             </Frame>
 
-            <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
-                <Button Text="Robôs" 
-                    Clicked="NavigateToPageRobots" 
-                    BackgroundColor="Transparent"
-                    TextColor="White"
-                    FontSize="16"
-                    HorizontalOptions="Center" />
+            <!-- Botão Robôs -->
+            <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10" HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToPageRobots"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Image Source="robot.png" HeightRequest="40" HorizontalOptions="Center" BackgroundColor="White" />
+                    <Button Text="Robôs"
+                            Clicked="NavigateToPageRobots"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                </StackLayout>
             </Frame>
 
-            <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10">
-                <Button Text="Transações" 
-                    Clicked="NavigateToPageTransacoes" 
-                    BackgroundColor="Transparent"
-                    TextColor="White"
-                    FontSize="16"
-                    HorizontalOptions="Center" />
+            <!-- Botão Transações -->
+            <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="#1C1B33" CornerRadius="10" HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToPageTransacoes"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Image Source="bank.png" HeightRequest="40" HorizontalOptions="Center" BackgroundColor="White" />
+                    <Button Text="Transações"
+                            Clicked="NavigateToPageTransacoes"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                </StackLayout>
             </Frame>
 
-            <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10">
-                <Button Text="Usuários" 
-                    Clicked="NavigateToPageUsers" 
-                    BackgroundColor="Transparent"
-                    TextColor="White"
-                    FontSize="16"
-                    HorizontalOptions="Center" />
+            <!-- Botão Usuários -->
+            <Frame Grid.Row="3" Grid.Column="0" BackgroundColor="#1C1B33" CornerRadius="10" HasShadow="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NavigateToPageUsers"/>
+                </Frame.GestureRecognizers>
+                <StackLayout Spacing="10" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                    <Image Source="people_fill.png" HeightRequest="40" HorizontalOptions="Center" BackgroundColor="White" />
+                    <Button Text="Usuários"
+                            Clicked="NavigateToPageUsers"
+                            BackgroundColor="Transparent"
+                            TextColor="White"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                </StackLayout>
             </Frame>
+
         </Grid>
     </ScrollView>
 </ContentPage>

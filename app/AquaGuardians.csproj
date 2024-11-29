@@ -60,6 +60,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\archive.svg" />
+	  <None Remove="Resources\Images\bank.svg" />
+	  <None Remove="Resources\Images\building.svg" />
+	  <None Remove="Resources\Images\fuel_pump.svg" />
+	  <None Remove="Resources\Images\people_fill.svg" />
+	  <None Remove="Resources\Images\person_arms_up.svg" />
+	  <None Remove="Resources\Images\robot.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />

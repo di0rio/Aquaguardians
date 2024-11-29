@@ -13,8 +13,8 @@
 **Equipe:**
 
 - [@N4rdelli](https://www.github.com/N4rdelli)
-- [@di0rio](https://www.github.com/di0rio) 
-- [@SmzFz](https://www.github.com/SmzFz) 
+- [@di0rio](https://www.github.com/di0rio)
+- [@SmzFz](https://www.github.com/SmzFz)
 - [@gustavo-lara](https://www.github.com/gustavo-lara)
 - [@B4g4rini](https://www.github.com/B4g4rini)
 
@@ -22,8 +22,8 @@
 
 **Orientadores:**
 
-- [@Prof-Castello](https://www.github.com/Prof-Castello) 
-- [@ProfCristianoDePaula](https://www.github.com/ProfCristianoDePaula) 
+- [@Prof-Castello](https://www.github.com/Prof-Castello)
+- [@ProfCristianoDePaula](https://www.github.com/ProfCristianoDePaula)
 
 ---
 
@@ -67,7 +67,7 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 **💡 Tecnologias:**
 
 - **Unity**
-- **VS Code** 
+- **VS Code**
 - **Visual Studio 2022**
 - **SQL Server**
 - **Trello**
@@ -77,37 +77,6 @@ Aquaguardians é um projeto inovador que combina tecnologia e entretenimento par
 - **React Vite**
 - **Axios**
 - **Bootstrap**
-
-
-<!-- ---
-
-**Documentação da API**
-
-#### Retorna todos os itens
-
-```http
-  GET /api/items
-```
-
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `api_key` | `string` | **Obrigatório**. A chave da sua API |
-
-#### Retorna um item
-
-```http
-  GET /api/items/${id}
-```
-
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do item que você quer |
-
-#### add(num1, num2)
-
-Recebe dois números e retorna a sua soma. -->
-
----
 
 **Diagrama:**
 
@@ -127,6 +96,25 @@ Recebe dois números e retorna a sua soma. -->
 </a>
 </center>
 
+---
+
+**App Menu:**
+
+<center>
+<a>
+<img src="./img/appMenu.png">
+</a>
+</center>
+
+---
+
+**App consumindo API:**
+
+<center>
+<a>
+<img src="./img/appVisualização.png">
+</a>
+</center>
 
 ---
 
@@ -138,7 +126,9 @@ Recebe dois números e retorna a sua soma. -->
 
 **🔗 Link Trello(Geral):** [https://trello.com/b/RgIeR4gn/not-a-number](https://trello.com/b/RgIeR4gn/not-a-number)
 
-**🔗 Link API:** [https://apiaquaguardians.somee.com/swagger/index.html?authuser=0](https://apiaquaguardians.somee.com/swagger/index.html?authuser=0)
+**🔗 Link API:** [https://aquaguardians.somee.com/swagger/index.html?authuser=0](https://aquaguardians.somee.com/swagger/index.html?authuser=0)
+
+**🔗 Link Doc:** [https://app.tango.us/app/workflow/AquaGuardians-8f9ed806b40e4606af7e7545d3f9e5be?authuser=0](https://app.tango.us/app/workflow/AquaGuardians-8f9ed806b40e4606af7e7545d3f9e5be?authuser=0)
 
 **🔗 Link Trello(Unity):** [https://trello.com/b/g9psiyUv/unity-aqg](https://trello.com/b/g9psiyUv/unity-aqg)
 
